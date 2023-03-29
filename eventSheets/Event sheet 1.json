@@ -1,5 +1,362 @@
 {
 	"name": "Event sheet 1",
-	"events": [],
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "tickRate",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "The tick",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 450634544757407
+		},
+		{
+			"eventType": "variable",
+			"name": "day",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 920261971858448
+		},
+		{
+			"eventType": "variable",
+			"name": "isRunning",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 775536544835369
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 268181103850467
+				}
+			],
+			"actions": [
+				{
+					"id": "start-timer",
+					"objectClass": "GameManager",
+					"sid": 253570891282717,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "tickRate",
+						"type": "regular",
+						"tag": "\"Tick\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "TickRate",
+					"sid": 465863159720069,
+					"parameters": {
+						"text": "\"Tick rate: \" & tickRate"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 786983291067020,
+					"parameters": {
+						"variable": "isRunning",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 959538667288810
+		},
+		{
+			"eventType": "comment",
+			"text": "For every tick"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "GameManager",
+					"sid": 372117971091564,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"Tick\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 445823409198147,
+					"parameters": {
+						"variable": "day",
+						"value": "Day + 1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Day",
+					"sid": 409263396104438,
+					"parameters": {
+						"text": "\"Day \" & day"
+					}
+				}
+			],
+			"sid": 202541279746809,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 675720825146512,
+							"parameters": {
+								"first-value": "GameManager.Timer.Duration(\"Tick\")",
+								"comparison": 1,
+								"second-value": "tickRate"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "GameManager",
+							"sid": 552476473726875,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "tickRate",
+								"type": "regular",
+								"tag": "\"Tick\""
+							}
+						}
+					],
+					"sid": 571601584895406
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 335172627412633
+				}
+			],
+			"actions": [],
+			"sid": 882207649049590,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-timer-running",
+							"objectClass": "GameManager",
+							"sid": 707164312008940,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Tick\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-progress",
+							"objectClass": "TickBar",
+							"sid": 106844155843557,
+							"parameters": {
+								"value": "GameManager.Timer.CurrentTime(\"Tick\")/GameManager.Timer.Duration(\"Tick\")*100"
+							}
+						}
+					],
+					"sid": 742701086794396
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "ButtonPause",
+					"sid": 888676804749169
+				}
+			],
+			"actions": [],
+			"sid": 217271594739136,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 654384573750496,
+							"parameters": {
+								"variable": "isRunning"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "ButtonPause",
+							"sid": 604042606183554,
+							"parameters": {
+								"text": "\"Resume\""
+							}
+						},
+						{
+							"id": "pause-resume-timer",
+							"objectClass": "GameManager",
+							"sid": 628630341487179,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Tick\"",
+								"state": "paused"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 626024485790285,
+							"parameters": {
+								"variable": "isRunning",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 691044863543463
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 850743611942011
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "ButtonPause",
+							"sid": 928206070608341,
+							"parameters": {
+								"text": "\"Pause\""
+							}
+						},
+						{
+							"id": "pause-resume-timer",
+							"objectClass": "GameManager",
+							"sid": 412940050634029,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Tick\"",
+								"state": "resumed"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 776857049593382,
+							"parameters": {
+								"variable": "isRunning",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 644418723367891
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "ButtonInrease",
+					"sid": 252432556190376
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 646267319993568,
+					"parameters": {
+						"variable": "tickRate",
+						"comparison": 2,
+						"value": "2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 939028641600325,
+					"parameters": {
+						"variable": "tickRate",
+						"value": "tickRate + 0.25"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "TickRate",
+					"sid": 706050734782643,
+					"parameters": {
+						"text": "\"Tick rate: \" & tickRate"
+					}
+				}
+			],
+			"sid": 103835933042688
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "ButtonDecrease",
+					"sid": 767173432982496
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 385471907746830,
+					"parameters": {
+						"variable": "tickRate",
+						"comparison": 4,
+						"value": "0.25"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 636864113899271,
+					"parameters": {
+						"variable": "tickRate",
+						"value": "TickRate - 0.25"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "TickRate",
+					"sid": 706050734782643,
+					"parameters": {
+						"text": "\"Tick rate: \" & tickRate"
+					}
+				}
+			],
+			"sid": 166721285179494
+		}
+	],
 	"sid": 260114432359631
 }
