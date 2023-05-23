@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 33500,
+	"savedWithRelease": 34200,
 	"name": "tugas akhir",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -12,6 +12,14 @@
 			"name": "Button",
 			"author": "Scirra",
 			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "EdwardBonnett_VsCodePlugin",
+			"name": "VS Code Plugin",
+			"author": "Edward Bonnett",
+			"bundled": false,
+			"version": "1.0.0.1"
 		},
 		{
 			"type": "plugin",
@@ -35,6 +43,13 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "sliderbar",
+			"name": "Slider bar",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Timer",
 			"name": "Timer",
@@ -51,7 +66,12 @@
 			"ButtonPause",
 			"ButtonInrease",
 			"ButtonDecrease",
-			"TickRate"
+			"TickRate",
+			"VSCodePlugin",
+			"InflationSlider",
+			"InflationStatus",
+			"Sprite",
+			"InflationState"
 		],
 		"subfolders": []
 	},
@@ -63,7 +83,7 @@
 	},
 	"layouts": {
 		"items": [
-			"Layout 1"
+			"Game Layout"
 		],
 		"subfolders": []
 	},
@@ -75,7 +95,24 @@
 	},
 	"rootFileFolders": {
 		"script": {
-			"items": [],
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 337605124755796,
+					"script-info": {
+						"purpose": "main"
+					}
+				},
+				{
+					"name": "fsm.js",
+					"type": "application/javascript",
+					"sid": 493118712692572,
+					"script-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"sound": {
@@ -224,7 +261,7 @@
 		"autoReloadScriptsOnPreview": false,
 		"exportFileStructure": "folders"
 	},
-	"viewportWidth": 854,
-	"viewportHeight": 480,
+	"viewportWidth": 1920,
+	"viewportHeight": 1080,
 	"firstLayout": null
 }
