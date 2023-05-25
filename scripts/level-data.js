@@ -61,12 +61,9 @@ export function setLevelVariables(level, runtime) {
     let statusTexts = runtime.objects.UIText.getAllInstances();
     statusTexts = statusTexts.filter(text => text.instVars['id'].endsWith("_status"));
 
-    // const statusTexts = document.querySelectorAll('[id$="_status"]');
     for (const statusText of statusTexts) {
         const id = statusText.instVars['id'];
-        console.log(id.substring(0, id.indexOf("_status")));
         const statusValue = status[id.substring(0, id.indexOf("_status"))].toString();
-        console.log(statusValue);
         statusText.text = statusValue;
     }
 

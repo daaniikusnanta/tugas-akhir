@@ -261,3 +261,12 @@ export function initializeStatus(levelVariables) {
         status[variable] = levelVariables[variable];
     }
 }
+
+/**
+ * Update the status.
+ * @param {string} variable The variable.
+ * @param {number} value The value.
+ */
+export function updateStatus(variable, value) {
+    status[variable] = value;
+}

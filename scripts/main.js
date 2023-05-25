@@ -1,5 +1,6 @@
 import { createMachine } from "./fsm.js";
 import { setLevelVariables } from "./level-data.js";
+import { status, updateStatus } from "./status-data.js";
 
 /**
  * @typedef {import('./fsm.js').StateMachine} StateMachine
@@ -120,6 +121,7 @@ async function OnBeforeProjectStart(runtime) {
 
 function Tick(runtime) {
 	updateFSM();
+	updateStatusText(runtime);
 }
 
 function updateFSM() {
@@ -139,11 +141,22 @@ function updateFSM() {
 function GameLayoutAfterLayoutStartHandler(runtime)
 {
 	document.getElementById("inflation_slider").addEventListener("input", e => changeStatus(e.target.value, runtime));
+	
+	const statusBars = document.querySelectorAll('.status_bar');
+    for (const statusBar of statusBars) {
+        statusBar.addEventListener("input", e => {
+			updateStatus(e.target.id, e.target.value);
+		});
+    }
 }
 
-// function updateStatus(runtime) {
-// 	 const statusSliders = runtime.objects.StatusSlider.instances();
-// 	 statusSliders.forEach(slider => {
-// 		slider.value = Status[slider.id];
-// 	 });
-// }
+function updateStatusText(runtime) {
+	let statusTexts = runtime.objects.UIText.getAllInstances();
+    statusTexts = statusTexts.filter(text => text.instVars['id'].endsWith("_status"));
+
+    for (const statusText of statusTexts) {
+        const id = statusText.instVars['id'];
+        const statusValue = status[id.substring(0, id.indexOf("_status"))].toString();
+        statusText.text = statusValue;
+    }
+}
