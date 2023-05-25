@@ -1,5 +1,5 @@
 {
-	"name": "StatusButton",
+	"name": "Button",
 	"plugin-id": "Sprite",
 	"sid": 902248703944018,
 	"isGlobal": false,
@@ -153,6 +153,29 @@
 				],
 				"sid": 136339072507945,
 				"name": "Status Button",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3675230,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 689365177848241,
+				"name": "Crisis Button",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

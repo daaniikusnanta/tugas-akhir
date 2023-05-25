@@ -411,7 +411,7 @@
 			"conditions": [
 				{
 					"id": "pick-by-unique-id",
-					"objectClass": "StatusButton",
+					"objectClass": "Button",
 					"sid": 672146224899232,
 					"parameters": {
 						"unique-id": "uid"
@@ -429,7 +429,7 @@
 							"objectClass": "System",
 							"sid": 588125519912467,
 							"parameters": {
-								"first-value": "RegexMatchCount(StatusButton.id, \"status\", \"\")",
+								"first-value": "RegexMatchCount(Button.id, \"status\", \"\")",
 								"comparison": 0,
 								"second-value": "1"
 							}
@@ -440,12 +440,37 @@
 							"callFunction": "showStatusPanel",
 							"sid": 833671086326233,
 							"parameters": [
-								"tokenat(StatusButton.id, 0, \"_\")",
+								"tokenat(Button.id, 0, \"_\")",
 								true
 							]
 						}
 					],
 					"sid": 565351467098887
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 343914785497464,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"crisis\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "showCrisisPanel",
+							"sid": 578743910667552,
+							"parameters": [
+								true
+							]
+						}
+					],
+					"sid": 137517202036497
 				}
 			]
 		},
@@ -630,9 +655,142 @@
 						"\"\"",
 						false
 					]
+				},
+				{
+					"callFunction": "showCrisisPanel",
+					"sid": 779599668368125,
+					"parameters": [
+						false
+					]
 				}
 			],
 			"sid": 964406391900944
+		},
+		{
+			"functionName": "showCrisisPanel",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "show",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 683212733292981
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 243990692556391,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 191627225468034,
+							"parameters": {
+								"variable": "show"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 633969916206471,
+							"parameters": {
+								"layer": "\"PanelCrisis\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 687416715272888,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 483020361528245,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"crisis\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Button",
+									"sid": 808949110302803,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 823032086907663
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 436137448291403
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 219590919933333,
+							"parameters": {
+								"layer": "\"PanelCrisis\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 199429008541912,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 341336191317130,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"crisis\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Button",
+									"sid": 669362741975224,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 755451215124243
+						}
+					]
+				}
+			]
 		}
 	],
 	"sid": 260114432359631

@@ -20,8 +20,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 1683,
-						"y": 44,
+						"x": 1355,
+						"y": 39,
 						"width": 200,
 						"height": 25,
 						"originX": 0,
@@ -61,8 +61,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 1686,
-						"y": 19,
+						"x": 1358,
+						"y": 14,
 						"width": 197.35536181237092,
 						"height": 23.388429752066116,
 						"originX": 0,
@@ -127,8 +127,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 1811,
-						"y": 78,
+						"x": 1483,
+						"y": 73,
 						"width": 72,
 						"height": 24,
 						"originX": 0,
@@ -158,8 +158,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 1684,
-						"y": 109,
+						"x": 1356,
+						"y": 104,
 						"width": 72,
 						"height": 24,
 						"originX": 0,
@@ -189,8 +189,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 1684,
-						"y": 76,
+						"x": 1356,
+						"y": 71,
 						"width": 72,
 						"height": 24,
 						"originX": 0,
@@ -230,8 +230,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 1763,
-						"y": 107,
+						"x": 1435,
+						"y": 102,
 						"width": 118.01641795260866,
 						"height": 26.03306793969523,
 						"originX": 0,
@@ -396,6 +396,69 @@
 			"name": "UI",
 			"overriden": 0,
 			"subLayers": [
+				{
+					"name": "PanelCrisis",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 175,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 1750,
+								"y": 540,
+								"width": 339,
+								"height": 1080,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 824019098048967,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
 				{
 					"name": "PanelIndustry",
 					"overriden": 0,
@@ -6577,7 +6640,7 @@
 					}
 				},
 				{
-					"type": "StatusButton",
+					"type": "Button",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Status Button",
@@ -6613,7 +6676,7 @@
 					}
 				},
 				{
-					"type": "StatusButton",
+					"type": "Button",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Status Button",
@@ -6649,7 +6712,7 @@
 					}
 				},
 				{
-					"type": "StatusButton",
+					"type": "Button",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Status Button",
@@ -6685,7 +6748,7 @@
 					}
 				},
 				{
-					"type": "StatusButton",
+					"type": "Button",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Status Button",
@@ -6721,7 +6784,7 @@
 					}
 				},
 				{
-					"type": "StatusButton",
+					"type": "Button",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Status Button",
@@ -6757,7 +6820,7 @@
 					}
 				},
 				{
-					"type": "StatusButton",
+					"type": "Button",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Status Button",
@@ -6793,7 +6856,7 @@
 					}
 				},
 				{
-					"type": "StatusButton",
+					"type": "Button",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Status Button",
@@ -6829,7 +6892,7 @@
 					}
 				},
 				{
-					"type": "StatusButton",
+					"type": "Button",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Status Button",
@@ -6865,7 +6928,7 @@
 					}
 				},
 				{
-					"type": "StatusButton",
+					"type": "Button",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Status Button",
@@ -6901,7 +6964,7 @@
 					}
 				},
 				{
-					"type": "StatusButton",
+					"type": "Button",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Status Button",
@@ -6937,7 +7000,7 @@
 					}
 				},
 				{
-					"type": "StatusButton",
+					"type": "Button",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Status Button",
@@ -6971,12 +7034,155 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Crisis Button",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 174,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "crisis"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1845,
+						"y": 1003,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 160551423951557,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "CrisisWarningPopUp",
+			"overriden": 0,
+			"subLayers": [
+				{
+					"name": "PopUpBG",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "TiledBackground",
+							"properties": {
+								"initially-visible": true,
+								"origin": "top-left",
+								"wrap-horizontal": "repeat",
+								"wrap-vertical": "repeat",
+								"image-offset-x": 0,
+								"image-offset-y": 0,
+								"image-scale-x": 1,
+								"image-scale-y": 1,
+								"image-angle": 0,
+								"enable-tile-randomization": false,
+								"x-random": 1,
+								"y-random": 1,
+								"angle-random": 1,
+								"blend-margin-x": 0.1,
+								"blend-margin-y": 0.1
+							},
+							"uid": 173,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": -12,
+								"y": -18,
+								"width": 1960,
+								"height": 1113,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									0.7
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 889263808261787,
+					"effectTypes": [],
+					"isInitiallyVisible": true,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				}
+			],
+			"instances": [],
+			"sid": 902457160981417,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"isInitiallyInteractive": false,
 			"color": [
 				1,
 				1,

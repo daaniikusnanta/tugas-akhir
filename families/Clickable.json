@@ -42,6 +42,6 @@
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"members": [
-		"StatusButton"
+		"Button"
 	]
 }

@@ -51,6 +51,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
@@ -94,7 +101,8 @@
 			"UIPanel",
 			"InflationState",
 			"UIText",
-			"StatusButton"
+			"Button",
+			"TiledBackground"
 		],
 		"subfolders": [
 			{
@@ -161,6 +169,14 @@
 					"name": "level-data.js",
 					"type": "application/javascript",
 					"sid": 454633435239510,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "crisis-data.js",
+					"type": "application/javascript",
+					"sid": 910382667207900,
 					"script-info": {
 						"purpose": "none"
 					}
