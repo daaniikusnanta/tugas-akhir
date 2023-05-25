@@ -1,16 +1,7 @@
 import { createMachine } from "./fsm.js";
 import { setLevelVariables } from "./level-data.js";
 import { status, updateStatus } from "./status-data.js";
-
-/**
- * @typedef {import('./fsm.js').StateMachine} StateMachine
- */
-
-/**
- * @type {StateMachine}
- */
-let fsmInflation = null;
-let inflation = 0;
+import { crisisFsms } from "./crisis-data.js";
 
 runOnStartup(async runtime => {
 	runtime.addEventListener("beforeprojectstart", () => OnBeforeProjectStart(runtime));
@@ -28,94 +19,6 @@ async function OnBeforeProjectStart(runtime) {
 	runtime.getLayout("Game Layout").addEventListener (
 		"afterlayoutstart", () => GameLayoutAfterLayoutStartHandler(runtime));
 
-	fsmInflation = createMachine({
-		initialState: "0",
-		states: {
-			"0": {
-				actions: {
-					onEnter: () => {
-						runtime.objects.InflationState.getFirstInstance().text = "Low";
-						console.log("Inflation LOW is now " + inflation);
-					}
-				},
-				transitions: [
-					{
-						target: "1",
-						condition: {
-							evaluate: () => 
-								inflation >= 30,
-						}
-					}
-				]
-			},
-			"1": {
-				actions: {
-					onEnter: () => {
-						runtime.objects.InflationState.getFirstInstance().text = "Medium";
-						console.log("Inflation MEDIUM is now " + inflation);
-					}
-				},
-				transitions: [
-					{
-						target: "2",
-						condition: {
-							evaluate: () => 
-								inflation >= 60,
-						}
-					},
-					{
-						target: "0",
-						condition: {
-							evaluate: () => 
-								inflation < 30,
-						}
-					}
-				]
-			},
-			"2": {
-				actions: {
-					onEnter: () => {
-						runtime.objects.InflationState.getFirstInstance().text = "High";
-						console.log("Inflation HIGH is now " + inflation);
-					}
-				},
-				transitions: [
-					{
-						target: "1",
-						condition: {
-							evaluate: () => 
-								inflation < 60,
-						}
-					},
-					{
-						target: "3",
-						condition: {
-							evaluate: () => 
-								inflation >= 90,
-						}
-					}
-				]
-			},
-			"3": {
-				actions: {
-					onEnter: () => {
-						runtime.objects.InflationState.getFirstInstance().text = "Extreme";
-						console.log("Inflation EXTREME is now " + inflation);
-					}
-				},
-				transitions: [
-					{
-						target: "2",
-						condition: {
-							evaluate: () => 
-								inflation < 90,
-						}
-					}
-				]
-			}
-		}
-	})
-
 	setLevelVariables(0, runtime);
 }
 
@@ -125,17 +28,14 @@ function Tick(runtime) {
 }
 
 function updateFSM() {
-	
-	const fsms = [fsmInflation];
-
-	const result = fsms.some(fsm => fsm.updateState());
+	const result = crisisFsms.some(fsm => fsm.updateState());
 
 	if (result) {
-		updateFSM
+		updateFSM();
 		return;
 	}
 
-	fsms.forEach(fsm => fsm.tick());
+	crisisFsms.forEach(fsm => fsm.tick());
 }
 
 function GameLayoutAfterLayoutStartHandler(runtime)
