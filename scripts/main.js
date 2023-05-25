@@ -1,7 +1,5 @@
-
-// Import any other script files here, e.g.:
-// import * as myModule from "./mymodule.js";
 import { createMachine } from "./fsm.js";
+import { setLevelVariables } from "./level-data.js";
 
 /**
  * @typedef {import('./fsm.js').StateMachine} StateMachine
@@ -116,6 +114,8 @@ async function OnBeforeProjectStart(runtime) {
 			}
 		}
 	})
+
+	setLevelVariables(0, runtime);
 }
 
 function Tick(runtime) {
@@ -140,3 +140,10 @@ function GameLayoutAfterLayoutStartHandler(runtime)
 {
 	document.getElementById("inflation_slider").addEventListener("input", e => changeStatus(e.target.value, runtime));
 }
+
+// function updateStatus(runtime) {
+// 	 const statusSliders = runtime.objects.StatusSlider.instances();
+// 	 statusSliders.forEach(slider => {
+// 		slider.value = Status[slider.id];
+// 	 });
+// }

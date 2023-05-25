@@ -440,7 +440,8 @@
 							"callFunction": "showStatusPanel",
 							"sid": 833671086326233,
 							"parameters": [
-								"tokenat(StatusButton.id, 0, \"_\")"
+								"tokenat(StatusButton.id, 0, \"_\")",
+								true
 							]
 						}
 					],
@@ -462,6 +463,13 @@
 					"initialValue": "",
 					"comment": "",
 					"sid": 352533481313809
+				},
+				{
+					"name": "show",
+					"type": "boolean",
+					"initialValue": "true",
+					"comment": "",
+					"sid": 547545509619647
 				}
 			],
 			"eventType": "function-block",
@@ -565,18 +573,66 @@
 						"layer": "\"PanelIndustry\"",
 						"visibility": "invisible"
 					}
-				},
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 149842735634211,
-					"parameters": {
-						"layer": "\"Panel\" & uppercase(left(status, 1)) & right(status, len(status)-1)",
-						"visibility": "visible"
-					}
 				}
 			],
-			"sid": 768247952178603
+			"sid": 768247952178603,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 607663312372118,
+							"parameters": {
+								"variable": "show"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 534995711215612,
+							"parameters": {
+								"layer": "\"Panel\" & uppercase(left(status, 1)) & right(status, len(status)-1)",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 590499474395817
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 291477917685138
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 398634148079802,
+					"parameters": {
+						"object": "UIPanel"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "showStatusPanel",
+					"sid": 452811986147918,
+					"parameters": [
+						"\"\"",
+						false
+					]
+				}
+			],
+			"sid": 964406391900944
 		}
 	],
 	"sid": 260114432359631

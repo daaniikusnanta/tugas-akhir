@@ -486,7 +486,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "investment",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 152,
 							"instanceVariables": {},
@@ -607,7 +607,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "mineral_oil_industry",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 155,
 							"instanceVariables": {},
@@ -728,7 +728,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "manufacture",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 158,
 							"instanceVariables": {},
@@ -847,9 +847,9 @@
 								"step": 1,
 								"tooltip": "",
 								"initially-visible": true,
-								"enabled": false,
+								"enabled": true,
 								"id": "agriculture",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 161,
 							"instanceVariables": {},
@@ -968,9 +968,9 @@
 								"step": 1,
 								"tooltip": "",
 								"initially-visible": true,
-								"enabled": false,
+								"enabled": true,
 								"id": "tourism_creative",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 164,
 							"instanceVariables": {},
@@ -1089,9 +1089,9 @@
 								"step": 1,
 								"tooltip": "",
 								"initially-visible": true,
-								"enabled": false,
+								"enabled": true,
 								"id": "sustainability",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 167,
 							"instanceVariables": {},
@@ -1320,7 +1320,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "justice_system",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 138,
 							"instanceVariables": {},
@@ -1441,7 +1441,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "governance",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 141,
 							"instanceVariables": {},
@@ -1562,7 +1562,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "media_neutrality",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 144,
 							"instanceVariables": {},
@@ -1683,7 +1683,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "security",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 147,
 							"instanceVariables": {},
@@ -1912,7 +1912,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "foreign_relation",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 127,
 							"instanceVariables": {},
@@ -2033,7 +2033,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "defense_force",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 130,
 							"instanceVariables": {},
@@ -2154,7 +2154,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "defense_infrastructure",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 133,
 							"instanceVariables": {},
@@ -2383,7 +2383,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "communication_information",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 113,
 							"instanceVariables": {},
@@ -2504,7 +2504,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "transportation",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 116,
 							"instanceVariables": {},
@@ -2625,7 +2625,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "power_energy",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 119,
 							"instanceVariables": {},
@@ -2746,7 +2746,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "urban_housing",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 122,
 							"instanceVariables": {},
@@ -2975,7 +2975,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "pollution_control",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 99,
 							"instanceVariables": {},
@@ -3096,7 +3096,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "forest",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 102,
 							"instanceVariables": {},
@@ -3217,7 +3217,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "marine",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 105,
 							"instanceVariables": {},
@@ -3338,7 +3338,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "biodiversity",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 108,
 							"instanceVariables": {},
@@ -3567,7 +3567,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "wage_income",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 85,
 							"instanceVariables": {},
@@ -3688,7 +3688,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "work_environment",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 88,
 							"instanceVariables": {},
@@ -3809,7 +3809,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "productive_workers",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 91,
 							"instanceVariables": {},
@@ -3930,7 +3930,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "jobs",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 94,
 							"instanceVariables": {},
@@ -4159,7 +4159,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "mineral_oil",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 74,
 							"instanceVariables": {},
@@ -4280,7 +4280,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "water_land",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 77,
 							"instanceVariables": {},
@@ -4401,7 +4401,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "food_sources",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 80,
 							"instanceVariables": {},
@@ -4630,7 +4630,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "social_security",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 63,
 							"instanceVariables": {},
@@ -4751,7 +4751,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "empowerment",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 66,
 							"instanceVariables": {},
@@ -4872,7 +4872,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "population_control",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 69,
 							"instanceVariables": {},
@@ -5101,7 +5101,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "education_system",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 52,
 							"instanceVariables": {},
@@ -5222,7 +5222,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "teachers",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 55,
 							"instanceVariables": {},
@@ -5343,7 +5343,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "research",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 58,
 							"instanceVariables": {},
@@ -5572,7 +5572,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "disease_control",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 38,
 							"instanceVariables": {},
@@ -5693,7 +5693,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "public_health",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 41,
 							"instanceVariables": {},
@@ -5814,7 +5814,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "healthcare_system",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 44,
 							"instanceVariables": {},
@@ -5935,7 +5935,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "health_workers",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 47,
 							"instanceVariables": {},
@@ -6164,7 +6164,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "taxes",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 27,
 							"instanceVariables": {},
@@ -6285,7 +6285,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "debt",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 30,
 							"instanceVariables": {},
@@ -6406,7 +6406,7 @@
 								"initially-visible": true,
 								"enabled": true,
 								"id": "economy",
-								"class": ""
+								"class": "status_bar"
 							},
 							"uid": 33,
 							"instanceVariables": {},

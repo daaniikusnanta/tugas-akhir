@@ -148,6 +148,22 @@
 					"script-info": {
 						"purpose": "none"
 					}
+				},
+				{
+					"name": "status-data.js",
+					"type": "application/javascript",
+					"sid": 406691997282111,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "level-data.js",
+					"type": "application/javascript",
+					"sid": 454633435239510,
+					"script-info": {
+						"purpose": "none"
+					}
 				}
 			],
 			"subfolders": []
