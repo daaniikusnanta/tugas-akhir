@@ -122,11 +122,6 @@
 							"id": "is-visible",
 							"objectClass": "Clickable",
 							"sid": 826305133851489
-						},
-						{
-							"id": "collisions-enabled",
-							"objectClass": "Clickable",
-							"sid": 212893873334108
 						}
 					],
 					"actions": [

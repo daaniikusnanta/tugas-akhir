@@ -6582,7 +6582,7 @@
 						"initially-visible": true,
 						"initial-animation": "Status Button",
 						"initial-frame": 0,
-						"enable-collisions": false,
+						"enable-collisions": true,
 						"live-preview": false
 					},
 					"uid": 15,
