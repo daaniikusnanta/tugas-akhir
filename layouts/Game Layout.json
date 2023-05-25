@@ -2,7 +2,7 @@
 	"name": "Game Layout",
 	"layers": [
 		{
-			"name": "Layer 0",
+			"name": "Game",
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [
@@ -247,7 +247,7 @@
 					}
 				},
 				{
-					"type": "InflationSlider",
+					"type": "StatusSlider",
 					"properties": {
 						"value": 0,
 						"minimum": 0,
@@ -310,35 +310,6 @@
 						"height": 30,
 						"originX": 0,
 						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 12,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 47,
-						"y": 540,
-						"width": 94,
-						"height": 1080,
-						"originX": 0.5,
-						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -420,6 +391,6615 @@
 			"blendMode": "normal",
 			"zElevation": 0,
 			"global": false
+		},
+		{
+			"name": "UI",
+			"overriden": 0,
+			"subLayers": [
+				{
+					"name": "PanelIndustry",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 150,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 216.79679117152807,
+								"y": 540.2684562219254,
+								"width": 244,
+								"height": 1080,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Industry's Status",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 151,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.79679117152807,
+								"y": 32.26845622192545,
+								"width": 200,
+								"height": 30,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "investment",
+								"class": ""
+							},
+							"uid": 152,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 116.79679117152807,
+								"y": 101.26845622192545,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Investment",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 153,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.79679117152807,
+								"y": 82.26845622192545,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 154,
+							"instanceVariables": {
+								"id": "investment_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.79679117152807,
+								"y": 145.26845622192542,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "mineral_oil_industry",
+								"class": ""
+							},
+							"uid": 155,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.79679117152807,
+								"y": 211.26845622192542,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Mineral & Oil",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 156,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.79679117152807,
+								"y": 193.26845622192542,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 157,
+							"instanceVariables": {
+								"id": "mineral_oil_industry_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.79679117152807,
+								"y": 256.2684562219254,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "manufacture",
+								"class": ""
+							},
+							"uid": 158,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.79679117152807,
+								"y": 318.2684562219254,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Manufacture",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 159,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.79679117152807,
+								"y": 300.2684562219254,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 160,
+							"instanceVariables": {
+								"id": "manufacture_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.79679117152807,
+								"y": 363.2684562219254,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": false,
+								"id": "agriculture",
+								"class": ""
+							},
+							"uid": 161,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 116.12234164371827,
+								"y": 429.10897044608345,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Agriculture",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 162,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.12234164371827,
+								"y": 411.10897044608345,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 163,
+							"instanceVariables": {
+								"id": "agriculture_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.12234164371827,
+								"y": 474.10897044608345,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": false,
+								"id": "tourism_creative",
+								"class": ""
+							},
+							"uid": 164,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 114.10062331213871,
+								"y": 540.612193103928,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Tourism & Creative",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 165,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.1006233121387,
+								"y": 522.612193103928,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 166,
+							"instanceVariables": {
+								"id": "tourism_creative_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.1006233121387,
+								"y": 585.612193103928,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": false,
+								"id": "sustainability",
+								"class": ""
+							},
+							"uid": 167,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 113.4121431727107,
+								"y": 650.0828142085131,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Sustainability",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 168,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 213.4121431727107,
+								"y": 632.0828142085131,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 169,
+							"instanceVariables": {
+								"id": "sustainability_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 213.4121431727107,
+								"y": 695.0828142085131,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 461347185793556,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "PanelStability",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 136,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 216.7967582485873,
+								"y": 541.6454015399363,
+								"width": 244,
+								"height": 1080,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Stability's Status",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 137,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.7967582485873,
+								"y": 33.6454015399365,
+								"width": 200,
+								"height": 30,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "justice_system",
+								"class": ""
+							},
+							"uid": 138,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 116.79675824858731,
+								"y": 102.6454015399365,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Justice System",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 139,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.7967582485873,
+								"y": 83.6454015399365,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 140,
+							"instanceVariables": {
+								"id": "justice_system_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.7967582485873,
+								"y": 146.64540153993647,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "governance",
+								"class": ""
+							},
+							"uid": 141,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.79675824858731,
+								"y": 212.64540153993647,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Governance",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 142,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.7967582485873,
+								"y": 194.64540153993647,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 143,
+							"instanceVariables": {
+								"id": "governance_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.7967582485873,
+								"y": 257.6454015399365,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "media_neutrality",
+								"class": ""
+							},
+							"uid": 144,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.79675824858731,
+								"y": 319.6454015399365,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Media Neutrality",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 145,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.7967582485873,
+								"y": 301.6454015399365,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 146,
+							"instanceVariables": {
+								"id": "media_neutrality_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.7967582485873,
+								"y": 364.6454015399365,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "security",
+								"class": ""
+							},
+							"uid": 147,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 116.12230872077751,
+								"y": 430.48591576409456,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Security",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 148,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.1223087207775,
+								"y": 412.48591576409456,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 149,
+							"instanceVariables": {
+								"id": "security_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.1223087207775,
+								"y": 475.48591576409456,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 738712780311427,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "PanelDefense",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 125,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 214.09339843240014,
+								"y": 540.5276905596775,
+								"width": 244,
+								"height": 1080,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Defense's Status",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 126,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.09339843240014,
+								"y": 32.52769055967764,
+								"width": 200,
+								"height": 30,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "foreign_relation",
+								"class": ""
+							},
+							"uid": 127,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 114.09339843240014,
+								"y": 101.52769055967764,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Foreign Relations",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 128,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.09339843240014,
+								"y": 82.52769055967764,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 129,
+							"instanceVariables": {
+								"id": "foreign_relation_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.09339843240014,
+								"y": 145.52769055967764,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "defense_force",
+								"class": ""
+							},
+							"uid": 130,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 113.09339843240014,
+								"y": 211.52769055967764,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Defense Force",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 131,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 213.09339843240014,
+								"y": 193.52769055967764,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 132,
+							"instanceVariables": {
+								"id": "defense_force_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 213.09339843240014,
+								"y": 256.52769055967764,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "defense_infrastructure",
+								"class": ""
+							},
+							"uid": 133,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 113.09339843240014,
+								"y": 318.52769055967764,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Defense Infra",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 134,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 213.09339843240014,
+								"y": 300.52769055967764,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 135,
+							"instanceVariables": {
+								"id": "defense_infrastructure_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 213.09339843240014,
+								"y": 363.52769055967764,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 901515699972595,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "PanelInfrastructure",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 111,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 216.1082735693765,
+								"y": 541.645403450422,
+								"width": 244,
+								"height": 1080,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Infra's Status",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 112,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.1082735693765,
+								"y": 33.64540345042221,
+								"width": 200,
+								"height": 30,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "communication_information",
+								"class": ""
+							},
+							"uid": 113,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 116.10827356937651,
+								"y": 102.64540345042221,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Communication",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 114,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.1082735693765,
+								"y": 83.64540345042221,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 115,
+							"instanceVariables": {
+								"id": "communication_information_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.1082735693765,
+								"y": 146.64540345042218,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "transportation",
+								"class": ""
+							},
+							"uid": 116,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.10827356937651,
+								"y": 212.64540345042218,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Transportation",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 117,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.1082735693765,
+								"y": 194.64540345042218,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 118,
+							"instanceVariables": {
+								"id": "transportation_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.1082735693765,
+								"y": 257.6454034504222,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "power_energy",
+								"class": ""
+							},
+							"uid": 119,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.10827356937651,
+								"y": 319.6454034504222,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Power & Energy",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 120,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.1082735693765,
+								"y": 301.6454034504222,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 121,
+							"instanceVariables": {
+								"id": "power_energy_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.1082735693765,
+								"y": 364.6454034504222,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "urban_housing",
+								"class": ""
+							},
+							"uid": 122,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.43382404156671,
+								"y": 430.4859176745802,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Urban & Housing",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 123,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.4338240415667,
+								"y": 412.4859176745802,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 124,
+							"instanceVariables": {
+								"id": "urban_housing_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.4338240415667,
+								"y": 475.4859176745802,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 833866119903360,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "PanelEnvironment",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 97,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 216.79675925011898,
+								"y": 540.2684135276093,
+								"width": 244,
+								"height": 1080,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Enviro's Status",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 98,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.79675925011898,
+								"y": 32.26841352760934,
+								"width": 200,
+								"height": 30,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "pollution_control",
+								"class": ""
+							},
+							"uid": 99,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 116.79675925011898,
+								"y": 101.26841352760934,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Pollution Control",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 100,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.79675925011898,
+								"y": 82.26841352760934,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 101,
+							"instanceVariables": {
+								"id": "pollution_control_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.79675925011898,
+								"y": 145.2684135276093,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "forest",
+								"class": ""
+							},
+							"uid": 102,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.79675925011898,
+								"y": 211.2684135276093,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Forest",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 103,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.79675925011898,
+								"y": 193.2684135276093,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 104,
+							"instanceVariables": {
+								"id": "forest_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.79675925011898,
+								"y": 256.2684135276093,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "marine",
+								"class": ""
+							},
+							"uid": 105,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.79675925011898,
+								"y": 318.2684135276093,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Marine & Ocean",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 106,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.79675925011898,
+								"y": 300.2684135276093,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 107,
+							"instanceVariables": {
+								"id": "marine_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.79675925011898,
+								"y": 363.2684135276093,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "biodiversity",
+								"class": ""
+							},
+							"uid": 108,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 116.12230972230918,
+								"y": 429.10892775176734,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Biodiversity",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 109,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.12230972230918,
+								"y": 411.10892775176734,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 110,
+							"instanceVariables": {
+								"id": "biodiversity_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.12230972230918,
+								"y": 474.10892775176734,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 296590735587992,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "PanelLabor",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 83,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 216.36676776945828,
+								"y": 539.5799238911947,
+								"width": 244,
+								"height": 1080,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Labor's Status",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 84,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.36676776945828,
+								"y": 31.57992389119468,
+								"width": 200,
+								"height": 30,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "wage_income",
+								"class": ""
+							},
+							"uid": 85,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 116.36676776945828,
+								"y": 100.57992389119468,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Wage and Income",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 86,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.36676776945828,
+								"y": 81.57992389119468,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 87,
+							"instanceVariables": {
+								"id": "wage_income_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.36676776945828,
+								"y": 144.57992389119465,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "work_environment",
+								"class": ""
+							},
+							"uid": 88,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.36676776945828,
+								"y": 210.57992389119465,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Work Environment",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 89,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.36676776945828,
+								"y": 192.57992389119465,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 90,
+							"instanceVariables": {
+								"id": "work_environment_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.36676776945828,
+								"y": 255.57992389119465,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "productive_workers",
+								"class": ""
+							},
+							"uid": 91,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.36676776945828,
+								"y": 317.57992389119465,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Productivity",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 92,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.36676776945828,
+								"y": 299.57992389119465,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 93,
+							"instanceVariables": {
+								"id": "productive_workers_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.36676776945828,
+								"y": 362.57992389119465,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "jobs",
+								"class": ""
+							},
+							"uid": 94,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.69231824164848,
+								"y": 428.4204381153527,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Jobs",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 95,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.69231824164848,
+								"y": 410.4204381153527,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 96,
+							"instanceVariables": {
+								"id": "jobs_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.69231824164848,
+								"y": 473.4204381153527,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 934695321257211,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "PanelNatural",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 72,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 216.36680738172353,
+								"y": 540.9568657601883,
+								"width": 244,
+								"height": 1080,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Natural's Status",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 73,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.36680738172353,
+								"y": 32.956865760188265,
+								"width": 200,
+								"height": 30,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "mineral_oil",
+								"class": ""
+							},
+							"uid": 74,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 116.36680738172353,
+								"y": 101.95686576018826,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Mineral & Oil",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 75,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.36680738172353,
+								"y": 82.95686576018826,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 76,
+							"instanceVariables": {
+								"id": "mineral_oil_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216.36680738172353,
+								"y": 145.95686576018826,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "water_land",
+								"class": ""
+							},
+							"uid": 77,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.36680738172353,
+								"y": 211.95686576018826,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Water & Land",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 78,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.36680738172353,
+								"y": 193.95686576018826,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 79,
+							"instanceVariables": {
+								"id": "water_land_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.36680738172353,
+								"y": 256.95686576018824,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "food_sources",
+								"class": ""
+							},
+							"uid": 80,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.36680738172353,
+								"y": 318.95686576018824,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Food Sources",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 81,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.36680738172353,
+								"y": 300.95686576018824,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 82,
+							"instanceVariables": {
+								"id": "food_sources_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.36680738172353,
+								"y": 363.95686576018824,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 646074805796779,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "PanelSocial",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 61,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 215.67836016523634,
+								"y": 540.9568587106876,
+								"width": 244,
+								"height": 1080,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Social's Status",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 62,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.67836016523634,
+								"y": 32.956858710687555,
+								"width": 200,
+								"height": 30,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "social_security",
+								"class": ""
+							},
+							"uid": 63,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.67836016523634,
+								"y": 101.95685871068756,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Social Security",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 64,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.67836016523634,
+								"y": 82.95685871068756,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 65,
+							"instanceVariables": {
+								"id": "social_security_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.67836016523634,
+								"y": 145.95685871068756,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "empowerment",
+								"class": ""
+							},
+							"uid": 66,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 114.67836016523634,
+								"y": 211.95685871068753,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Empowerment",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 67,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.67836016523634,
+								"y": 193.95685871068756,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 68,
+							"instanceVariables": {
+								"id": "empowerment_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.67836016523634,
+								"y": 256.9568587106875,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "population_control",
+								"class": ""
+							},
+							"uid": 69,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 114.67836016523634,
+								"y": 318.9568587106875,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Population Control",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 70,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.67836016523634,
+								"y": 300.9568587106875,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 71,
+							"instanceVariables": {
+								"id": "population_control_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.67836016523634,
+								"y": 363.9568587106875,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 781237176819913,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "PanelEducation",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 50,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 215.67831259451637,
+								"y": 540.268331279505,
+								"width": 244,
+								"height": 1080,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Education's Status",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 51,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.67831259451637,
+								"y": 32.26833127950501,
+								"width": 200,
+								"height": 30,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "education_system",
+								"class": ""
+							},
+							"uid": 52,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.67831259451637,
+								"y": 101.26833127950502,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Education System",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 53,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.67831259451637,
+								"y": 82.26833127950502,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 54,
+							"instanceVariables": {
+								"id": "education_system_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.67831259451637,
+								"y": 145.26833127950502,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "teachers",
+								"class": ""
+							},
+							"uid": 55,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 114.67831259451637,
+								"y": 211.26833127950502,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Teachers",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 56,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.67831259451637,
+								"y": 193.26833127950502,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 57,
+							"instanceVariables": {
+								"id": "teachers_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.67831259451637,
+								"y": 256.268331279505,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "research",
+								"class": ""
+							},
+							"uid": 58,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 114.67831259451637,
+								"y": 318.268331279505,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Research",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 59,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.67831259451637,
+								"y": 300.268331279505,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 60,
+							"instanceVariables": {
+								"id": "research_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.67831259451637,
+								"y": 363.268331279505,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 906193014836331,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "PanelHealth",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 36,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 215.96428499895197,
+								"y": 540.2355330051331,
+								"width": 244,
+								"height": 1080,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Health's Status",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 37,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.96428499895197,
+								"y": 32.23553300513313,
+								"width": 200,
+								"height": 30,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "disease_control",
+								"class": ""
+							},
+							"uid": 38,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.96428499895197,
+								"y": 101.23553300513314,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Disease Control",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 39,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.96428499895197,
+								"y": 82.23553300513314,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 40,
+							"instanceVariables": {
+								"id": "disease_control_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.96428499895197,
+								"y": 145.23553300513314,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "public_health",
+								"class": ""
+							},
+							"uid": 41,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 114.96428499895197,
+								"y": 211.23553300513314,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Public Health",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 42,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.96428499895197,
+								"y": 193.23553300513314,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 43,
+							"instanceVariables": {
+								"id": "public_health_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.96428499895197,
+								"y": 256.2355330051331,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "healthcare_system",
+								"class": ""
+							},
+							"uid": 44,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 114.96428499895197,
+								"y": 318.2355330051331,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Healthcare System",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 45,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.96428499895197,
+								"y": 300.2355330051331,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 46,
+							"instanceVariables": {
+								"id": "healthcare_system_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.96428499895197,
+								"y": 363.2355330051331,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "health_workers",
+								"class": ""
+							},
+							"uid": 47,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.28983547114217,
+								"y": 429.07604722929113,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Health Workers",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 48,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.28983547114217,
+								"y": 411.07604722929113,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 49,
+							"instanceVariables": {
+								"id": "health_workers_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.28983547114217,
+								"y": 474.07604722929113,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 976257174913629,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "PanelFinancial",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 14,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 216,
+								"y": 540,
+								"width": 244,
+								"height": 1080,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Financial's Status",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 26,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216,
+								"y": 32,
+								"width": 200,
+								"height": 30,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "taxes",
+								"class": ""
+							},
+							"uid": 27,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 116,
+								"y": 100.625918,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Taxes",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 28,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216,
+								"y": 82,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 29,
+							"instanceVariables": {
+								"id": "taxes_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 216,
+								"y": 145.115069,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "debt",
+								"class": ""
+							},
+							"uid": 30,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 115.05649579899577,
+								"y": 210.97665858429684,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Debt",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 31,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.05649579899577,
+								"y": 192.35074058429683,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 32,
+							"instanceVariables": {
+								"id": "debt_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 215.05649579899577,
+								"y": 255.46580958429684,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "StatusSlider",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "economy",
+								"class": ""
+							},
+							"uid": 33,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 114.91410696086663,
+								"y": 318.16949875495203,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Economy",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 34,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.91410696086663,
+								"y": 299.543580754952,
+								"width": 196,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 16,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8705882352941177,
+									0.8705882352941177,
+									0.8705882352941177,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 35,
+							"instanceVariables": {
+								"id": "economy_status"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 214.91410696086663,
+								"y": 362.658649754952,
+								"width": 216,
+								"height": 28,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 662779090404253,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				}
+			],
+			"instances": [
+				{
+					"type": "UIPanel",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 12,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 47,
+						"y": 540,
+						"width": 94,
+						"height": 1080,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "StatusButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Status Button",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 15,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "financial_status"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 47,
+						"y": 64,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "StatusButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Status Button",
+						"initial-frame": 1,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 16,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "health_status"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 47,
+						"y": 160,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "StatusButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Status Button",
+						"initial-frame": 2,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 17,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": true,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "education_status"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 47,
+						"y": 256,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "StatusButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Status Button",
+						"initial-frame": 3,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 18,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": true,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "social_status"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 47,
+						"y": 352,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "StatusButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Status Button",
+						"initial-frame": 4,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 19,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": true,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "natural_rstatus"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 47,
+						"y": 448,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "StatusButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Status Button",
+						"initial-frame": 5,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 20,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": true,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "labor_status"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 47,
+						"y": 544,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "StatusButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Status Button",
+						"initial-frame": 6,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 21,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": true,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "environment_status"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 47,
+						"y": 640,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "StatusButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Status Button",
+						"initial-frame": 7,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 22,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "infrastructure_status"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 47,
+						"y": 736,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "StatusButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Status Button",
+						"initial-frame": 8,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 23,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "defense_status"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 47,
+						"y": 832,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "StatusButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Status Button",
+						"initial-frame": 9,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 24,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "stability_status"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 47,
+						"y": 928,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "StatusButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Status Button",
+						"initial-frame": 10,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 25,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "industry_status"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 47,
+						"y": 1024,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 160551423951557,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
 		}
 	],
 	"sid": 104332229244797,
@@ -431,5 +7011,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "Event sheet 1"
+	"eventSheet": "Game_ES"
 }

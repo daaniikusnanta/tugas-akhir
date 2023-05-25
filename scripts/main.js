@@ -118,8 +118,7 @@ async function OnBeforeProjectStart(runtime) {
 	})
 }
 
-function Tick(runtime)
-{
+function Tick(runtime) {
 	updateFSM();
 }
 

@@ -1,5 +1,5 @@
 // NOTE: This definition file is auto generated - any changes you make will not be saved
-// 5/23/2023 1:42:12 PM
+// 5/25/2023 5:59:21 AM
 
 declare function runOnStartup(cb: (runtime: IRuntime) => void): void;
 
@@ -43,17 +43,21 @@ type VariableType = Record<string, string | boolean | number | null | undefined>
 
 interface IRuntimeObjects {
 	['VSCodePlugin']: IObjectClass<IVSCodePlugin>;
+	['UIPanel']: IObjectClass<IUIPanel>;
 	['TickRate']: IObjectClass<ITickRate>;
 	['TickBar']: IObjectClass<ITickBar>;
-	['Sprite']: IObjectClass<ISprite>;
+	['StatusSlider']: IObjectClass<IStatusSlider>;
 	['InflationStatus']: IObjectClass<IInflationStatus>;
 	['InflationState']: IObjectClass<IInflationState>;
-	['InflationSlider']: IObjectClass<IInflationSlider>;
 	['GameManager']: IObjectClass<IGameManager>;
 	['Day']: IObjectClass<IDay>;
 	['ButtonPause']: IObjectClass<IButtonPause>;
 	['ButtonInrease']: IObjectClass<IButtonInrease>;
 	['ButtonDecrease']: IObjectClass<IButtonDecrease>;
+	['UIText']: IObjectClass<IUIText>;
+	['Text']: IObjectClass<IText>;
+	['StatusButton']: IObjectClass<IStatusButton>;
+	['Clickable']: IObjectClass<IClickable>;
 }
 
 interface IGlobalVars extends VariableType {
@@ -200,6 +204,17 @@ interface IVSCodePlugin extends IWorldInstance {
 	behaviors: IVSCodePluginBehaviors;
 }
 
+interface IUIPanelVars extends VariableType {
+	
+}
+interface IUIPanelBehaviors extends Record<string, IBehaviorInstance> {
+	
+}
+interface IUIPanel extends ISpriteInstance {
+	instVars: IUIPanelVars;
+	behaviors: IUIPanelBehaviors;
+}
+
 interface ITickRateVars extends VariableType {
 	
 }
@@ -222,15 +237,15 @@ interface ITickBar extends IWorldInstance {
 	behaviors: ITickBarBehaviors;
 }
 
-interface ISpriteVars extends VariableType {
+interface IStatusSliderVars extends VariableType {
 	
 }
-interface ISpriteBehaviors extends Record<string, IBehaviorInstance> {
+interface IStatusSliderBehaviors extends Record<string, IBehaviorInstance> {
 	
 }
-interface ISprite extends ISpriteInstance {
-	instVars: ISpriteVars;
-	behaviors: ISpriteBehaviors;
+interface IStatusSlider extends IWorldInstance {
+	instVars: IStatusSliderVars;
+	behaviors: IStatusSliderBehaviors;
 }
 
 interface IInflationStatusVars extends VariableType {
@@ -253,17 +268,6 @@ interface IInflationStateBehaviors extends Record<string, IBehaviorInstance> {
 interface IInflationState extends ITextInstance {
 	instVars: IInflationStateVars;
 	behaviors: IInflationStateBehaviors;
-}
-
-interface IInflationSliderVars extends VariableType {
-	
-}
-interface IInflationSliderBehaviors extends Record<string, IBehaviorInstance> {
-	
-}
-interface IInflationSlider extends IWorldInstance {
-	instVars: IInflationSliderVars;
-	behaviors: IInflationSliderBehaviors;
 }
 
 interface IGameManagerVars extends VariableType {
@@ -319,6 +323,60 @@ interface IButtonDecreaseBehaviors extends Record<string, IBehaviorInstance> {
 interface IButtonDecrease extends IButtonInstance {
 	instVars: IButtonDecreaseVars;
 	behaviors: IButtonDecreaseBehaviors;
+}
+
+interface IUITextVars extends VariableType {
+	/**  **/
+	['id']: string;
+}
+interface IUITextBehaviors extends Record<string, IBehaviorInstance> {
+	
+}
+interface IUIText extends ITextInstance {
+	instVars: IUITextVars;
+	behaviors: IUITextBehaviors;
+}
+
+interface ITextVars extends VariableType {
+	/**  **/
+	['id']: string;
+}
+interface ITextBehaviors extends Record<string, IBehaviorInstance> {
+	
+}
+interface IText extends ITextInstance {
+	instVars: ITextVars;
+	behaviors: ITextBehaviors;
+}
+
+interface IStatusButtonVars extends VariableType {
+	/**  **/
+	['isEnabled']: boolean;
+	/**  **/
+	['isClicked']: boolean;
+	/**  **/
+	['id']: string;
+}
+interface IStatusButtonBehaviors extends Record<string, IBehaviorInstance> {
+	
+}
+interface IStatusButton extends ISpriteInstance {
+	instVars: IStatusButtonVars;
+	behaviors: IStatusButtonBehaviors;
+}
+
+interface IClickableVars extends VariableType {
+	/**  **/
+	['isEnabled']: boolean;
+	/**  **/
+	['isClicked']: boolean;
+}
+interface IClickableBehaviors extends Record<string, IBehaviorInstance> {
+	
+}
+interface IClickable extends ISpriteInstance {
+	instVars: IClickableVars;
+	behaviors: IClickableBehaviors;
 }
 
 

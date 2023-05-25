@@ -1,0 +1,496 @@
+{
+	"name": "Common_ES",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "BUTTON_CLICKED",
+			"type": "string",
+			"initialValue": "ButtonClicked",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 771538068153440
+		},
+		{
+			"eventType": "variable",
+			"name": "touchedUid",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 119014568727059
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 389387381791159,
+					"parameters": {
+						"object": "Clickable"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 753501411390777
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Clickable",
+					"sid": 715017368845612
+				}
+			],
+			"actions": [
+				{
+					"customAction": "SetInitialSize",
+					"objectClass": "Clickable",
+					"sid": 737151545543326
+				},
+				{
+					"id": "toggle-boolean-instvar",
+					"objectClass": "Clickable",
+					"sid": 206429144956902,
+					"parameters": {
+						"instance-variable": "clickable"
+					}
+				}
+			],
+			"sid": 929384932930541
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 646670775370983,
+					"parameters": {
+						"object": "Clickable"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 704953169232035,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 269738673783329,
+							"parameters": {
+								"object": "Clickable"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Clickable",
+							"sid": 647708931340820,
+							"parameters": {
+								"instance-variable": "isPressed"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "IsReleased",
+							"objectClass": "Clickable",
+							"sid": 790607803816409
+						}
+					],
+					"sid": 465445012943299
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 272696450457543,
+							"parameters": {
+								"layer": "Clickable.LayerName"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Clickable",
+							"sid": 826305133851489
+						},
+						{
+							"id": "collisions-enabled",
+							"objectClass": "Clickable",
+							"sid": 212893873334108
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Clickable",
+							"sid": 106877594809735,
+							"parameters": {
+								"instance-variable": "clickable",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 194378168506700
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 219095798961757
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Clickable",
+							"sid": 795162487787014,
+							"parameters": {
+								"instance-variable": "clickable",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 325736551809329
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Clickable",
+							"sid": 134471042069555,
+							"parameters": {
+								"instance-variable": "isDisabled"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "Clickable",
+							"sid": 688243496813160,
+							"parameters": {
+								"opacity": "50"
+							}
+						}
+					],
+					"sid": 340417582861352
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 583960115118594
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "Clickable",
+							"sid": 387421102588187,
+							"parameters": {
+								"opacity": "100"
+							}
+						}
+					],
+					"sid": 674805373808812
+				}
+			]
+		},
+		{
+			"aceType": "action",
+			"aceName": "isPressed",
+			"objectClass": "Clickable",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": true,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "custom-ace-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Clickable",
+					"sid": 186130592284128,
+					"parameters": {
+						"instance-variable": "isPressed",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Clickable",
+					"sid": 224745304368631,
+					"parameters": {
+						"width": "0.9 * Self.InitialWidth",
+						"height": "0.9 * Self.initialHeight"
+					}
+				},
+				{
+					"callFunction": "PlayTap",
+					"sid": 645909523515339
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 669113122661591,
+					"parameters": {
+						"variable": "touchedUid",
+						"value": "Clickable.UID"
+					}
+				}
+			],
+			"sid": 509888671168910
+		},
+		{
+			"aceType": "action",
+			"aceName": "SetInitialSize",
+			"objectClass": "Clickable",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": true,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "custom-ace-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Clickable",
+					"sid": 316103350059549,
+					"parameters": {
+						"instance-variable": "initialHeight",
+						"value": "Self.Height"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Clickable",
+					"sid": 828698885998366,
+					"parameters": {
+						"instance-variable": "initialWidth",
+						"value": "Self.Width"
+					}
+				}
+			],
+			"sid": 649602647193928
+		},
+		{
+			"aceType": "action",
+			"aceName": "IsReleased",
+			"objectClass": "Clickable",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": true,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "custom-ace-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "Clickable",
+					"sid": 576997662681385,
+					"parameters": {
+						"width": "Self.InitialWidth",
+						"height": "Self.initialHeight"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 916940778834286,
+					"parameters": {
+						"variable": "touchedUid",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Clickable",
+					"sid": 307873333011611,
+					"parameters": {
+						"instance-variable": "isPressed",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 367743849157435
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 767233665762606
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 491171468465987,
+					"parameters": {
+						"object": "Clickable"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Clickable",
+					"sid": 502297776721919,
+					"parameters": {
+						"instance-variable": "clickable"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Clickable",
+					"sid": 915117312871381,
+					"parameters": {
+						"instance-variable": "isDisabled"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 462373583210498,
+					"parameters": {
+						"variable": "touchedUid",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"customAction": "isPressed",
+					"objectClass": "Clickable",
+					"sid": 284659003262050
+				}
+			],
+			"sid": 373083161808305
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 169699354282009
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 319307677171933,
+					"parameters": {
+						"object": "Clickable"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Clickable",
+					"sid": 558662817287970,
+					"parameters": {
+						"instance-variable": "clickable"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Clickable",
+					"sid": 719411256997861,
+					"parameters": {
+						"instance-variable": "isDisabled"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Clickable",
+					"sid": 697248248858015,
+					"parameters": {
+						"unique-id": "touchedUid"
+					}
+				}
+			],
+			"actions": [
+				{
+					"customAction": "IsReleased",
+					"objectClass": "Clickable",
+					"sid": 956421645293170
+				},
+				{
+					"callFunction": "ButtonClicked",
+					"sid": 850326967860903,
+					"parameters": [
+						"Clickable.UID"
+					]
+				}
+			],
+			"sid": 254148105224006
+		},
+		{
+			"functionName": "ButtonClicked",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "uid",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 728360578268543
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "call-mapped-function",
+					"objectClass": "Functions",
+					"sid": 424551770446759,
+					"parameters": {
+						"name": "BUTTON_CLICKED",
+						"string": "LayoutName",
+						"forward-params": "0"
+					}
+				}
+			],
+			"sid": 692489312916396
+		},
+		{
+			"functionName": "PlayTap",
+			"functionDescription": "",
+			"functionCategory": "Audio",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 979424561775127
+		}
+	],
+	"sid": 687130338117785
+}

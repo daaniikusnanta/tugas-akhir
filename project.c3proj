@@ -1,11 +1,18 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 34200,
+	"savedWithRelease": 34300,
 	"name": "tugas akhir",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": false,
 	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"bundled": false
+		},
 		{
 			"type": "plugin",
 			"id": "Button",
@@ -23,6 +30,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -32,6 +46,13 @@
 			"type": "plugin",
 			"id": "Text",
 			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -68,17 +89,32 @@
 			"ButtonDecrease",
 			"TickRate",
 			"VSCodePlugin",
-			"InflationSlider",
+			"StatusSlider",
 			"InflationStatus",
-			"Sprite",
-			"InflationState"
+			"UIPanel",
+			"InflationState",
+			"UIText",
+			"StatusButton"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"Touch",
+					"Mouse",
+					"Browser"
+				],
+				"subfolders": [],
+				"name": "Others"
+			}
+		]
 	},
 	"autosaveData": null,
 	"containers": [],
 	"families": {
-		"items": [],
+		"items": [
+			"Text",
+			"Clickable"
+		],
 		"subfolders": []
 	},
 	"layouts": {
@@ -89,7 +125,8 @@
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1"
+			"Game_ES",
+			"Common_ES"
 		],
 		"subfolders": []
 	},

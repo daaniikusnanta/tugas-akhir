@@ -1,0 +1,19 @@
+{
+	"name": "Text",
+	"plugin-id": "Text",
+	"sid": 448209730720519,
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 652838924898525
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"UIText"
+	]
+}
