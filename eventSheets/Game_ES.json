@@ -29,7 +29,7 @@
 			"eventType": "variable",
 			"name": "tickRate",
 			"type": "number",
-			"initialValue": "2.5",
+			"initialValue": "1",
 			"comment": "The tick",
 			"isStatic": false,
 			"isConstant": false,
@@ -140,6 +140,10 @@
 					"parameters": {
 						"text": "\"Day \" & day"
 					}
+				},
+				{
+					"type": "script",
+					"script": "updateAllStatus();\nupdateAllCrisis();"
 				}
 			],
 			"sid": 202541279746809,

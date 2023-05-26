@@ -180,6 +180,14 @@
 					"script-info": {
 						"purpose": "none"
 					}
+				},
+				{
+					"name": "game.js",
+					"type": "application/javascript",
+					"sid": 547133808376374,
+					"script-info": {
+						"purpose": "imports-for-events"
+					}
 				}
 			],
 			"subfolders": []

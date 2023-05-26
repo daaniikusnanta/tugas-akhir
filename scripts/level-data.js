@@ -38,12 +38,12 @@ const levelVariables = {
             marine: 29,
             investment: 73,
             mineral_oil_industry: 51,
-            manufacture: 96,
+            manufacturing: 96,
             agriculture: 44,
             fisheries: 77,
             tourism_creative: 21,
             sustainability: 58,
-            foreign_relation: 11,
+            foreign_relations: 11,
             defense_force: 84,
             defense_infrastructure: 37,
             mineral_oil: 69,
@@ -61,7 +61,8 @@ const levelVariables = {
             healthcare_collapse: 98,
             health_worker_shortage: 67,
             dropout_crisis: 89,
-            low_education_quality: 45,
+            low_education: 45,
+            technology_lag: 23,
             teacher_shortage: 78,
             poverty: 12,
             discrimination: 54,
@@ -73,16 +74,16 @@ const levelVariables = {
             overfishing: 76,
             biodiversity_loss: 98,
             water_scarcity: 23,
-            energy_crisis: 56,
+            mineral_scarcity: 56,
             food_insecurity: 87,
+            energy_crisis: 56,
             infrastructure_inequality: 42,
-            power_crisis: 76,
             skill_shortage: 11,
             unemployment: 34,
             job_loss: 98,
             cyber_attack: 67,
             terrorism: 89,
-            war_aggresion: 45,
+            war_aggression: 45,
             separatist_groups: 78,
             misinformation_spread: 12,
             media_bias: 54,
@@ -105,18 +106,4 @@ const levelVariables = {
 export function setLevelVariables(level, runtime) {
     initializeStatus(levelVariables[level]['status']);
     initializeCrisis(levelVariables[level]['crisis']);
-    
-    let statusTexts = runtime.objects.UIText.getAllInstances();
-    statusTexts = statusTexts.filter(text => text.instVars['id'].endsWith("_status"));
-
-    for (const statusText of statusTexts) {
-        const id = statusText.instVars['id'];
-        const statusValue = status[id.substring(0, id.indexOf("_status"))].toString();
-        statusText.text = statusValue;
-    }
-
-    const statusBars = document.querySelectorAll('.status_bar');
-    for (const statusBar of statusBars) {
-        statusBar.value = status[statusBar.id];
-    }
 }

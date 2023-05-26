@@ -790,7 +790,7 @@
 								"tooltip": "",
 								"initially-visible": true,
 								"enabled": true,
-								"id": "manufacture",
+								"id": "manufacturing",
 								"class": "status_bar"
 							},
 							"uid": 158,
@@ -881,7 +881,7 @@
 							},
 							"uid": 160,
 							"instanceVariables": {
-								"id": "manufacture_status"
+								"id": "manufacturing_status"
 							},
 							"behaviors": {},
 							"world": {
@@ -1974,7 +1974,7 @@
 								"tooltip": "",
 								"initially-visible": true,
 								"enabled": true,
-								"id": "foreign_relation",
+								"id": "foreign_relations",
 								"class": "status_bar"
 							},
 							"uid": 127,
@@ -2065,7 +2065,7 @@
 							},
 							"uid": 129,
 							"instanceVariables": {
-								"id": "foreign_relation_status"
+								"id": "foreign_relations_status"
 							},
 							"behaviors": {},
 							"world": {
