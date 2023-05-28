@@ -795,6 +795,27 @@
 					]
 				}
 			]
+		},
+		{
+			"functionName": "showCrisis",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "crisisArrUid",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 922209966426629
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 738877379672052
 		}
 	],
 	"sid": 260114432359631

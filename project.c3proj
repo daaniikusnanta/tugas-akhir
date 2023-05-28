@@ -97,9 +97,7 @@
 			"TickRate",
 			"VSCodePlugin",
 			"StatusSlider",
-			"InflationStatus",
 			"UIPanel",
-			"InflationState",
 			"UIText",
 			"Button",
 			"TiledBackground"

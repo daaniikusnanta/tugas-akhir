@@ -59,9 +59,9 @@ export let crisis = {
             {cause: "wage_income", yValue: 0, inertia: 0.1,
                 formula: () => status['wage_income'].value * 0.1},
             {cause: "security", yValue: 0, inertia: 0.1,
-                formula: () => status['security'].value * 0.1},
+                formula: () => status['security'].value * -0.4},
             {cause: "debt_crisis", yValue: 0, inertia: 0.1,
-                formula: () => crisis['debt_crisis'].value * 0.1},
+                formula: () => crisis['debt_crisis'].value * -0.1},
         ],
     },  
     "recession": {
@@ -1242,7 +1242,7 @@ export let crisisFsms = []
  * Initialize the crisis.
  * @param {*} levelVariables The level variables.
  */
-export function initializeCrisis(levelVariables) {
+export function initializeCrisis(levelVariables, runtime) {
     for (const variable in levelVariables) {
         crisis[variable].value = levelVariables[variable];
     }
@@ -1250,6 +1250,8 @@ export function initializeCrisis(levelVariables) {
     for (const variable in crisis) {
         let states = {};
         let initial = null;
+
+        initializeCrisisTexts(runtime);
 
         crisis[variable].states.forEach(crisisState => {
             if (!initial) {
@@ -1269,7 +1271,50 @@ export function initializeCrisis(levelVariables) {
             const state = {
                 actions: {
                     onEnter : () => {
-                        console.log(`Crisis ${variable}: ${crisisState.name}`);
+                        console.log(`Crisis ${variable} entering: ${crisisState.name}`);
+
+                        let crisisText = runtime.objects.UIText.getAllInstances();
+    	                crisisText = crisisText.filter(text => text.instVars['id'] === variable)[0];
+
+                        crisisText.text = crisisState.name.substring(0,1);
+                        
+                        let crisisWarningTexts = runtime.objects.UIText.getAllInstances();
+                        const textID = variable + "_crisis";
+                        const crisisWarningText = crisisWarningTexts.filter(text => text.instVars['id'] === textID)[0];
+                        
+                        console.log("shownCrisis", shownCrisis);
+                        if (crisis[variable].states.indexOf(crisisState) > 1 ) {
+                            console.log("Showing crisis")
+
+                            // If the crisis is not shown before, move the other crisis texts down
+                            // and add the crisis to the shown crisis list
+                            const element = shownCrisis.find(element => element.variable === variable);
+                            if (!element) {
+                                console.log("Moving other crisis down")
+                                crisisWarningText.y = 30;
+                                let y = 60;
+                                for (const otherCrisis of shownCrisis) {
+                                    console.log("otherCrisis", otherCrisis);
+                                    const otherText = crisisWarningTexts.filter(text => text.instVars['id'] === otherCrisis.variable + "_crisis")[0];
+                                    otherText.y = y;
+                                    y += 30;
+                                }
+                                
+                                shownCrisis.push({variable: variable, state: crisisState.name});
+                            }
+
+                            crisisWarningText.text = variable.substring(0,5) + ": " + crisisState.name;
+                            crisisWarningText.isVisible = true;
+                        } else {
+                            console.log("Removing crisis")
+                            const element = shownCrisis.find(element => element.variable === variable);
+                            if (element) {
+                                shownCrisis.splice(shownCrisis.indexOf(element), 1);
+                            }
+                            showCrisis(runtime, 30);
+                            
+                            crisisWarningText.isVisible = false;
+                        }
                     }
                 },
                 transitions: transitions
@@ -1283,6 +1328,21 @@ export function initializeCrisis(levelVariables) {
         });
 
         crisisFsms.push(fsm);
+    }
+}
+
+
+function initializeCrisisTexts(runtime) {
+    const x = 1740;
+    let y = 30;
+
+    for (const variable in crisis) {
+        const crisisText = runtime.objects.UIText.createInstance("PanelCrisis", x, y);
+        crisisText.text = variable.substring(0,3) + ": " + shownCrisis[variable];
+        crisisText.instVars['id'] = variable + "_crisis";
+        crisisText.isVisible = false;
+
+        y += 30;
     }
 }
 
@@ -1300,5 +1360,31 @@ export function updateCrisis(variable) {
             crisis[variable].value += cause.yValue;
             // console.log(cause.cause, "y-value", variable, cause.yValue)
         }
+    }
+}
+
+let shownCrisis = [];
+
+export function updateShownCrisis(runtime) {
+    for (const crisis in shownCrisis) {
+        let crisisText = runtime.objects.UIText.getAllInstances();
+        crisisText = crisisText.filter(text => text.instVars['id'] === crisis + "_crisis")[0];
+
+        if (!shownCrisis[crisis]) {
+            crisisText.isVisible = false;
+            
+            continue;
+        }
+        crisisText.isVisible = true;
+    }
+}
+
+function showCrisis(runtime, initialY) {
+    
+    let crisisTexts = runtime.objects.UIText.getAllInstances();
+    for (const crisis of shownCrisis) {
+        let crisisText = crisisTexts.filter(text => text.instVars['id'] === crisis.variable + "_crisis")[0];
+        crisisText.y = initialY;
+        initialY += 30;
     }
 }

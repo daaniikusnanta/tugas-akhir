@@ -17,6 +17,15 @@ async function OnBeforeProjectStart(runtime) {
 function Tick(runtime) {
 	updateFSM();
 	updateStatusView(runtime);
+
+	for (const crisisVariable in crisis) {
+
+		
+		let crisisText = runtime.objects.UIText.getAllInstances();
+    	crisisText = crisisText.filter(text => text.instVars['id'] === crisisVariable)[0];
+
+		crisisText.text = crisisVariable.split('_')[0].substring(0, 3) + " " + crisis[crisisVariable].value.toFixed(2);
+	}
 }
 
 function updateFSM() {
