@@ -3,7 +3,7 @@ import {crisis} from "./crisis-data.js";
 /**
  * @typedef {
  *     cause: string, 
- *     y-value: number,
+ *     yValue: number,
  *     inertia: number,
  *     formula: () => number,
  * } Cause
