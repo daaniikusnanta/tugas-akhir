@@ -29,14 +29,14 @@ function Tick(runtime) {
 }
 
 function updateFSM() {
-	const result = crisisFsms.some(fsm => fsm.updateState());
+	const result = Object.values(crisisFsms).some(fsm => fsm.updateState());
 
 	if (result) {
 		updateFSM();
 		return;
 	}
 
-	crisisFsms.forEach(fsm => fsm.tick());
+	Object.values(crisisFsms).forEach(fsm => fsm.tick());
 }
 
 function GameLayoutAfterLayoutStartHandler(runtime)

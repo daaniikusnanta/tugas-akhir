@@ -29,7 +29,7 @@
 			"eventType": "variable",
 			"name": "tickRate",
 			"type": "number",
-			"initialValue": "1",
+			"initialValue": "6",
 			"comment": "The tick",
 			"isStatic": false,
 			"isConstant": false,

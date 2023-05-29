@@ -1234,9 +1234,8 @@ export let crisis = {
 
 /**
  * The crisis FSMs.
- * @type {StateMachine[]}
  */
-export let crisisFsms = []
+export let crisisFsms = {}
 
 /**
  * Initialize the crisis.
@@ -1327,7 +1326,7 @@ export function initializeCrisis(levelVariables, runtime) {
             states: states
         });
 
-        crisisFsms.push(fsm);
+        crisisFsms[variable] = fsm;
     }
 }
 
