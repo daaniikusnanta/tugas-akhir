@@ -31,11 +31,13 @@ import { status } from "./status-data.js";
  *      value: number,
  *      states: State[],
  *      causes: Cause[],
+ *     lastUpdate: number
  * }}
  */
 export let crisis = {
   inflation: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -127,6 +129,7 @@ export let crisis = {
   },
   recession: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -183,6 +186,7 @@ export let crisis = {
   },
   debt_crisis: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -238,6 +242,7 @@ export let crisis = {
   },
   tax_evasion: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -293,6 +298,7 @@ export let crisis = {
   },
   infectious_disease: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "endemic",
@@ -399,6 +405,7 @@ export let crisis = {
   },
   chronic_disease: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "endemic",
@@ -504,6 +511,7 @@ export let crisis = {
   },
   mental_health_crisis: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -598,6 +606,7 @@ export let crisis = {
   },
   healthcare_collapse: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "normal",
@@ -673,6 +682,7 @@ export let crisis = {
   },
   health_worker_shortage: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -740,6 +750,7 @@ export let crisis = {
   },
   dropout_crisis: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -806,6 +817,7 @@ export let crisis = {
   },
   low_education: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -872,6 +884,7 @@ export let crisis = {
   },
   teacher_shortage: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -938,6 +951,7 @@ export let crisis = {
   },
   technology_lag: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -996,6 +1010,7 @@ export let crisis = {
   },
   poverty: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1055,6 +1070,7 @@ export let crisis = {
   },
   discrimination: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1136,6 +1152,7 @@ export let crisis = {
   },
   urban_overcrowding: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1217,6 +1234,7 @@ export let crisis = {
   },
   housing_crisis: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1290,6 +1308,7 @@ export let crisis = {
   },
   overpopulation: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1349,6 +1368,7 @@ export let crisis = {
   },
   pollution: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1421,6 +1441,7 @@ export let crisis = {
   },
   deforestation: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1495,6 +1516,7 @@ export let crisis = {
   },
   overfishing: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1558,6 +1580,7 @@ export let crisis = {
   },
   biodiversity_loss: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1616,6 +1639,7 @@ export let crisis = {
   },
   water_scarcity: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1688,6 +1712,7 @@ export let crisis = {
   },
   mineral_scarcity: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1746,6 +1771,7 @@ export let crisis = {
   },
   food_insecurity: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1818,6 +1844,7 @@ export let crisis = {
   },
   infrastructure_inequality: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1885,6 +1912,7 @@ export let crisis = {
   },
   energy_crisis: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -1951,6 +1979,7 @@ export let crisis = {
   },
   skill_shortage: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -2025,6 +2054,7 @@ export let crisis = {
   },
   unemployment: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -2120,6 +2150,7 @@ export let crisis = {
   },
   job_loss: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -2196,6 +2227,7 @@ export let crisis = {
   },
   cyber_attack: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -2263,6 +2295,7 @@ export let crisis = {
   },
   terrorism: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -2328,6 +2361,7 @@ export let crisis = {
   },
   war_aggression: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -2394,6 +2428,7 @@ export let crisis = {
   },
   separatist_groups: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -2482,6 +2517,7 @@ export let crisis = {
   },
   misinformation_spread: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -2570,6 +2606,7 @@ export let crisis = {
   },
   media_bias: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -2638,6 +2675,7 @@ export let crisis = {
   },
   political_instability: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -2704,6 +2742,7 @@ export let crisis = {
   },
   social_unrest: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -2808,6 +2847,7 @@ export let crisis = {
   },
   conflicts: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -2888,6 +2928,7 @@ export let crisis = {
   },
   crime_violence: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -2998,6 +3039,7 @@ export let crisis = {
   },
   black_market: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -3071,6 +3113,7 @@ export let crisis = {
   },
   low_investment: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -3145,6 +3188,7 @@ export let crisis = {
   },
   bankruptcies: {
     value: 0,
+    lastUpdate: 0,
     states: [
       {
         name: "low",
@@ -3266,15 +3310,8 @@ export function initializeCrisis(levelVariables, runtime) {
           onEnter: () => {
             console.log(`Crisis ${variable} entering: ${crisisState.name}`);
 
-            let crisisText = runtime.objects.UIText.getAllInstances();
-            crisisText = crisisText.filter(
-              (text) => text.instVars["id"] === variable
-            )[0];
-
-            crisisText.text = crisisState.name.substring(0, 1);
-
             let crisisWarningTexts = runtime.objects.UIText.getAllInstances();
-            const textID = variable + "_crisis";
+            const textID = variable + "_crisisWarning";
             const crisisWarningText = crisisWarningTexts.filter(
               (text) => text.instVars["id"] === textID
             )[0];
@@ -3296,7 +3333,7 @@ export function initializeCrisis(levelVariables, runtime) {
                   console.log("otherCrisis", otherCrisis);
                   const otherText = crisisWarningTexts.filter(
                     (text) =>
-                      text.instVars["id"] === otherCrisis.variable + "_crisis"
+                      text.instVars["id"] === otherCrisis.variable + "_crisisWarning"
                   )[0];
                   otherText.y = y;
                   y += 30;
@@ -3350,7 +3387,7 @@ function initializeCrisisTexts(runtime) {
       y
     );
     crisisText.text = variable.substring(0, 3) + ": " + shownCrisis[variable];
-    crisisText.instVars["id"] = variable + "_crisis";
+    crisisText.instVars["id"] = variable + "_crisisWarning";
     crisisText.isVisible = false;
 
     y += 30;
@@ -3364,12 +3401,11 @@ function initializeCrisisTexts(runtime) {
 export function updateCrisis(variable) {
   let totalUpdate = 0;
   for (const cause of crisis[variable].causes) {
-    console.log(`Updating crisis ${variable} with cause ${cause.cause}`)
     const update = cause.formula();
     crisis[variable].value += update;
     totalUpdate += update;
   }
-  console.log(`Crisis ${variable} updated: ${totalUpdate}`)
+  crisis[variable].lastUpdate = totalUpdate;
 }
 
 let shownCrisis = [];
@@ -3378,7 +3414,7 @@ export function updateShownCrisis(runtime) {
   for (const crisis in shownCrisis) {
     let crisisText = runtime.objects.UIText.getAllInstances();
     crisisText = crisisText.filter(
-      (text) => text.instVars["id"] === crisis + "_crisis"
+      (text) => text.instVars["id"] === crisis + "_crisisWarning"
     )[0];
 
     if (!shownCrisis[crisis]) {
@@ -3394,7 +3430,7 @@ function showCrisis(runtime, initialY) {
   let crisisTexts = runtime.objects.UIText.getAllInstances();
   for (const crisis of shownCrisis) {
     let crisisText = crisisTexts.filter(
-      (text) => text.instVars["id"] === crisis.variable + "_crisis"
+      (text) => text.instVars["id"] === crisis.variable + "_crisisWarning"
     )[0];
     crisisText.y = initialY;
     initialY += 30;

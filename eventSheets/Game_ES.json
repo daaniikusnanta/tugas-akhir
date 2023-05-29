@@ -143,7 +143,7 @@
 				},
 				{
 					"type": "script",
-					"script": "updateAllStatus();\nupdateAllCrisis();"
+					"script": "updateAllStatus(runtime);\nupdateAllCrisis(runtime);"
 				}
 			],
 			"sid": 202541279746809,
