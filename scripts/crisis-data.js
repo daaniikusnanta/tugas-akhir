@@ -21,7 +21,7 @@ import { status } from "./status-data.js";
  *     yIntercept: number,
  *     inertia: number,
  *     factor: number,
- *     formula: () => this.yIntercept + number,
+ *     formula: function(),
  * } Cause
  */
 
@@ -92,42 +92,36 @@ export let crisis = {
         cause: "taxes",
         yIntercept: -0.2,
         factor: 0.1,
-        factor: 0,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["taxes"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["taxes"].value / 100) * this.factor},
       },
       {
         cause: "economy",
         yIntercept: -0.2,
         factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["economy"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["economy"].value / 100) * this.factor},
       },
       {
         cause: "wage_income",
         yIntercept: -0.15,
         factor: 0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["wage_income"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["wage_income"].value / 100) * this.factor},
       },
       {
         cause: "security",
         yIntercept: 0.1,
         factor: -0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["security"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["security"].value / 100) * this.factor},
       },
       {
         cause: "debt_crisis",
         yIntercept: 0,
         factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["debt_crisis"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["debt_crisis"].value / 100) * this.factor},
       },
     ],
   },
@@ -176,16 +170,14 @@ export let crisis = {
         yIntercept: 0.1,
         factor: -0.25,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["investment"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["investment"].value / 100) * this.factor},
       },
       {
         cause: "inflation",
         yIntercept: 0.2,
         factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["inflation"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["inflation"].value / 100) * this.factor},
       },
     ],
   },
@@ -240,8 +232,7 @@ export let crisis = {
         yIntercept: -0.5,
         factor: 0.7,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["debt"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["debt"].value / 100) * this.factor},
       },
     ],
   },
@@ -296,8 +287,7 @@ export let crisis = {
         yIntercept: -0.3,
         factor: 0.6,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["taxes"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["taxes"].value / 100) * this.factor},
       },
     ],
   },
@@ -355,62 +345,55 @@ export let crisis = {
         yIntercept: 0,
         factor: -0.5,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["disease_control"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["disease_control"].value / 100) * this.factor},
       },
       {
         cause: "healthcare_system",
         yIntercept: 0.1,
         factor: -0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["healthcare_system"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["healthcare_system"].value / 100) * this.factor},
       },
       {
         cause: "mental_health_crisis",
         yIntercept: 0,
         factor: 0.05,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["mental_health_crisis"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["mental_health_crisis"].value / 100) * this.factor},
       },
       {
         cause: "urban_overcrowding",
         yIntercept: -0.2,
         factor: 0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["urban_overcrowding"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["urban_overcrowding"].value / 100) * this.factor},
       },
       {
         cause: "pollution",
         yIntercept: -0.2,
         factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["pollution"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["pollution"].value / 100) * this.factor},
       },
       {
         cause: "water_scarcity",
         yIntercept: -0.1,
         factor: 0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["water_scarcity"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["water_scarcity"].value / 100) * this.factor},
       },
       {
         cause: "food_insecurity",
         yIntercept: -0.1,
         factor: 0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["food_insecurity"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["food_insecurity"].value / 100) * this.factor},
       },
     ],
   },
@@ -468,61 +451,54 @@ export let crisis = {
         yIntercept: 0.1,
         factor: -0.25,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["disease_control"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["disease_control"].value / 100) * this.factor},
       },
       {
         cause: "public_health",
         yIntercept: 0.1,
         factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["public_health"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["public_health"].value / 100) * this.factor},
       },
       {
         cause: "healthcare_system",
         yIntercept: 0.5,
         factor: -0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["healthcare_system"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["healthcare_system"].value / 100) * this.factor},
       },
       {
         cause: "work_environment",
         yIntercept: 0.05,
         factor: -0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["work_environment"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["work_environment"].value / 100) * this.factor},
       },
       {
         cause: "pollution",
         yIntercept: 0,
         factor: 0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["pollution"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["pollution"].value / 100) * this.factor},
       },
       {
         cause: "water_scarcity",
         yIntercept: 0,
         factor: 0.05,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["water_scarcity"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["water_scarcity"].value / 100) * this.factor},
       },
       {
         cause: "food_insecurity",
         yIntercept: -0.1,
         factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["food_insecurity"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["food_insecurity"].value / 100) * this.factor},
       },
     ],
   },
@@ -580,49 +556,43 @@ export let crisis = {
         yIntercept: -0.1,
         factor: -0.35,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["public_health"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["public_health"].value / 100) * this.factor},
       },
       {
         cause: "tourism_creative",
         yIntercept: -0.05,
         factor: -0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["tourism_creative"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["tourism_creative"].value / 100) * this.factor},
       },
       {
         cause: "inflation",
         yIntercept: 0.1,
         factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["inflation"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["inflation"].value / 100) * this.factor},
       },
       {
         cause: "poverty",
         yIntercept: 0.1,
         factor: 0.25,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["poverty"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["poverty"].value / 100) * this.factor},
       },
       {
         cause: "unemployment",
         yIntercept: -0.1,
         factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["unemployment"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["unemployment"].value / 100) * this.factor},
       },
       {
         cause: "job_loss",
         yIntercept: 0.05,
         factor: -0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["job_loss"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["job_loss"].value / 100) * this.factor},
       },
     ],
   },
@@ -680,27 +650,24 @@ export let crisis = {
         yIntercept: 0.5,
         factor: -0.8,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["healthcare_system"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["healthcare_system"].value / 100) * this.factor},
       },
       {
         cause: "infectious_disease",
         yIntercept: -0.25,
         factor: 0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["infectious_disease"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["infectious_disease"].value / 100) * this.factor},
       },
       {
         cause: "chronic_disease",
         yIntercept: -0.2,
         factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["chronic_disease"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["chronic_disease"].value / 100) * this.factor},
       },
     ],
   },
@@ -758,18 +725,16 @@ export let crisis = {
         yIntercept: 0.5,
         factor: -0.6,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["health_workers"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["health_workers"].value / 100) * this.factor},
       },
       {
         cause: "productive_workers",
         yIntercept: 0.3,
         factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["productive_workers"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["productive_workers"].value / 100) * this.factor},
       },
     ],
   },
@@ -824,20 +789,18 @@ export let crisis = {
     causes: [
       {
         cause: "education_system",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["education_system"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["education_system"].value / 100) * this.factor},
       },
       {
         cause: "poverty",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: 0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["poverty"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["poverty"].value / 100) * this.factor},
       },
     ],
   },
@@ -858,7 +821,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["low_education"].value >= 60,
+            evaluation: () => crisis["low_education"].value >= 55,
           },
           {
             target: "low",
@@ -871,11 +834,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["low_education"].value < 60,
+            evaluation: () => crisis["low_education"].value < 55,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["low_education"].value >= 90,
+            evaluation: () => crisis["low_education"].value >= 80,
           },
         ],
       },
@@ -884,7 +847,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["low_education"].value < 90,
+            evaluation: () => crisis["low_education"].value < 80,
           },
         ],
       },
@@ -892,20 +855,18 @@ export let crisis = {
     causes: [
       {
         cause: "education_system",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.8,
+        factor: -1.0,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["education_system"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["education_system"].value / 100) * this.factor},
       },
       {
         cause: "teachers",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.4,
+        factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["teachers"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["teachers"].value / 100) * this.factor},
       },
     ],
   },
@@ -917,7 +878,7 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["teacher_shortage"].value >= 30,
+            evaluation: () => crisis["teacher_shortage"].value >= 40,
           },
         ],
       },
@@ -926,11 +887,11 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["teacher_shortage"].value >= 60,
+            evaluation: () => crisis["teacher_shortage"].value >= 55,
           },
           {
             target: "low",
-            evaluation: () => crisis["teacher_shortage"].value < 30,
+            evaluation: () => crisis["teacher_shortage"].value < 40,
           },
         ],
       },
@@ -939,11 +900,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["teacher_shortage"].value < 60,
+            evaluation: () => crisis["teacher_shortage"].value < 55,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["teacher_shortage"].value >= 90,
+            evaluation: () => crisis["teacher_shortage"].value >= 80,
           },
         ],
       },
@@ -952,7 +913,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["teacher_shortage"].value < 90,
+            evaluation: () => crisis["teacher_shortage"].value < 80,
           },
         ],
       },
@@ -960,20 +921,18 @@ export let crisis = {
     causes: [
       {
         cause: "teachers",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.4,
+        factor: -0.6,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["teachers"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["teachers"].value / 100) * this.factor},
       },
       {
         cause: "skill_shortage",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["skill_shortage"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["skill_shortage"].value / 100) * this.factor},
       },
     ],
   },
@@ -985,7 +944,7 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["technology_lag"].value >= 30,
+            evaluation: () => crisis["technology_lag"].value >= 40,
           },
         ],
       },
@@ -994,11 +953,11 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["technology_lag"].value >= 60,
+            evaluation: () => crisis["technology_lag"].value >= 55,
           },
           {
             target: "low",
-            evaluation: () => crisis["technology_lag"].value < 30,
+            evaluation: () => crisis["technology_lag"].value < 40,
           },
         ],
       },
@@ -1007,11 +966,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["technology_lag"].value < 60,
+            evaluation: () => crisis["technology_lag"].value < 55,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["technology_lag"].value >= 90,
+            evaluation: () => crisis["technology_lag"].value >= 80,
           },
         ],
       },
@@ -1020,7 +979,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["technology_lag"].value < 90,
+            evaluation: () => crisis["technology_lag"].value < 80,
           },
         ],
       },
@@ -1028,12 +987,10 @@ export let crisis = {
     causes: [
       {
         cause: "research",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 1.0,
+        factor: -1.0,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["healthcare_system"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["research"].value / 100) * this.factor},
       },
     ],
   },
@@ -1049,14 +1006,14 @@ export let crisis = {
       {
         name: "medium",
         transitions: [
-          { target: "high", evaluation: () => crisis["poverty"].value >= 60 },
+          { target: "high", evaluation: () => crisis["poverty"].value >= 55 },
           { target: "low", evaluation: () => crisis["poverty"].value < 30 },
         ],
       },
       {
         name: "high",
         transitions: [
-          { target: "medium", evaluation: () => crisis["poverty"].value < 60 },
+          { target: "medium", evaluation: () => crisis["poverty"].value < 55 },
           {
             target: "extreme",
             evaluation: () => crisis["poverty"].value >= 90,
@@ -1076,26 +1033,23 @@ export let crisis = {
         yIntercept: 0,
         factor: 0,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["social_security"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["social_security"].value / 100) * this.factor},
       },
       {
         cause: "recession",
         yIntercept: 0,
         factor: 0,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["recession"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["recession"].value / 100) * this.factor},
       },
       {
         cause: "discrimination",
         yIntercept: 0,
         factor: 0,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["discrimination"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["discrimination"].value / 100) * this.factor},
       },
     ],
   },
@@ -1133,7 +1087,7 @@ export let crisis = {
           },
           {
             target: "extreme",
-            evaluation: () => crisis["discrimination"].value >= 90,
+            evaluation: () => crisis["discrimination"].value >= 75,
           },
         ],
       },
@@ -1142,7 +1096,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["discrimination"].value < 90,
+            evaluation: () => crisis["discrimination"].value < 75,
           },
         ],
       },
@@ -1150,37 +1104,33 @@ export let crisis = {
     causes: [
       {
         cause: "empowerment",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["empowerment"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["empowerment"].value / 100) * this.factor},
       },
       {
         cause: "justice_system",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.01,
+        factor: -0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["justice_system"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["justice_system"].value / 100) * this.factor},
       },
       {
         cause: "media_bias",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["media_bias"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["media_bias"].value / 100) * this.factor},
       },
       {
         cause: "misinformation_spread",
         yIntercept: 0,
-        factor: 0,
+        factor: 0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["misinformation_spread"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["misinformation_spread"].value / 100) * this.factor},
       },
     ],
   },
@@ -1192,7 +1142,7 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["urban_overcrowding"].value >= 30,
+            evaluation: () => crisis["urban_overcrowding"].value >= 35,
           },
         ],
       },
@@ -1201,11 +1151,11 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["urban_overcrowding"].value >= 60,
+            evaluation: () => crisis["urban_overcrowding"].value >= 55,
           },
           {
             target: "low",
-            evaluation: () => crisis["urban_overcrowding"].value < 30,
+            evaluation: () => crisis["urban_overcrowding"].value < 35,
           },
         ],
       },
@@ -1214,11 +1164,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["urban_overcrowding"].value < 60,
+            evaluation: () => crisis["urban_overcrowding"].value < 55,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["urban_overcrowding"].value >= 90,
+            evaluation: () => crisis["urban_overcrowding"].value >= 80,
           },
         ],
       },
@@ -1227,7 +1177,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["urban_overcrowding"].value < 90,
+            evaluation: () => crisis["urban_overcrowding"].value < 80,
           },
         ],
       },
@@ -1235,37 +1185,33 @@ export let crisis = {
     causes: [
       {
         cause: "water_land",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.1,
+        factor: -0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["water_land"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["water_land"].value / 100) * this.factor},
       },
       {
         cause: "transportation",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["transportation"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["transportation"].value / 100) * this.factor},
       },
       {
         cause: "urban_housing",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.15,
+        factor: -0.35,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["urban_housing"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["urban_housing"].value / 100) * this.factor},
       },
       {
         cause: "overpopulation",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: 0.25,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["overpopulation"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["overpopulation"].value / 100) * this.factor},
       },
     ],
   },
@@ -1303,7 +1249,7 @@ export let crisis = {
           },
           {
             target: "extreme",
-            evaluation: () => crisis["housing_crisis"].value >= 90,
+            evaluation: () => crisis["housing_crisis"].value >= 85,
           },
         ],
       },
@@ -1312,7 +1258,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["housing_crisis"].value < 90,
+            evaluation: () => crisis["housing_crisis"].value < 85,
           },
         ],
       },
@@ -1320,28 +1266,25 @@ export let crisis = {
     causes: [
       {
         cause: "social_security",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.15,
+        factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["social_security"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["social_security"].value / 100) * this.factor},
       },
       {
         cause: "water_land",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.25,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["water_land"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["water_land"].value / 100) * this.factor},
       },
       {
         cause: "urban_housing",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.35,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["urban_housing"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["urban_housing"].value / 100) * this.factor},
       },
     ],
   },
@@ -1353,7 +1296,7 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["overpopulation"].value >= 30,
+            evaluation: () => crisis["overpopulation"].value >= 35,
           },
         ],
       },
@@ -1362,11 +1305,11 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["overpopulation"].value >= 60,
+            evaluation: () => crisis["overpopulation"].value >= 65,
           },
           {
             target: "low",
-            evaluation: () => crisis["overpopulation"].value < 30,
+            evaluation: () => crisis["overpopulation"].value < 35,
           },
         ],
       },
@@ -1375,11 +1318,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["overpopulation"].value < 60,
+            evaluation: () => crisis["overpopulation"].value < 65,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["overpopulation"].value >= 90,
+            evaluation: () => crisis["overpopulation"].value >= 85,
           },
         ],
       },
@@ -1388,7 +1331,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["overpopulation"].value < 90,
+            evaluation: () => crisis["overpopulation"].value < 85,
           },
         ],
       },
@@ -1396,12 +1339,11 @@ export let crisis = {
     causes: [
       {
         cause: "population_control",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.8,
+        factor: -1.0,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["population_control"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["population_control"].value / 100) * this.factor},
       },
     ],
   },
@@ -1413,15 +1355,15 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["pollution"].value >= 30,
+            evaluation: () => crisis["pollution"].value >= 25,
           },
         ],
       },
       {
         name: "medium",
         transitions: [
-          { target: "high", evaluation: () => crisis["pollution"].value >= 60 },
-          { target: "low", evaluation: () => crisis["pollution"].value < 30 },
+          { target: "high", evaluation: () => crisis["pollution"].value >= 55 },
+          { target: "low", evaluation: () => crisis["pollution"].value < 25 },
         ],
       },
       {
@@ -1429,55 +1371,51 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["pollution"].value < 60,
+            evaluation: () => crisis["pollution"].value < 55,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["pollution"].value >= 90,
+            evaluation: () => crisis["pollution"].value >= 80,
           },
         ],
       },
       {
         name: "extreme",
         transitions: [
-          { target: "high", evaluation: () => crisis["pollution"].value < 90 },
+          { target: "high", evaluation: () => crisis["pollution"].value < 80 },
         ],
       },
     ],
     causes: [
       {
         cause: "pollution_control",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.4,
+        factor: -0.5,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["pollution_control"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["pollution_control"].value / 100) * this.factor},
       },
       {
         cause: "forest",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.25,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["forest"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["forest"].value / 100) * this.factor},
       },
       {
         cause: "marine",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.15,
+        factor: -0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["marine"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["marine"].value / 100) * this.factor},
       },
       {
         cause: "sustainability",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["sustainability"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["sustainability"].value / 100) * this.factor},
       },
     ],
   },
@@ -1515,7 +1453,7 @@ export let crisis = {
           },
           {
             target: "extreme",
-            evaluation: () => crisis["deforestation"].value >= 90,
+            evaluation: () => crisis["deforestation"].value >= 80,
           },
         ],
       },
@@ -1524,7 +1462,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["deforestation"].value < 90,
+            evaluation: () => crisis["deforestation"].value < 80,
           },
         ],
       },
@@ -1532,29 +1470,26 @@ export let crisis = {
     causes: [
       {
         cause: "forest",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["forest"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["forest"].value / 100) * this.factor},
       },
       {
         cause: "sustainability",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["sustainability"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["sustainability"].value / 100) * this.factor},
       },
       {
         cause: "overpopulation",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["overpopulation"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["overpopulation"].value / 100) * this.factor},
       },
     ],
   },
@@ -1589,7 +1524,7 @@ export let crisis = {
           },
           {
             target: "extreme",
-            evaluation: () => crisis["overfishing"].value >= 90,
+            evaluation: () => crisis["overfishing"].value >= 80,
           },
         ],
       },
@@ -1598,7 +1533,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["overfishing"].value < 90,
+            evaluation: () => crisis["overfishing"].value < 80,
           },
         ],
       },
@@ -1606,20 +1541,18 @@ export let crisis = {
     causes: [
       {
         cause: "fisheries",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.1,
+        factor: 0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["fisheries"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["fisheries"].value / 100) * this.factor},
       },
       {
         cause: "sustainability",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: -0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["sustainability"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["sustainability"].value / 100) * this.factor},
       },
     ],
   },
@@ -1640,7 +1573,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["biodiversity_loss"].value >= 60,
+            evaluation: () => crisis["biodiversity_loss"].value >= 55,
           },
           {
             target: "low",
@@ -1653,11 +1586,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["biodiversity_loss"].value < 60,
+            evaluation: () => crisis["biodiversity_loss"].value < 55,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["biodiversity_loss"].value >= 90,
+            evaluation: () => crisis["biodiversity_loss"].value >= 85,
           },
         ],
       },
@@ -1666,7 +1599,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["biodiversity_loss"].value < 90,
+            evaluation: () => crisis["biodiversity_loss"].value < 85,
           },
         ],
       },
@@ -1674,12 +1607,10 @@ export let crisis = {
     causes: [
       {
         cause: "biodiversity",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.8,
+        factor: -1.0,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["healthcare_system"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["biodiversity"].value / 100) * this.factor},
       },
     ],
   },
@@ -1700,7 +1631,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["water_scarcity"].value >= 60,
+            evaluation: () => crisis["water_scarcity"].value >= 55,
           },
           {
             target: "low",
@@ -1713,11 +1644,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["water_scarcity"].value < 60,
+            evaluation: () => crisis["water_scarcity"].value < 55,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["water_scarcity"].value >= 90,
+            evaluation: () => crisis["water_scarcity"].value >= 80,
           },
         ],
       },
@@ -1726,7 +1657,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["water_scarcity"].value < 90,
+            evaluation: () => crisis["water_scarcity"].value < 80,
           },
         ],
       },
@@ -1734,27 +1665,24 @@ export let crisis = {
     causes: [
       {
         cause: "forest",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.25,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["forest"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["forest"].value / 100) * this.factor},
       },
       {
         cause: "marine",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.15,
+        factor: -0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["marine"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["marine"].value / 100) * this.factor},
       },
       {
         cause: "water_land",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.2,
+        factor: -0.35,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["water_land"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["water_land"].value / 100) * this.factor},
       },
     ],
   },
@@ -1766,7 +1694,7 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["mineral_scarcity"].value >= 30,
+            evaluation: () => crisis["mineral_scarcity"].value >= 35,
           },
         ],
       },
@@ -1779,7 +1707,7 @@ export let crisis = {
           },
           {
             target: "low",
-            evaluation: () => crisis["mineral_scarcity"].value < 30,
+            evaluation: () => crisis["mineral_scarcity"].value < 35,
           },
         ],
       },
@@ -1792,7 +1720,7 @@ export let crisis = {
           },
           {
             target: "extreme",
-            evaluation: () => crisis["mineral_scarcity"].value >= 90,
+            evaluation: () => crisis["mineral_scarcity"].value >= 85,
           },
         ],
       },
@@ -1801,7 +1729,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["mineral_scarcity"].value < 90,
+            evaluation: () => crisis["mineral_scarcity"].value < 85,
           },
         ],
       },
@@ -1809,11 +1737,10 @@ export let crisis = {
     causes: [
       {
         cause: "mineral_oil",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.15,
+        factor: -0.35,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["mineral_oil"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["mineral_oil"].value / 100) * this.factor},
       },
     ],
   },
@@ -1825,7 +1752,7 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["food_insecurity"].value >= 30,
+            evaluation: () => crisis["food_insecurity"].value >= 35,
           },
         ],
       },
@@ -1838,7 +1765,7 @@ export let crisis = {
           },
           {
             target: "low",
-            evaluation: () => crisis["food_insecurity"].value < 30,
+            evaluation: () => crisis["food_insecurity"].value < 35,
           },
         ],
       },
@@ -1851,7 +1778,7 @@ export let crisis = {
           },
           {
             target: "extreme",
-            evaluation: () => crisis["food_insecurity"].value >= 90,
+            evaluation: () => crisis["food_insecurity"].value >= 85,
           },
         ],
       },
@@ -1860,7 +1787,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["food_insecurity"].value < 90,
+            evaluation: () => crisis["food_insecurity"].value < 85,
           },
         ],
       },
@@ -1868,95 +1795,24 @@ export let crisis = {
     causes: [
       {
         cause: "food_sources",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.15,
+        factor: -0.35,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["food_sources"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["food_sources"].value / 100) * this.factor},
       },
       {
         cause: "agriculture",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.2,
+        factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["agriculture"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["agriculture"].value / 100) * this.factor},
       },
       {
         cause: "fisheries",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.15,
+        factor: -0.35,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["fisheries"].value / 100) * this.factor,
-      },
-    ],
-  },
-  energy_crisis: {
-    value: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["energy_crisis"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["energy_crisis"].value >= 60,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["energy_crisis"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["energy_crisis"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["energy_crisis"].value >= 90,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["energy_crisis"].value < 90,
-          },
-        ],
-      },
-    ],
-    causes: [
-      {
-        cause: "mineral_oil_industry",
-        yIntercept: 0,
-        factor: 0,
-        inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["mineral_oil_industry"].value / 100) * this.factor,
-      },
-      {
-        cause: "power_energy",
-        yIntercept: 0,
-        factor: 0,
-        inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["power_energy"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["fisheries"].value / 100) * this.factor},
       },
     ],
   },
@@ -1977,7 +1833,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["infrastructure_inequality"].value >= 60,
+            evaluation: () => crisis["infrastructure_inequality"].value >= 50,
           },
           {
             target: "low",
@@ -1990,11 +1846,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["infrastructure_inequality"].value < 60,
+            evaluation: () => crisis["infrastructure_inequality"].value < 50,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["infrastructure_inequality"].value >= 90,
+            evaluation: () => crisis["infrastructure_inequality"].value >= 75,
           },
         ],
       },
@@ -2003,7 +1859,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["infrastructure_inequality"].value < 90,
+            evaluation: () => crisis["infrastructure_inequality"].value < 75,
           },
         ],
       },
@@ -2011,21 +1867,85 @@ export let crisis = {
     causes: [
       {
         cause: "communication_information",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.15,
+        factor: -0.35,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["communication_information"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["communication_information"].value / 100) * this.factor},
       },
       {
         cause: "transportation",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.15,
+        factor: -0.35,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["transportation"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["transportation"].value / 100) * this.factor},
+      },
+    ],
+  },
+  energy_crisis: {
+    value: 0,
+    states: [
+      {
+        name: "low",
+        transitions: [
+          {
+            target: "medium",
+            evaluation: () => crisis["energy_crisis"].value >= 30,
+          },
+        ],
+      },
+      {
+        name: "medium",
+        transitions: [
+          {
+            target: "high",
+            evaluation: () => crisis["energy_crisis"].value >= 50,
+          },
+          {
+            target: "low",
+            evaluation: () => crisis["energy_crisis"].value < 30,
+          },
+        ],
+      },
+      {
+        name: "high",
+        transitions: [
+          {
+            target: "medium",
+            evaluation: () => crisis["energy_crisis"].value < 50,
+          },
+          {
+            target: "extreme",
+            evaluation: () => crisis["energy_crisis"].value >= 80,
+          },
+        ],
+      },
+      {
+        name: "extreme",
+        transitions: [
+          {
+            target: "high",
+            evaluation: () => crisis["energy_crisis"].value < 80,
+          },
+        ],
+      },
+    ],
+    causes: [
+      {
+        cause: "mineral_oil_industry",
+        yIntercept: 0.05,
+        factor: -0.2,
+        inertia: 0,
+        formula: function() {return this.yIntercept +
+          (status["mineral_oil_industry"].value / 100) * this.factor},
+      },
+      {
+        cause: "power_energy",
+        yIntercept: 0.85,
+        factor: -1.0,
+        inertia: 0,
+        formula: function() {return this.yIntercept + (status["power_energy"].value / 100) * this.factor},
       },
     ],
   },
@@ -2046,7 +1966,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["skill_shortage"].value >= 60,
+            evaluation: () => crisis["skill_shortage"].value >= 50,
           },
           {
             target: "low",
@@ -2059,11 +1979,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["skill_shortage"].value < 60,
+            evaluation: () => crisis["skill_shortage"].value < 50,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["skill_shortage"].value >= 90,
+            evaluation: () => crisis["skill_shortage"].value >= 80,
           },
         ],
       },
@@ -2072,7 +1992,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["skill_shortage"].value < 90,
+            evaluation: () => crisis["skill_shortage"].value < 80,
           },
         ],
       },
@@ -2080,29 +2000,26 @@ export let crisis = {
     causes: [
       {
         cause: "low_education",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.1,
+        factor: 0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["low_education"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["low_education"].value / 100) * this.factor},
       },
       {
         cause: "dropout_crisis",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.05,
+        factor: 0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["dropout_crisis"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["dropout_crisis"].value / 100) * this.factor},
       },
       {
         cause: "discrimination",
         yIntercept: 0,
-        factor: 0,
+        factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["discrimination"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["discrimination"].value / 100) * this.factor},
       },
     ],
   },
@@ -2123,7 +2040,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["unemployment"].value >= 60,
+            evaluation: () => crisis["unemployment"].value >= 50,
           },
           {
             target: "low",
@@ -2136,11 +2053,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["unemployment"].value < 60,
+            evaluation: () => crisis["unemployment"].value < 50,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["unemployment"].value >= 90,
+            evaluation: () => crisis["unemployment"].value >= 80,
           },
         ],
       },
@@ -2149,7 +2066,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["unemployment"].value < 90,
+            evaluation: () => crisis["unemployment"].value < 80,
           },
         ],
       },
@@ -2157,53 +2074,47 @@ export let crisis = {
     causes: [
       {
         cause: "empowerment",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["empowerment"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["empowerment"].value / 100) * this.factor},
       },
       {
         cause: "security",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: -0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["security"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["security"].value / 100) * this.factor},
       },
       {
         cause: "manufacturing",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: -0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["manufacturing"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["manufacturing"].value / 100) * this.factor},
       },
       {
         cause: "tourism_creative",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: -0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["tourism_creative"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["tourism_creative"].value / 100) * this.factor},
       },
       {
         cause: "low_education",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.2,
+        factor: 0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["low_education"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["low_education"].value / 100) * this.factor},
       },
       {
         cause: "dropout_crisis",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.1,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["dropout_crisis"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["dropout_crisis"].value / 100) * this.factor},
       },
     ],
   },
@@ -2215,76 +2126,71 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["job_loss"].value >= 30,
+            evaluation: () => crisis["job_loss"].value >= 25,
           },
         ],
       },
       {
         name: "medium",
         transitions: [
-          { target: "high", evaluation: () => crisis["job_loss"].value >= 60 },
-          { target: "low", evaluation: () => crisis["job_loss"].value < 30 },
+          { target: "high", evaluation: () => crisis["job_loss"].value >= 50 },
+          { target: "low", evaluation: () => crisis["job_loss"].value < 25 },
         ],
       },
       {
         name: "high",
         transitions: [
-          { target: "medium", evaluation: () => crisis["job_loss"].value < 60 },
+          { target: "medium", evaluation: () => crisis["job_loss"].value < 50 },
           {
             target: "extreme",
-            evaluation: () => crisis["job_loss"].value >= 90,
+            evaluation: () => crisis["job_loss"].value >= 70,
           },
         ],
       },
       {
         name: "extreme",
         transitions: [
-          { target: "high", evaluation: () => crisis["job_loss"].value < 90 },
+          { target: "high", evaluation: () => crisis["job_loss"].value < 70 },
         ],
       },
     ],
     causes: [
       {
-        cause: "work_environment",
-        yIntercept: 0,
-        factor: 0,
+        cause: "wage_income",
+        yIntercept: 0.15,
+        factor: -0.25,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["work_environment"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["wage_income"].value / 100) * this.factor},
+      },
+      {
+        cause: "work_environment",
+        yIntercept: 0.1,
+        factor: -0.2,
+        inertia: 0,
+        formula: function() {return this.yIntercept +
+          (status["work_environment"].value / 100) * this.factor},
       },
       {
         cause: "jobs",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.15,
+        factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["jobs"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["jobs"].value / 100) * this.factor},
       },
       {
         cause: "security",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: -0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["security"].value / 100) * this.factor,
-      },
-      {
-        cause: "wage_income",
-        yIntercept: 0,
-        factor: 0,
-        inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["wage_income"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["security"].value / 100) * this.factor},
       },
       {
         cause: "infectious_disease",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["infectious_disease"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["infectious_disease"].value / 100) * this.factor},
       },
     ],
   },
@@ -2296,7 +2202,7 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["cyber_attack"].value >= 30,
+            evaluation: () => crisis["cyber_attack"].value >= 25,
           },
         ],
       },
@@ -2305,11 +2211,11 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["cyber_attack"].value >= 60,
+            evaluation: () => crisis["cyber_attack"].value >= 55,
           },
           {
             target: "low",
-            evaluation: () => crisis["cyber_attack"].value < 30,
+            evaluation: () => crisis["cyber_attack"].value < 25,
           },
         ],
       },
@@ -2318,11 +2224,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["cyber_attack"].value < 60,
+            evaluation: () => crisis["cyber_attack"].value < 55,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["cyber_attack"].value >= 90,
+            evaluation: () => crisis["cyber_attack"].value >= 80,
           },
         ],
       },
@@ -2331,7 +2237,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["cyber_attack"].value < 90,
+            evaluation: () => crisis["cyber_attack"].value < 80,
           },
         ],
       },
@@ -2339,21 +2245,19 @@ export let crisis = {
     causes: [
       {
         cause: "defense_infrastructure",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: -0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["defense_infrastructure"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["defense_infrastructure"].value / 100) * this.factor},
       },
       {
         cause: "foreign_relations",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["foreign_relations"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["foreign_relations"].value / 100) * this.factor},
       },
     ],
   },
@@ -2365,15 +2269,15 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["terrorism"].value >= 30,
+            evaluation: () => crisis["terrorism"].value >= 25,
           },
         ],
       },
       {
         name: "medium",
         transitions: [
-          { target: "high", evaluation: () => crisis["terrorism"].value >= 60 },
-          { target: "low", evaluation: () => crisis["terrorism"].value < 30 },
+          { target: "high", evaluation: () => crisis["terrorism"].value >= 50 },
+          { target: "low", evaluation: () => crisis["terrorism"].value < 25 },
         ],
       },
       {
@@ -2381,47 +2285,44 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["terrorism"].value < 60,
+            evaluation: () => crisis["terrorism"].value < 50,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["terrorism"].value >= 90,
+            evaluation: () => crisis["terrorism"].value >= 75,
           },
         ],
       },
       {
         name: "extreme",
         transitions: [
-          { target: "high", evaluation: () => crisis["terrorism"].value < 90 },
+          { target: "high", evaluation: () => crisis["terrorism"].value < 75 },
         ],
       },
     ],
     causes: [
       {
-        cause: "defense_infrastructure",
-        yIntercept: 0,
-        factor: 0,
+        cause: "foreign_relations",
+        yIntercept: 0.1,
+        factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["defense_infrastructure"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["foreign_relations"].value / 100) * this.factor},
       },
       {
-        cause: "foreign_relations",
-        yIntercept: 0,
-        factor: 0,
+        cause: "defense_infrastructure",
+        yIntercept: -0.1,
+        factor: -0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["foreign_relations"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["defense_infrastructure"].value / 100) * this.factor},
       },
       {
         cause: "defense_force",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.15,
+        factor: -0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["defense_force"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["defense_force"].value / 100) * this.factor},
       },
     ],
   },
@@ -2433,7 +2334,7 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["war_aggression"].value >= 30,
+            evaluation: () => crisis["war_aggression"].value >= 35,
           },
         ],
       },
@@ -2446,7 +2347,7 @@ export let crisis = {
           },
           {
             target: "low",
-            evaluation: () => crisis["war_aggression"].value < 30,
+            evaluation: () => crisis["war_aggression"].value < 35,
           },
         ],
       },
@@ -2459,7 +2360,7 @@ export let crisis = {
           },
           {
             target: "extreme",
-            evaluation: () => crisis["war_aggression"].value >= 90,
+            evaluation: () => crisis["war_aggression"].value >= 85,
           },
         ],
       },
@@ -2468,7 +2369,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["war_aggression"].value < 90,
+            evaluation: () => crisis["war_aggression"].value < 85,
           },
         ],
       },
@@ -2476,20 +2377,18 @@ export let crisis = {
     causes: [
       {
         cause: "foreign_relations",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.5,
+        factor: -0.6,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["foreign_relations"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["foreign_relations"].value / 100) * this.factor},
       },
       {
         cause: "defense_force",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.2,
+        factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["defense_force"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["defense_force"].value / 100) * this.factor},
       },
     ],
   },
@@ -2501,7 +2400,7 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["separatist_groups"].value >= 30,
+            evaluation: () => crisis["separatist_groups"].value >= 35,
           },
         ],
       },
@@ -2514,7 +2413,7 @@ export let crisis = {
           },
           {
             target: "low",
-            evaluation: () => crisis["separatist_groups"].value < 30,
+            evaluation: () => crisis["separatist_groups"].value < 35,
           },
         ],
       },
@@ -2527,7 +2426,7 @@ export let crisis = {
           },
           {
             target: "extreme",
-            evaluation: () => crisis["separatist_groups"].value >= 90,
+            evaluation: () => crisis["separatist_groups"].value >= 85,
           },
         ],
       },
@@ -2536,7 +2435,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["separatist_groups"].value < 90,
+            evaluation: () => crisis["separatist_groups"].value < 85,
           },
         ],
       },
@@ -2544,45 +2443,40 @@ export let crisis = {
     causes: [
       {
         cause: "water_land",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: -0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["water_land"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["water_land"].value / 100) * this.factor},
       },
       {
         cause: "foreign_relations",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.2,
+        factor: -0.45,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["foreign_relations"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["foreign_relations"].value / 100) * this.factor},
       },
       {
         cause: "poverty",
         yIntercept: 0,
-        factor: 0,
+        factor: 0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["poverty"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["poverty"].value / 100) * this.factor},
       },
       {
         cause: "overpopulation",
         yIntercept: 0,
-        factor: 0,
+        factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["overpopulation"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["overpopulation"].value / 100) * this.factor},
       },
       {
         cause: "media_bias",
         yIntercept: 0,
-        factor: 0,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["media_bias"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["media_bias"].value / 100) * this.factor},
       },
     ],
   },
@@ -2620,7 +2514,7 @@ export let crisis = {
           },
           {
             target: "extreme",
-            evaluation: () => crisis["misinformation_spread"].value >= 90,
+            evaluation: () => crisis["misinformation_spread"].value >= 80,
           },
         ],
       },
@@ -2629,7 +2523,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["misinformation_spread"].value < 90,
+            evaluation: () => crisis["misinformation_spread"].value < 80,
           },
         ],
       },
@@ -2638,44 +2532,39 @@ export let crisis = {
       {
         cause: "media_neutrality",
         yIntercept: 0,
-        factor: 0,
+        factor: -0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["media_neutrality"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["media_neutrality"].value / 100) * this.factor},
       },
       {
         cause: "communication_information",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.05,
+        factor: -0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["communication_information"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["communication_information"].value / 100) * this.factor},
       },
       {
         cause: "poverty",
         yIntercept: 0,
-        factor: 0,
+        factor: 0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["poverty"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["poverty"].value / 100) * this.factor},
       },
       {
         cause: "low_education",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["low_education"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["low_education"].value / 100) * this.factor},
       },
       {
         cause: "unemployment",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.1,
+        factor: 0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["unemployment"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["unemployment"].value / 100) * this.factor},
       },
     ],
   },
@@ -2710,43 +2599,40 @@ export let crisis = {
           },
           {
             target: "extreme",
-            evaluation: () => crisis["media_bias"].value >= 90,
+            evaluation: () => crisis["media_bias"].value >= 80,
           },
         ],
       },
       {
         name: "extreme",
         transitions: [
-          { target: "high", evaluation: () => crisis["media_bias"].value < 90 },
+          { target: "high", evaluation: () => crisis["media_bias"].value < 80 },
         ],
       },
     ],
     causes: [
       {
         cause: "communication_information",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["communication_information"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["communication_information"].value / 100) * this.factor},
       },
       {
         cause: "media_neutrality",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.4,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["media_neutrality"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["media_neutrality"].value / 100) * this.factor},
       },
       {
         cause: "social_unrest",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["social_unrest"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["social_unrest"].value / 100) * this.factor},
       },
     ],
   },
@@ -2784,7 +2670,7 @@ export let crisis = {
           },
           {
             target: "extreme",
-            evaluation: () => crisis["political_instability"].value >= 90,
+            evaluation: () => crisis["political_instability"].value >= 80,
           },
         ],
       },
@@ -2793,7 +2679,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["political_instability"].value < 90,
+            evaluation: () => crisis["political_instability"].value < 80,
           },
         ],
       },
@@ -2801,20 +2687,18 @@ export let crisis = {
     causes: [
       {
         cause: "governance",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.45,
+        factor: -0.7,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["governance"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["governance"].value / 100) * this.factor},
       },
       {
         cause: "misinformation_spread",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["misinformation_spread"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["misinformation_spread"].value / 100) * this.factor},
       },
     ],
   },
@@ -2835,7 +2719,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["social_unrest"].value >= 60,
+            evaluation: () => crisis["social_unrest"].value >= 55,
           },
           {
             target: "low",
@@ -2848,11 +2732,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["social_unrest"].value < 60,
+            evaluation: () => crisis["social_unrest"].value < 55,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["social_unrest"].value >= 90,
+            evaluation: () => crisis["social_unrest"].value >= 75,
           },
         ],
       },
@@ -2861,7 +2745,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["social_unrest"].value < 90,
+            evaluation: () => crisis["social_unrest"].value < 75,
           },
         ],
       },
@@ -2869,63 +2753,56 @@ export let crisis = {
     causes: [
       {
         cause: "recession",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.1,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["recession"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["recession"].value / 100) * this.factor},
       },
       {
         cause: "infectious_disease",
         yIntercept: 0,
-        factor: 0,
+        factor: -0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["infectious_disease"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["infectious_disease"].value / 100) * this.factor},
       },
       {
         cause: "water_scarcity",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.05,
+        factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["water_scarcity"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["water_scarcity"].value / 100) * this.factor},
       },
       {
         cause: "infrastructure_inequality",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.05,
+        factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["infrastructure_inequality"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["infrastructure_inequality"].value / 100) * this.factor},
       },
       {
         cause: "energy_crisis",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.05,
+        factor: 0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["energy_crisis"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["energy_crisis"].value / 100) * this.factor},
       },
       {
         cause: "unemployment",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.05,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["unemployment"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["unemployment"].value / 100) * this.factor},
       },
       {
         cause: "political_instability",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.1,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["political_instability"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["political_instability"].value / 100) * this.factor},
       },
     ],
   },
@@ -2957,60 +2834,55 @@ export let crisis = {
           },
           {
             target: "extreme",
-            evaluation: () => crisis["conflicts"].value >= 90,
+            evaluation: () => crisis["conflicts"].value >= 75,
           },
         ],
       },
       {
         name: "extreme",
         transitions: [
-          { target: "high", evaluation: () => crisis["conflicts"].value < 90 },
+          { target: "high", evaluation: () => crisis["conflicts"].value < 75 },
         ],
       },
     ],
     causes: [
       {
         cause: "justice_system",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["justice_system"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["justice_system"].value / 100) * this.factor},
       },
       {
         cause: "discrimination",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.1,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["discrimination"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["discrimination"].value / 100) * this.factor},
       },
       {
         cause: "poverty",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.1,
+        factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["poverty"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["poverty"].value / 100) * this.factor},
       },
       {
         cause: "misinformation_spread",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.05,
+        factor: 0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["misinformation_spread"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["misinformation_spread"].value / 100) * this.factor},
       },
       {
         cause: "media_bias",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.05,
+        factor: 0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["media_bias"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["media_bias"].value / 100) * this.factor},
       },
     ],
   },
@@ -3031,7 +2903,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["crime_violence"].value >= 60,
+            evaluation: () => crisis["crime_violence"].value >= 55,
           },
           {
             target: "low",
@@ -3044,11 +2916,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["crime_violence"].value < 60,
+            evaluation: () => crisis["crime_violence"].value < 55,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["crime_violence"].value >= 90,
+            evaluation: () => crisis["crime_violence"].value >= 75,
           },
         ],
       },
@@ -3057,7 +2929,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["crime_violence"].value < 90,
+            evaluation: () => crisis["crime_violence"].value < 75,
           },
         ],
       },
@@ -3066,69 +2938,61 @@ export let crisis = {
       {
         cause: "jobs",
         yIntercept: 0,
-        factor: 0,
+        factor: -0.25,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["jobs"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["jobs"].value / 100) * this.factor},
       },
       {
         cause: "justice_system",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.3,
+        factor: 0.5,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["justice_system"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["justice_system"].value / 100) * this.factor},
       },
       {
         cause: "discrimination",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.1,
+        factor: 0.25,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["discrimination"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["discrimination"].value / 100) * this.factor},
       },
       {
         cause: "poverty",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.05,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["poverty"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["poverty"].value / 100) * this.factor},
       },
       {
         cause: "media_bias",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["media_bias"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["media_bias"].value / 100) * this.factor},
       },
       {
         cause: "unemployment",
         yIntercept: 0,
-        factor: 0,
+        factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["unemployment"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["unemployment"].value / 100) * this.factor},
       },
       {
         cause: "black_market",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.05,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["black_market"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["black_market"].value / 100) * this.factor},
       },
       {
         cause: "food_insecurity",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.05,
+        factor: 0.1,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["food_insecurity"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["food_insecurity"].value / 100) * this.factor},
       },
     ],
   },
@@ -3149,7 +3013,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["black_market"].value >= 60,
+            evaluation: () => crisis["black_market"].value >= 55,
           },
           {
             target: "low",
@@ -3162,11 +3026,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["black_market"].value < 60,
+            evaluation: () => crisis["black_market"].value < 55,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["black_market"].value >= 90,
+            evaluation: () => crisis["black_market"].value >= 80,
           },
         ],
       },
@@ -3175,7 +3039,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["black_market"].value < 90,
+            evaluation: () => crisis["black_market"].value < 80,
           },
         ],
       },
@@ -3183,28 +3047,25 @@ export let crisis = {
     causes: [
       {
         cause: "transportation",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.2,
+        factor: -0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["transportation"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["transportation"].value / 100) * this.factor},
       },
       {
         cause: "tax_evasion",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.05,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["tax_evasion"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["tax_evasion"].value / 100) * this.factor},
       },
       {
         cause: "inflation",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.05,
+        factor: 0.2,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (crisis["inflation"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (crisis["inflation"].value / 100) * this.factor},
       },
     ],
   },
@@ -3242,7 +3103,7 @@ export let crisis = {
           },
           {
             target: "extreme",
-            evaluation: () => crisis["low_investment"].value >= 90,
+            evaluation: () => crisis["low_investment"].value >= 80,
           },
         ],
       },
@@ -3251,7 +3112,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["low_investment"].value < 90,
+            evaluation: () => crisis["low_investment"].value < 80,
           },
         ],
       },
@@ -3259,29 +3120,26 @@ export let crisis = {
     causes: [
       {
         cause: "investment",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.6,
+        factor: -0.7,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["investment"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["investment"].value / 100) * this.factor},
       },
       {
         cause: "productive_workers",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.2,
+        factor: -0.3,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (status["productive_workers"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (status["productive_workers"].value / 100) * this.factor},
       },
       {
         cause: "infrastructure_inequality",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: -0.15,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["infrastructure_inequality"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["infrastructure_inequality"].value / 100) * this.factor},
       },
     ],
   },
@@ -3302,7 +3160,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["bankruptcies"].value >= 60,
+            evaluation: () => crisis["bankruptcies"].value >= 65,
           },
           {
             target: "low",
@@ -3315,11 +3173,11 @@ export let crisis = {
         transitions: [
           {
             target: "medium",
-            evaluation: () => crisis["bankruptcies"].value < 60,
+            evaluation: () => crisis["bankruptcies"].value < 65,
           },
           {
             target: "extreme",
-            evaluation: () => crisis["bankruptcies"].value >= 90,
+            evaluation: () => crisis["bankruptcies"].value >= 80,
           },
         ],
       },
@@ -3328,7 +3186,7 @@ export let crisis = {
         transitions: [
           {
             target: "high",
-            evaluation: () => crisis["bankruptcies"].value < 90,
+            evaluation: () => crisis["bankruptcies"].value < 80,
           },
         ],
       },
@@ -3339,25 +3197,22 @@ export let crisis = {
         yIntercept: 0,
         factor: 0,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["taxes"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["taxes"].value / 100) * this.factor},
       },
       {
         cause: "economy",
         yIntercept: 0,
         factor: 0,
         inertia: 0,
-        formula: () =>
-          this.yIntercept + (status["economy"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept + (status["economy"].value / 100) * this.factor},
       },
       {
         cause: "low_investment",
         yIntercept: 0,
         factor: 0,
         inertia: 0,
-        formula: () =>
-          this.yIntercept +
-          (crisis["low_investment"].value / 100) * this.factor,
+        formula: function() {return this.yIntercept +
+          (crisis["low_investment"].value / 100) * this.factor},
       },
     ],
   },
@@ -3507,16 +3362,14 @@ function initializeCrisisTexts(runtime) {
  * @param {string} variable The variable.
  */
 export function updateCrisis(variable) {
+  let totalUpdate = 0;
   for (const cause of crisis[variable].causes) {
+    console.log(`Updating crisis ${variable} with cause ${cause.cause}`)
     const update = cause.formula();
-    if (update > 0) {
-      crisis[variable].value += update;
-      // console.log(cause.cause, "update", variable, update)
-    } else {
-      crisis[variable].value += cause.yIntercept;
-      // console.log(cause.cause, "y-value", variable, cause.yIntercept)
-    }
+    crisis[variable].value += update;
+    totalUpdate += update;
   }
+  console.log(`Crisis ${variable} updated: ${totalUpdate}`)
 }
 
 let shownCrisis = [];
