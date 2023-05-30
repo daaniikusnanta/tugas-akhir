@@ -1,0 +1,98 @@
+{
+	"name": "ScrollablePanel",
+	"plugin-id": "Sprite",
+	"sid": 112669485322633,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "min",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 102620601168129
+		},
+		{
+			"name": "max",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 444560911967293
+		},
+		{
+			"name": "initialLength",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 576515117809994
+		},
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 109569572510085
+		},
+		{
+			"name": "direction",
+			"type": "string",
+			"desc": "vertical or horizontal",
+			"show": true,
+			"sid": 910232774995453
+		},
+		{
+			"name": "initialMin",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 504393505669551
+		},
+		{
+			"name": "initialMax",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 273726617067250
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 666182139754125
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 299669268671002
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5120950,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 797682727298180,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

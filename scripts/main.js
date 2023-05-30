@@ -19,7 +19,7 @@ function Tick(runtime) {
 	updateStatusView(runtime);
 
 	for (const crisisVariable in crisis) {
-		let crisisText = runtime.objects.UIText.getAllInstances();
+		let crisisText = runtime.objects.UIText2.getAllInstances();
     	crisisText = crisisText.filter(text => text.instVars['id'] === crisisVariable)[0];
 
 		let update = crisis[crisisVariable].lastUpdate.toFixed(2);
@@ -54,7 +54,7 @@ function GameLayoutAfterLayoutStartHandler(runtime)
 }
 
 function updateStatusView(runtime) {
-	let statusTexts = runtime.objects.UIText.getAllInstances();
+	let statusTexts = runtime.objects.UIText2.getAllInstances();
     statusTexts = statusTexts.filter(text => text.instVars['id'].endsWith("_status"));
 
     for (const statusText of statusTexts) {

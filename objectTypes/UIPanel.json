@@ -1,61 +1,28 @@
 {
 	"name": "UIPanel",
-	"plugin-id": "Sprite",
-	"sid": 672593327680677,
+	"plugin-id": "NinePatch",
+	"sid": 229785423124815,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 248779726102864
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
-	"animations": {
-		"items": [
-			{
-				"frames": [
-					{
-						"width": 252,
-						"height": 252,
-						"originX": 0.5,
-						"originY": 0.5,
-						"originalSource": "",
-						"exportFormat": "lossless",
-						"exportQuality": 0.8,
-						"imageSpriteId": 1132184,
-						"collisionPoly": {
-							"points": [
-								0.003968253968253968,
-								0.003968253968253968,
-								0.996031746031746,
-								0.003968253968253968,
-								0.996031746031746,
-								0.996031746031746,
-								0.003968253968253968,
-								0.996031746031746
-							]
-						},
-						"useCollisionPoly": true,
-						"duration": 1
-					},
-					{
-						"width": 252,
-						"height": 252,
-						"originX": 0.5,
-						"originY": 0.5,
-						"originalSource": "",
-						"exportFormat": "lossless",
-						"exportQuality": 0.8,
-						"imageSpriteId": 3853667,
-						"useCollisionPoly": true,
-						"duration": 1
-					}
-				],
-				"sid": 870154163486023,
-				"name": "Animation 1",
-				"isLooping": false,
-				"isPingPong": false,
-				"repeatCount": 1,
-				"repeatTo": 0,
-				"speed": 5
-			}
-		],
-		"subfolders": []
+	"image": {
+		"width": 250,
+		"height": 250,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 7640727,
+		"useCollisionPoly": true
 	}
 }

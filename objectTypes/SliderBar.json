@@ -1,0 +1,107 @@
+{
+	"name": "SliderBar",
+	"plugin-id": "Sprite",
+	"sid": 994346589743597,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 808263979580897
+		},
+		{
+			"name": "minX",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 711816590950362
+		},
+		{
+			"name": "maxX",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 438664202466674
+		},
+		{
+			"name": "value",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 707026440125227
+		},
+		{
+			"name": "maxValue",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 675626808665021
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 719400827807920
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 15,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8233515,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0,
+								0.9375,
+								0,
+								1,
+								0.06666666666666667,
+								1,
+								0.3333333333333333,
+								0.875,
+								0.6,
+								0.75,
+								0.8,
+								0.5625,
+								1,
+								0.4375,
+								1,
+								0.25,
+								0.8,
+								0.125,
+								0.6,
+								0,
+								0.3333333333333333,
+								0,
+								0.06666666666666667
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 350459240208297,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -3310,7 +3310,7 @@ export function initializeCrisis(levelVariables, runtime) {
           onEnter: () => {
             console.log(`Crisis ${variable} entering: ${crisisState.name}`);
 
-            let crisisWarningTexts = runtime.objects.UIText.getAllInstances();
+            let crisisWarningTexts = runtime.objects.UIText2.getAllInstances();
             const textID = variable + "_crisisWarning";
             const crisisWarningText = crisisWarningTexts.filter(
               (text) => text.instVars["id"] === textID
@@ -3381,7 +3381,7 @@ function initializeCrisisTexts(runtime) {
   let y = 30;
 
   for (const variable in crisis) {
-    const crisisText = runtime.objects.UIText.createInstance(
+    const crisisText = runtime.objects.UIText2.createInstance(
       "PanelCrisis",
       x,
       y
@@ -3412,7 +3412,7 @@ let shownCrisis = [];
 
 export function updateShownCrisis(runtime) {
   for (const crisis in shownCrisis) {
-    let crisisText = runtime.objects.UIText.getAllInstances();
+    let crisisText = runtime.objects.UIText2.getAllInstances();
     crisisText = crisisText.filter(
       (text) => text.instVars["id"] === crisis + "_crisisWarning"
     )[0];
@@ -3427,7 +3427,7 @@ export function updateShownCrisis(runtime) {
 }
 
 function showCrisis(runtime, initialY) {
-  let crisisTexts = runtime.objects.UIText.getAllInstances();
+  let crisisTexts = runtime.objects.UIText2.getAllInstances();
   for (const crisis of shownCrisis) {
     let crisisText = crisisTexts.filter(
       (text) => text.instVars["id"] === crisis.variable + "_crisisWarning"

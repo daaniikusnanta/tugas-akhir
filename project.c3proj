@@ -37,8 +37,22 @@
 		},
 		{
 			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Spritefont2",
+			"name": "Sprite font",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -58,15 +72,15 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Touch",
-			"name": "Touch",
+			"id": "Tilemap",
+			"name": "Tilemap",
 			"author": "Scirra",
 			"bundled": false
 		},
 		{
 			"type": "plugin",
-			"id": "progressbar",
-			"name": "Progress bar",
+			"id": "Touch",
+			"name": "Touch",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -79,8 +93,22 @@
 		},
 		{
 			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Timer",
 			"name": "Timer",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
 			"author": "Scirra",
 			"bundled": false
 		}
@@ -89,18 +117,23 @@
 	"objectTypes": {
 		"items": [
 			"GameManager",
-			"TickBar",
-			"Day",
 			"ButtonPause",
 			"ButtonInrease",
 			"ButtonDecrease",
 			"TickRate",
 			"VSCodePlugin",
 			"StatusSlider",
-			"UIPanel",
-			"UIText",
+			"UIText2",
 			"Button",
-			"TiledBackground"
+			"TiledBackground",
+			"TilemapBiome",
+			"UIPanel",
+			"ScrollablePanel",
+			"UIText",
+			"ProgressBar",
+			"ProgressBarBG",
+			"SliderBarBG",
+			"SliderBar"
 		],
 		"subfolders": [
 			{
@@ -119,7 +152,8 @@
 	"families": {
 		"items": [
 			"Text",
-			"Clickable"
+			"Clickable",
+			"Family1"
 		],
 		"subfolders": []
 	},

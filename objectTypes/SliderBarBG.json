@@ -1,0 +1,49 @@
+{
+	"name": "SliderBarBG",
+	"plugin-id": "Sprite",
+	"sid": 839865218062749,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 204,
+						"height": 13,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 461467,
+						"collisionPoly": {
+							"points": [
+								0.00980392156862745,
+								0,
+								0.9901960784313726,
+								0,
+								0.9901960784313726,
+								1,
+								0.00980392156862745,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 141826256900065,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
