@@ -24,6 +24,7 @@ function setupCrisisViews(runtime) {
 	for (const variable in crisis) {
 		let sliderBarBG = runtime.objects.SliderBarBG.createInstance("panelcrisisbackground", x, y + 40);
 		sliderBarBG.blendMode = "source-atop"
+		sliderBarBG.animationFrame = 1;
 		crisisScrollable.addChild(sliderBarBG, { transformX: true, transformY: true });
 		
 		let sliderBar = runtime.objects.SliderBar.createInstance("panelcrisisbackground", x, y + 34);

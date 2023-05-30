@@ -413,10 +413,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 275661745776964,
+							"sid": 654664371644345,
 							"parameters": {
 								"variable": "tickRate",
-								"value": "TickRate - 0.5"
+								"value": "tickRate - 0.5"
 							}
 						},
 						{
@@ -537,16 +537,54 @@
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 392998340683190,
+							"children": [
 								{
-									"callFunction": "showCrisisPanel",
-									"sid": 602090010011968,
-									"parameters": [
-										true
-									]
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 346039741769986,
+											"parameters": {
+												"layer": "\"PanelCrisis\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "showCrisisPanel",
+											"sid": 537185157392160,
+											"parameters": [
+												true
+											]
+										}
+									],
+									"sid": 887790517699090
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 237114112509398
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "showCrisisPanel",
+											"sid": 665675379860426,
+											"parameters": [
+												false
+											]
+										}
+									],
+									"sid": 219119583243453
 								}
-							],
-							"sid": 392998340683190
+							]
 						}
 					]
 				},

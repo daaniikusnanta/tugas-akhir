@@ -1,5 +1,4 @@
 export function setSliderValue(slider, uitext, value, text) {
-	console.log(slider.instVars['id'], value);
 	slider.instVars['value'] = value;
 	const x = slider.instVars['minX'] + (slider.instVars['maxX'] - slider.instVars['minX']) * value / slider.instVars['maxValue'];
 	slider.x = clamp(x, slider.instVars['minX'], slider.instVars['maxX']);

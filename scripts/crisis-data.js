@@ -3310,55 +3310,17 @@ export function initializeCrisis(levelVariables, runtime) {
           onEnter: () => {
             console.log(`Crisis ${variable} entering: ${crisisState.name}`);
 
-            let crisisWarningTexts = runtime.objects.UIText2.getAllInstances();
-            const textID = variable + "_crisisWarning";
+            let crisisWarningTexts = runtime.objects.UIText.getAllInstances();
+            const textID = variable + "_crisis_warning";
             const crisisWarningText = crisisWarningTexts.filter(
               (text) => text.instVars["id"] === textID
             )[0];
 
-            console.log("shownCrisis", shownCrisis);
+
             if (crisis[variable].states.indexOf(crisisState) > 1) {
-              console.log("Showing crisis");
-
-              // If the crisis is not shown before, move the other crisis texts down
-              // and add the crisis to the shown crisis list
-              const element = shownCrisis.find(
-                (element) => element.variable === variable
-              );
-              if (!element) {
-                console.log("Moving other crisis down");
-                crisisWarningText.y = 30;
-                let y = 60;
-                for (const otherCrisis of shownCrisis) {
-                  console.log("otherCrisis", otherCrisis);
-                  const otherText = crisisWarningTexts.filter(
-                    (text) =>
-                      text.instVars["id"] === otherCrisis.variable + "_crisisWarning"
-                  )[0];
-                  otherText.y = y;
-                  y += 30;
-                }
-
-                shownCrisis.push({
-                  variable: variable,
-                  state: crisisState.name,
-                });
-              }
-
-              crisisWarningText.text =
-                variable.substring(0, 5) + ": " + crisisState.name;
-              crisisWarningText.isVisible = true;
+              updateShownCrisis(variable, crisisState, crisisWarningText, crisisWarningTexts);              
             } else {
-              console.log("Removing crisis");
-              const element = shownCrisis.find(
-                (element) => element.variable === variable
-              );
-              if (element) {
-                shownCrisis.splice(shownCrisis.indexOf(element), 1);
-              }
-              showCrisis(runtime, 30);
-
-              crisisWarningText.isVisible = false;
+              removeShownCrisis(runtime, variable, crisisWarningText);
             }
           },
         },
@@ -3377,20 +3339,20 @@ export function initializeCrisis(levelVariables, runtime) {
 }
 
 function initializeCrisisTexts(runtime) {
-  const x = 1740;
-  let y = 30;
+  const crisisWarningScrollable = runtime.objects.ScrollablePanel.getAllInstances().filter(scrollable => scrollable.instVars['id'] === 'crisis_warning')[0];
 
   for (const variable in crisis) {
-    const crisisText = runtime.objects.UIText2.createInstance(
-      "PanelCrisis",
-      x,
-      y
+    const crisisText = runtime.objects.UIText.createInstance(
+      "UI",
+      crisisWarningScrollable.x + crisisWarningScrollable.width / 2,
+      0
     );
     crisisText.text = variable.substring(0, 3) + ": " + shownCrisis[variable];
-    crisisText.instVars["id"] = variable + "_crisisWarning";
+    crisisText.instVars["id"] = variable + "_crisis_warning";
+    crisisText.characterScale = 0.3;
     crisisText.isVisible = false;
-
-    y += 30;
+    
+    crisisWarningScrollable.addChild(crisisText);
   }
 }
 
@@ -3410,27 +3372,54 @@ export function updateCrisis(variable) {
 
 let shownCrisis = [];
 
-export function updateShownCrisis(runtime) {
-  for (const crisis in shownCrisis) {
-    let crisisText = runtime.objects.UIText2.getAllInstances();
-    crisisText = crisisText.filter(
-      (text) => text.instVars["id"] === crisis + "_crisisWarning"
-    )[0];
-
-    if (!shownCrisis[crisis]) {
-      crisisText.isVisible = false;
-
-      continue;
+function updateShownCrisis(variable, crisisState, crisisWarningText, crisisWarningTexts) {
+  const isShownBefore = shownCrisis.find(
+    (element) => element.variable === variable
+  );
+  
+  // Shift all other crisis texts down
+  if (!isShownBefore) {
+    crisisWarningText.y = 30;
+    let y = 60;
+    for (const otherCrisis of shownCrisis) {
+      console.log("otherCrisis", otherCrisis);
+      const otherText = crisisWarningTexts.filter(
+        (text) =>
+          text.instVars["id"] === otherCrisis.variable + "_crisis_warning"
+      )[0];
+      otherText.y = y;
+      y += 30;
     }
-    crisisText.isVisible = true;
+
+    shownCrisis.push({
+      variable: variable,
+      state: crisisState.name,
+    });
   }
+
+  crisisWarningText.text = variable.substring(0, 5) + ": " + crisisState.name;
+  crisisWarningText.isVisible = true;
 }
 
+function removeShownCrisis(runtime, variable, crisisWarningText) {
+  const element = shownCrisis.find(
+    (element) => element.variable === variable
+  );
+
+  if (element) {
+    shownCrisis.splice(shownCrisis.indexOf(element), 1);
+  }
+
+  showCrisis(runtime, 30);
+  crisisWarningText.isVisible = false;
+}
+
+
 function showCrisis(runtime, initialY) {
-  let crisisTexts = runtime.objects.UIText2.getAllInstances();
+  let crisisTexts = runtime.objects.UIText.getAllInstances();
   for (const crisis of shownCrisis) {
     let crisisText = crisisTexts.filter(
-      (text) => text.instVars["id"] === crisis.variable + "_crisisWarning"
+      (text) => text.instVars["id"] === crisis.variable + "_crisis_warning"
     )[0];
     crisisText.y = initialY;
     initialY += 30;

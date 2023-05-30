@@ -58,7 +58,6 @@ function updateStatusView(runtime) {
         const statusValue = status[id.substring(0, id.indexOf("_status"))].value.toString().substring(0, 4) + " (" + update + ")";
         statusText.text = statusValue;
     }
-	console.log("updateStatusView");
 	
 	let statusSliders = runtime.objects.SliderBar.getAllInstances();
 	statusSliders = statusSliders.filter(slider => slider.instVars['id'].endsWith("status_slider"));
@@ -68,7 +67,7 @@ function updateStatusView(runtime) {
 		const value = status[id].value;
 
 		const statusText = runtime.objects.UIText.getAllInstances().filter(text => text.instVars['id'] === id + "_status_text")[0];
-		const update = status[id].lastUpdate.toFixed(2) ? "+" + status[id].lastUpdate.toFixed(2) : status[id].lastUpdate.toFixed(2);
+		const update = (status[id].lastUpdate >= 0) ? "+" + status[id].lastUpdate.toFixed(2) : status[id].lastUpdate.toFixed(2);
 		const text = value.toFixed(2).toString() + " (" + update + ")";
 		setSliderValue(statusSlider, statusText, value, text);
     }
@@ -88,7 +87,7 @@ function updateCrisisView(runtime) {
 		const value = crisis[id].value;
 
 		const crisisText = runtime.objects.UIText.getAllInstances().filter(text => text.instVars['id'] === id + "_crisis_text")[0];
-		const update = crisis[id].lastUpdate.toFixed(2) ? "+" + crisis[id].lastUpdate.toFixed(2) : crisis[id].lastUpdate.toFixed(2);
+		const update = (crisis[id].lastUpdate >= 0) ? "+" + crisis[id].lastUpdate.toFixed(2) : crisis[id].lastUpdate.toFixed(2);
 		const text = value.toFixed(2).toString() + " (" + update + ")";
 		setSliderValue(crisisSlider, crisisText, value, text);
 	}
