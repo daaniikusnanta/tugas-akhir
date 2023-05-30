@@ -220,6 +220,14 @@
 					"script-info": {
 						"purpose": "imports-for-events"
 					}
+				},
+				{
+					"name": "utils.js",
+					"type": "application/javascript",
+					"sid": 729637399591740,
+					"script-info": {
+						"purpose": "none"
+					}
 				}
 			],
 			"subfolders": []

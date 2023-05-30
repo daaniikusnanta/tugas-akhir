@@ -58,6 +58,750 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "Game",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 518602592043125
+						}
+					],
+					"actions": [
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 611279084989323,
+							"parameters": {
+								"name": "BUTTON_CLICKED",
+								"string": "LayoutName",
+								"function": "MenuButtonClicked"
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "GameManager",
+							"sid": 405763387673053,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "tickRate",
+								"type": "regular",
+								"tag": "\"Tick\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TickRate",
+							"sid": 832960829303103,
+							"parameters": {
+								"text": "\"Tick rate: \" & tickRate"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 320843196971973,
+							"parameters": {
+								"variable": "isRunning",
+								"value": "true"
+							}
+						},
+						{
+							"type": "script",
+							"script": "setupCrisisViews(runtime);"
+						}
+					],
+					"sid": 982971445756731
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "GameManager",
+							"sid": 329903742573966,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Tick\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 850864639808578,
+							"parameters": {
+								"variable": "day",
+								"value": "Day + 1"
+							}
+						},
+						{
+							"type": "script",
+							"script": "updateAllStatus(runtime);\nupdateAllCrisis(runtime);"
+						}
+					],
+					"sid": 268964243012299,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 338274129188735,
+									"parameters": {
+										"first-value": "GameManager.Timer.Duration(\"Tick\")",
+										"comparison": 1,
+										"second-value": "tickRate"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "start-timer",
+									"objectClass": "GameManager",
+									"sid": 372769231226637,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "tickRate",
+										"type": "regular",
+										"tag": "\"Tick\""
+									}
+								}
+							],
+							"sid": 460886259768926
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UIText",
+									"sid": 891357014194865,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"day\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 305458660855761,
+									"parameters": {
+										"text": "\"Day \" & day"
+									}
+								}
+							],
+							"sid": 237452852588075
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 626888163548503
+						},
+						{
+							"id": "is-timer-running",
+							"objectClass": "GameManager",
+							"sid": 634296862353963,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Tick\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 448996669788675,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ProgressBar",
+									"sid": 121151850740434,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"day\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "ProgressBar",
+									"sid": 324599643043710,
+									"parameters": {
+										"width": "clamp(GameManager.Timer.CurrentTime(\"Tick\")/GameManager.Timer.Duration(\"Tick\")*Self.maxWidth, Self.minWidth, Self.maxWidth)"
+									}
+								}
+							],
+							"sid": 279920406147001
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ButtonPause",
+							"sid": 870943837107309
+						}
+					],
+					"actions": [],
+					"sid": 354072899059509,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 760804432889301,
+									"parameters": {
+										"variable": "isRunning"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "ButtonPause",
+									"sid": 556371626239331,
+									"parameters": {
+										"text": "\"Resume\""
+									}
+								},
+								{
+									"id": "pause-resume-timer",
+									"objectClass": "GameManager",
+									"sid": 348984501636003,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"Tick\"",
+										"state": "paused"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 200415206877097,
+									"parameters": {
+										"variable": "isRunning",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 760494216045422
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 587233191078164
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "ButtonPause",
+									"sid": 138867869782847,
+									"parameters": {
+										"text": "\"Pause\""
+									}
+								},
+								{
+									"id": "pause-resume-timer",
+									"objectClass": "GameManager",
+									"sid": 996464581919319,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"Tick\"",
+										"state": "resumed"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 339460927643873,
+									"parameters": {
+										"variable": "isRunning",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 623194381697160
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ButtonInrease",
+							"sid": 413147639822475
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 745041179848502,
+							"parameters": {
+								"variable": "tickRate",
+								"comparison": 2,
+								"value": "maxTickRate"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 905369409009966,
+							"parameters": {
+								"variable": "tickRate",
+								"value": "tickRate + 0.5"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TickRate",
+							"sid": 808628117382173,
+							"parameters": {
+								"text": "\"Tick rate: \" & tickRate"
+							}
+						}
+					],
+					"sid": 524726317425321
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ButtonDecrease",
+							"sid": 935178206896065
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 658454054227680,
+							"parameters": {
+								"variable": "tickRate",
+								"comparison": 4,
+								"value": "minTickRate"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 275661745776964,
+							"parameters": {
+								"variable": "tickRate",
+								"value": "TickRate - 0.5"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TickRate",
+							"sid": 329174776223264,
+							"parameters": {
+								"text": "\"Tick rate: \" & tickRate"
+							}
+						}
+					],
+					"sid": 879831987466582
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 601816801057799
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 114371523533205,
+							"parameters": {
+								"object": "UIPanel"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "showStatusPanel",
+							"sid": 737463637766291,
+							"parameters": [
+								"\"\"",
+								false
+							]
+						},
+						{
+							"callFunction": "showCrisisPanel",
+							"sid": 346275711024862,
+							"parameters": [
+								false
+							]
+						}
+					],
+					"sid": 192436697156279
+				},
+				{
+					"functionName": "MenuButtonClicked",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "uid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 767861210822662
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Button",
+							"sid": 206711813583698,
+							"parameters": {
+								"unique-id": "uid"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 491295315472353,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 238103160458480,
+									"parameters": {
+										"first-value": "RegexMatchCount(Button.id, \"status\", \"\")",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "showStatusPanel",
+									"sid": 345683510508793,
+									"parameters": [
+										"tokenat(Button.id, 0, \"_\")",
+										true
+									]
+								}
+							],
+							"sid": 627493602582896
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 674525453037274,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"crisis\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "showCrisisPanel",
+									"sid": 602090010011968,
+									"parameters": [
+										true
+									]
+								}
+							],
+							"sid": 392998340683190
+						}
+					]
+				},
+				{
+					"functionName": "showStatusPanel",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "status",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 352533481313809
+						},
+						{
+							"name": "show",
+							"type": "boolean",
+							"initialValue": "true",
+							"comment": "",
+							"sid": 547545509619647
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 963236609190068,
+							"parameters": {
+								"layer": "\"PanelFinancial\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 919041937419996,
+							"parameters": {
+								"layer": "\"PanelHealth\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 683373750281633,
+							"parameters": {
+								"layer": "\"PanelEducation\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 949675534525445,
+							"parameters": {
+								"layer": "\"PanelSocial\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 961467374971351,
+							"parameters": {
+								"layer": "\"PanelNatural\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 348364989866036,
+							"parameters": {
+								"layer": "\"PanelLabor\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 978111298224282,
+							"parameters": {
+								"layer": "\"PanelEnvironment\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 299111793162993,
+							"parameters": {
+								"layer": "\"PanelInfrastructure\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 828883527779041,
+							"parameters": {
+								"layer": "\"PanelDefense\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 107672453771516,
+							"parameters": {
+								"layer": "\"PanelStability\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 515819947783456,
+							"parameters": {
+								"layer": "\"PanelIndustry\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 710077073666599,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 596221217224655,
+									"parameters": {
+										"variable": "show"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 820755284894423,
+									"parameters": {
+										"layer": "\"Panel\" & uppercase(left(status, 1)) & right(status, len(status)-1)",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 829436645292242
+						}
+					]
+				},
+				{
+					"functionName": "showCrisisPanel",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "show",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 683212733292981
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 289707340048162,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 177379268107575,
+									"parameters": {
+										"variable": "show"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 700853927476930,
+									"parameters": {
+										"layer": "\"PanelCrisis\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 207270832904919
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 372144369014769
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 385860963892232,
+									"parameters": {
+										"layer": "\"PanelCrisis\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 648076060006760
+						}
+					]
+				},
+				{
+					"functionName": "showCrisis",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "crisisArrUid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 922209966426629
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 653537904875028
+				}
+			],
+			"sid": 841929679503871
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "SliderBar",
 			"description": "",
 			"isActiveOnStart": true,
@@ -117,6 +861,14 @@
 							"objectClass": "SliderBar",
 							"sid": 639711870869020,
 							"behaviorType": "DragDrop"
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "SliderBar",
+							"sid": 952829137376826,
+							"parameters": {
+								"instance-variable": "isDraggable"
+							}
 						}
 					],
 					"actions": [
@@ -146,11 +898,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "UIText",
-									"sid": 313807896578131,
+									"sid": 448921348031077,
 									"parameters": {
 										"instance-variable": "id",
 										"comparison": 0,
-										"value": "\"slider\""
+										"value": "left(SliderBar.id, find(SliderBar.id, \"_slider\")) & \"_text\""
 									}
 								}
 							],
@@ -195,7 +947,8 @@
 							}
 						}
 					],
-					"sid": 829278141159854
+					"sid": 829278141159854,
+					"disabled": true
 				},
 				{
 					"functionName": "SetSliderValue",
@@ -628,808 +1381,8 @@
 			"sid": 959501323994010
 		},
 		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Game",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"functionName": "MenuButtonClicked",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": true,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "uid",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"sid": 767861210822662
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Button",
-							"sid": 594246707052652,
-							"parameters": {
-								"unique-id": "uid"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 348397913737243,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 208346881118850,
-									"parameters": {
-										"first-value": "RegexMatchCount(Button.id, \"status\", \"\")",
-										"comparison": 0,
-										"second-value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "showStatusPanel",
-									"sid": 111561475978638,
-									"parameters": [
-										"tokenat(Button.id, 0, \"_\")",
-										true
-									]
-								}
-							],
-							"sid": 456359619998192
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Button",
-									"sid": 268820542737902,
-									"parameters": {
-										"instance-variable": "id",
-										"comparison": 0,
-										"value": "\"crisis\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "showCrisisPanel",
-									"sid": 396772651846157,
-									"parameters": [
-										true
-									]
-								}
-							],
-							"sid": 861823295687574
-						}
-					]
-				},
-				{
-					"functionName": "showStatusPanel",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": true,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "status",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 352533481313809
-						},
-						{
-							"name": "show",
-							"type": "boolean",
-							"initialValue": "true",
-							"comment": "",
-							"sid": 547545509619647
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 129329240644501,
-							"parameters": {
-								"layer": "\"PanelFinancial\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 218976914905947,
-							"parameters": {
-								"layer": "\"PanelHealth\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 827090630447348,
-							"parameters": {
-								"layer": "\"PanelEducation\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 705331091112950,
-							"parameters": {
-								"layer": "\"PanelSocial\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 215828342970736,
-							"parameters": {
-								"layer": "\"PanelNatural\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 800939415285808,
-							"parameters": {
-								"layer": "\"PanelLabor\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 627195771463484,
-							"parameters": {
-								"layer": "\"PanelEnvironment\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 708649667948392,
-							"parameters": {
-								"layer": "\"PanelInfrastructure\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 339736723945041,
-							"parameters": {
-								"layer": "\"PanelDefense\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 773099077016887,
-							"parameters": {
-								"layer": "\"PanelStability\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 330873908116388,
-							"parameters": {
-								"layer": "\"PanelIndustry\"",
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 113914543817845,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 368648784954798,
-									"parameters": {
-										"variable": "show"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 689993324169820,
-									"parameters": {
-										"layer": "\"Panel\" & uppercase(left(status, 1)) & right(status, len(status)-1)",
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 665664090696307
-						}
-					]
-				},
-				{
-					"functionName": "showCrisisPanel",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "show",
-							"type": "boolean",
-							"initialValue": "false",
-							"comment": "",
-							"sid": 683212733292981
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 162008454573135,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 914105381869438,
-									"parameters": {
-										"variable": "show"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 925584790804818,
-									"parameters": {
-										"layer": "\"PanelCrisis\"",
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 202880643761810,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Button",
-											"sid": 449659956934762,
-											"parameters": {
-												"instance-variable": "id",
-												"comparison": 0,
-												"value": "\"crisis\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "Button",
-											"sid": 795536291432784,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										}
-									],
-									"sid": 813977726602129
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 978237652100577
-								}
-							],
-							"actions": [
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 257768247103149,
-									"parameters": {
-										"layer": "\"PanelCrisis\"",
-										"visibility": "invisible"
-									}
-								}
-							],
-							"sid": 449660074166949,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Button",
-											"sid": 158893908891674,
-											"parameters": {
-												"instance-variable": "id",
-												"comparison": 0,
-												"value": "\"crisis\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "Button",
-											"sid": 323817244629900,
-											"parameters": {
-												"visibility": "visible"
-											}
-										}
-									],
-									"sid": 526017980447489
-								}
-							]
-						}
-					]
-				},
-				{
-					"functionName": "showCrisis",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "crisisArrUid",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"sid": 922209966426629
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 971543469050010
-				}
-			],
-			"sid": 665433636352340
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 268181103850467
-				}
-			],
-			"actions": [
-				{
-					"id": "map-function",
-					"objectClass": "Functions",
-					"sid": 426336421098930,
-					"parameters": {
-						"name": "BUTTON_CLICKED",
-						"string": "LayoutName",
-						"function": "MenuButtonClicked"
-					}
-				},
-				{
-					"id": "start-timer",
-					"objectClass": "GameManager",
-					"sid": 253570891282717,
-					"behaviorType": "Timer",
-					"parameters": {
-						"duration": "tickRate",
-						"type": "regular",
-						"tag": "\"Tick\""
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "TickRate",
-					"sid": 465863159720069,
-					"parameters": {
-						"text": "\"Tick rate: \" & tickRate"
-					}
-				},
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 786983291067020,
-					"parameters": {
-						"variable": "isRunning",
-						"value": "true"
-					}
-				},
-				{
-					"type": "script",
-					"script": "setupCrisisViews(runtime);"
-				}
-			],
-			"sid": 959538667288810
-		},
-		{
 			"eventType": "comment",
 			"text": "For every tick"
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-timer",
-					"objectClass": "GameManager",
-					"sid": 372117971091564,
-					"behaviorType": "Timer",
-					"parameters": {
-						"tag": "\"Tick\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 445823409198147,
-					"parameters": {
-						"variable": "day",
-						"value": "Day + 1"
-					}
-				},
-				{
-					"type": "script",
-					"script": "updateAllStatus(runtime);\nupdateAllCrisis(runtime);"
-				}
-			],
-			"sid": 202541279746809,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 675720825146512,
-							"parameters": {
-								"first-value": "GameManager.Timer.Duration(\"Tick\")",
-								"comparison": 1,
-								"second-value": "tickRate"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "start-timer",
-							"objectClass": "GameManager",
-							"sid": 552476473726875,
-							"behaviorType": "Timer",
-							"parameters": {
-								"duration": "tickRate",
-								"type": "regular",
-								"tag": "\"Tick\""
-							}
-						}
-					],
-					"sid": 571601584895406
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "UIText",
-							"sid": 603045086889724,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "\"day\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "UIText",
-							"sid": 958475017591757,
-							"parameters": {
-								"text": "\"Day \" & day"
-							}
-						}
-					],
-					"sid": 169197523032617
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 335172627412633
-				},
-				{
-					"id": "is-timer-running",
-					"objectClass": "GameManager",
-					"sid": 692226585281603,
-					"behaviorType": "Timer",
-					"parameters": {
-						"tag": "\"Tick\""
-					}
-				}
-			],
-			"actions": [],
-			"sid": 882207649049590,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "ProgressBar",
-							"sid": 801086508119575,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "\"day\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-width",
-							"objectClass": "ProgressBar",
-							"sid": 995445043849345,
-							"parameters": {
-								"width": "clamp(GameManager.Timer.CurrentTime(\"Tick\")/GameManager.Timer.Duration(\"Tick\")*Self.maxWidth, Self.minWidth, Self.maxWidth)"
-							}
-						}
-					],
-					"sid": 742701086794396
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-clicked",
-					"objectClass": "ButtonPause",
-					"sid": 888676804749169
-				}
-			],
-			"actions": [],
-			"sid": 217271594739136,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 654384573750496,
-							"parameters": {
-								"variable": "isRunning"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "ButtonPause",
-							"sid": 604042606183554,
-							"parameters": {
-								"text": "\"Resume\""
-							}
-						},
-						{
-							"id": "pause-resume-timer",
-							"objectClass": "GameManager",
-							"sid": 628630341487179,
-							"behaviorType": "Timer",
-							"parameters": {
-								"tag": "\"Tick\"",
-								"state": "paused"
-							}
-						},
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 626024485790285,
-							"parameters": {
-								"variable": "isRunning",
-								"value": "false"
-							}
-						}
-					],
-					"sid": 691044863543463
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 850743611942011
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "ButtonPause",
-							"sid": 928206070608341,
-							"parameters": {
-								"text": "\"Pause\""
-							}
-						},
-						{
-							"id": "pause-resume-timer",
-							"objectClass": "GameManager",
-							"sid": 412940050634029,
-							"behaviorType": "Timer",
-							"parameters": {
-								"tag": "\"Tick\"",
-								"state": "resumed"
-							}
-						},
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 776857049593382,
-							"parameters": {
-								"variable": "isRunning",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 644418723367891
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-clicked",
-					"objectClass": "ButtonInrease",
-					"sid": 252432556190376
-				},
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 835985035049807,
-					"parameters": {
-						"variable": "tickRate",
-						"comparison": 2,
-						"value": "maxTickRate"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 494654523495780,
-					"parameters": {
-						"variable": "tickRate",
-						"value": "tickRate + 0.5"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "TickRate",
-					"sid": 706050734782643,
-					"parameters": {
-						"text": "\"Tick rate: \" & tickRate"
-					}
-				}
-			],
-			"sid": 103835933042688
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-clicked",
-					"objectClass": "ButtonDecrease",
-					"sid": 767173432982496
-				},
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 287769927883929,
-					"parameters": {
-						"variable": "tickRate",
-						"comparison": 4,
-						"value": "minTickRate"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 957838084275366,
-					"parameters": {
-						"variable": "tickRate",
-						"value": "TickRate - 0.5"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "TickRate",
-					"sid": 706050734782643,
-					"parameters": {
-						"text": "\"Tick rate: \" & tickRate"
-					}
-				}
-			],
-			"sid": 166721285179494
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-any-touch-start",
-					"objectClass": "Touch",
-					"sid": 291477917685138
-				},
-				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 301715765674871,
-					"parameters": {
-						"object": "UIPanel"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "showStatusPanel",
-					"sid": 452811986147918,
-					"parameters": [
-						"\"\"",
-						false
-					]
-				},
-				{
-					"callFunction": "showCrisisPanel",
-					"sid": 779599668368125,
-					"parameters": [
-						false
-					]
-				}
-			],
-			"sid": 964406391900944
 		}
 	],
 	"sid": 260114432359631

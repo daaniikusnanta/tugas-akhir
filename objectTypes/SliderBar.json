@@ -38,6 +38,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 675626808665021
+		},
+		{
+			"name": "isDraggable",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 384736840558309
 		}
 	],
 	"behaviorTypes": [
