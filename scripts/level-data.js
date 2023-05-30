@@ -1,5 +1,6 @@
 import { initializeCrisis } from "./crisis-data.js";
 import { initializeStatus, status } from "./status-data.js";
+import { updateCrisisView, updateStatusView, setupCrisisViews } from "./game.js";
 
 /**
  * @type {{[level: number]: {[variable: string]: number}}}
@@ -106,4 +107,7 @@ const levelVariables = {
 export function setLevelVariables(level, runtime) {
     initializeStatus(levelVariables[level]['status'], runtime);
     initializeCrisis(levelVariables[level]['crisis'], runtime);
+    setupCrisisViews(runtime);
+    updateStatusView(runtime);
+    updateCrisisView(runtime);
 }
