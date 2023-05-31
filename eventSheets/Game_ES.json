@@ -109,10 +109,6 @@
 								"variable": "isRunning",
 								"value": "true"
 							}
-						},
-						{
-							"type": "script",
-							"script": "setupCrisisViews(runtime);"
 						}
 					],
 					"sid": 982971445756731
@@ -142,7 +138,7 @@
 						},
 						{
 							"type": "script",
-							"script": "updateAllStatus(runtime);\nupdateAllCrisis(runtime);"
+							"script": "updateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);"
 						}
 					],
 					"sid": 268964243012299,

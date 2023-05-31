@@ -1,5 +1,6 @@
 import { createMachine } from "./fsm.js";
 import { status } from "./status-data.js";
+import { getTextById } from "./utils.js";
 
 /**
  * @typedef {
@@ -3310,15 +3311,10 @@ export function initializeCrisis(levelVariables, runtime) {
           onEnter: () => {
             console.log(`Crisis ${variable} entering: ${crisisState.name}`);
 
-            let crisisWarningTexts = runtime.objects.UIText.getAllInstances();
-            const textID = variable + "_crisis_warning";
-            const crisisWarningText = crisisWarningTexts.filter(
-              (text) => text.instVars["id"] === textID
-            )[0];
-
+            const crisisWarningText = getTextById(runtime, variable + "_crisis_warning");
 
             if (crisis[variable].states.indexOf(crisisState) > 1) {
-              updateShownCrisis(variable, crisisState, crisisWarningText, crisisWarningTexts);              
+              updateShownCrisis(variable, crisisState, crisisWarningText);              
             } else {
               removeShownCrisis(runtime, variable, crisisWarningText);
             }
@@ -3372,7 +3368,7 @@ export function updateCrisis(variable) {
 
 let shownCrisis = [];
 
-function updateShownCrisis(variable, crisisState, crisisWarningText, crisisWarningTexts) {
+function updateShownCrisis(variable, crisisState, crisisWarningText) {
   const isShownBefore = shownCrisis.find(
     (element) => element.variable === variable
   );
@@ -3383,10 +3379,7 @@ function updateShownCrisis(variable, crisisState, crisisWarningText, crisisWarni
     let y = 60;
     for (const otherCrisis of shownCrisis) {
       console.log("otherCrisis", otherCrisis);
-      const otherText = crisisWarningTexts.filter(
-        (text) =>
-          text.instVars["id"] === otherCrisis.variable + "_crisis_warning"
-      )[0];
+      const otherText = getTextById(runtime, otherCrisis.variable + "_crisis_warning");
       otherText.y = y;
       y += 30;
     }
@@ -3416,11 +3409,8 @@ function removeShownCrisis(runtime, variable, crisisWarningText) {
 
 
 function showCrisis(runtime, initialY) {
-  let crisisTexts = runtime.objects.UIText.getAllInstances();
   for (const crisis of shownCrisis) {
-    let crisisText = crisisTexts.filter(
-      (text) => text.instVars["id"] === crisis.variable + "_crisis_warning"
-    )[0];
+    const crisisText = getTextById(runtime, crisis.variable + "_crisis_warning");
     crisisText.y = initialY;
     initialY += 30;
   }

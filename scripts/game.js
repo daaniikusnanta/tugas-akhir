@@ -1,6 +1,6 @@
 import { status, updateStatus } from "./status-data.js";
 import { crisis, crisisFsms, updateCrisis } from "./crisis-data.js";
-import { setSliderValue } from "./utils.js";
+import { getTextById, setSliderValue } from "./utils.js";
 
 function updateAllStatus() {
 	for (const statusVariable in status) {
@@ -92,7 +92,7 @@ export function updateStatusView(runtime) {
 		const id = statusSlider.instVars['id'].replace("_status_slider", "");
 		const value = status[id].value;
 
-		const statusText = runtime.objects.UIText.getAllInstances().filter(text => text.instVars['id'] === id + "_status_text")[0];
+		const statusText = getTextById(runtime, id + "_status_text");
 		const update = (status[id].lastUpdate >= 0) ? "+" + status[id].lastUpdate.toFixed(2) : status[id].lastUpdate.toFixed(2);
 		const text = value.toFixed(2).toString() + " (" + update + ")";
 		setSliderValue(statusSlider, statusText, value, text);
@@ -112,7 +112,7 @@ export function updateCrisisView(runtime) {
 		const id = crisisSlider.instVars['id'].replace("_crisis_slider", "");
 		const value = crisis[id].value;
 
-		const crisisText = runtime.objects.UIText.getAllInstances().filter(text => text.instVars['id'] === id + "_crisis_text")[0];
+		const crisisText = getTextById(runtime, id + "_crisis_text");
 		const update = (crisis[id].lastUpdate >= 0) ? "+" + crisis[id].lastUpdate.toFixed(2) : crisis[id].lastUpdate.toFixed(2);
 		const text = value.toFixed(2).toString() + " (" + update + ")";
 		setSliderValue(crisisSlider, crisisText, value, text);
