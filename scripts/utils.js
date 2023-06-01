@@ -1,3 +1,10 @@
+/**
+ * Set the value of a slider
+ * @param {ISpriteInstance} slider 
+ * @param {ISpriteFontInstance} uitext 
+ * @param {number} value 
+ * @param {string} text 
+ */
 export function setSliderValue(slider, uitext, value, text) {
 	slider.instVars['value'] = value;
 	const x = slider.instVars['minX'] + (slider.instVars['maxX'] - slider.instVars['minX']) * value / slider.instVars['maxValue'];
@@ -6,7 +13,7 @@ export function setSliderValue(slider, uitext, value, text) {
 }
 
 /**
- * 
+ * Clamp a value between a min and max
  * @param {number} value 
  * @param {number} min 
  * @param {number} max 
@@ -18,46 +25,42 @@ export function clamp(value, min, max) {
 
 /**
  * @type {{
-*   [key: string]: ITextInstance | ISpriteFontInstance
+*   [key: string]: ISpriteFontInstance
 * }}
 */
 const texts = {};
 
 /**
-* 
-* @param {IRuntime} runtime 
+* Get a sprite font object by id
 * @param {string} id 
-* @returns {ITextInstance | ISpriteFontInstance}
+* @returns {ISpriteFontInstance}
 */
-export function getTextById(runtime, id) {
-   const text = texts[id];
+export function getTextById(id) {
+	const text = texts[id];
 
-   if (text != null) {
-       return text;
-   }
-
-	const objects = [
-		runtime.objects.UIText,
-		runtime.objects.UIText2,
-	];
-
-	// search for the text object again in runtime
-	// this is necessary because new text object might be created
-	// and thus not in the cache
-	for (const obj of objects) {
-		const instances = obj.getAllInstances();
-
-		for (const inst of instances) {
-			if (inst.instVars['id'] === id) {
-				texts[id] = inst;
-
-				return inst;
-			}
-		}
+	if (text == null) {
+		throw new Error(`Text with id "${id}" not found`);
 	}
 
+	return text;
+}
 
-   throw new Error(`Text with id "${id}" not found`);
+/**
+ * Add a sprite font object to the cache
+ * @param {ISpriteFontInstance} text 
+ */
+export function addTextToCache(text) {
+	if (text.instVars['id'] !== "") {
+		texts[text.instVars['id']] = text;
+	}
+}
+
+/**
+ * Remove a sprite font object from the cache
+ * @param {string} id 
+ */
+export function deleteTextFromCache(id) {
+	delete texts[id];
 }
 
 /**
@@ -65,18 +68,9 @@ export function getTextById(runtime, id) {
 * @param {IRuntime} runtime 
 */
 export function setupTextCache(runtime) {
-   for (const prop of Object.getOwnPropertyNames(texts)) {
-       delete texts[prop];
-   }
+	for (const prop of Object.getOwnPropertyNames(texts)) {
+		delete texts[prop];
+	}
 
-   [runtime.objects.UIText].forEach(obj => {
-       obj.getAllInstances().forEach(text => {
-           if (text.instVars['id'] !== "") {
-               texts[text.instVars['id']] = text;
-           }
-       });
-   });
-
-   console.log("Text cache setup complete");
-   console.log(texts);
+	runtime.objects.UIText.getAllInstances().forEach(addTextToCache);
 }

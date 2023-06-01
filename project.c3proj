@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 34300,
+	"savedWithRelease": 34400,
 	"name": "tugas akhir",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -27,6 +27,13 @@
 			"author": "Edward Bonnett",
 			"bundled": false,
 			"version": "1.0.0.1"
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"bundled": false
 		},
 		{
 			"type": "plugin",
@@ -140,7 +147,8 @@
 				"items": [
 					"Touch",
 					"Mouse",
-					"Browser"
+					"Browser",
+					"Keyboard"
 				],
 				"subfolders": [],
 				"name": "Others"

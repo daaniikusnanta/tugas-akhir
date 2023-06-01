@@ -1,6 +1,6 @@
 import { createMachine } from "./fsm.js";
 import { status } from "./status-data.js";
-import { getTextById } from "./utils.js";
+import { addTextToCache, getTextById } from "./utils.js";
 
 /**
  * @typedef {
@@ -3311,12 +3311,12 @@ export function initializeCrisis(levelVariables, runtime) {
           onEnter: () => {
             console.log(`Crisis ${variable} entering: ${crisisState.name}`);
 
-            const crisisWarningText = getTextById(runtime, variable + "_crisis_warning");
+            const crisisWarningText = getTextById(variable + "_crisis_warning");
 
             if (crisis[variable].states.indexOf(crisisState) > 1) {
               updateShownCrisis(variable, crisisState, crisisWarningText);              
             } else {
-              removeShownCrisis(runtime, variable, crisisWarningText);
+              removeShownCrisis(variable, crisisWarningText);
             }
           },
         },
@@ -3334,6 +3334,10 @@ export function initializeCrisis(levelVariables, runtime) {
   }
 }
 
+/**
+ * Create the shown crisis sprite font instances.
+ * @param {IRuntimeObjects} runtime Runtime objects.
+ */
 function initializeCrisisTexts(runtime) {
   const crisisWarningScrollable = runtime.objects.ScrollablePanel.getAllInstances().filter(scrollable => scrollable.instVars['id'] === 'crisis_warning')[0];
 
@@ -3347,6 +3351,8 @@ function initializeCrisisTexts(runtime) {
     crisisText.instVars["id"] = variable + "_crisis_warning";
     crisisText.characterScale = 0.3;
     crisisText.isVisible = false;
+
+    addTextToCache(crisisText);
     
     crisisWarningScrollable.addChild(crisisText);
   }
@@ -3354,7 +3360,7 @@ function initializeCrisisTexts(runtime) {
 
 /**
  * Update the crisis.
- * @param {string} variable The variable.
+ * @param {string} variable The crisis name.
  */
 export function updateCrisis(variable) {
   let totalUpdate = 0;
@@ -3368,6 +3374,12 @@ export function updateCrisis(variable) {
 
 let shownCrisis = [];
 
+/**
+ * Add and show the new crisis.
+ * @param {string} variable The name of the crisis.
+ * @param {string} crisisState The crisis state.
+ * @param {ISpriteFontInstance} crisisWarningText The crisis warning sprite font object.
+ */
 function updateShownCrisis(variable, crisisState, crisisWarningText) {
   const isShownBefore = shownCrisis.find(
     (element) => element.variable === variable
@@ -3379,7 +3391,7 @@ function updateShownCrisis(variable, crisisState, crisisWarningText) {
     let y = 60;
     for (const otherCrisis of shownCrisis) {
       console.log("otherCrisis", otherCrisis);
-      const otherText = getTextById(runtime, otherCrisis.variable + "_crisis_warning");
+      const otherText = getTextById(otherCrisis.variable + "_crisis_warning");
       otherText.y = y;
       y += 30;
     }
@@ -3394,7 +3406,12 @@ function updateShownCrisis(variable, crisisState, crisisWarningText) {
   crisisWarningText.isVisible = true;
 }
 
-function removeShownCrisis(runtime, variable, crisisWarningText) {
+/**
+ * Remove a shown crisis.
+ * @param {string} variable The name of the crisis.
+ * @param {ISpriteFontInstance} crisisWarningText The crisis warning sprite font object.
+ */
+function removeShownCrisis(variable, crisisWarningText) {
   const element = shownCrisis.find(
     (element) => element.variable === variable
   );
@@ -3403,14 +3420,17 @@ function removeShownCrisis(runtime, variable, crisisWarningText) {
     shownCrisis.splice(shownCrisis.indexOf(element), 1);
   }
 
-  showCrisis(runtime, 30);
+  showCrisis(30);
   crisisWarningText.isVisible = false;
 }
 
-
-function showCrisis(runtime, initialY) {
+/**
+ * Show all shown crisis.
+ * @param {number} initialY The initial y position.
+ */
+function showCrisis(initialY) {
   for (const crisis of shownCrisis) {
-    const crisisText = getTextById(runtime, crisis.variable + "_crisis_warning");
+    const crisisText = getTextById(crisis.variable + "_crisis_warning");
     crisisText.y = initialY;
     initialY += 30;
   }

@@ -33,10 +33,10 @@
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
-								"x": -14,
-								"y": -8,
-								"width": 1960,
-								"height": 1113,
+								"x": 0,
+								"y": 0,
+								"width": 2462,
+								"height": 1525,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -102,11 +102,11 @@
 							"behaviors": {},
 							"ownData": {
 								"tilemapData": {
-									"width": 30,
-									"height": 17,
-									"max-width": 60,
-									"max-height": 34,
-									"data": "11x0,24vd,6x24hd,26x0,22hd,6x24hd,19x0,29hd,2x31hd,29,3x0,29hd,31hv,27vd,24hd,26,25,26vd,24hd,19x0,4x31hd,2x0,29hd,31hd,33,32,2x25,25hv,25,24hd,19x0,4x31hd,2x0,2x31hd,2x32,28vd,2x25hv,25,24hd,18x0,29hd,3x31hd,29vd,2x0,2x31hd,2x32,28hv,2x25hv,25,24hd,18x0,32hd,33vd,2x31hd,3x0,2x31hd,33hd,32,3x25,26hv,24hd,18x0,2x32hd,2x31hd,3x0,29hv,2x31hd,27hv,5x24hd,18x0,2x32hd,31hd,29vd,6x0,22hv,5x24hd,18x0,30hv,32hd,29vd,9x0,22hv,3x24hd,31x0,3x24hd,30x0,22hd,3x24hd,30x0,3x24hd,26,21x0,1hd,2x3,1,4x0,15hd,20hd,24hd,26,25hd,18x0,1hd,6x3,1,3x0,2x17hd,20hd,2x25hd,17x0,2x3,5,2x4,4hv,5vd,2x3,3x0,3x17hd,2x25hd,17x0,2x3,4,3x4hv,5hv,2x3,3x0,3x17hd,21hd,25hd,17x0,2x3,5hd,2x4hv,5hv,3x3,3x0,3x17hd,18hd,21hd,17x0,5vd,7x3,1vd,3x0,15hv,2x17hd,19hd,18hd,17hd,16x0,4vd,3x3vd,2x3,1vd,7x0,15hv,2x17hd,17x0,4vd,5vd,2x3vd,2x3,28x0,2x4vd,2x3vd,2x3,28x0,7vd,4vd,2x3vd,3,1vd,28x0,2x11vd,10hd,6vd,3,29x0,2x11vd,12vd,10vd,6vd,5x0,15hd,3x17hd,15,19x0,2x11vd,11hv,10hd,10vd,8,2x0,15hd,8x17hd,17x0,3x11hv,3x10hd,11x17hd,17x0,2x11hv,12hv,3x10hd,13hd,17hd,19,18vd,19vd,6x17hd,17x0,12hv,4x10hd,12,11hv,14hd,2x18hd,18vd,6x17hd,17x0,3x10hd,12,11,11hv,5x11vd,10hd,13hd,4x17hd,1037x0"
+									"width": 39,
+									"height": 23,
+									"max-width": 69,
+									"max-height": 40,
+									"data": "11x0,24vd,6x24hd,32x0,22hd,6x24hd,25x0,29hd,2x31hd,29,3x0,29hd,31hv,27vd,24hd,26,25,26vd,24hd,25x0,4x31hd,2x0,29hd,31hd,33,32,2x25,25hv,25,24hd,25x0,4x31hd,2x0,2x31hd,2x32,28vd,2x25hv,25,24hd,24x0,29hd,3x31hd,29vd,2x0,2x31hd,2x32,28hv,2x25hv,25,24hd,24x0,32hd,33vd,2x31hd,3x0,2x31hd,33hd,32,3x25,26hv,24hd,24x0,2x32hd,2x31hd,3x0,29hv,2x31hd,27hv,5x24hd,24x0,2x32hd,31hd,29vd,6x0,22hv,5x24hd,24x0,30hv,32hd,29vd,9x0,22hv,3x24hd,37x0,3x24hd,36x0,22hd,3x24hd,36x0,3x24hd,26,27x0,1hd,2x3,1,4x0,15hd,20hd,24hd,26,25hd,24x0,1hd,6x3,1,3x0,2x17hd,20hd,2x25hd,23x0,2x3,5,2x4,4hv,5vd,2x3,3x0,3x17hd,2x25hd,23x0,2x3,4,3x4hv,5hv,2x3,3x0,3x17hd,21hd,25hd,23x0,2x3,5hd,2x4hv,5hv,3x3,3x0,3x17hd,18hd,21hd,23x0,5vd,7x3,1vd,3x0,15hv,2x17hd,19hd,18hd,17hd,22x0,4vd,3x3vd,2x3,1vd,7x0,15hv,2x17hd,23x0,4vd,5vd,2x3vd,2x3,34x0,2x4vd,2x3vd,2x3,34x0,7vd,4vd,2x3vd,3,1vd,34x0,2x11vd,10hd,6vd,3,35x0,2x11vd,12vd,10vd,6vd,5x0,15hd,3x17hd,15,25x0,2x11vd,11hv,10hd,10vd,8,2x0,15hd,8x17hd,23x0,3x11hv,3x10hd,11x17hd,23x0,2x11hv,12hv,3x10hd,13hd,17hd,19,18vd,19vd,6x17hd,23x0,12hv,4x10hd,12,11hv,14hd,2x18hd,18vd,6x17hd,23x0,3x10hd,12,11,11hv,5x11vd,10hd,13hd,4x17hd,1583x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -116,10 +116,10 @@
 								"tile-y-spacing": 0
 							},
 							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 1920,
-								"height": 1129,
+								"x": 10,
+								"y": -5,
+								"width": 2519,
+								"height": 1490,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -445,8 +445,8 @@
 								1
 							],
 							"isTransparent": true,
-							"parallaxX": 1,
-							"parallaxY": 1,
+							"parallaxX": 0,
+							"parallaxY": 0,
 							"scaleRate": 1,
 							"forceOwnTexture": true,
 							"renderingMode": "3d",
@@ -583,8 +583,8 @@
 								1
 							],
 							"isTransparent": true,
-							"parallaxX": 1,
-							"parallaxY": 1,
+							"parallaxX": 0,
+							"parallaxY": 0,
 							"scaleRate": 1,
 							"forceOwnTexture": false,
 							"renderingMode": "3d",
@@ -613,8 +613,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": true,
 					"renderingMode": "3d",
@@ -2572,8 +2572,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -3827,8 +3827,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -4807,8 +4807,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -6062,8 +6062,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -7317,8 +7317,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -8572,8 +8572,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -9552,8 +9552,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -10532,8 +10532,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -11512,8 +11512,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -12767,8 +12767,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -13698,8 +13698,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -14612,6 +14612,47 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "UIText",
+					"properties": {
+						"text": "pan",
+						"enable-bbcode": true,
+						"character-width": 63,
+						"character-height": 80,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
+						"spacing-data": "[[19,\" \"],[10,\"Ii.,;:!'|\"],[16,\"jl]\"],[17,\"1[\"],[18,\"`\"],[20,\"t(\"],[21,\"\\\")\"],[22,\"f\"],[24,\"°\"],[26,\"=<>\"],[27,\"-\"],[28,\"r\"],[29,\"?\"],[30,\"z~\"],[31,\"5679+*\"],[32,\"Jbcdghnpqu02_\"],[33,\"aeo3\\\\\"],[34,\"Zs8/\"],[35,\"Fkx\"],[36,\"ELvy4\"],[37,\"$\"],[38,\"CDP\"],[39,\"BGHOTU£\"],[40,\"RS\"],[41,\"NY€\"],[42,\"K#\"],[43,\"QVX\"],[44,\"&\"],[45,\"%\"],[46,\"M\"],[47,\"A\"],[54,\"mw\"],[56,\"@\"],[61,\"W\"]]",
+						"scale": 0.3,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 176,
+					"instanceVariables": {
+						"id": "pan"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1075,
+						"y": 1013,
+						"width": 314,
+						"height": 30,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 160551423951557,
@@ -14631,8 +14672,8 @@
 				1
 			],
 			"isTransparent": true,
-			"parallaxX": 1,
-			"parallaxY": 1,
+			"parallaxX": 0,
+			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
@@ -14693,7 +14734,7 @@
 					],
 					"sid": 889263808261787,
 					"effectTypes": [],
-					"isInitiallyVisible": true,
+					"isInitiallyVisible": false,
 					"isInitiallyInteractive": true,
 					"color": [
 						1,
@@ -14753,8 +14794,8 @@
 	"sid": 104332229244797,
 	"nonworld-instances": [],
 	"effectTypes": [],
-	"width": 1920,
-	"height": 1080,
+	"width": 2462,
+	"height": 1525,
 	"unboundedScrolling": false,
 	"vpX": 0.5,
 	"vpY": 0.5,

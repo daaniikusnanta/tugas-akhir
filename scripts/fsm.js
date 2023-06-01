@@ -76,6 +76,7 @@ export function createMachine(stateMachineDefinition) {
 }
 
 /**
+ * Change the state of the FSM.
 * @param {{
 *   target: string,
 *   condition?: {

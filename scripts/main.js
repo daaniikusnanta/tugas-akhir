@@ -2,7 +2,7 @@ import { setLevelVariables } from "./level-data.js";
 import { status, updateStatus } from "./status-data.js";
 import { crisis, crisisFsms, updateCrisis } from "./crisis-data.js";
 import "./utils.js";
-import { setupTextCache } from "./utils.js";
+import { deleteTextFromCache, setupTextCache } from "./utils.js";
 
 runOnStartup(async runtime => {
 	runtime.addEventListener("beforeprojectstart", () => OnBeforeProjectStart(runtime));
@@ -10,25 +10,28 @@ runOnStartup(async runtime => {
 
 async function OnBeforeProjectStart(runtime) {
 	runtime.addEventListener("tick", () => Tick(runtime));
-	runtime.getLayout("Game Layout").addEventListener (
-		"afterlayoutstart", () => GameLayoutAfterLayoutStartHandler(runtime));
+	runtime.getLayout("Game Layout").addEventListener(
+		"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
 
-	setLevelVariables(0, runtime);
+	runtime.objects.UIText.addEventListener("instancedestroy", ({ instance: text }) => {
+		deleteTextFromCache(text.instVars['id']);
+	});
 }
 
 function Tick(runtime) {
 	// runs every tick
 }
 
-function GameLayoutAfterLayoutStartHandler(runtime)
-{
+function GameLayoutBeforeLayoutStartHandler(runtime) {
 	setupTextCache(runtime);
+	setLevelVariables(0, runtime);
+
 	// document.getElementById("inflation_slider").addEventListener("input", e => changeStatus(e.target.value, runtime));
-	
+
 	const statusBars = document.querySelectorAll('.status_bar');
-    for (const statusBar of statusBars) {
-        statusBar.addEventListener("input", e => {
+	for (const statusBar of statusBars) {
+		statusBar.addEventListener("input", e => {
 			status[statusBar.id].value = parseFloat(e.target.value);
 		});
-    }
+	}
 }
