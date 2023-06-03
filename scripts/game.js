@@ -121,6 +121,9 @@ export function updateCrisisView(runtime) {
 	}
 }
 
+/**
+ * Updates the FSM of every crisis.
+ */
 function updateFSM() {
 	const result = Object.values(crisisFsms).some(fsm => fsm.updateState());
 

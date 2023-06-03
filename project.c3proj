@@ -236,6 +236,14 @@
 					"script-info": {
 						"purpose": "none"
 					}
+				},
+				{
+					"name": "tile-data.js",
+					"type": "application/javascript",
+					"sid": 438610270422929,
+					"script-info": {
+						"purpose": "none"
+					}
 				}
 			],
 			"subfolders": []
