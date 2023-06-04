@@ -134,9 +134,22 @@ export function expandCrisisTiles(runtime, crisisName) {
             }
  
             if (!isSameCrisisTypeExists) {
-                const tileID = getCrisisTileID(crisis.type);
+                let tileID = getCrisisTileID(crisis.type);
+
+                if (getNeighbourTiles(tile.x, tile.y).filter(t => t === null).length < 2) {
+                    tileID = tileID + 1;
+                }
+
+                if (tile.x + 1 <= tiles[tile.y].length && tiles[tile.y][tile.x + 1] === null) {
+                    tileID = tileID | ITilemapInstance.TILE_FLIPPED_HORIZONTAL;
+                }
+
+                if (tile.y - 1 >= 0 && tiles[tile.y - 1][tile.x] === null) {
+                    tileID = tileID | ITilemapInstance.TILE_FLIPPED_VERTICAL;
+                }
+
                 console.log(tile, tileID);
-                tilemapCrisis.setTileAt(tile.x, tile.y, tileID + 1);
+                tilemapCrisis.setTileAt(tile.x, tile.y, tileID);
             }
         });
     } else {

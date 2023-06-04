@@ -532,7 +532,7 @@ export let crisis = {
     value: 0,
     lastUpdate: 0,
     type: "education",
-    isGlobal: false,
+    isGlobal: true,
     thresholds: [40, 55, 80],
     states: ["low", "medium", "high", "extreme"],
     transitions: {
