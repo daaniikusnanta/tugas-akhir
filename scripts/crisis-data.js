@@ -3,17 +3,9 @@ import { status } from "./status-data.js";
 import { addTextToCache, getTextById } from "./utils.js";
 
 /**
- * @typedef {
- *      target: string,
- *      evaluation: () => boolean
- * } Transition
- */
-
-/**
- * @typedef {
- *      name: string,
- *      transitions: Transition[]
- * } State
+ * @typedef {{
+ *      [key: string]: () => boolean,
+ * }} Transition
  */
 
 /**
@@ -30,66 +22,30 @@ import { addTextToCache, getTextById } from "./utils.js";
  * @type {
  * string: {
  *      value: number,
+ *      type: string,
+ *      isGlobal: boolean,
+ *      threshholds: number[],
  *      states: State[],
+ *      transitions: Transition[],
  *      causes: Cause[],
- *     lastUpdate: number
+ *      lastUpdate: number
  * }}
  */
 export let crisis = {
   inflation: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["inflation"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () =>
-              crisis["inflation"].value >= 50 &&
-              crisisFsms["recession"].value != "recession" &&
-              crisisFsms["recession"].value != "deppression",
-          },
-          { target: "low", evaluation: () => crisis["inflation"].value < 30 },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["inflation"].value < 50,
-          },
-          {
-            target: "hyperinflation",
-            evaluation: () =>
-              crisis["inflation"].value >= 70 &&
-              crisisFsms["recession"].value != "deppression",
-          },
-        ],
-      },
-      {
-        name: "hyperinflation",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () =>
-              crisis["inflation"].value < 70 &&
-              crisisFsms["recession"].value != "recession" &&
-              crisisFsms["recession"].value != "deppression",
-          },
-        ],
-      },
-    ],
+    type: "finance",
+    isGlobal: true,
+    thresholds: [30, 50, 70],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["recession"].value != crisis["recession"].states[2] &&
+                    crisisFsms["recession"].value != crisis["recession"].states[3],
+      "hyperinflation": () => crisisFsms["recession"].value != crisis["recession"].states[3]
+    },
     causes: [
       {
         cause: "taxes",
@@ -131,43 +87,16 @@ export let crisis = {
   recession: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["recession"].value >= 35,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          { target: "high", evaluation: () => crisis["recession"].value >= 60 },
-          { target: "low", evaluation: () => crisis["recession"].value < 35 },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["recession"].value < 60,
-          },
-          {
-            target: "depression",
-            evaluation: () => crisis["recession"].value >= 85,
-          },
-        ],
-      },
-      {
-        name: "depression",
-        transitions: [
-          { target: "high", evaluation: () => crisis["recession"].value < 85 },
-        ],
-      },
-    ],
+    type: "finance",
+    isGlobal: true,
+    thresholds: [35, 60, 80],
+    states: ["low", "medium", "recession", "depression"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true,
+    },
     causes: [
       {
         cause: "investment",
@@ -188,49 +117,17 @@ export let crisis = {
   debt_crisis: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["debt_crisis"].value >= 25,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["debt_crisis"].value >= 50,
-          },
-          { target: "low", evaluation: () => crisis["debt_crisis"].value < 25 },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["debt_crisis"].value < 50,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["debt_crisis"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["debt_crisis"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "finance",
+    isGlobal: true,
+    thresholds: [25, 50, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["recession"].value != crisis["recession"].states[2] &&
+                    crisisFsms["recession"].value != crisis["recession"].states[3],
+      "extreme": () => crisisFsms["recession"].value != crisis["recession"].states[3]
+    },
     causes: [
       {
         cause: "debt",
@@ -244,49 +141,16 @@ export let crisis = {
   tax_evasion: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["tax_evasion"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["tax_evasion"].value >= 50,
-          },
-          { target: "low", evaluation: () => crisis["tax_evasion"].value < 30 },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["tax_evasion"].value < 50,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["tax_evasion"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["tax_evasion"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "finance",
+    isGlobal: true,
+    thresholds: [30, 50, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true,
+    },
     causes: [
       {
         cause: "taxes",
@@ -300,52 +164,16 @@ export let crisis = {
   infectious_disease: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "endemic",
-        transitions: [
-          {
-            target: "concerning",
-            evaluation: () => crisis["infectious_disease"].value >= 25,
-          },
-        ],
-      },
-      {
-        name: "concerning",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["infectious_disease"].value >= 50,
-          },
-          {
-            target: "endemic",
-            evaluation: () => crisis["infectious_disease"].value < 25,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "concerning",
-            evaluation: () => crisis["infectious_disease"].value < 50,
-          },
-          {
-            target: "pandemic",
-            evaluation: () => crisis["infectious_disease"].value >= 70,
-          },
-        ],
-      },
-      {
-        name: "pandemic",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["infectious_disease"].value < 70,
-          },
-        ],
-      },
-    ],
+    type: "health",
+    isGlobal: false,
+    thresholds: [25, 50, 70],
+    states: ["endemic", "medium", "epidemic", "pandemic"],
+    transitions: {
+      "endemic": () => true,
+      "medium": () => true,
+      "epidemic": () => true,
+      "pandemic": () => true,
+    },
     causes: [
       {
         cause: "disease_control",
@@ -407,52 +235,16 @@ export let crisis = {
   chronic_disease: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "endemic",
-        transitions: [
-          {
-            target: "rising",
-            evaluation: () => crisis["chronic_disease"].value >= 25,
-          },
-        ],
-      },
-      {
-        name: "rising",
-        transitions: [
-          {
-            target: "epidemic",
-            evaluation: () => crisis["chronic_disease"].value >= 55,
-          },
-          {
-            target: "endemic",
-            evaluation: () => crisis["chronic_disease"].value < 25,
-          },
-        ],
-      },
-      {
-        name: "epidemic",
-        transitions: [
-          {
-            target: "rising",
-            evaluation: () => crisis["chronic_disease"].value < 55,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["chronic_disease"].value >= 75,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "epidemic",
-            evaluation: () => crisis["chronic_disease"].value < 75,
-          },
-        ],
-      },
-    ],
+    type: "health",
+    isGlobal: false,
+    thresholds: [25, 55, 75],
+    states: ["endemic", "concerning", "epidemic", "extreme"],
+    transitions: {
+      "endemic": () => true,
+      "concerning": () => true,
+      "epidemic": () => true,
+      "extreme": () => true,
+    },
     causes: [
       {
         cause: "disease_control",
@@ -513,52 +305,16 @@ export let crisis = {
   mental_health_crisis: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "rising",
-            evaluation: () => crisis["mental_health_crisis"].value >= 35,
-          },
-        ],
-      },
-      {
-        name: "rising",
-        transitions: [
-          {
-            target: "epidemic",
-            evaluation: () => crisis["mental_health_crisis"].value >= 55,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["mental_health_crisis"].value < 35,
-          },
-        ],
-      },
-      {
-        name: "epidemic",
-        transitions: [
-          {
-            target: "rising",
-            evaluation: () => crisis["mental_health_crisis"].value < 55,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["mental_health_crisis"].value >= 85,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "epidemic",
-            evaluation: () => crisis["mental_health_crisis"].value < 85,
-          },
-        ],
-      },
-    ],
+    type: "health",
+    isGlobal: false,
+    thresholds: [35, 55, 85],
+    states: ["low", "rising", "epidemic", "extreme"],
+    transitions: {
+      "low": () => true,
+      "rising": () => true,
+      "epidemic": () => true,
+      "extreme": () => true,
+    },
     causes: [
       {
         cause: "public_health",
@@ -608,52 +364,16 @@ export let crisis = {
   healthcare_collapse: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "normal",
-        transitions: [
-          {
-            target: "concerning",
-            evaluation: () => crisis["healthcare_collapse"].value >= 40,
-          },
-        ],
-      },
-      {
-        name: "concerning",
-        transitions: [
-          {
-            target: "overcapacity",
-            evaluation: () => crisis["healthcare_collapse"].value >= 60,
-          },
-          {
-            target: "normal",
-            evaluation: () => crisis["healthcare_collapse"].value < 40,
-          },
-        ],
-      },
-      {
-        name: "overcapacity",
-        transitions: [
-          {
-            target: "concerning",
-            evaluation: () => crisis["healthcare_collapse"].value < 60,
-          },
-          {
-            target: "collapse",
-            evaluation: () => crisis["healthcare_collapse"].value >= 85,
-          },
-        ],
-      },
-      {
-        name: "collapse",
-        transitions: [
-          {
-            target: "overcapacity",
-            evaluation: () => crisis["healthcare_collapse"].value < 85,
-          },
-        ],
-      },
-    ],
+    type: "health",
+    isGlobal: true,
+    thresholds: [40, 60, 85],
+    states: ["normal", "concerning", "overcapacity", "collapse"],
+    transitions: {
+      "normal": () => true,
+      "concerning": () => true,
+      "overcapacity": () => true,
+      "collapse": () => true,
+    },
     causes: [
       {
         cause: "healthcare_system",
@@ -684,52 +404,17 @@ export let crisis = {
   health_worker_shortage: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["health_worker_shortage"].value >= 40,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["health_worker_shortage"].value >= 60,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["health_worker_shortage"].value < 40,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["health_worker_shortage"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["health_worker_shortage"].value >= 85,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["health_worker_shortage"].value < 85,
-          },
-        ],
-      },
-    ],
+    type: "health",
+    isGlobal: true,
+    thresholds: [40, 60, 85],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["healthcare_collapse"].value != crisis['healthcare_collapse'].states[2] &&
+                    crisisFsms["healthcare_collapse"].value != crisis['healthcare_collapse'].states[3],
+      "extreme": () => crisisFsms["healthcare_collapse"].value != crisis['healthcare_collapse'].states[3],
+    },
     causes: [
       {
         cause: "health_workers",
@@ -752,52 +437,16 @@ export let crisis = {
   dropout_crisis: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["dropout_crisis"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["dropout_crisis"].value >= 60,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["dropout_crisis"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["dropout_crisis"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["dropout_crisis"].value >= 90,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["dropout_crisis"].value < 90,
-          },
-        ],
-      },
-    ],
+    type: "education",
+    isGlobal: false,
+    thresholds: [30, 50, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "education_system",
@@ -819,52 +468,16 @@ export let crisis = {
   low_education: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["low_education"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["low_education"].value >= 55,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["low_education"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["low_education"].value < 55,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["low_education"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["low_education"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "education",
+    isGlobal: false,
+    thresholds: [30, 55, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "education_system",
@@ -886,52 +499,17 @@ export let crisis = {
   teacher_shortage: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["teacher_shortage"].value >= 40,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["teacher_shortage"].value >= 55,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["teacher_shortage"].value < 40,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["teacher_shortage"].value < 55,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["teacher_shortage"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["teacher_shortage"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "education",
+    isGlobal: true,
+    thresholds: [40, 55, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["low_education"].value != crisis['low_education'].states[2] &&
+                    crisisFsms["low_education"].value != crisis['low_education'].states[3],
+      "extreme": () => crisisFsms["low_education"].value != crisis['low_education'].states[3]
+    },
     causes: [
       {
         cause: "teachers",
@@ -953,52 +531,16 @@ export let crisis = {
   technology_lag: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["technology_lag"].value >= 40,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["technology_lag"].value >= 55,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["technology_lag"].value < 40,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["technology_lag"].value < 55,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["technology_lag"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["technology_lag"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "education",
+    isGlobal: true,
+    thresholds: [40, 55, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "research",
@@ -1012,37 +554,16 @@ export let crisis = {
   poverty: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          { target: "medium", evaluation: () => crisis["poverty"].value >= 30 },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          { target: "high", evaluation: () => crisis["poverty"].value >= 55 },
-          { target: "low", evaluation: () => crisis["poverty"].value < 30 },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          { target: "medium", evaluation: () => crisis["poverty"].value < 55 },
-          {
-            target: "extreme",
-            evaluation: () => crisis["poverty"].value >= 90,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          { target: "high", evaluation: () => crisis["poverty"].value < 90 },
-        ],
-      },
-    ],
+    type: "social",
+    isGlobal: false,
+    thresholds: [30, 55, 75],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "social_security",
@@ -1072,52 +593,16 @@ export let crisis = {
   discrimination: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["discrimination"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["discrimination"].value >= 60,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["discrimination"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["discrimination"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["discrimination"].value >= 75,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["discrimination"].value < 75,
-          },
-        ],
-      },
-    ],
+    type: "social",
+    isGlobal: true,
+    thresholds: [30, 55, 75],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "empowerment",
@@ -1154,52 +639,17 @@ export let crisis = {
   urban_overcrowding: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["urban_overcrowding"].value >= 35,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["urban_overcrowding"].value >= 55,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["urban_overcrowding"].value < 35,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["urban_overcrowding"].value < 55,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["urban_overcrowding"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["urban_overcrowding"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "social",
+    isGlobal: false,
+    thresholds: [35, 55, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["poverty"].value != crisis["poverty"].states[2] &&
+                    crisisFsms["poverty"].value != crisis["poverty"].states[3],
+      "extreme": () => crisisFsms["poverty"].value != crisis["poverty"].states[3]
+    },
     causes: [
       {
         cause: "water_land",
@@ -1236,52 +686,16 @@ export let crisis = {
   housing_crisis: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["housing_crisis"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["housing_crisis"].value >= 60,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["housing_crisis"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["housing_crisis"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["housing_crisis"].value >= 85,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["housing_crisis"].value < 85,
-          },
-        ],
-      },
-    ],
+    type: "social",
+    isGlobal: false,
+    thresholds: [30, 60, 85],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "social_security",
@@ -1310,52 +724,20 @@ export let crisis = {
   overpopulation: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["overpopulation"].value >= 35,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["overpopulation"].value >= 65,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["overpopulation"].value < 35,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["overpopulation"].value < 65,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["overpopulation"].value >= 85,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["overpopulation"].value < 85,
-          },
-        ],
-      },
-    ],
+    type: "social",
+    isGlobal: true,
+    thresholds: [35, 65, 85],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["recession"].value != crisis["recession"].states[2] &&
+                    crisisFsms["recession"].value != crisis["recession"].states[3] &&
+                    crisisFsms["war_aggression"].value != crisis["war_aggression"].states[2] &&
+                    crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3],
+      "extreme": () => crisisFsms["recession"].value != crisis["recession"].states[3] &&
+                       crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3],
+    },
     causes: [
       {
         cause: "population_control",
@@ -1370,43 +752,16 @@ export let crisis = {
   pollution: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["pollution"].value >= 25,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          { target: "high", evaluation: () => crisis["pollution"].value >= 55 },
-          { target: "low", evaluation: () => crisis["pollution"].value < 25 },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["pollution"].value < 55,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["pollution"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          { target: "high", evaluation: () => crisis["pollution"].value < 80 },
-        ],
-      },
-    ],
+    type: "environment",
+    isGlobal: false,
+    thresholds: [25, 55, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "pollution_control",
@@ -1443,52 +798,16 @@ export let crisis = {
   deforestation: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["deforestation"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["deforestation"].value >= 60,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["deforestation"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["deforestation"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["deforestation"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["deforestation"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "environment",
+    isGlobal: false,
+    thresholds: [30, 60, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "forest",
@@ -1518,49 +837,16 @@ export let crisis = {
   overfishing: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["overfishing"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["overfishing"].value >= 60,
-          },
-          { target: "low", evaluation: () => crisis["overfishing"].value < 30 },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["overfishing"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["overfishing"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["overfishing"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "environment",
+    isGlobal: true,
+    thresholds: [30, 60, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "fisheries",
@@ -1582,52 +868,26 @@ export let crisis = {
   biodiversity_loss: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["biodiversity_loss"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["biodiversity_loss"].value >= 55,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["biodiversity_loss"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["biodiversity_loss"].value < 55,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["biodiversity_loss"].value >= 85,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["biodiversity_loss"].value < 85,
-          },
-        ],
-      },
-    ],
+    type: "environment",
+    isGlobal: true,
+    thresholds: [30, 55, 85],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["deforestation"].value != crisis["deforestation"].states[2] &&
+                    crisisFsms["deforestation"].value != crisis["deforestation"].states[3] &&
+                    crisisFsms["overfishing"].value != crisis["overfishing"].states[2] &&
+                    crisisFsms["overfishing"].value != crisis["overfishing"].states[3] &&
+                    crisisFsms["water_scarcity"].value != crisis["water_scarcity"].states[2] &&
+                    crisisFsms["water_scarcity"].value != crisis["water_scarcity"].states[3] &&
+                    crisisFsms["food_insecurity"].value != crisis["food_insecurity"].states[2] &&
+                    crisisFsms["food_insecurity"].value != crisis["food_insecurity"].states[3],
+      "extreme": () => crisisFsms["deforestation"].value != crisis["deforestation"].states[3] &&
+                       crisisFsms["overfishing"].value != crisis["overfishing"].states[3] &&
+                       crisisFsms["water_scarcity"].value != crisis["water_scarcity"].states[3] &&
+                       crisisFsms["food_insecurity"].value != crisis["food_insecurity"].states[3],
+    },
     causes: [
       {
         cause: "biodiversity",
@@ -1641,52 +901,16 @@ export let crisis = {
   water_scarcity: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["water_scarcity"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["water_scarcity"].value >= 55,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["water_scarcity"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["water_scarcity"].value < 55,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["water_scarcity"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["water_scarcity"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "nature",
+    isGlobal: false,
+    thresholds: [30, 55, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "forest",
@@ -1714,52 +938,17 @@ export let crisis = {
   mineral_scarcity: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["mineral_scarcity"].value >= 35,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["mineral_scarcity"].value >= 60,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["mineral_scarcity"].value < 35,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["mineral_scarcity"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["mineral_scarcity"].value >= 85,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["mineral_scarcity"].value < 85,
-          },
-        ],
-      },
-    ],
+    type: "nature",
+    isGlobal: true,
+    thresholds: [35, 60, 85],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["food_insecurity"].value != crisis["food_insecurity"].states[2] &&
+                    crisisFsms["food_insecurity"].value != crisis["food_insecurity"].states[3],
+      "extreme": () => crisisFsms["food_insecurity"].value != crisis["food_insecurity"].states[3]
+    },
     causes: [
       {
         cause: "mineral_oil",
@@ -1773,52 +962,16 @@ export let crisis = {
   food_insecurity: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["food_insecurity"].value >= 35,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["food_insecurity"].value >= 60,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["food_insecurity"].value < 35,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["food_insecurity"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["food_insecurity"].value >= 85,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["food_insecurity"].value < 85,
-          },
-        ],
-      },
-    ],
+    type: "nature",
+    isGlobal: false,
+    thresholds: [35, 60, 85],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "food_sources",
@@ -1846,52 +999,17 @@ export let crisis = {
   infrastructure_inequality: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["infrastructure_inequality"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["infrastructure_inequality"].value >= 50,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["infrastructure_inequality"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["infrastructure_inequality"].value < 50,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["infrastructure_inequality"].value >= 75,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["infrastructure_inequality"].value < 75,
-          },
-        ],
-      },
-    ],
+    type: "infrastructure",
+    isGlobal: false,
+    thresholds: [30, 50, 75],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["energy_crisis"].value != crisis["energy_crisis"].states[2] &&
+                    crisisFsms["energy_crisis"].value != crisis["energy_crisis"].states[3],
+      "extreme": () => crisisFsms["energy_crisis"].value != crisis["energy_crisis"].states[3]
+    },
     causes: [
       {
         cause: "communication_information",
@@ -1914,52 +1032,16 @@ export let crisis = {
   energy_crisis: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["energy_crisis"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["energy_crisis"].value >= 50,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["energy_crisis"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["energy_crisis"].value < 50,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["energy_crisis"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["energy_crisis"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "infrastructure",
+    isGlobal: false,
+    thresholds: [30, 50, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "mineral_oil_industry",
@@ -1981,52 +1063,20 @@ export let crisis = {
   skill_shortage: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["skill_shortage"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["skill_shortage"].value >= 50,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["skill_shortage"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["skill_shortage"].value < 50,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["skill_shortage"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["skill_shortage"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "labor",
+    isGlobal: true,
+    thresholds: [30, 50, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["low_education"].value != crisis["low_education"].states[2] &&
+                    crisisFsms["low_education"].value != crisis["low_education"].states[3] &&
+                    crisisFsms["low_investment"].value != crisis["low_investment"].states[2] &&
+                    crisisFsms["low_investment"].value != crisis["low_investment"].states[3],
+      "extreme": () => crisisFsms["low_education"].value != crisis["low_education"].states[3] &&
+                       crisisFsms["low_investment"].value != crisis["low_investment"].states[3]
+    },
     causes: [
       {
         cause: "low_education",
@@ -2056,52 +1106,16 @@ export let crisis = {
   unemployment: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["unemployment"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["unemployment"].value >= 50,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["unemployment"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["unemployment"].value < 50,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["unemployment"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["unemployment"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "labor",
+    isGlobal: true,
+    thresholds: [30, 50, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "empowerment",
@@ -2152,40 +1166,17 @@ export let crisis = {
   job_loss: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["job_loss"].value >= 25,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          { target: "high", evaluation: () => crisis["job_loss"].value >= 50 },
-          { target: "low", evaluation: () => crisis["job_loss"].value < 25 },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          { target: "medium", evaluation: () => crisis["job_loss"].value < 50 },
-          {
-            target: "extreme",
-            evaluation: () => crisis["job_loss"].value >= 70,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          { target: "high", evaluation: () => crisis["job_loss"].value < 70 },
-        ],
-      },
-    ],
+    type: "labor",
+    isGlobal: true,
+    thresholds: [25, 50, 70],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["unemployment"].value != crisis["unemployment"].states[2] &&
+                    crisisFsms["unemployment"].value != crisis["unemployment"].states[3],
+      "extreme": () => crisisFsms["unemployment"].value != crisis["unemployment"].states[3]
+    },
     causes: [
       {
         cause: "wage_income",
@@ -2229,52 +1220,16 @@ export let crisis = {
   cyber_attack: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["cyber_attack"].value >= 25,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["cyber_attack"].value >= 55,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["cyber_attack"].value < 25,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["cyber_attack"].value < 55,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["cyber_attack"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["cyber_attack"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "defense",
+    isGlobal: true,
+    thresholds: [25, 55, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "defense_infrastructure",
@@ -2297,43 +1252,17 @@ export let crisis = {
   terrorism: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["terrorism"].value >= 25,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          { target: "high", evaluation: () => crisis["terrorism"].value >= 50 },
-          { target: "low", evaluation: () => crisis["terrorism"].value < 25 },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["terrorism"].value < 50,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["terrorism"].value >= 75,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          { target: "high", evaluation: () => crisis["terrorism"].value < 75 },
-        ],
-      },
-    ],
+    type: "defense",
+    isGlobal: false,
+    thresholds: [25, 50, 75],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["war_aggression"].value != crisis["war_aggression"].states[2] &&
+                    crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3],
+      "extreme": () => crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3]
+    },
     causes: [
       {
         cause: "foreign_relations",
@@ -2363,52 +1292,16 @@ export let crisis = {
   war_aggression: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["war_aggression"].value >= 35,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["war_aggression"].value >= 60,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["war_aggression"].value < 35,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["war_aggression"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["war_aggression"].value >= 85,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["war_aggression"].value < 85,
-          },
-        ],
-      },
-    ],
+    type: "defense",
+    isGlobal: false,
+    thresholds: [35, 60, 85],
+    states: ["low", "medium", "aggression", "war"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "aggression": () => true,
+      "war": () => true
+    },
     causes: [
       {
         cause: "foreign_relations",
@@ -2430,52 +1323,17 @@ export let crisis = {
   separatist_groups: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["separatist_groups"].value >= 35,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["separatist_groups"].value >= 60,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["separatist_groups"].value < 35,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["separatist_groups"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["separatist_groups"].value >= 85,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["separatist_groups"].value < 85,
-          },
-        ],
-      },
-    ],
+    type: "defense",
+    isGlobal: false,
+    thresholds: [35, 60, 85],
+    states: ["low", "threat", "small", "extreme"],
+    transitions: {
+      "low": () => true,
+      "threat": () => true,
+      "small": () => crisisFsms["war_aggression"].value != crisis["war_aggression"].states[2] &&
+                    crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3],
+      "extreme": () => crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3]
+    },
     causes: [
       {
         cause: "water_land",
@@ -2519,52 +1377,16 @@ export let crisis = {
   misinformation_spread: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["misinformation_spread"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["misinformation_spread"].value >= 60,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["misinformation_spread"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["misinformation_spread"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["misinformation_spread"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["misinformation_spread"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "stability",
+    isGlobal: true,
+    thresholds: [30, 60, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "media_neutrality",
@@ -2608,46 +1430,16 @@ export let crisis = {
   media_bias: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["media_bias"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["media_bias"].value >= 60,
-          },
-          { target: "low", evaluation: () => crisis["media_bias"].value < 30 },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["media_bias"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["media_bias"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          { target: "high", evaluation: () => crisis["media_bias"].value < 80 },
-        ],
-      },
-    ],
+    type: "stability",
+    isGlobal: true,
+    thresholds: [30, 60, 80],
+    states: ["neutral", "medium", "high", "extreme"],
+    transitions: {
+      "neutral": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "communication_information",
@@ -2677,52 +1469,20 @@ export let crisis = {
   political_instability: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["political_instability"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["political_instability"].value >= 60,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["political_instability"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["political_instability"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["political_instability"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["political_instability"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "stability",
+    isGlobal: true,
+    thresholds: [30, 60, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["social_unrest"].value != crisis["social_unrest"].states[2] &&
+                    crisisFsms["social_unrest"].value != crisis["social_unrest"].states[3] &&
+                    crisisFsms["war_aggression"].value != crisis["war_aggression"].states[2] &&
+                    crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3],
+      "extreme": () => crisisFsms["social_unrest"].value != crisis["social_unrest"].states[3] &&
+                       crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3],
+    },
     causes: [
       {
         cause: "governance",
@@ -2744,52 +1504,17 @@ export let crisis = {
   social_unrest: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["social_unrest"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["social_unrest"].value >= 55,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["social_unrest"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["social_unrest"].value < 55,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["social_unrest"].value >= 75,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["social_unrest"].value < 75,
-          },
-        ],
-      },
-    ],
+    type: "stability",
+    isGlobal: false,
+    thresholds: [30, 55, 75],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["war_aggression"].value != crisis["war_aggression"].states[2] &&
+                    crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3],
+      "extreme": () => crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3]
+    },
     causes: [
       {
         cause: "recession",
@@ -2849,43 +1574,17 @@ export let crisis = {
   conflicts: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["conflicts"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          { target: "high", evaluation: () => crisis["conflicts"].value >= 60 },
-          { target: "low", evaluation: () => crisis["conflicts"].value < 30 },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["conflicts"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["conflicts"].value >= 75,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          { target: "high", evaluation: () => crisis["conflicts"].value < 75 },
-        ],
-      },
-    ],
+    type: "stability",
+    isGlobal: false,
+    thresholds: [30, 60, 75],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["war_aggression"].value != crisis["war_aggression"].states[2] &&
+                    crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3],
+      "extreme": () => crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3]
+    },
     causes: [
       {
         cause: "justice_system",
@@ -2930,52 +1629,17 @@ export let crisis = {
   crime_violence: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["crime_violence"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["crime_violence"].value >= 55,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["crime_violence"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["crime_violence"].value < 55,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["crime_violence"].value >= 75,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["crime_violence"].value < 75,
-          },
-        ],
-      },
-    ],
+    type: "stability",
+    isGlobal: false,
+    thresholds: [30, 55, 75],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["war_aggression"].value != crisis["war_aggression"].states[2] &&
+                    crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3],
+      "extreme": () => crisisFsms["war_aggression"].value != crisis["war_aggression"].states[3]
+    },
     causes: [
       {
         cause: "jobs",
@@ -3041,52 +1705,17 @@ export let crisis = {
   black_market: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["black_market"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["black_market"].value >= 55,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["black_market"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["black_market"].value < 55,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["black_market"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["black_market"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "industry",
+    isGlobal: true,
+    thresholds: [30, 55, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["recession"].value != crisis["recession"].states[2] &&
+                    crisisFsms["recession"].value != crisis["recession"].states[3],
+      "extreme": () => crisisFsms["recession"].value != crisis["recession"].states[3]
+    },
     causes: [
       {
         cause: "transportation",
@@ -3115,52 +1744,20 @@ export let crisis = {
   low_investment: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["low_investment"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["low_investment"].value >= 60,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["low_investment"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["low_investment"].value < 60,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["low_investment"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["low_investment"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "industry",
+    isGlobal: true,
+    thresholds: [30, 60, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => crisisFsms["recession"].value != crisis["recession"].states[2] &&
+                    crisisFsms["recession"].value != crisis["recession"].states[3] &&
+                    crisisFsms["bankruptcies"].value != crisis["bankruptcies"].states[2] &&
+                    crisisFsms["bankruptcies"].value != crisis["bankruptcies"].states[3],
+      "extreme": () => crisisFsms["recession"].value != crisis["recession"].states[3] &&
+                       crisisFsms["bankruptcies"].value != crisis["bankruptcies"].states[3],
+    },
     causes: [
       {
         cause: "investment",
@@ -3190,52 +1787,16 @@ export let crisis = {
   bankruptcies: {
     value: 0,
     lastUpdate: 0,
-    states: [
-      {
-        name: "low",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["bankruptcies"].value >= 30,
-          },
-        ],
-      },
-      {
-        name: "medium",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["bankruptcies"].value >= 65,
-          },
-          {
-            target: "low",
-            evaluation: () => crisis["bankruptcies"].value < 30,
-          },
-        ],
-      },
-      {
-        name: "high",
-        transitions: [
-          {
-            target: "medium",
-            evaluation: () => crisis["bankruptcies"].value < 65,
-          },
-          {
-            target: "extreme",
-            evaluation: () => crisis["bankruptcies"].value >= 80,
-          },
-        ],
-      },
-      {
-        name: "extreme",
-        transitions: [
-          {
-            target: "high",
-            evaluation: () => crisis["bankruptcies"].value < 80,
-          },
-        ],
-      },
-    ],
+    type: "industry",
+    isGlobal: true,
+    thresholds: [30, 65, 80],
+    states: ["low", "medium", "high", "extreme"],
+    transitions: {
+      "low": () => true,
+      "medium": () => true,
+      "high": () => true,
+      "extreme": () => true
+    },
     causes: [
       {
         cause: "taxes",
@@ -3288,33 +1849,64 @@ export function initializeCrisis(levelVariables, runtime) {
   for (const variable in crisis) {
     let states = {};
     let initial = null;
+    const crisisObj = crisis[variable];
 
     initializeCrisisTexts(runtime);
 
-    crisis[variable].states.forEach((crisisState) => {
+    crisisObj.states.forEach((state) => {
       if (!initial) {
-        initial = crisisState.name;
+        initial = state;
       }
+      const index = crisisObj.states.indexOf(state);
 
-      let transitions = [];
-      crisisState.transitions.forEach((transition) => {
+      const transitions = [];
+
+      // Add transition to previous state.
+      if (index > 0) {
+        const target = crisisObj.states[index - 1];
+
         transitions.push({
-          target: transition.target,
+          target: target,
           condition: {
-            evaluate: transition.evaluation,
+            evaluate: () =>
+              crisisObj.transitions[target] &&
+              crisisObj.value < crisisObj.thresholds[index - 1],
           },
         });
-      });
+      }
 
-      const state = {
+      // Add transition to next state.
+      if (index < crisisObj.states.length - 1) {
+        const target = crisisObj.states[index + 1];
+
+        transitions.push({
+          target: target,
+          condition: {
+            evaluate: () => 
+              crisisObj.transitions[target] &&
+              crisisObj.value >= crisisObj.thresholds[index],
+          },
+        });
+      }
+
+      // state.transitions.forEach((transition) => {
+      //   transitions.push({
+      //     target: transition.target,
+      //     condition: {
+      //       evaluate: transition.evaluation,
+      //     },
+      //   });
+      // });
+
+      const stateCondition = {
         actions: {
           onEnter: () => {
-            console.log(`Crisis ${variable} entering: ${crisisState.name}`);
+            console.log(`Crisis ${variable} entering: ${state}`);
 
             const crisisWarningText = getTextById(variable + "_crisis_warning");
 
-            if (crisis[variable].states.indexOf(crisisState) > 1) {
-              updateShownCrisis(variable, crisisState, crisisWarningText);              
+            if (crisis[variable].states.indexOf(state) > 1) {
+              updateShownCrisis(variable, state, crisisWarningText);              
             } else {
               removeShownCrisis(variable, crisisWarningText);
             }
@@ -3322,7 +1914,7 @@ export function initializeCrisis(levelVariables, runtime) {
         },
         transitions: transitions,
       };
-      states[crisisState.name] = state;
+      states[state] = stateCondition;
     });
 
     const fsm = createMachine({
@@ -3377,10 +1969,10 @@ let shownCrisis = [];
 /**
  * Add and show the new crisis.
  * @param {string} variable The name of the crisis.
- * @param {string} crisisState The crisis state.
+ * @param {string} state The crisis state.
  * @param {ISpriteFontInstance} crisisWarningText The crisis warning sprite font object.
  */
-function updateShownCrisis(variable, crisisState, crisisWarningText) {
+function updateShownCrisis(variable, state, crisisWarningText) {
   const isShownBefore = shownCrisis.find(
     (element) => element.variable === variable
   );
@@ -3390,7 +1982,6 @@ function updateShownCrisis(variable, crisisState, crisisWarningText) {
     crisisWarningText.y = 30;
     let y = 60;
     for (const otherCrisis of shownCrisis) {
-      console.log("otherCrisis", otherCrisis);
       const otherText = getTextById(otherCrisis.variable + "_crisis_warning");
       otherText.y = y;
       y += 30;
@@ -3398,11 +1989,11 @@ function updateShownCrisis(variable, crisisState, crisisWarningText) {
 
     shownCrisis.push({
       variable: variable,
-      state: crisisState.name,
+      state: state,
     });
   }
 
-  crisisWarningText.text = variable.substring(0, 5) + ": " + crisisState.name;
+  crisisWarningText.text = variable.substring(0, 5) + ": " + state;
   crisisWarningText.isVisible = true;
 }
 

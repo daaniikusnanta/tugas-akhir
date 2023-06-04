@@ -29,7 +29,7 @@ export function setupCrisisViews(runtime) {
 		crisisScrollable.addChild(sliderBarBG, { transformX: true, transformY: true });
 		
 		let sliderBar = runtime.objects.SliderBar.createInstance("panelcrisisbackground", x, y + 34);
-		console.log("Slider", sliderBar);
+		
 		sliderBar.instVars['minX'] = x - sliderBarBG.width/2;
 		sliderBar.instVars['maxX'] = x + sliderBarBG.width/2;
 		sliderBar.instVars['maxValue'] = 100;
@@ -65,7 +65,6 @@ export function setupCrisisViews(runtime) {
 		
 		y += 52 + margin;
 	}
-	console.log(crisisScrollable.height, Object.keys(crisis).length);
 	
 	const crisisPanel = runtime.objects.UIPanel.getAllInstances().filter(panel => panel.instVars['id'] == "crisis")[0];
 	crisisScrollable.height = Object.keys(crisis).length * (margin + 52) + margin / 2;
