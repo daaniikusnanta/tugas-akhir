@@ -133,3 +133,11 @@ function updateFSM() {
 
 	Object.values(crisisFsms).forEach(fsm => fsm.tick());
 }
+
+export function setCrisisValue(crisisVariable, value) {
+	crisis[crisisVariable].value = value;
+}
+
+export function setStatusValue(statusVariable, value) {
+	status[statusVariable].value = value;
+}
