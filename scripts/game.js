@@ -1,6 +1,7 @@
 import { status, updateStatus } from "./status-data.js";
 import { crisis, crisisFsms, updateCrisis } from "./crisis-data.js";
 import { addTextToCache, getTextById, setSliderValue } from "./utils.js";
+import { expandCrisisTiles } from "./tile-data.js";
 
 function updateAllStatus() {
 	for (const statusVariable in status) {
@@ -117,6 +118,11 @@ export function updateCrisisView(runtime) {
 		const update = (crisis[id].lastUpdate >= 0) ? "+" + crisis[id].lastUpdate.toFixed(2) : crisis[id].lastUpdate.toFixed(2);
 		const text = value.toFixed(2).toString() + " (" + update + ")";
 		setSliderValue(crisisSlider, crisisText, value, text);
+
+		if (crisisFsms[id].value === crisis[id].states[2] || crisisFsms[id].value === crisis[id].states[3] && !crisis[id].isGlobal) {
+			console.log("Expanding", id)
+			expandCrisisTiles(runtime, id);
+		}
 	}
 }
 

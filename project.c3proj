@@ -140,7 +140,9 @@
 			"ProgressBar",
 			"ProgressBarBG",
 			"SliderBarBG",
-			"SliderBar"
+			"SliderBar",
+			"TilemapCrisis",
+			"GridBackground"
 		],
 		"subfolders": [
 			{

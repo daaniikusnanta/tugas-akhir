@@ -20,7 +20,7 @@ import { addTextToCache, getTextById } from "./utils.js";
 
 /**
  * @type {
- * string: {
+ * [key: string]: {
  *      value: number,
  *      type: string,
  *      isGlobal: boolean,
@@ -532,7 +532,7 @@ export let crisis = {
     value: 0,
     lastUpdate: 0,
     type: "education",
-    isGlobal: true,
+    isGlobal: false,
     thresholds: [40, 55, 80],
     states: ["low", "medium", "high", "extreme"],
     transitions: {

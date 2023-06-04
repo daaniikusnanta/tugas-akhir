@@ -1,0 +1,29 @@
+{
+	"name": "TilemapCrisis",
+	"plugin-id": "Tilemap",
+	"sid": 910480500852111,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 100234472557052
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 768,
+		"height": 704,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 6668800,
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

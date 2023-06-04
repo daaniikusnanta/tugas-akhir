@@ -951,6 +951,50 @@
 								}
 							],
 							"sid": 554820079075309
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "SliderBar",
+									"sid": 708708183070173,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "left(SliderBar.id, find(SliderBar.id, \"_crisis_slider\")) & \"_crisis_slider\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const slider = runtime.objects.SliderBar.getPickedInstances()[0];\nconst crisis = slider.instVars['id'].replace(\"_crisis_slider\", \"\");\nsetCrisisValue(crisis, slider.instVars['value']);\nupdateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);"
+								}
+							],
+							"sid": 276331711608241
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "SliderBar",
+									"sid": 848544653780332,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "left(SliderBar.id, find(SliderBar.id, \"_status_slider\")) & \"_status_slider\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const slider = runtime.objects.SliderBar.getPickedInstances()[0];\nconst status = slider.instVars['id'].replace(\"_status_slider\", \"\");\nsetStatusValue(status, slider.instVars['value']);\nupdateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);"
+								}
+							],
+							"sid": 888014597191443
 						}
 					]
 				},
@@ -1672,6 +1716,24 @@
 							"sid": 888177863551396,
 							"parameters": {
 								"object": "Button"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 491795349568824,
+							"parameters": {
+								"object": "SliderBar"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 750314655634088,
+							"parameters": {
+								"object": "UIPanel"
 							},
 							"isInverted": true
 						}
