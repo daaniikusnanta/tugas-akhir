@@ -5,6 +5,7 @@ import { clamp } from "./utils.js";
  * @typedef {{
  *      x: number,
  *      y: number,
+ *      tileNumber: number,
  *      biome: string,
  *      crisis: string[], 
  * }} Tile
@@ -40,13 +41,14 @@ export function initializeTileBiome(runtime) {
             if (tile !== -1) {
                 const tileID = tile & ITilemapInstance.TILE_ID_MASK;
                 const biome = getBiomeString(tileID);
+                mapTileCount++;
                 const tileInfo = {
                     x: x,
                     y: y,
+                    tileNumber: mapTileCount,
                     biome: biome,
                     crisis: [],
                 };
-                mapTileCount++;
                 console.log("initializeTile", x, y, mapTileCount);
                 const tileText = runtime.objects.UIText.createInstance("tilemap", (x+1) * 64 - 32 - 16, (y+1) * 64 - 32 - 16);
                 tileText.text = mapTileCount.toString();
@@ -139,6 +141,7 @@ export function expandCrisisTiles(runtime, crisisName) {
         });
     } else {
         const tilesToRemove = Math.abs(tilesToExpand);
+        console.log("Removing tiles");
 
         // Remove tiles
         let removedTiles = [];
@@ -153,6 +156,10 @@ export function expandCrisisTiles(runtime, crisisName) {
             crisisTiles = crisisTiles.filter(tile => tile !== removedTile);
 
             removedTile.crisis = removedTile.crisis.filter(c => c !== crisisName);
+
+            // Add removed tile neighbours that are border tiles to border tiles
+            const removedTileBorderNeighbours = getBorderCrisisTiles([removedTile], crisisName);
+            borderTiles = borderTiles.concat(removedTileBorderNeighbours);
         }
 
         removedTiles.forEach(tile => {
@@ -167,7 +174,7 @@ export function expandCrisisTiles(runtime, crisisName) {
 
             if (!isSameCrisisTypeExists) {
                 console.log(tile);
-                tilemapCrisis.setTileAt(tile.x + 1, tile.y + 1, -1);
+                tilemapCrisis.setTileAt(tile.x, tile.y, -1);
             }
         });
     }
