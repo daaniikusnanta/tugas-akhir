@@ -109,6 +109,10 @@
 								"variable": "isRunning",
 								"value": "true"
 							}
+						},
+						{
+							"type": "script",
+							"script": "initializePolicyViews(runtime);"
 						}
 					],
 					"sid": 982971445756731
@@ -138,7 +142,7 @@
 						},
 						{
 							"type": "script",
-							"script": "updateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);"
+							"script": "updateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);\nupdateFiscalViews(runtime);"
 						}
 					],
 					"sid": 268964243012299,
@@ -459,6 +463,14 @@
 							"parameters": [
 								false
 							]
+						},
+						{
+							"callFunction": "showPolicyPanel",
+							"sid": 149286169464735,
+							"parameters": [
+								"\"\"",
+								false
+							]
 						}
 					],
 					"sid": 192436697156279
@@ -518,6 +530,32 @@
 								}
 							],
 							"sid": 627493602582896
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 584032643208967,
+									"parameters": {
+										"first-value": "RegexMatchCount(Button.id, \"policy\", \"\")",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "showPolicyPanel",
+									"sid": 159744151605400,
+									"parameters": [
+										"tokenat(Button.id, 0, \"_\")",
+										true
+									]
+								}
+							],
+							"sid": 200290971298159
 						},
 						{
 							"eventType": "block",
@@ -810,7 +848,7 @@
 					]
 				},
 				{
-					"functionName": "showCrisis",
+					"functionName": "showPolicyPanel",
 					"functionDescription": "",
 					"functionCategory": "",
 					"functionReturnType": "none",
@@ -818,17 +856,77 @@
 					"functionIsAsync": false,
 					"functionParameters": [
 						{
-							"name": "crisisArrUid",
-							"type": "number",
-							"initialValue": "0",
+							"name": "policyType",
+							"type": "string",
+							"initialValue": "",
 							"comment": "",
 							"sid": 922209966426629
+						},
+						{
+							"name": "show",
+							"type": "boolean",
+							"initialValue": "true",
+							"comment": "",
+							"sid": 208659183222295
 						}
 					],
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [],
-					"sid": 653537904875028
+					"sid": 653537904875028,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 651416469506009,
+									"parameters": {
+										"variable": "show"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "console.log(runtime.localVars.policyType);\nshowPolicyPanel(runtime.localVars.policyType, runtime);"
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 455130048507148,
+									"parameters": {
+										"layer": "\"PanelPolicy\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 106018960529653
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 507953959194330
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 342330189073025,
+									"parameters": {
+										"layer": "\"PanelPolicy\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 758777198752536
+						}
+					]
 				}
 			],
 			"sid": 841929679503871
@@ -969,7 +1067,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const slider = runtime.objects.SliderBar.getPickedInstances()[0];\nconst crisis = slider.instVars['id'].replace(\"_crisis_slider\", \"\");\nsetCrisisValue(crisis, slider.instVars['value']);\nupdateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);"
+									"script": "const slider = runtime.objects.SliderBar.getPickedInstances()[0];\nconst crisis = slider.instVars['id'].replace(\"_crisis_slider\", \"\");\nsetCrisisValue(crisis, slider.instVars['value']);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);"
 								}
 							],
 							"sid": 276331711608241
@@ -991,7 +1089,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const slider = runtime.objects.SliderBar.getPickedInstances()[0];\nconst status = slider.instVars['id'].replace(\"_status_slider\", \"\");\nsetStatusValue(status, slider.instVars['value']);\nupdateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);"
+									"script": "const slider = runtime.objects.SliderBar.getPickedInstances()[0];\nconst status = slider.instVars['id'].replace(\"_status_slider\", \"\");\nsetStatusValue(status, slider.instVars['value']);\nupdateStatusView(runtime);\nupdateCrisisView(runtime);"
 								}
 							],
 							"sid": 888014597191443
@@ -2546,6 +2644,15 @@
 								"layer": "\"Tilemap\"",
 								"scale": "zoom"
 							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 968820191536516,
+							"parameters": {
+								"layer": "\"Grid\"",
+								"scale": "zoom"
+							}
 						}
 					],
 					"sid": 315404677249910
@@ -2653,37 +2760,6 @@
 						}
 					],
 					"sid": 493995636528069
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 770876545974412
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "UIText",
-							"sid": 954884934980505,
-							"parameters": {
-								"instance-variable": "id",
-								"comparison": 0,
-								"value": "\"pan\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "UIText",
-							"sid": 873916058601961,
-							"parameters": {
-								"text": "\"panid: \" & TouchPanID & \" lastTouchX \" & TouchLastX"
-							}
-						}
-					],
-					"sid": 786186007305156
 				}
 			],
 			"sid": 931418544199270

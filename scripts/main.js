@@ -25,15 +25,6 @@ function Tick(runtime) {
 
 function GameLayoutBeforeLayoutStartHandler(runtime) {
 	setupTextCache(runtime);
-
-	// document.getElementById("inflation_slider").addEventListener("input", e => changeStatus(e.target.value, runtime));
-
-	const statusBars = document.querySelectorAll('.status_bar');
-	for (const statusBar of statusBars) {
-		statusBar.addEventListener("input", e => {
-			status[statusBar.id].value = parseFloat(e.target.value);
-		});
-	}
 }
 
 function GameLayoutAfterLayoutStartHandler(runtime) {

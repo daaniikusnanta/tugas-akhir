@@ -49,7 +49,7 @@ export function initializeTileBiome(runtime) {
                     biome: biome,
                     crisis: [],
                 };
-                console.log("initializeTile", x, y, mapTileCount);
+                
                 const tileText = runtime.objects.UIText.createInstance("tilemap", (x+1) * 64 - 32 - 16, (y+1) * 64 - 32 - 16);
                 tileText.text = mapTileCount.toString();
                 tileText.scale = 0.2;

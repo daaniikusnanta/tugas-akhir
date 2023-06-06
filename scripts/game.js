@@ -2,6 +2,8 @@ import { status, updateStatus } from "./status-data.js";
 import { crisis, crisisFsms, updateCrisis } from "./crisis-data.js";
 import { addTextToCache, getTextById, setSliderValue } from "./utils.js";
 import { expandCrisisTiles } from "./tile-data.js";
+import { policy } from "./policy-data.js";
+import { updateIncome, updateSpending } from "./fiscal-data.js";
 
 function updateAllStatus() {
 	for (const statusVariable in status) {
@@ -15,6 +17,11 @@ function updateAllCrisis() {
         // console.log("Updating crisis " + crisisVariable);
 		updateCrisis(crisisVariable);
 	}
+}
+
+function updateFiscalViews(runtime) {
+	updateIncome(runtime);
+	updateSpending(runtime);
 }
 
 export function setupCrisisViews(runtime) {
@@ -73,20 +80,7 @@ export function setupCrisisViews(runtime) {
 	crisisScrollable.instVars['max'] = crisisScrollable.y;
 }
 
-export function updateStatusView(runtime) {
-	let statusTexts = runtime.objects.UIText2.getAllInstances();
-    statusTexts = statusTexts.filter(text => text.instVars['id'].endsWith("_status"));
-
-    for (const statusText of statusTexts) {
-        const id = statusText.instVars['id'];
-		let update = status[id.substring(0, id.indexOf("_status"))].lastUpdate.toFixed(2);
-		if (update > 0) {
-			update = "+" + update;
-		}
-        const statusValue = status[id.substring(0, id.indexOf("_status"))].value.toString().substring(0, 4) + " (" + update + ")";
-        statusText.text = statusValue;
-    }
-	
+export function updateStatusView(runtime) {	
 	let statusSliders = runtime.objects.SliderBar.getAllInstances();
 	statusSliders = statusSliders.filter(slider => slider.instVars['id'].endsWith("status_slider"));
 
@@ -98,11 +92,6 @@ export function updateStatusView(runtime) {
 		const update = (status[id].lastUpdate >= 0) ? "+" + status[id].lastUpdate.toFixed(2) : status[id].lastUpdate.toFixed(2);
 		const text = value.toFixed(2).toString() + " (" + update + ")";
 		setSliderValue(statusSlider, statusText, value, text);
-    }
-
-	const statusBars = document.querySelectorAll('.status_bar');
-    for (const statusBar of statusBars) {
-        statusBar.value = status[statusBar.id].value;
     }
 }
 
@@ -146,4 +135,100 @@ export function setCrisisValue(crisisVariable, value) {
 
 export function setStatusValue(statusVariable, value) {
 	status[statusVariable].value = value;
+}
+
+function initializePolicyViews(runtime) {
+	let policyData = {};
+	const policiesScrollable = runtime.objects.ScrollablePanel.getAllInstances().filter(scrollable => scrollable.instVars['id'] == "policy")[0];
+	const x = policiesScrollable.x + policiesScrollable.width/2;
+	let initialY = policiesScrollable.y + 40/2;
+	console.log("Policy", policy);
+	
+	for (const variable in policy) {
+		const policyName = policy[variable];
+		if (!policyData[policyName.type]) {
+			console.log("adding policy");
+			policyData[policyName.type] = {
+				count : 0,
+				y : initialY,
+				policies: []
+			};
+		}
+		console.log("Policy name", policyName);
+		
+		const instanceY = policyData[policyName.type].y;
+		
+		let policyNameText = runtime.objects.UIText.createInstance("PanelPolicy", x,instanceY);
+		policyNameText.instVars['id'] = variable + "_policy_title";
+		policyNameText.colorRgb = [1, 1, 1];
+		policyNameText.text = policyName.name;		
+		policyNameText.blendMode = "source-atop";
+		policyNameText.characterScale = 0.25;
+		policyNameText.isVisible = false;
+		addTextToCache(policyNameText);
+		policiesScrollable.addChild(policyNameText);
+		
+		let policyValueText = runtime.objects.UIText.createInstance("PanelPolicy", x, instanceY + 30);
+		policyValueText.instVars['id'] = variable + "_policy_value";
+		policyValueText.colorRgb = [1, 1, 1];
+		policyValueText.text = policyName.value.toString();		
+		policyValueText.blendMode = "source-atop";
+		policyValueText.characterScale = 0.25;
+		policyValueText.isVisible = false;
+		addTextToCache(policyValueText);
+		policiesScrollable.addChild(policyValueText);
+		
+		policyData[policyName.type].y += 50;
+		policyData[policyName.type].count++;
+		policyData[policyName.type].policies.push(variable);
+	}
+
+	console.log("Policy data", policyData)
+	
+	for (const variable in policyData) {
+		
+		const data = policyData[variable];
+		console.log("Data", data);
+		policyScrollableData[variable] = {
+			height: data.count * 90 + 20,
+			policies: data.policies,
+		};
+	}
+}
+
+let policyScrollableData = {}
+
+function showPolicyPanel(policyType, runtime) {
+	console.log("Policy scrollable data", policyScrollableData);
+	console.log("Policy type", policyType);
+	let policiesScrollable = runtime.objects.ScrollablePanel.getAllInstances().filter(scrollable => scrollable.instVars['id'] == "policy")[0];
+	const policyPanel = runtime.objects.UIPanel.getAllInstances().filter(panel => panel.instVars['id'] == "policy")[0];
+
+	for (const policyName in policy) {
+		console.log("Policy name invisible", policyName);
+		const policyNameText = getTextById(policyName + "_policy_title");
+		policyNameText.isVisible = false;
+		const policyValueText = getTextById(policyName + "_policy_value");
+		policyValueText.isVisible = false;
+	}
+
+	if (policyScrollableData[policyType]) {
+		console.log("Setting height", policyType, policyScrollableData[policyType]);
+		const scrollableHeight = policyScrollableData[policyType].height;
+		policiesScrollable.height = scrollableHeight;
+		policiesScrollable.instVars['min'] = policiesScrollable.y - policiesScrollable.height + policyPanel.height;
+		policiesScrollable.instVars['max'] = policiesScrollable.y;
+
+		for (const policyName of policyScrollableData[policyType].policies) {
+			console.log("Policy name visible", policyName);
+			const policyNameText = getTextById(policyName + "_policy_title");
+			policyNameText.isVisible = true;
+			const policyValueText = getTextById(policyName + "_policy_value");
+			policyValueText.isVisible = true;
+		}
+	} else {
+		policiesScrollable.height = 0;
+		policiesScrollable.instVars['min'] = policiesScrollable.y - policiesScrollable.height + policyPanel.height;
+		policiesScrollable.instVars['max'] = policiesScrollable.y;
+	}
 }
