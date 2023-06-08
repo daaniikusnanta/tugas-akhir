@@ -32,6 +32,16 @@
 			"sid": 119014568727059
 		},
 		{
+			"eventType": "variable",
+			"name": "hoveredUid",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 794859067839645
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Clickable",
@@ -1054,6 +1064,16 @@
 							}
 						},
 						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 640109051025903,
+							"parameters": {
+								"variable": "hoveredUid",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "ClickablePanel",
 							"sid": 535550770637778,
@@ -1083,8 +1103,17 @@
 							}
 						},
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 477923752237058,
+							"parameters": {
+								"variable": "hoveredUid",
+								"value": "ClickablePanel.UID"
+							}
+						},
+						{
 							"type": "script",
-							"script": "const clickablePanel = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst panel = runtime.objects.UIPanel.getAllInstances().filter(p => p.instVars['id'] === clickablePanel.instVars['panelId'])[0];\n\nconst res = clamp((clickablePanel.y + clickablePanel.height) - panel.y, 0, 1) + \nclamp((panel.y + panel.height) - clickablePanel.y, 0, 1) +\nclamp((clickablePanel.x + clickablePanel.width) - panel.x, 0, 1) + \nclamp((panel.x + panel.width) - clickablePanel.x, 0, 1)\nconsole.log(res);"
+							"script": "const clickablePanel = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst panel = runtime.objects.UIPanel.getAllInstances().filter(p => p.instVars['id'] === clickablePanel.instVars['panelId'])[0];\n\nconst res = clamp((clickablePanel.y + clickablePanel.height) - panel.y, 0, 1) + \nclamp((panel.y + panel.height) - clickablePanel.y, 0, 1) +\nclamp((clickablePanel.x + clickablePanel.width) - panel.x, 0, 1) + \nclamp((panel.x + panel.width) - clickablePanel.x, 0, 1)\nconsole.log(\"hovered\", clickablePanel.uid, runtime.globalVars.hoveredUid);"
 						}
 					],
 					"sid": 396779752367683
@@ -1093,9 +1122,27 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 585647974512687,
+							"parameters": {
+								"variable": "hoveredUid",
+								"comparison": 1,
+								"value": "0"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "ClickablePanel",
+							"sid": 196904583181291,
+							"parameters": {
+								"unique-id": "hoveredUid"
+							}
+						},
+						{
 							"id": "cursor-is-over-object",
 							"objectClass": "Mouse",
-							"sid": 152476200250501,
+							"sid": 916474124081885,
 							"parameters": {
 								"object": "ClickablePanel"
 							},
@@ -1105,6 +1152,7 @@
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "ClickablePanel",
 							"sid": 203404371625201,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "isHovered"
 							}
@@ -1127,6 +1175,19 @@
 								"instance-variable": "isHovered",
 								"value": "false"
 							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 955494698785781,
+							"parameters": {
+								"variable": "hoveredUid",
+								"value": "0"
+							}
+						},
+						{
+							"type": "script",
+							"script": "console.log(\"release hovered\");"
 						}
 					],
 					"sid": 140963499206150
