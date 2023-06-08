@@ -176,7 +176,7 @@
 									1,
 									1,
 									1,
-									0.5
+									0.85
 								],
 								"zElevation": 0
 							}
@@ -226,7 +226,7 @@
 									1,
 									1,
 									1,
-									0.5
+									0.85
 								],
 								"zElevation": 0
 							}
@@ -276,7 +276,7 @@
 									1,
 									1,
 									1,
-									0.5
+									0.85
 								],
 								"zElevation": 0
 							}
@@ -326,7 +326,7 @@
 									1,
 									1,
 									1,
-									0.5
+									0.85
 								],
 								"zElevation": 0
 							}
@@ -376,7 +376,7 @@
 									1,
 									1,
 									1,
-									0.5
+									0.85
 								],
 								"zElevation": 0
 							}
@@ -426,7 +426,7 @@
 									1,
 									1,
 									1,
-									0.5
+									0.85
 								],
 								"zElevation": 0
 							}
@@ -476,7 +476,7 @@
 									1,
 									1,
 									1,
-									0.5
+									0.85
 								],
 								"zElevation": 0
 							}
@@ -526,7 +526,7 @@
 									1,
 									1,
 									1,
-									0.5
+									0.85
 								],
 								"zElevation": 0
 							}
@@ -576,7 +576,7 @@
 									1,
 									1,
 									1,
-									0.5
+									0.85
 								],
 								"zElevation": 0
 							}
@@ -626,7 +626,7 @@
 									1,
 									1,
 									1,
-									0.5
+									0.85
 								],
 								"zElevation": 0
 							}
@@ -676,7 +676,7 @@
 									1,
 									1,
 									1,
-									0.5
+									0.85
 								],
 								"zElevation": 0
 							}
@@ -9146,8 +9146,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -9846,6 +9846,19 @@
 						"maxWidth": 320
 					},
 					"behaviors": {},
+					"effects": {
+						"SetColor": {
+							"isEnabled": false,
+							"parameters": {
+								"color": [
+									0.8980392156862745,
+									0.4627450980392157,
+									0.5725490196078431,
+									1
+								]
+							}
+						}
+					},
 					"world": {
 						"x": 18.64222108566753,
 						"y": 999.3685083360288,
@@ -10609,6 +10622,53 @@
 						"y": 1039,
 						"width": 159,
 						"height": 30,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ClickablePanel",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": false,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 47,
+					"instanceVariables": {
+						"id": "tes",
+						"isPressed": false,
+						"isHovered": false,
+						"clickable": true,
+						"isDisabled": false
+					},
+					"behaviors": {},
+					"effects": {
+						"Exposure": {
+							"isEnabled": false,
+							"parameters": {
+								"exposure": 0.5
+							}
+						}
+					},
+					"world": {
+						"x": 468,
+						"y": 958,
+						"width": 100,
+						"height": 100,
 						"originX": 0,
 						"originY": 0,
 						"color": [

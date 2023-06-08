@@ -83,6 +83,16 @@
 							}
 						},
 						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 137783170310731,
+							"parameters": {
+								"name": "PANEL_CLICKED",
+								"string": "LayoutName",
+								"function": "UIPanelClicked"
+							}
+						},
+						{
 							"id": "start-timer",
 							"objectClass": "GameManager",
 							"sid": 405763387673053,
@@ -304,6 +314,15 @@
 										"variable": "isRunning",
 										"value": "false"
 									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "ProgressBar",
+									"sid": 580016124319530,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"SetColor\""
+									}
 								}
 							],
 							"sid": 760494216045422
@@ -343,6 +362,15 @@
 									"parameters": {
 										"variable": "isRunning",
 										"value": "true"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "ProgressBar",
+									"sid": 112495763806843,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"SetColor\""
 									}
 								}
 							],
@@ -623,6 +651,60 @@
 					]
 				},
 				{
+					"functionName": "UIPanelClicked",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "uid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 974462768814368
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "ClickablePanel",
+							"sid": 358031533743081,
+							"parameters": {
+								"unique-id": "uid"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 445806361381016,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ClickablePanel",
+									"sid": 103493516031450,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"tes\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "console.log(\"tes\");"
+								}
+							],
+							"sid": 822826177318183
+						}
+					]
+				},
+				{
 					"functionName": "showStatusPanel",
 					"functionDescription": "",
 					"functionCategory": "",
@@ -890,7 +972,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "console.log(runtime.localVars.policyType);\nshowPolicyPanel(runtime.localVars.policyType, runtime);"
+									"script": "console.log(localVars.policyType);\nshowPolicyPanel(localVars.policyType, runtime);"
 								},
 								{
 									"id": "set-layer-visible",

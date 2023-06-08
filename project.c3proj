@@ -111,6 +111,20 @@
 			"name": "Tween",
 			"author": "Scirra",
 			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "exposure",
+			"name": "Exposure",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "setcolor",
+			"name": "Set color",
+			"author": "Scirra",
+			"bundled": false
 		}
 	],
 	"uniqueId": "fn557xi0tlm",
@@ -133,7 +147,8 @@
 			"SliderBarBG",
 			"SliderBar",
 			"TilemapCrisis",
-			"GridBackground"
+			"GridBackground",
+			"ClickablePanel"
 		],
 		"subfolders": [
 			{
