@@ -1,6 +1,6 @@
 import { status, updateStatus } from "./status-data.js";
 import { crisis, crisisFsms, updateCrisis } from "./crisis-data.js";
-import { addTextToCache, getTextById, setSliderValue } from "./utils.js";
+import { addTextToCache, getTextById, addClickablePanelToCache, getClickablePanelById, setSliderValue, clamp } from "./utils.js";
 import { expandCrisisTiles } from "./tile-data.js";
 import { policy } from "./policy-data.js";
 import { updateIncome, updateSpending } from "./fiscal-data.js";
@@ -31,6 +31,18 @@ export function setupCrisisViews(runtime) {
 	let y = crisisScrollable.y + margin/2;
 	
 	for (const variable in crisis) {
+		const clickablePanelX = crisisScrollable.x + 10;
+		const clickablePanelY = y - 5;
+		let clickablePanel = runtime.objects.ClickablePanel.createInstance("panelcrisisbackground", clickablePanelX, clickablePanelY);
+		clickablePanel.instVars['id'] = variable + "_clickable_panel_crisis";
+		clickablePanel.instVars['clickable'] = true;
+		clickablePanel.instVars['panelId'] = "crisis";
+		clickablePanel.blendMode = "source-atop";
+		clickablePanel.width = crisisScrollable.width - 20;
+		clickablePanel.height = 80;
+		addClickablePanelToCache(clickablePanel);
+		crisisScrollable.addChild(clickablePanel, { transformX: true, transformY: true });
+
 		let sliderBarBG = runtime.objects.SliderBarBG.createInstance("panelcrisisbackground", x, y + 40);
 		sliderBarBG.blendMode = "source-atop"
 		sliderBarBG.animationFrame = 1;
@@ -157,8 +169,20 @@ function initializePolicyViews(runtime) {
 		console.log("Policy name", policyName);
 		
 		const instanceY = policyData[policyName.type].y;
+
+		const clickablePanelX = policiesScrollable.x + 40;
+		const clickablePanelY = instanceY - 10;
+		let clickablePanel = runtime.objects.ClickablePanel.createInstance("PanelPolicy", clickablePanelX, clickablePanelY);
+		clickablePanel.instVars['id'] = variable + "_clickable_panel_policy";
+		clickablePanel.instVars['clickable'] = true;
+		clickablePanel.instVars['isDisabled'] = true;
+		clickablePanel.width = policiesScrollable.width - 40;
+		clickablePanel.height = 100;
+		clickablePanel.isVisible = false;
+		addClickablePanelToCache(clickablePanel);
+		policiesScrollable.addChild(clickablePanel);
 		
-		let policyNameText = runtime.objects.UIText.createInstance("PanelPolicy", x,instanceY);
+		let policyNameText = runtime.objects.UIText.createInstance("PanelPolicy", x, instanceY);
 		policyNameText.instVars['id'] = variable + "_policy_title";
 		policyNameText.colorRgb = [1, 1, 1];
 		policyNameText.text = policyName.name;		
@@ -210,6 +234,8 @@ function showPolicyPanel(policyType, runtime) {
 		policyNameText.isVisible = false;
 		const policyValueText = getTextById(policyName + "_policy_value");
 		policyValueText.isVisible = false;
+		const clickablePanel = getClickablePanelById(policyName + "_clickable_panel_policy");
+		clickablePanel.instVars['isDisabled'] = true;
 	}
 
 	if (policyScrollableData[policyType]) {
@@ -225,6 +251,8 @@ function showPolicyPanel(policyType, runtime) {
 			policyNameText.isVisible = true;
 			const policyValueText = getTextById(policyName + "_policy_value");
 			policyValueText.isVisible = true;
+			const clickablePanel = getClickablePanelById(policyName + "_clickable_panel_policy");
+			clickablePanel.instVars['isDisabled'] = false;
 		}
 	} else {
 		policiesScrollable.height = 0;

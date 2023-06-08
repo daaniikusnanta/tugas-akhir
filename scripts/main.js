@@ -1,7 +1,7 @@
 import { setLevelVariables } from "./level-data.js";
 import { status } from "./status-data.js";
 import { initializeTileBiome } from "./tile-data.js";
-import { deleteTextFromCache, setupTextCache } from "./utils.js";
+import { deleteTextFromCache, setupClickablePanelCache, setupTextCache } from "./utils.js";
 
 runOnStartup(async runtime => {
 	runtime.addEventListener("beforeprojectstart", () => OnBeforeProjectStart(runtime));
@@ -17,6 +17,9 @@ async function OnBeforeProjectStart(runtime) {
 	runtime.objects.UIText.addEventListener("instancedestroy", ({ instance: text }) => {
 		deleteTextFromCache(text.instVars['id']);
 	});
+	runtime.objects.ClickablePanel.addEventListener("instancedestroy", ({ instance: clickablePanel }) => {
+		deleteTextFromCache(clickablePanel.instVars['id']);
+	});
 }
 
 function Tick(runtime) {
@@ -25,6 +28,7 @@ function Tick(runtime) {
 
 function GameLayoutBeforeLayoutStartHandler(runtime) {
 	setupTextCache(runtime);
+	setupClickablePanelCache(runtime);
 }
 
 function GameLayoutAfterLayoutStartHandler(runtime) {

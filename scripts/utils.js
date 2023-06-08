@@ -74,3 +74,55 @@ export function setupTextCache(runtime) {
 
 	runtime.objects.UIText.getAllInstances().forEach(addTextToCache);
 }
+
+/**
+ * @type {{
+*   [key: string]: ISpriteInstance
+* }}
+*/
+const clickablePanels = {};
+
+/**
+* Get a clickable panel object by id
+* @param {string} id 
+* @returns {ISpriteInstance}
+*/
+export function getClickablePanelById(id) {
+	const clickablePanel = clickablePanels[id];
+
+	if (clickablePanel == null) {
+		throw new Error(`Clickable panel with id "${id}" not found`);
+	}
+
+	return clickablePanel;
+}
+
+/**
+ * Add a clickable panel object to the cache
+ * @param {ISpriteInstance} clickablePanel 
+ */
+export function addClickablePanelToCache(clickablePanel) {
+	if (clickablePanel.instVars['id'] !== "") {
+		clickablePanels[clickablePanel.instVars['id']] = clickablePanel;
+	}
+}
+
+/**
+ * Remove a clickable panel object from the cache
+ * @param {string} id 
+ */
+export function deleteClickablePanelFromCache(id) {
+	delete clickablePanels[id];
+}
+
+/**
+* Cache all clickable panel objects, call this function after the layout is loaded
+* @param {IRuntime} runtime 
+*/
+export function setupClickablePanelCache(runtime) {
+	for (const prop of Object.getOwnPropertyNames(clickablePanels)) {
+		delete clickablePanels[prop];
+	}
+
+	runtime.objects.ClickablePanel.getAllInstances().forEach(addClickablePanelToCache);
+}

@@ -550,141 +550,156 @@
 					"sid": 750594511963563
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 255800800677305,
-							"parameters": {
-								"object": "ClickablePanel"
-							}
-						}
-					],
+					"functionName": "SetupClickablePanels",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
 					"actions": [],
-					"sid": 252254968391304,
+					"sid": 356567581550435,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-touching-object",
-									"objectClass": "Touch",
-									"sid": 131377861877960,
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 147404017834369,
 									"parameters": {
 										"object": "ClickablePanel"
-									},
-									"isInverted": true
+									}
+								}
+							],
+							"actions": [],
+							"sid": 157978589217224,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 665243387039781,
+											"parameters": {
+												"object": "ClickablePanel"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ClickablePanel",
+											"sid": 491350773721964,
+											"parameters": {
+												"instance-variable": "isPressed"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "IsReleased",
+											"objectClass": "ClickablePanel",
+											"sid": 818793476385406
+										}
+									],
+									"sid": 638303897052526
 								},
 								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "ClickablePanel",
-									"sid": 840911858232923,
-									"parameters": {
-										"instance-variable": "isPressed"
-									}
-								}
-							],
-							"actions": [
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-interactive",
+											"objectClass": "System",
+											"sid": 650190295879323,
+											"parameters": {
+												"layer": "ClickablePanel.LayerName"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "ClickablePanel",
+											"sid": 583358216059655,
+											"parameters": {
+												"instance-variable": "clickable",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 919429715233051
+								},
 								{
-									"customAction": "IsReleased",
-									"objectClass": "ClickablePanel",
-									"sid": 782389187021352
-								}
-							],
-							"sid": 351156709669646
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 407746068335147
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "ClickablePanel",
+											"sid": 933254480126151,
+											"parameters": {
+												"instance-variable": "clickable",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 929020611372655
+								},
 								{
-									"id": "layer-is-interactive",
-									"objectClass": "System",
-									"sid": 403217165178520,
-									"parameters": {
-										"layer": "ClickablePanel.LayerName"
-									}
-								}
-							],
-							"actions": [
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ClickablePanel",
+											"sid": 897765947683853,
+											"parameters": {
+												"instance-variable": "isDisabled"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "ClickablePanel",
+											"sid": 849980784525880,
+											"parameters": {
+												"opacity": "50"
+											}
+										}
+									],
+									"sid": 570985512512462
+								},
 								{
-									"id": "set-boolean-instvar",
-									"objectClass": "ClickablePanel",
-									"sid": 459565338315232,
-									"parameters": {
-										"instance-variable": "clickable",
-										"value": "true"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 162450484547109
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "ClickablePanel",
+											"sid": 449890010608570,
+											"parameters": {
+												"opacity": "100"
+											}
+										}
+									],
+									"sid": 626823398962806
 								}
-							],
-							"sid": 357653909154188
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 516503555996071
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "ClickablePanel",
-									"sid": 784096325916523,
-									"parameters": {
-										"instance-variable": "clickable",
-										"value": "false"
-									}
-								}
-							],
-							"sid": 914655838616040
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "ClickablePanel",
-									"sid": 313667605128422,
-									"parameters": {
-										"instance-variable": "isDisabled"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-opacity",
-									"objectClass": "ClickablePanel",
-									"sid": 814044170395795,
-									"parameters": {
-										"opacity": "50"
-									}
-								}
-							],
-							"sid": 329106650773363
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 368421111346346
-								}
-							],
-							"actions": [
-								{
-									"id": "set-opacity",
-									"objectClass": "ClickablePanel",
-									"sid": 683724248113834,
-									"parameters": {
-										"opacity": "100"
-									}
-								}
-							],
-							"sid": 442195724754138
+							]
 						}
 					]
 				},
@@ -727,6 +742,10 @@
 								"mode": "enable",
 								"effect": "\"Exposure\""
 							}
+						},
+						{
+							"type": "script",
+							"script": "console.log(\"clicked\");"
 						}
 					],
 					"sid": 341874086567797
@@ -934,6 +953,15 @@
 							"sid": 419558987091779,
 							"parameters": {
 								"instance-variable": "isHovered"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "ClickablePanel",
+							"sid": 638170697316903,
+							"parameters": {
+								"instance-variable": "isDisabled"
 							},
 							"isInverted": true
 						},

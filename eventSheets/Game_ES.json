@@ -73,6 +73,14 @@
 					],
 					"actions": [
 						{
+							"type": "script",
+							"script": "initializePolicyViews(runtime);"
+						},
+						{
+							"callFunction": "SetupClickablePanels",
+							"sid": 658224677021982
+						},
+						{
 							"id": "map-function",
 							"objectClass": "Functions",
 							"sid": 611279084989323,
@@ -119,10 +127,6 @@
 								"variable": "isRunning",
 								"value": "true"
 							}
-						},
-						{
-							"type": "script",
-							"script": "initializePolicyViews(runtime);"
 						}
 					],
 					"sid": 982971445756731
