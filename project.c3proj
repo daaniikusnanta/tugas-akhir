@@ -137,7 +137,7 @@
 			"TickRate",
 			"VSCodePlugin",
 			"Button",
-			"TiledBackground",
+			"PopUpOverlay",
 			"TilemapBiome",
 			"UIPanel",
 			"ScrollablePanel",
@@ -148,7 +148,9 @@
 			"SliderBar",
 			"TilemapCrisis",
 			"GridBackground",
-			"ClickablePanel"
+			"ClickablePanel",
+			"UIPanel2",
+			"Water"
 		],
 		"subfolders": [
 			{
@@ -168,7 +170,8 @@
 	"families": {
 		"items": [
 			"Clickable",
-			"Family1"
+			"Family1",
+			"Slider"
 		],
 		"subfolders": []
 	},

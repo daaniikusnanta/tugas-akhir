@@ -1035,9 +1035,9 @@
 						{
 							"id": "for-each",
 							"objectClass": "System",
-							"sid": 325766890960033,
+							"sid": 694114928366839,
 							"parameters": {
-								"object": "SliderBar"
+								"object": "Slider"
 							}
 						}
 					],
@@ -1062,8 +1062,8 @@
 					"actions": [
 						{
 							"id": "set-x",
-							"objectClass": "SliderBar",
-							"sid": 589930665553355,
+							"objectClass": "Slider",
+							"sid": 325665271897354,
 							"parameters": {
 								"x": "Self.minX + Self.value/Self.maxValue * (Self.maxX - Self.minX)"
 							}
@@ -1076,14 +1076,14 @@
 					"conditions": [
 						{
 							"id": "is-dragging",
-							"objectClass": "SliderBar",
-							"sid": 639711870869020,
+							"objectClass": "Slider",
+							"sid": 549085912347025,
 							"behaviorType": "DragDrop"
 						},
 						{
 							"id": "is-boolean-instance-variable-set",
-							"objectClass": "SliderBar",
-							"sid": 952829137376826,
+							"objectClass": "Slider",
+							"sid": 690761503424306,
 							"parameters": {
 								"instance-variable": "isDraggable"
 							}
@@ -1092,16 +1092,16 @@
 					"actions": [
 						{
 							"id": "set-x",
-							"objectClass": "SliderBar",
-							"sid": 848905292337728,
+							"objectClass": "Slider",
+							"sid": 353087564943295,
 							"parameters": {
 								"x": "clamp(Self.X, Self.minX, Self.maxX)"
 							}
 						},
 						{
 							"id": "set-instvar-value",
-							"objectClass": "SliderBar",
-							"sid": 853338081681626,
+							"objectClass": "Slider",
+							"sid": 818671843664456,
 							"parameters": {
 								"instance-variable": "value",
 								"value": "(Self.X - Self.minX) / (Self.maxX - Self.minX) * Self.maxValue"
@@ -1116,11 +1116,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "UIText",
-									"sid": 448921348031077,
+									"sid": 350961683626070,
 									"parameters": {
 										"instance-variable": "id",
 										"comparison": 0,
-										"value": "left(SliderBar.id, find(SliderBar.id, \"_slider\")) & \"_text\""
+										"value": "left(Slider.id, find(Slider.id, \"_slider\")) & \"_text\""
 									}
 								}
 							],
@@ -1128,9 +1128,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "UIText",
-									"sid": 561910242656352,
+									"sid": 931884532808299,
 									"parameters": {
-										"text": "SliderBar.value"
+										"text": "Slider.value"
 									}
 								}
 							],
@@ -1141,19 +1141,19 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "SliderBar",
-									"sid": 708708183070173,
+									"objectClass": "Slider",
+									"sid": 438715582187568,
 									"parameters": {
 										"instance-variable": "id",
 										"comparison": 0,
-										"value": "left(SliderBar.id, find(SliderBar.id, \"_crisis_slider\")) & \"_crisis_slider\""
+										"value": "left(Slider.id, find(Slider.id, \"_crisis_slider\")) & \"_crisis_slider\""
 									}
 								}
 							],
 							"actions": [
 								{
 									"type": "script",
-									"script": "const slider = runtime.objects.SliderBar.getPickedInstances()[0];\nconst crisis = slider.instVars['id'].replace(\"_crisis_slider\", \"\");\nsetCrisisValue(crisis, slider.instVars['value']);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);"
+									"script": "const slider = runtime.objects.Slider.getPickedInstances()[0];\nconst crisis = slider.instVars['id'].replace(\"_crisis_slider\", \"\");\nsetCrisisValue(crisis, slider.instVars['value']);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);"
 								}
 							],
 							"sid": 276331711608241
@@ -1163,19 +1163,19 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "SliderBar",
-									"sid": 848544653780332,
+									"objectClass": "Slider",
+									"sid": 964244485681498,
 									"parameters": {
 										"instance-variable": "id",
 										"comparison": 0,
-										"value": "left(SliderBar.id, find(SliderBar.id, \"_status_slider\")) & \"_status_slider\""
+										"value": "left(Slider.id, find(Slider.id, \"_status_slider\")) & \"_status_slider\""
 									}
 								}
 							],
 							"actions": [
 								{
 									"type": "script",
-									"script": "const slider = runtime.objects.SliderBar.getPickedInstances()[0];\nconst status = slider.instVars['id'].replace(\"_status_slider\", \"\");\nsetStatusValue(status, slider.instVars['value']);\nupdateStatusView(runtime);\nupdateCrisisView(runtime);"
+									"script": "const slider = runtime.objects.Slider.getPickedInstances()[0];\nconst status = slider.instVars['id'].replace(\"_status_slider\", \"\");\nsetStatusValue(status, slider.instVars['value']);\nupdateStatusView(runtime);\nupdateCrisisView(runtime);"
 								}
 							],
 							"sid": 888014597191443
@@ -1205,7 +1205,7 @@
 							"objectClass": "SliderBar",
 							"sid": 140653789414171,
 							"parameters": {
-								"x": "clamp(Self.value, Self.minX, Self.maxX)"
+								"x": "clamp(Self.value2, Self.minX2, Self.maxX2)"
 							}
 						}
 					],
@@ -1233,8 +1233,8 @@
 					"actions": [
 						{
 							"id": "set-instvar-value",
-							"objectClass": "SliderBar",
-							"sid": 419263943630705,
+							"objectClass": "Slider",
+							"sid": 446400525777389,
 							"parameters": {
 								"instance-variable": "value",
 								"value": "value"
@@ -1242,8 +1242,8 @@
 						},
 						{
 							"id": "set-x",
-							"objectClass": "SliderBar",
-							"sid": 887593031939579,
+							"objectClass": "Slider",
+							"sid": 558664767481393,
 							"parameters": {
 								"x": "Self.minX +clamp (value/Self.maxValue * (Self.maxValue - Self.minX), Self.minX, Self.maxX)"
 							}

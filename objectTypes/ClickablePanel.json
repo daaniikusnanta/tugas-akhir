@@ -38,6 +38,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 824691192501813
+		},
+		{
+			"name": "panelId",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 478275312133039
 		}
 	],
 	"behaviorTypes": [],

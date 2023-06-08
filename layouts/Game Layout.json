@@ -11,7 +11,7 @@
 					"subLayers": [],
 					"instances": [
 						{
-							"type": "TiledBackground",
+							"type": "Water",
 							"properties": {
 								"initially-visible": true,
 								"origin": "top-left",
@@ -29,21 +29,21 @@
 								"blend-margin-x": 0.1,
 								"blend-margin-y": 0.1
 							},
-							"uid": 216,
+							"uid": 49,
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 2462,
-								"height": 1525,
+								"x": -39,
+								"y": -52,
+								"width": 2606,
+								"height": 1589,
 								"originX": 0,
 								"originY": 0,
 								"color": [
 									1,
 									1,
 									1,
-									0.7
+									1
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -1327,12 +1327,18 @@
 							},
 							"uid": 374,
 							"instanceVariables": {
-								"id": "investment_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "investment_status_slider",
+								"id2": "investment_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -1522,12 +1528,18 @@
 							},
 							"uid": 379,
 							"instanceVariables": {
-								"id": "mineral_oil_industry_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "mineral_oil_industry_status_slider",
+								"id2": "mineral_oil_industry_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -1676,12 +1688,18 @@
 							},
 							"uid": 383,
 							"instanceVariables": {
-								"id": "manufacturing_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "manufacturing_status_slider",
+								"id2": "manufacturing_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -1830,12 +1848,18 @@
 							},
 							"uid": 387,
 							"instanceVariables": {
-								"id": "agriculture_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "",
+								"id2": "agriculture_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -1984,12 +2008,18 @@
 							},
 							"uid": 391,
 							"instanceVariables": {
-								"id": "fisheries_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "fisheries_status_slider",
+								"id2": "fisheries_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -2138,12 +2168,18 @@
 							},
 							"uid": 395,
 							"instanceVariables": {
-								"id": "tourism_creative_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "tourism_creative_status_slider",
+								"id2": "tourism_creative_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -2292,12 +2328,18 @@
 							},
 							"uid": 399,
 							"instanceVariables": {
-								"id": "sustainability_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "sustainability_status_slider",
+								"id2": "sustainability_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -2515,12 +2557,18 @@
 							},
 							"uid": 357,
 							"instanceVariables": {
-								"id": "justice_system_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "justice_system_status_slider",
+								"id2": "justice_system_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -2710,12 +2758,18 @@
 							},
 							"uid": 362,
 							"instanceVariables": {
-								"id": "governance_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "governance_status_slider",
+								"id2": "governance_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -2864,12 +2918,18 @@
 							},
 							"uid": 366,
 							"instanceVariables": {
-								"id": "media_neutrality_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "media_neutrality_status_slider",
+								"id2": "media_neutrality_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -3018,12 +3078,18 @@
 							},
 							"uid": 370,
 							"instanceVariables": {
-								"id": "security_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "security_status_slider",
+								"id2": "security_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -3241,12 +3307,18 @@
 							},
 							"uid": 344,
 							"instanceVariables": {
-								"id": "foreign_relations_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "foreign_relations_status_slider",
+								"id2": "foreign_relations_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -3436,12 +3508,18 @@
 							},
 							"uid": 349,
 							"instanceVariables": {
-								"id": "defense_force_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "defense_force_status_slider",
+								"id2": "defense_force_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -3590,12 +3668,18 @@
 							},
 							"uid": 353,
 							"instanceVariables": {
-								"id": "defense_infrastructure_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "defense_infrastructure_status_slider",
+								"id2": "defense_infrastructure_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -3813,12 +3897,18 @@
 							},
 							"uid": 327,
 							"instanceVariables": {
-								"id": "communication_information_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "communication_information_status_slider",
+								"id2": "communication_information_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -4008,12 +4098,18 @@
 							},
 							"uid": 332,
 							"instanceVariables": {
-								"id": "transportation_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "transportation_status_slider",
+								"id2": "transportation_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -4162,12 +4258,18 @@
 							},
 							"uid": 336,
 							"instanceVariables": {
-								"id": "power_energy_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "power_energy_status_slider",
+								"id2": "power_energy_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -4316,12 +4418,18 @@
 							},
 							"uid": 340,
 							"instanceVariables": {
-								"id": "urban_housing_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "urban_housing_status_slider",
+								"id2": "urban_housing_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -4539,12 +4647,18 @@
 							},
 							"uid": 310,
 							"instanceVariables": {
-								"id": "pollution_control_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "pollution_control_status_slider",
+								"id2": "pollution_control_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -4734,12 +4848,18 @@
 							},
 							"uid": 315,
 							"instanceVariables": {
-								"id": "forest_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "forest_status_slider",
+								"id2": "forest_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -4888,12 +5008,18 @@
 							},
 							"uid": 319,
 							"instanceVariables": {
-								"id": "marine_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "marine_status_slider",
+								"id2": "marine_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -5042,12 +5168,18 @@
 							},
 							"uid": 323,
 							"instanceVariables": {
-								"id": "biodiversity_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "biodiversity_status_slider",
+								"id2": "biodiversity_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -5265,12 +5397,18 @@
 							},
 							"uid": 293,
 							"instanceVariables": {
-								"id": "wage_income_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "wage_income_status_slider",
+								"id2": "wage_income_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -5460,12 +5598,18 @@
 							},
 							"uid": 298,
 							"instanceVariables": {
-								"id": "work_environment_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "work_environment_status_slider",
+								"id2": "work_environment_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -5614,12 +5758,18 @@
 							},
 							"uid": 302,
 							"instanceVariables": {
-								"id": "productive_workers_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "productive_workers_status_slider",
+								"id2": "productive_workers_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -5768,12 +5918,18 @@
 							},
 							"uid": 306,
 							"instanceVariables": {
-								"id": "jobs_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "jobs_status_slider",
+								"id2": "jobs_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -5991,12 +6147,18 @@
 							},
 							"uid": 280,
 							"instanceVariables": {
-								"id": "mineral_oil_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "mineral_oil_status_slider",
+								"id2": "mineral_oil_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -6186,12 +6348,18 @@
 							},
 							"uid": 285,
 							"instanceVariables": {
-								"id": "water_land_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "water_land_status_slider",
+								"id2": "water_land_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -6340,12 +6508,18 @@
 							},
 							"uid": 289,
 							"instanceVariables": {
-								"id": "food_sources_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "food_sources_status_slider",
+								"id2": "food_sources_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -6563,12 +6737,18 @@
 							},
 							"uid": 267,
 							"instanceVariables": {
-								"id": "social_security_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "social_security_status_slider",
+								"id2": "social_security_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -6758,12 +6938,18 @@
 							},
 							"uid": 272,
 							"instanceVariables": {
-								"id": "empowerment_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "empowerment_status_slider",
+								"id2": "empowerment_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -6912,12 +7098,18 @@
 							},
 							"uid": 276,
 							"instanceVariables": {
-								"id": "population_control_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "population_control_status_slider",
+								"id2": "population_control_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -7135,12 +7327,18 @@
 							},
 							"uid": 254,
 							"instanceVariables": {
-								"id": "education_system_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "education_system_status_slider",
+								"id2": "education_system_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -7330,12 +7528,18 @@
 							},
 							"uid": 259,
 							"instanceVariables": {
-								"id": "teachers_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "teachers_status_slider",
+								"id2": "teachers_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -7484,12 +7688,18 @@
 							},
 							"uid": 263,
 							"instanceVariables": {
-								"id": "research_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "research_status_slider",
+								"id2": "research_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -7707,12 +7917,18 @@
 							},
 							"uid": 237,
 							"instanceVariables": {
-								"id": "disease_control_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "disease_control_status_slider",
+								"id2": "disease_control_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -7902,12 +8118,18 @@
 							},
 							"uid": 242,
 							"instanceVariables": {
-								"id": "public_health_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "public_health_status_slider",
+								"id2": "public_health_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -8056,12 +8278,18 @@
 							},
 							"uid": 246,
 							"instanceVariables": {
-								"id": "healthcare_system_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "healthcare_system_status_slider",
+								"id2": "healthcare_system_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -8210,12 +8438,18 @@
 							},
 							"uid": 250,
 							"instanceVariables": {
-								"id": "health_workers_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "health_workers_status_slider",
+								"id2": "health_workers_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -8433,12 +8667,18 @@
 							},
 							"uid": 4,
 							"instanceVariables": {
-								"id": "taxes_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "taxes_status_slider",
+								"id2": "taxes_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -8628,12 +8868,18 @@
 							},
 							"uid": 229,
 							"instanceVariables": {
-								"id": "debt_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "debt_status_slider",
+								"id2": "debt_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -8782,12 +9028,18 @@
 							},
 							"uid": 233,
 							"instanceVariables": {
-								"id": "economy_status_slider",
+								"value": 0,
 								"minX": 126,
 								"maxX": 330,
-								"value": 0,
 								"maxValue": 100,
-								"isDraggable": true
+								"isDraggable": true,
+								"id": "economy_status_slider",
+								"id2": "economy_status_slider",
+								"minX2": 126,
+								"maxX2": 330,
+								"value2": 0,
+								"maxValue2": 100,
+								"isDraggable2": true
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -10653,7 +10905,8 @@
 						"isPressed": false,
 						"isHovered": false,
 						"clickable": true,
-						"isDisabled": false
+						"isDisabled": false,
+						"panelId": ""
 					},
 					"behaviors": {},
 					"effects": {
@@ -10720,7 +10973,7 @@
 					"subLayers": [],
 					"instances": [
 						{
-							"type": "TiledBackground",
+							"type": "PopUpOverlay",
 							"properties": {
 								"initially-visible": true,
 								"origin": "top-left",
@@ -10807,6 +11060,109 @@
 			],
 			"isTransparent": true,
 			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "PolicyPopUp",
+			"overriden": 0,
+			"subLayers": [
+				{
+					"name": "PolicyPopUpBG",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel2",
+							"properties": {
+								"left-margin": 16,
+								"right-margin": 16,
+								"top-margin": 16,
+								"bottom-margin": 16,
+								"edges": "stretch",
+								"fill": "stretch",
+								"initially-visible": true,
+								"origin": "top-left",
+								"seams": "overlap"
+							},
+							"uid": 48,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 383,
+								"y": 250,
+								"width": 1125,
+								"height": 536,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 749808513343720,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 0,
+					"parallaxY": 0,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				}
+			],
+			"instances": [],
+			"sid": 258518668274281,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"isInitiallyInteractive": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 0,
 			"parallaxY": 1,
 			"scaleRate": 1,
 			"forceOwnTexture": false,

@@ -742,10 +742,6 @@
 								"mode": "enable",
 								"effect": "\"Exposure\""
 							}
-						},
-						{
-							"type": "script",
-							"script": "console.log(\"clicked\");"
 						}
 					],
 					"sid": 341874086567797
@@ -827,6 +823,34 @@
 							"isInverted": true
 						},
 						{
+							"id": "compare-instance-variable",
+							"objectClass": "UIPanel",
+							"sid": 932012321900496,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "ClickablePanel.panelId"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 556326486121421,
+							"parameters": {
+								"layer": "ClickablePanel.LayerName"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 884367333490249,
+							"parameters": {
+								"first-value": "clamp((ClickablePanel.Y + ClickablePanel.Height) - UIPanel.Y, 0, 1) + \r\nclamp((UIPanel.Y + UIPanel.Height) - ClickablePanel.Y, 0, 1) +\nclamp((ClickablePanel.X + ClickablePanel.Width) - UIPanel.X, 0, 1) + \nclamp((UIPanel.X + UIPanel.Width) - ClickablePanel.X, 0, 1)",
+								"comparison": 0,
+								"second-value": "4"
+							}
+						},
+						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
 							"sid": 669039615176350,
@@ -842,6 +866,10 @@
 							"customAction": "isPressed",
 							"objectClass": "ClickablePanel",
 							"sid": 260263901236748
+						},
+						{
+							"type": "script",
+							"script": "const clickablePanel = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst panel = runtime.objects.UIPanel.getAllInstances().filter(p => p.instVars['id'] === clickablePanel.instVars['panelId'])[0];\n\nconst res = clamp((clickablePanel.y + clickablePanel.height) - panel.y, 0, 1) + \nclamp((panel.y + panel.height) - clickablePanel.y, 0, 1) +\nclamp((clickablePanel.x + clickablePanel.width) - panel.x, 0, 1) + \nclamp((panel.x + panel.width) - clickablePanel.x, 0, 1)\nconsole.log(\"clicked\");"
 						}
 					],
 					"sid": 697352901199159
@@ -880,6 +908,34 @@
 							"isInverted": true
 						},
 						{
+							"id": "compare-instance-variable",
+							"objectClass": "UIPanel",
+							"sid": 714619248225986,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "ClickablePanel.panelId"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 889365142447367,
+							"parameters": {
+								"layer": "ClickablePanel.LayerName"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 126903557781810,
+							"parameters": {
+								"first-value": "clamp((ClickablePanel.Y + ClickablePanel.Height) - UIPanel.Y, 0, 1) + \r\nclamp((UIPanel.Y + UIPanel.Height) - ClickablePanel.Y, 0, 1) +\nclamp((ClickablePanel.X + ClickablePanel.Width) - UIPanel.X, 0, 1) + \nclamp((UIPanel.X + UIPanel.Width) - ClickablePanel.X, 0, 1)",
+								"comparison": 0,
+								"second-value": "4"
+							}
+						},
+						{
 							"id": "pick-by-unique-id",
 							"objectClass": "ClickablePanel",
 							"sid": 729437311952214,
@@ -893,6 +949,10 @@
 							"customAction": "IsReleased",
 							"objectClass": "ClickablePanel",
 							"sid": 582882859721278
+						},
+						{
+							"type": "script",
+							"script": "const clickablePanel = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst panel = runtime.objects.UIPanel.getAllInstances().filter(p => p.instVars['id'] === clickablePanel.instVars['panelId'])[0];\n\nconst res = clamp((clickablePanel.y + clickablePanel.height) - panel.y, 0, 1) + \nclamp((panel.y + panel.height) - clickablePanel.y, 0, 1) +\nclamp((clickablePanel.x + clickablePanel.width) - panel.x, 0, 1) + \nclamp((panel.x + panel.width) - clickablePanel.x, 0, 1)\nconsole.log(\"release\");"
 						},
 						{
 							"callFunction": "PanelClicked",
@@ -966,6 +1026,34 @@
 							"isInverted": true
 						},
 						{
+							"id": "compare-instance-variable",
+							"objectClass": "UIPanel",
+							"sid": 659093006410217,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "ClickablePanel.panelId"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 660995993670104,
+							"parameters": {
+								"layer": "ClickablePanel.LayerName"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 778423533052098,
+							"parameters": {
+								"first-value": "clamp((ClickablePanel.Y + ClickablePanel.Height) - UIPanel.Y, 0, 1) + \r\nclamp((UIPanel.Y + UIPanel.Height) - ClickablePanel.Y, 0, 1) +\nclamp((ClickablePanel.X + ClickablePanel.Width) - UIPanel.X, 0, 1) + \nclamp((UIPanel.X + UIPanel.Width) - ClickablePanel.X, 0, 1)",
+								"comparison": 0,
+								"second-value": "4"
+							}
+						},
+						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "ClickablePanel",
 							"sid": 535550770637778,
@@ -996,7 +1084,7 @@
 						},
 						{
 							"type": "script",
-							"script": "console.log(\"hovered\");"
+							"script": "const clickablePanel = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst panel = runtime.objects.UIPanel.getAllInstances().filter(p => p.instVars['id'] === clickablePanel.instVars['panelId'])[0];\n\nconst res = clamp((clickablePanel.y + clickablePanel.height) - panel.y, 0, 1) + \nclamp((panel.y + panel.height) - clickablePanel.y, 0, 1) +\nclamp((clickablePanel.x + clickablePanel.width) - panel.x, 0, 1) + \nclamp((panel.x + panel.width) - clickablePanel.x, 0, 1)\nconsole.log(res);"
 						}
 					],
 					"sid": 396779752367683
@@ -1042,6 +1130,41 @@
 						}
 					],
 					"sid": 140963499206150
+				},
+				{
+					"functionName": "IsClickablePanelOutsidePanel",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "any",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "uid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 116796951160427
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "ClickablePanel",
+							"sid": 244881087011892,
+							"parameters": {
+								"unique-id": "uid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const clickablePanel = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst panel = runtime.objects.UIPanel.getAllInstances().filter(p => p.instVars['id'] === clickablePanel.instVars['panelId'])[0];\n\nconst isTopOutside = ((clickablePanel.y + clickablePanel.height) < panel.y);\nconst isBottomOutside = (clickablePanel.y > (panel.y + panel.height));\nconst isLeftOutside = ((clickablePanel.x + clickablePanel.width) < panel.x);\nconst isRightOutside = (clickablePanel.x > (panel.x + panel.width));\n\nreturn isTopOutside && isBottomOutside && isLeftOutside && isRightOutside;"
+						}
+					],
+					"sid": 453570476581181
 				}
 			],
 			"sid": 375900711673116

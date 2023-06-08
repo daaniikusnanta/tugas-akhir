@@ -1,0 +1,60 @@
+{
+	"name": "Slider",
+	"plugin-id": "Sprite",
+	"sid": 879947576792073,
+	"instanceVariables": [
+		{
+			"name": "value",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 934400335125489
+		},
+		{
+			"name": "minX",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 870804379613116
+		},
+		{
+			"name": "maxX",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 571151374435600
+		},
+		{
+			"name": "maxValue",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 473428268711832
+		},
+		{
+			"name": "isDraggable",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 263490831066320
+		},
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 350305728689502
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 598864745571471
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"SliderBar"
+	]
+}

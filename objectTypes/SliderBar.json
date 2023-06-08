@@ -5,55 +5,49 @@
 	"isGlobal": false,
 	"instanceVariables": [
 		{
-			"name": "id",
+			"name": "id2",
 			"type": "string",
 			"desc": "",
 			"show": true,
 			"sid": 808263979580897
 		},
 		{
-			"name": "minX",
+			"name": "minX2",
 			"type": "number",
 			"desc": "",
 			"show": true,
 			"sid": 711816590950362
 		},
 		{
-			"name": "maxX",
+			"name": "maxX2",
 			"type": "number",
 			"desc": "",
 			"show": true,
 			"sid": 438664202466674
 		},
 		{
-			"name": "value",
+			"name": "value2",
 			"type": "number",
 			"desc": "",
 			"show": true,
 			"sid": 707026440125227
 		},
 		{
-			"name": "maxValue",
+			"name": "maxValue2",
 			"type": "number",
 			"desc": "",
 			"show": true,
 			"sid": 675626808665021
 		},
 		{
-			"name": "isDraggable",
+			"name": "isDraggable2",
 			"type": "boolean",
 			"desc": "",
 			"show": true,
 			"sid": 384736840558309
 		}
 	],
-	"behaviorTypes": [
-		{
-			"behaviorId": "DragnDrop",
-			"name": "DragDrop",
-			"sid": 719400827807920
-		}
-	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
