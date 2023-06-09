@@ -11023,7 +11023,7 @@
 					"behaviors": {
 						"DragDrop": {
 							"properties": {
-								"axes": "both",
+								"axes": "horizontal-only",
 								"enabled": true
 							}
 						}

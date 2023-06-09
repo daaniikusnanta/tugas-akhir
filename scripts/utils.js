@@ -8,6 +8,7 @@
 export function setSliderValue(slider, uitext, value, text) {
 	slider.instVars['value'] = value;
 	const x = slider.instVars['minX'] + (slider.instVars['maxX'] - slider.instVars['minX']) * value / slider.instVars['maxValue'];
+	console.log("setslider", slider.instVars['id'], x, slider.instVars['minX'], slider.instVars['maxX'], value);
 	slider.x = clamp(x, slider.instVars['minX'], slider.instVars['maxX']);
 	uitext.text = text;
 }

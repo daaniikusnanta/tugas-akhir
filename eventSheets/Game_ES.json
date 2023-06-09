@@ -56,6 +56,16 @@
 			"sid": 775536544835369
 		},
 		{
+			"eventType": "variable",
+			"name": "policyToSet",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 639483971555850
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Game",
@@ -1170,7 +1180,16 @@
 								},
 								{
 									"type": "script",
-									"script": "console.log(\"policyPopUp\", localVars.policyName);\nconst policyName = localVars.policyName;\nconst policyData = policy[policyName];\nconst policyNameText = getTextById(\"policy_pop_up_name\");\npolicyNameText.text = policyData.name ?? policyName;\nconst policyDescText = getTextById(\"policy_pop_up_description\");\npolicyDescText.text = policyData.description ?? \"\";\n\nconst slider = runtime.objects.Slider.getPickedInstances()[0];\nconst costText = getTextById(\"policy_pop_up_cost_slider\");\nconst cost = policyData.minCost + (policyData.value / 100 * (policyData.maxCost - policyData.minCost));\nsetSliderValue(slider, costText, policyData.value, cost);\n\nconst revenueText = getTextById(\"policy_pop_up_revenue_slider\");\nconst revenue = policyData.minRevenue + (policyData.value / 100 * (policyData.maxRevenue - policyData.minRevenue));\nsetSliderValue(slider, revenueText, policyData.value, revenue);\n"
+									"script": "console.log(\"policyPopUp\", localVars.policyName);\nconst policyName = localVars.policyName;\nconst policyData = policy[policyName];\nconst policyNameText = getTextById(\"policy_pop_up_name\");\npolicyNameText.text = policyData.name ?? policyName;\nconst policyDescText = getTextById(\"policy_pop_up_description\");\npolicyDescText.text = policyData.description ?? \"\";\n\nconst slider = runtime.objects.Slider.getPickedInstances()[0];\nconst costText = getTextById(\"policy_pop_up_cost_slider\");\nconst cost = policyData.minCost + (policyData.value / 100 * (policyData.maxCost - policyData.minCost));\nsetSliderValue(slider, costText, policyData.value, cost.toString());\n\nconst revenueText = getTextById(\"policy_pop_up_revenue_slider\");\nconst revenue = policyData.minRevenue + (policyData.value / 100 * (policyData.maxRevenue - policyData.minRevenue));\nsetSliderValue(slider, revenueText, policyData.value, revenue.toString());\n"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 651948509503202,
+									"parameters": {
+										"variable": "policyToSet",
+										"value": "policyName"
+									}
 								},
 								{
 									"id": "set-layer-visible",
@@ -1395,6 +1414,38 @@
 								}
 							],
 							"sid": 888014597191443
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Slider",
+									"sid": 905443505719866,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"policy_pop_up_slider\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 915726380822507,
+									"parameters": {
+										"variable": "policyToSet",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const slider = runtime.objects.Slider.getPickedInstances()[0];\nconst policyName = runtime.globalVars.policyToSet;\nconsole.log(policyName);\nconst policyData = policy[policyName];\nconst costText = getTextById(\"policy_pop_up_cost_slider\");\nconst cost = policyData.minCost + (slider.instVars['value'] / 100 * (policyData.maxCost - policyData.minCost));\nsetSliderValue(slider, costText, slider.instVars['value'], cost.toString());\n\nconst revenueText = getTextById(\"policy_pop_up_revenue_slider\");\nconst revenue = policyData.minRevenue + (slider.instVars['value'] / 100 * (policyData.maxRevenue - policyData.minRevenue));\nsetSliderValue(slider, revenueText, slider.instVars['value'], revenue.toString());"
+								}
+							],
+							"sid": 215795582291721
 						}
 					]
 				},
@@ -2106,6 +2157,14 @@
 								"object": "UIPanel"
 							},
 							"isInverted": true
+						},
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 923364906958903,
+							"parameters": {
+								"layer": "\"Background\""
+							}
 						}
 					],
 					"actions": [],
@@ -2269,6 +2328,14 @@
 								"layer": "\"PopUpBG\""
 							},
 							"isInverted": true
+						},
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 753239633799571,
+							"parameters": {
+								"layer": "\"Background\""
+							}
 						}
 					],
 					"actions": [
@@ -2327,6 +2394,14 @@
 								"layer": "\"PopUpBG\""
 							},
 							"isInverted": true
+						},
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 920056550868078,
+							"parameters": {
+								"layer": "\"Background\""
+							}
 						}
 					],
 					"actions": [],
@@ -2443,6 +2518,14 @@
 							"id": "on-any-touch-end",
 							"objectClass": "Touch",
 							"sid": 779946030258185
+						},
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 194800978994816,
+							"parameters": {
+								"layer": "\"Background\""
+							}
 						}
 					],
 					"actions": [],
@@ -2586,39 +2669,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 309534955377293,
-							"parameters": {
-								"key": 187
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 790184797999563,
-							"parameters": {
-								"variable": "InitialScale",
-								"value": "LayerScale(\"Game\")"
-							}
-						},
-						{
-							"callFunction": "SetZoom",
-							"sid": 535039339927510,
-							"parameters": [
-								"clamp(InitialScale + 1 * dt, minScale, MaxScale)"
-							]
-						}
-					],
-					"sid": 215120111861366,
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "on-mouse-wheel",
 							"objectClass": "Mouse",
 							"sid": 213413779135463,
@@ -2634,6 +2684,14 @@
 								"object": "ScrollablePanel"
 							},
 							"isInverted": true
+						},
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 811227993075199,
+							"parameters": {
+								"layer": "\"Background\""
+							}
 						}
 					],
 					"actions": [
@@ -2660,39 +2718,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 459977714295257,
-							"parameters": {
-								"key": 189
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 884900008595263,
-							"parameters": {
-								"variable": "InitialScale",
-								"value": "LayerScale(\"Game\")"
-							}
-						},
-						{
-							"callFunction": "SetZoom",
-							"sid": 417098808435373,
-							"parameters": [
-								"clamp(InitialScale - 1 * dt, minScale, MaxScale)"
-							]
-						}
-					],
-					"sid": 552713238485658,
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "on-mouse-wheel",
 							"objectClass": "Mouse",
 							"sid": 618203942493048,
@@ -2708,6 +2733,14 @@
 								"object": "ScrollablePanel"
 							},
 							"isInverted": true
+						},
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 313887339171486,
+							"parameters": {
+								"layer": "\"Background\""
+							}
 						}
 					],
 					"actions": [
@@ -2736,32 +2769,39 @@
 						{
 							"id": "key-is-down",
 							"objectClass": "Keyboard",
-							"sid": 295287705390243,
+							"sid": 164612208815745,
 							"parameters": {
-								"key": 87
+								"key": 187
 							}
 						},
 						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 904946176063588,
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 714186384766143,
 							"parameters": {
-								"key": 38
+								"layer": "\"Background\""
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "scroll-to-y",
+							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 885291624326075,
+							"sid": 369330435431878,
 							"parameters": {
-								"y": "scrolly - 400 * dt"
+								"variable": "InitialScale",
+								"value": "LayerScale(\"Game\")"
 							}
+						},
+						{
+							"callFunction": "SetZoom",
+							"sid": 482744136449196,
+							"parameters": [
+								"clamp(InitialScale + 1 * dt, minScale, MaxScale)"
+							]
 						}
 					],
-					"sid": 953800978275784,
-					"isOrBlock": true
+					"sid": 764410581766476
 				},
 				{
 					"eventType": "block",
@@ -2769,98 +2809,193 @@
 						{
 							"id": "key-is-down",
 							"objectClass": "Keyboard",
-							"sid": 494691948486115,
+							"sid": 551470632488322,
 							"parameters": {
-								"key": 83
+								"key": 189
 							}
 						},
 						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 481329061167953,
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 948222915728178,
 							"parameters": {
-								"key": 40
+								"layer": "\"Background\""
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "scroll-to-y",
+							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 572995594440457,
+							"sid": 634546529825841,
 							"parameters": {
-								"y": "scrolly + 400 * dt"
+								"variable": "InitialScale",
+								"value": "LayerScale(\"Game\")"
 							}
+						},
+						{
+							"callFunction": "SetZoom",
+							"sid": 912427819073514,
+							"parameters": [
+								"clamp(InitialScale - 1 * dt, minScale, MaxScale)"
+							]
 						}
 					],
-					"sid": 743944919050191,
-					"isOrBlock": true
+					"sid": 280921488245176
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "key-is-down",
+							"id": "on-any-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 254666424959522,
-							"parameters": {
-								"key": 65
-							}
+							"sid": 763048387485082
 						},
 						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 599490050805489,
-							"parameters": {
-								"key": 37
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "scroll-to-x",
+							"id": "layer-is-interactive",
 							"objectClass": "System",
-							"sid": 330377062271714,
+							"sid": 385841010793925,
 							"parameters": {
-								"x": "scrollx  - 400 * dt"
+								"layer": "\"Background\""
 							}
 						}
 					],
-					"sid": 178873577978307,
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"actions": [],
+					"sid": 153013074091223,
+					"children": [
 						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 344551586209190,
-							"parameters": {
-								"key": 68
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 927765590950701,
+									"parameters": {
+										"key": 87
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 304058056702056,
+									"parameters": {
+										"key": 38
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "scroll-to-y",
+									"objectClass": "System",
+									"sid": 791978454635374,
+									"parameters": {
+										"y": "scrolly - 400 * dt"
+									}
+								}
+							],
+							"sid": 525918967322759,
+							"isOrBlock": true
 						},
 						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 550511057753100,
-							"parameters": {
-								"key": 39
-							}
-						}
-					],
-					"actions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 944003985830704,
+									"parameters": {
+										"key": 83
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 489216342953180,
+									"parameters": {
+										"key": 40
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "scroll-to-y",
+									"objectClass": "System",
+									"sid": 246237605707907,
+									"parameters": {
+										"y": "scrolly + 400 * dt"
+									}
+								}
+							],
+							"sid": 718234045609336,
+							"isOrBlock": true
+						},
 						{
-							"id": "scroll-to-x",
-							"objectClass": "System",
-							"sid": 929560302622931,
-							"parameters": {
-								"x": "scrollx  + 400 * dt"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 961984882502025,
+									"parameters": {
+										"key": 65
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 884318964613975,
+									"parameters": {
+										"key": 37
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "scroll-to-x",
+									"objectClass": "System",
+									"sid": 602301922547165,
+									"parameters": {
+										"x": "scrollx  - 400 * dt"
+									}
+								}
+							],
+							"sid": 220719175011947,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 852596931026791,
+									"parameters": {
+										"key": 68
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 389182920216903,
+									"parameters": {
+										"key": 39
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "scroll-to-x",
+									"objectClass": "System",
+									"sid": 349092382402918,
+									"parameters": {
+										"x": "scrollx  + 400 * dt"
+									}
+								}
+							],
+							"sid": 720739914788859,
+							"isOrBlock": true
 						}
-					],
-					"sid": 341501014296627,
-					"isOrBlock": true
+					]
 				},
 				{
 					"functionName": "SetZoom",

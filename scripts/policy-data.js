@@ -50,7 +50,7 @@ export let policy = {
         name: "Research Grants",
         description: "A grant to fund research.",
         type: "education",
-        value: 0,
+        value: 50,
         finalValue: 0,
         implementationCost: 0,
         implementationDelay: 0,
