@@ -792,9 +792,9 @@
 								},
 								{
 									"callFunction": "showPolicyPopUp",
-									"sid": 128940946428851,
+									"sid": 353662209158789,
 									"parameters": [
-										"tokenat(ClickablePanel.id, 0, \"_\")",
+										"RegexReplace(ClickablePanel.id, \"_clickable_panel_policy$\", \"\", \"\") ",
 										true
 									]
 								}
