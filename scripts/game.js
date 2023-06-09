@@ -176,6 +176,7 @@ function initializePolicyViews(runtime) {
 		clickablePanel.instVars['id'] = variable + "_clickable_panel_policy";
 		clickablePanel.instVars['clickable'] = true;
 		clickablePanel.instVars['isDisabled'] = true;
+		clickablePanel.instVars['panelId'] = "policy";	
 		clickablePanel.width = policiesScrollable.width - 40;
 		clickablePanel.height = 100;
 		clickablePanel.isVisible = false;

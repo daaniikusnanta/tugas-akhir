@@ -55,6 +55,7 @@
 	],
 	"effectTypes": [],
 	"members": [
-		"SliderBar"
+		"SliderBar",
+		"SliderBar2"
 	]
 }

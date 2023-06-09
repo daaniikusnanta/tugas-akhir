@@ -150,7 +150,9 @@
 			"GridBackground",
 			"ClickablePanel",
 			"UIPanel2",
-			"Water"
+			"Water",
+			"SliderBar2",
+			"SliderBarBG2"
 		],
 		"subfolders": [
 			{

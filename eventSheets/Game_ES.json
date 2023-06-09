@@ -543,9 +543,9 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 238103160458480,
+									"sid": 779711647550519,
 									"parameters": {
-										"first-value": "RegexMatchCount(Button.id, \"status\", \"\")",
+										"first-value": "RegexMatchCount(Button.id, \"status$\", \"\")",
 										"comparison": 0,
 										"second-value": "1"
 									}
@@ -569,9 +569,9 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 584032643208967,
+									"sid": 250346897375924,
 									"parameters": {
-										"first-value": "RegexMatchCount(Button.id, \"policy\", \"\")",
+										"first-value": "RegexMatchCount(Button.id, \"policy$\", \"\")",
 										"comparison": 0,
 										"second-value": "1"
 									}
@@ -651,6 +651,54 @@
 									"sid": 219119583243453
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 370776902774895,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"policy_pop_up_cancel\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "console.log(\"tes\");"
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 651210894824282,
+									"parameters": {
+										"layer": "\"UI\"",
+										"interactive": true
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 270429182703778,
+									"parameters": {
+										"layer": "\"Background\"",
+										"interactive": true
+									}
+								},
+								{
+									"callFunction": "showPolicyPopUp",
+									"sid": 990537249048881,
+									"parameters": [
+										"\"\"",
+										false
+									]
+								}
+							],
+							"sid": 237507252989424
 						}
 					]
 				},
@@ -698,13 +746,60 @@
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 822826177318183
+						},
+						{
+							"eventType": "block",
+							"conditions": [
 								{
-									"type": "script",
-									"script": "console.log(\"tes\");"
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 184976466962674,
+									"parameters": {
+										"first-value": "RegexMatchCount(ClickablePanel.id, \"clickable_panel_policy$\", \"\")",
+										"comparison": 0,
+										"second-value": "1"
+									}
 								}
 							],
-							"sid": 822826177318183
+							"actions": [
+								{
+									"callFunction": "showPolicyPanel",
+									"sid": 301495726746308,
+									"parameters": [
+										"\"\"",
+										false
+									]
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 919277434009768,
+									"parameters": {
+										"layer": "\"UI\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 893466464198907,
+									"parameters": {
+										"layer": "\"Background\"",
+										"interactive": false
+									}
+								},
+								{
+									"callFunction": "showPolicyPopUp",
+									"sid": 128940946428851,
+									"parameters": [
+										"tokenat(ClickablePanel.id, 0, \"_\")",
+										true
+									]
+								}
+							],
+							"sid": 927842640819003
 						}
 					]
 				},
@@ -976,7 +1071,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "console.log(localVars.policyType);\nshowPolicyPanel(localVars.policyType, runtime);"
+									"script": "console.log(\"policyPanel\", localVars.policyType);\nshowPolicyPanel(localVars.policyType, runtime);"
 								},
 								{
 									"id": "set-layer-visible",
@@ -1001,6 +1096,10 @@
 							],
 							"actions": [
 								{
+									"type": "script",
+									"script": "console.log(\"policyPanel false\");"
+								},
+								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
 									"sid": 342330189073025,
@@ -1011,6 +1110,123 @@
 								}
 							],
 							"sid": 758777198752536
+						}
+					]
+				},
+				{
+					"functionName": "showPolicyPopUp",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "policyName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 835573975774654
+						},
+						{
+							"name": "show",
+							"type": "boolean",
+							"initialValue": "true",
+							"comment": "",
+							"sid": 908970220154128
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 519526908750769,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 264795687369875,
+									"parameters": {
+										"variable": "show"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "SliderBar2",
+									"sid": 548759821945114,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"policy_pop_up_slider\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "console.log(\"popup true\");"
+								},
+								{
+									"type": "script",
+									"script": "console.log(\"policyPopUp\", localVars.policyName);\nconst policyName = localVars.policyName;\nconst policyData = policy[policyName];\nconst policyNameText = getTextById(\"policy_pop_up_name\");\npolicyNameText.text = policyData.name ?? policyName;\nconst policyDescText = getTextById(\"policy_pop_up_description\");\npolicyDescText.text = policyData.description ?? \"\";\n\nconst slider = runtime.objects.Slider.getPickedInstances()[0];\nconst costText = getTextById(\"policy_pop_up_cost_slider\");\nconst cost = policyData.minCost + (policyData.value / 100 * (policyData.maxCost - policyData.minCost));\nsetSliderValue(slider, costText, policyData.value, cost);\n\nconst revenueText = getTextById(\"policy_pop_up_revenue_slider\");\nconst revenue = policyData.minRevenue + (policyData.value / 100 * (policyData.maxRevenue - policyData.minRevenue));\nsetSliderValue(slider, revenueText, policyData.value, revenue);\n"
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 531973550550142,
+									"parameters": {
+										"layer": "\"PolicyPopUp\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 279148988176706,
+									"parameters": {
+										"layer": "\"PolicyPopUp\"",
+										"interactive": true
+									}
+								}
+							],
+							"sid": 326786026550584
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 934929352750706
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "console.log(\"popup false\");"
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 766868577003923,
+									"parameters": {
+										"layer": "\"PolicyPopUp\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 577374080499364,
+									"parameters": {
+										"layer": "\"PolicyPopUp\"",
+										"interactive": false
+									}
+								}
+							],
+							"sid": 538780034970911
 						}
 					]
 				}
@@ -1181,36 +1397,6 @@
 							"sid": 888014597191443
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 906192130642899
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 844413240954713,
-							"parameters": {
-								"object": "SliderBar"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-x",
-							"objectClass": "SliderBar",
-							"sid": 140653789414171,
-							"parameters": {
-								"x": "clamp(Self.value2, Self.minX2, Self.maxX2)"
-							}
-						}
-					],
-					"sid": 829278141159854,
-					"disabled": true
 				},
 				{
 					"functionName": "SetSliderValue",
