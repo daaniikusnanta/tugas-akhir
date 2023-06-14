@@ -52,6 +52,20 @@
 			"desc": "",
 			"show": true,
 			"sid": 273726617067250
+		},
+		{
+			"name": "initialX",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 359071814417165
+		},
+		{
+			"name": "initialY",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 763399603025517
 		}
 	],
 	"behaviorTypes": [

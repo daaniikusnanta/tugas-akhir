@@ -990,7 +990,9 @@
 										"id": "crisis",
 										"direction": "vertical",
 										"initialMin": 0,
-										"initialMax": 0
+										"initialMax": 0,
+										"initialX": 0,
+										"initialY": 0
 									},
 									"behaviors": {
 										"DragDrop": {
@@ -1446,7 +1448,9 @@
 								"id": "policy",
 								"direction": "vertical",
 								"initialMin": 0,
-								"initialMax": 0
+								"initialMax": 0,
+								"initialX": 0,
+								"initialY": 0
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -2433,7 +2437,9 @@
 						"id": "crisis_warning",
 						"direction": "vertical",
 						"initialMin": 0,
-						"initialMax": 0
+						"initialMax": 0,
+						"initialX": 0,
+						"initialY": 0
 					},
 					"behaviors": {
 						"DragDrop": {
@@ -4575,7 +4581,9 @@
 								"id": "pop_up_policy_effects",
 								"direction": "vertical",
 								"initialMin": 0,
-								"initialMax": 0
+								"initialMax": 0,
+								"initialX": 383,
+								"initialY": 370
 							},
 							"behaviors": {
 								"DragDrop": {
@@ -4658,7 +4666,7 @@
 									"h": true,
 									"a": true,
 									"o": false,
-									"v": false,
+									"v": true,
 									"d": true,
 									"sm": "normal"
 								},
@@ -4917,7 +4925,7 @@
 											"h": true,
 											"a": true,
 											"o": false,
-											"v": false,
+											"v": true,
 											"d": true,
 											"sm": "normal"
 										}
@@ -4932,7 +4940,7 @@
 											"h": true,
 											"a": true,
 											"o": false,
-											"v": false,
+											"v": true,
 											"d": true,
 											"sm": "normal"
 										}
@@ -4947,7 +4955,7 @@
 											"h": true,
 											"a": true,
 											"o": false,
-											"v": false,
+											"v": true,
 											"d": true,
 											"sm": "normal"
 										}
@@ -4962,7 +4970,7 @@
 											"h": true,
 											"a": true,
 											"o": false,
-											"v": false,
+											"v": true,
 											"d": true,
 											"sm": "normal"
 										}
@@ -5055,7 +5063,7 @@
 									"h": true,
 									"a": true,
 									"o": false,
-									"v": false,
+									"v": true,
 									"d": true,
 									"sm": "normal"
 								},
@@ -5134,7 +5142,7 @@
 									"h": true,
 									"a": true,
 									"o": false,
-									"v": false,
+									"v": true,
 									"d": true,
 									"sm": "normal"
 								},
@@ -5204,7 +5212,7 @@
 									"h": true,
 									"a": true,
 									"o": false,
-									"v": false,
+									"v": true,
 									"d": true,
 									"sm": "normal"
 								},
