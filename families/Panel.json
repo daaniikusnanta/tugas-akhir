@@ -1,0 +1,12 @@
+{
+	"name": "Panel",
+	"plugin-id": "NinePatch",
+	"sid": 765377492340131,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"UIPanel",
+		"UIPanel2"
+	]
+}

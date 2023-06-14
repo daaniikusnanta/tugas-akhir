@@ -2,7 +2,7 @@ import { updateIncomeFromPolicy, updateSpendingFromPolicy } from "./fiscal-data.
 
 /**
  * @typedef {{
-*     effect: string,
+*     name: string,
 *     type: string,
 *     yIntercept: number,
 *     inertia: number,
@@ -43,8 +43,32 @@ export let policy = {
         maxCost: 0,
         minRevenue: 2,
         maxRevenue: 100,
-        effects: [
-        ]
+        effects: {
+            "taxes": {
+                name: "Taxes",
+                type: "status",
+            },
+            "discrimination": {
+                name: "Discrimination",
+                type: "crisis",
+            },
+            "public_health": {
+                name: "Public Health",
+                type: "status",
+            },
+            "investment": {
+                name: "Investment",
+                type: "status",
+            },
+            "poverty": {
+                name: "Poverty",
+                type: "crisis",
+            },
+            "economy": {
+                name: "Economy",
+                type: "status",
+            },
+        }
     },
     "research_grants": {
         name: "Research Grants",
@@ -59,8 +83,12 @@ export let policy = {
         maxCost: 100,
         minRevenue: 0,
         maxRevenue: 0,
-        effects: [
-        ]
+        effects: {
+            "taxes": {
+                name: "Taxes",
+                type: "status",
+            }
+        }
     }
 }
 

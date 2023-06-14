@@ -4409,299 +4409,657 @@
 					"blendMode": "normal",
 					"zElevation": 0,
 					"global": false
+				},
+				{
+					"name": "PolicyPopUpMG",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel2",
+							"properties": {
+								"left-margin": 16,
+								"right-margin": 16,
+								"top-margin": 16,
+								"bottom-margin": 16,
+								"edges": "stretch",
+								"fill": "stretch",
+								"initially-visible": true,
+								"origin": "top-left",
+								"seams": "overlap"
+							},
+							"uid": 48,
+							"instanceVariables": {
+								"id": "pop_up_policy_effects"
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": null,
+								"uid": 48,
+								"children": [
+									{
+										"uid": 74,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									}
+								],
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 383,
+								"y": 370,
+								"width": 1125,
+								"height": 258,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "ScrollablePanel",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 74,
+							"instanceVariables": {
+								"min": 0,
+								"max": 379,
+								"initialLength": 0,
+								"id": "pop_up_policy_effects",
+								"direction": "vertical",
+								"initialMin": 0,
+								"initialMax": 0
+							},
+							"behaviors": {
+								"DragDrop": {
+									"properties": {
+										"axes": "horizontal-only",
+										"enabled": false
+									}
+								},
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
+							"sceneGraphData": {
+								"parent-uid": 48,
+								"uid": 74,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 383,
+								"y": 370,
+								"width": 1125,
+								"height": 258,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 165267047029568,
+					"effectTypes": [],
+					"isInitiallyVisible": true,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "PolicyPopUpFG",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanel2",
+							"properties": {
+								"left-margin": 16,
+								"right-margin": 16,
+								"top-margin": 16,
+								"bottom-margin": 16,
+								"edges": "stretch",
+								"fill": "stretch",
+								"initially-visible": true,
+								"origin": "top-left",
+								"seams": "overlap"
+							},
+							"uid": 71,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 383,
+								"y": 253,
+								"width": 1125,
+								"height": 117,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Policy Name",
+								"enable-bbcode": true,
+								"character-width": 63,
+								"character-height": 80,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
+								"spacing-data": "[[19,\" \"],[10,\"Ii.,;:!'|\"],[16,\"jl]\"],[17,\"1[\"],[18,\"`\"],[20,\"t(\"],[21,\"\\\")\"],[22,\"f\"],[24,\"°\"],[26,\"=<>\"],[27,\"-\"],[28,\"r\"],[29,\"?\"],[30,\"z~\"],[31,\"5679+*\"],[32,\"Jbcdghnpqu02_\"],[33,\"aeo3\\\\\"],[34,\"Zs8/\"],[35,\"Fkx\"],[36,\"ELvy4\"],[37,\"$\"],[38,\"CDP\"],[39,\"BGHOTU£\"],[40,\"RS\"],[41,\"NY€\"],[42,\"K#\"],[43,\"QVX\"],[44,\"&\"],[45,\"%\"],[46,\"M\"],[47,\"A\"],[54,\"mw\"],[56,\"@\"],[61,\"W\"]]",
+								"scale": 0.5,
+								"character-spacing": 0,
+								"line-height": 0,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 52,
+							"instanceVariables": {
+								"id": "policy_pop_up_name"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 414,
+								"y": 273,
+								"width": 467,
+								"height": 36,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Policy Description",
+								"enable-bbcode": true,
+								"character-width": 63,
+								"character-height": 80,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
+								"spacing-data": "[[19,\" \"],[10,\"Ii.,;:!'|\"],[16,\"jl]\"],[17,\"1[\"],[18,\"`\"],[20,\"t(\"],[21,\"\\\")\"],[22,\"f\"],[24,\"°\"],[26,\"=<>\"],[27,\"-\"],[28,\"r\"],[29,\"?\"],[30,\"z~\"],[31,\"5679+*\"],[32,\"Jbcdghnpqu02_\"],[33,\"aeo3\\\\\"],[34,\"Zs8/\"],[35,\"Fkx\"],[36,\"ELvy4\"],[37,\"$\"],[38,\"CDP\"],[39,\"BGHOTU£\"],[40,\"RS\"],[41,\"NY€\"],[42,\"K#\"],[43,\"QVX\"],[44,\"&\"],[45,\"%\"],[46,\"M\"],[47,\"A\"],[54,\"mw\"],[56,\"@\"],[61,\"W\"]]",
+								"scale": 0.4,
+								"character-spacing": 0,
+								"line-height": 0,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 55,
+							"instanceVariables": {
+								"id": "policy_pop_up_description"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 415,
+								"y": 317,
+								"width": 467,
+								"height": 36,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIPanel2",
+							"properties": {
+								"left-margin": 16,
+								"right-margin": 16,
+								"top-margin": 16,
+								"bottom-margin": 16,
+								"edges": "stretch",
+								"fill": "stretch",
+								"initially-visible": true,
+								"origin": "top-left",
+								"seams": "overlap"
+							},
+							"uid": 73,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 383,
+								"y": 627,
+								"width": 1125,
+								"height": 162,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "SliderBarBG2",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 53,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 932,
+								"y": 675,
+								"width": 1044,
+								"height": 32,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "SliderBar2",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 54,
+							"instanceVariables": {
+								"value": 0,
+								"minX": 410,
+								"maxX": 1454,
+								"maxValue": 100,
+								"isDraggable": true,
+								"id": "policy_pop_up_slider"
+							},
+							"behaviors": {
+								"DragDrop": {
+									"properties": {
+										"axes": "horizontal-only",
+										"enabled": true
+									}
+								}
+							},
+							"world": {
+								"x": 538,
+								"y": 675,
+								"width": 64,
+								"height": 64,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"character-width": 63,
+								"character-height": 80,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
+								"spacing-data": "[[19,\" \"],[10,\"Ii.,;:!'|\"],[16,\"jl]\"],[17,\"1[\"],[18,\"`\"],[20,\"t(\"],[21,\"\\\")\"],[22,\"f\"],[24,\"°\"],[26,\"=<>\"],[27,\"-\"],[28,\"r\"],[29,\"?\"],[30,\"z~\"],[31,\"5679+*\"],[32,\"Jbcdghnpqu02_\"],[33,\"aeo3\\\\\"],[34,\"Zs8/\"],[35,\"Fkx\"],[36,\"ELvy4\"],[37,\"$\"],[38,\"CDP\"],[39,\"BGHOTU£\"],[40,\"RS\"],[41,\"NY€\"],[42,\"K#\"],[43,\"QVX\"],[44,\"&\"],[45,\"%\"],[46,\"M\"],[47,\"A\"],[54,\"mw\"],[56,\"@\"],[61,\"W\"]]",
+								"scale": 0.4,
+								"character-spacing": 0,
+								"line-height": 0,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 56,
+							"instanceVariables": {
+								"id": "policy_pop_up_cost_slider"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 412,
+								"y": 717,
+								"width": 296,
+								"height": 36,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Button",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Policy Pop Up Button",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 57,
+							"instanceVariables": {
+								"isDisabled": false,
+								"isPressed": false,
+								"clickable": true,
+								"initialWidth": 0,
+								"initialHeight": 0,
+								"id": "policy_pop_up_cancel"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 1186,
+								"y": 732,
+								"width": 157.66170285583905,
+								"height": 52.55390095194637,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Button",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Policy Pop Up Button",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 58,
+							"instanceVariables": {
+								"isDisabled": false,
+								"isPressed": false,
+								"clickable": true,
+								"initialWidth": 0,
+								"initialHeight": 0,
+								"id": "policy_pop_up_apply"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 1364,
+								"y": 735,
+								"width": 157.66170285583905,
+								"height": 52.55390095194637,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"character-width": 63,
+								"character-height": 80,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
+								"spacing-data": "[[19,\" \"],[10,\"Ii.,;:!'|\"],[16,\"jl]\"],[17,\"1[\"],[18,\"`\"],[20,\"t(\"],[21,\"\\\")\"],[22,\"f\"],[24,\"°\"],[26,\"=<>\"],[27,\"-\"],[28,\"r\"],[29,\"?\"],[30,\"z~\"],[31,\"5679+*\"],[32,\"Jbcdghnpqu02_\"],[33,\"aeo3\\\\\"],[34,\"Zs8/\"],[35,\"Fkx\"],[36,\"ELvy4\"],[37,\"$\"],[38,\"CDP\"],[39,\"BGHOTU£\"],[40,\"RS\"],[41,\"NY€\"],[42,\"K#\"],[43,\"QVX\"],[44,\"&\"],[45,\"%\"],[46,\"M\"],[47,\"A\"],[54,\"mw\"],[56,\"@\"],[61,\"W\"]]",
+								"scale": 0.4,
+								"character-spacing": 0,
+								"line-height": 0,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 59,
+							"instanceVariables": {
+								"id": "policy_pop_up_revenue_slider"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 735,
+								"y": 717,
+								"width": 296,
+								"height": 36,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 759522960228966,
+					"effectTypes": [],
+					"isInitiallyVisible": true,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
 				}
 			],
 			"instances": [
 				{
-					"type": "UIPanel2",
-					"properties": {
-						"left-margin": 16,
-						"right-margin": 16,
-						"top-margin": 16,
-						"bottom-margin": 16,
-						"edges": "stretch",
-						"fill": "stretch",
-						"initially-visible": true,
-						"origin": "top-left",
-						"seams": "overlap"
-					},
-					"uid": 48,
-					"instanceVariables": {
-						"id": ""
-					},
-					"behaviors": {},
-					"world": {
-						"x": 383,
-						"y": 250,
-						"width": 1125,
-						"height": 536,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UIText",
-					"properties": {
-						"text": "Policy Name",
-						"enable-bbcode": true,
-						"character-width": 63,
-						"character-height": 80,
-						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
-						"spacing-data": "[[19,\" \"],[10,\"Ii.,;:!'|\"],[16,\"jl]\"],[17,\"1[\"],[18,\"`\"],[20,\"t(\"],[21,\"\\\")\"],[22,\"f\"],[24,\"°\"],[26,\"=<>\"],[27,\"-\"],[28,\"r\"],[29,\"?\"],[30,\"z~\"],[31,\"5679+*\"],[32,\"Jbcdghnpqu02_\"],[33,\"aeo3\\\\\"],[34,\"Zs8/\"],[35,\"Fkx\"],[36,\"ELvy4\"],[37,\"$\"],[38,\"CDP\"],[39,\"BGHOTU£\"],[40,\"RS\"],[41,\"NY€\"],[42,\"K#\"],[43,\"QVX\"],[44,\"&\"],[45,\"%\"],[46,\"M\"],[47,\"A\"],[54,\"mw\"],[56,\"@\"],[61,\"W\"]]",
-						"scale": 0.5,
-						"character-spacing": 0,
-						"line-height": 0,
-						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 52,
-					"instanceVariables": {
-						"id": "policy_pop_up_name"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 414,
-						"y": 273,
-						"width": 467,
-						"height": 36,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "SliderBarBG2",
+					"type": "ProgressBarBG",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 53,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 932,
-						"y": 675,
-						"width": 1044,
-						"height": 32,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "SliderBar2",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 54,
-					"instanceVariables": {
-						"value": 0,
-						"minX": 410,
-						"maxX": 1454,
-						"maxValue": 100,
-						"isDraggable": true,
-						"id": "policy_pop_up_slider"
-					},
-					"behaviors": {
-						"DragDrop": {
-							"properties": {
-								"axes": "horizontal-only",
-								"enabled": true
-							}
-						}
-					},
-					"world": {
-						"x": 538,
-						"y": 675,
-						"width": 64,
-						"height": 64,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UIText",
-					"properties": {
-						"text": "Policy Description",
-						"enable-bbcode": true,
-						"character-width": 63,
-						"character-height": 80,
-						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
-						"spacing-data": "[[19,\" \"],[10,\"Ii.,;:!'|\"],[16,\"jl]\"],[17,\"1[\"],[18,\"`\"],[20,\"t(\"],[21,\"\\\")\"],[22,\"f\"],[24,\"°\"],[26,\"=<>\"],[27,\"-\"],[28,\"r\"],[29,\"?\"],[30,\"z~\"],[31,\"5679+*\"],[32,\"Jbcdghnpqu02_\"],[33,\"aeo3\\\\\"],[34,\"Zs8/\"],[35,\"Fkx\"],[36,\"ELvy4\"],[37,\"$\"],[38,\"CDP\"],[39,\"BGHOTU£\"],[40,\"RS\"],[41,\"NY€\"],[42,\"K#\"],[43,\"QVX\"],[44,\"&\"],[45,\"%\"],[46,\"M\"],[47,\"A\"],[54,\"mw\"],[56,\"@\"],[61,\"W\"]]",
-						"scale": 0.4,
-						"character-spacing": 0,
-						"line-height": 0,
-						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 55,
-					"instanceVariables": {
-						"id": "policy_pop_up_description"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 415,
-						"y": 326,
-						"width": 467,
-						"height": 36,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UIText",
-					"properties": {
-						"text": "0",
-						"enable-bbcode": true,
-						"character-width": 63,
-						"character-height": 80,
-						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
-						"spacing-data": "[[19,\" \"],[10,\"Ii.,;:!'|\"],[16,\"jl]\"],[17,\"1[\"],[18,\"`\"],[20,\"t(\"],[21,\"\\\")\"],[22,\"f\"],[24,\"°\"],[26,\"=<>\"],[27,\"-\"],[28,\"r\"],[29,\"?\"],[30,\"z~\"],[31,\"5679+*\"],[32,\"Jbcdghnpqu02_\"],[33,\"aeo3\\\\\"],[34,\"Zs8/\"],[35,\"Fkx\"],[36,\"ELvy4\"],[37,\"$\"],[38,\"CDP\"],[39,\"BGHOTU£\"],[40,\"RS\"],[41,\"NY€\"],[42,\"K#\"],[43,\"QVX\"],[44,\"&\"],[45,\"%\"],[46,\"M\"],[47,\"A\"],[54,\"mw\"],[56,\"@\"],[61,\"W\"]]",
-						"scale": 0.4,
-						"character-spacing": 0,
-						"line-height": 0,
-						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 56,
-					"instanceVariables": {
-						"id": "policy_pop_up_cost_slider"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 412,
-						"y": 717,
-						"width": 296,
-						"height": 36,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Button",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Policy Pop Up Button",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 57,
-					"instanceVariables": {
-						"isDisabled": false,
-						"isPressed": false,
-						"clickable": true,
-						"initialWidth": 0,
-						"initialHeight": 0,
-						"id": "policy_pop_up_cancel"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 1186,
-						"y": 732,
-						"width": 157.66170285583905,
-						"height": 52.55390095194637,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Button",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Policy Pop Up Button",
 						"initial-frame": 1,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 58,
-					"instanceVariables": {
-						"isDisabled": false,
-						"isPressed": false,
-						"clickable": true,
-						"initialWidth": 0,
-						"initialHeight": 0,
-						"id": "policy_pop_up_apply"
-					},
+					"uid": 67,
+					"instanceVariables": {},
 					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": 68,
+						"uid": 67,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
 					"world": {
-						"x": 1364,
-						"y": 735,
-						"width": 157.66170285583905,
-						"height": 52.55390095194637,
+						"x": 890,
+						"y": -120,
+						"width": 540,
+						"height": 54,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -4711,13 +5069,14 @@
 							1
 						],
 						"angle": 0,
-						"zElevation": 0
+						"zElevation": 0,
+						"blendMode": "source-atop"
 					}
 				},
 				{
 					"type": "UIText",
 					"properties": {
-						"text": "0",
+						"text": "Effect",
 						"enable-bbcode": true,
 						"character-width": 63,
 						"character-height": 80,
@@ -4730,21 +5089,282 @@
 						"vertical-alignment": "center",
 						"wrapping": "word",
 						"initially-visible": true,
-						"origin": "top-left",
+						"origin": "left",
 						"read-aloud": false
 					},
-					"uid": 59,
+					"uid": 68,
 					"instanceVariables": {
-						"id": "policy_pop_up_revenue_slider"
+						"id": ""
 					},
 					"behaviors": {},
+					"template": {
+						"mode": "template",
+						"templateName": "policy_effect_view",
+						"sourceTemplateName": "",
+						"components": [
+							{
+								"id": "plugin",
+								"component": [
+									{
+										"key": "plugin",
+										"state": [
+											[
+												"text",
+												true
+											],
+											[
+												"enable-bbcode",
+												true
+											],
+											[
+												"character-width",
+												true
+											],
+											[
+												"character-height",
+												true
+											],
+											[
+												"character-set",
+												true
+											],
+											[
+												"spacing-data",
+												true
+											],
+											[
+												"scale",
+												true
+											],
+											[
+												"character-spacing",
+												true
+											],
+											[
+												"line-height",
+												true
+											],
+											[
+												"horizontal-alignment",
+												true
+											],
+											[
+												"vertical-alignment",
+												true
+											],
+											[
+												"wrapping",
+												true
+											],
+											[
+												"initially-visible",
+												true
+											],
+											[
+												"origin",
+												true
+											],
+											[
+												"read-aloud",
+												true
+											]
+										]
+									}
+								]
+							},
+							{
+								"id": "instance-variable",
+								"component": [
+									{
+										"key": "instance-variable",
+										"state": [
+											{
+												"iv": "id",
+												"state": true
+											}
+										]
+									}
+								]
+							},
+							{
+								"id": "behavior",
+								"component": []
+							},
+							{
+								"id": "effect",
+								"component": []
+							},
+							{
+								"id": "world-instance",
+								"component": [
+									{
+										"key": "world-instance",
+										"state": [
+											[
+												"x",
+												false
+											],
+											[
+												"y",
+												false
+											],
+											[
+												"z",
+												true
+											],
+											[
+												"w",
+												true
+											],
+											[
+												"h",
+												true
+											],
+											[
+												"a",
+												true
+											],
+											[
+												"o",
+												true
+											],
+											[
+												"c",
+												true
+											],
+											[
+												"sx",
+												true
+											],
+											[
+												"sy",
+												true
+											],
+											[
+												"bm",
+												true
+											],
+											[
+												"twpx",
+												true
+											],
+											[
+												"twpy",
+												true
+											],
+											[
+												"twpz",
+												true
+											],
+											[
+												"twpw",
+												true
+											],
+											[
+												"twph",
+												true
+											],
+											[
+												"twpa",
+												true
+											],
+											[
+												"dwp",
+												true
+											],
+											[
+												"ssm",
+												true
+											]
+										]
+									}
+								]
+							}
+						],
+						"replicasUIDs": null
+					},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 68,
+						"children": [
+							{
+								"uid": 70,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								}
+							},
+							{
+								"uid": 67,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								}
+							},
+							{
+								"uid": 69,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
 					"world": {
-						"x": 735,
-						"y": 717,
-						"width": 296,
-						"height": 36,
+						"x": 620,
+						"y": -170,
+						"width": 314,
+						"height": 30,
 						"originX": 0,
-						"originY": 0,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -4752,7 +5372,157 @@
 							1
 						],
 						"angle": 0,
-						"zElevation": 0
+						"zElevation": 0,
+						"blendMode": "source-atop"
+					}
+				},
+				{
+					"type": "ProgressBar",
+					"properties": {
+						"left-margin": 12,
+						"right-margin": 12,
+						"top-margin": 12,
+						"bottom-margin": 12,
+						"edges": "tile",
+						"fill": "tile",
+						"initially-visible": true,
+						"origin": "left",
+						"seams": "overlap"
+					},
+					"uid": 69,
+					"instanceVariables": {
+						"minWidth": 24,
+						"id": "",
+						"maxWidth": 320
+					},
+					"behaviors": {},
+					"effects": {
+						"SetColor": {
+							"isEnabled": true,
+							"parameters": {
+								"color": [
+									0.2549019607843137,
+									0.7843137254901961,
+									0.6274509803921569,
+									1
+								]
+							}
+						}
+					},
+					"sceneGraphData": {
+						"parent-uid": 68,
+						"uid": 69,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"world": {
+						"x": 620,
+						"y": -120,
+						"width": 24,
+						"height": 54,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0,
+						"blendMode": "source-atop"
+					}
+				},
+				{
+					"type": "UIText",
+					"properties": {
+						"text": "100",
+						"enable-bbcode": true,
+						"character-width": 63,
+						"character-height": 80,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
+						"spacing-data": "[[19,\" \"],[10,\"Ii.,;:!'|\"],[16,\"jl]\"],[17,\"1[\"],[18,\"`\"],[20,\"t(\"],[21,\"\\\")\"],[22,\"f\"],[24,\"°\"],[26,\"=<>\"],[27,\"-\"],[28,\"r\"],[29,\"?\"],[30,\"z~\"],[31,\"5679+*\"],[32,\"Jbcdghnpqu02_\"],[33,\"aeo3\\\\\"],[34,\"Zs8/\"],[35,\"Fkx\"],[36,\"ELvy4\"],[37,\"$\"],[38,\"CDP\"],[39,\"BGHOTU£\"],[40,\"RS\"],[41,\"NY€\"],[42,\"K#\"],[43,\"QVX\"],[44,\"&\"],[45,\"%\"],[46,\"M\"],[47,\"A\"],[54,\"mw\"],[56,\"@\"],[61,\"W\"]]",
+						"scale": 0.3,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "right",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "right",
+						"read-aloud": false
+					},
+					"uid": 70,
+					"instanceVariables": {
+						"id": ""
+					},
+					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": 68,
+						"uid": 70,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"world": {
+						"x": 1160,
+						"y": -170,
+						"width": 314,
+						"height": 30,
+						"originX": 1,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0,
+						"blendMode": "source-atop"
 					}
 				}
 			],

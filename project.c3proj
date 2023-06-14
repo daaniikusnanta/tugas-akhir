@@ -173,7 +173,8 @@
 		"items": [
 			"Clickable",
 			"Family1",
-			"Slider"
+			"Slider",
+			"Panel"
 		],
 		"subfolders": []
 	},
