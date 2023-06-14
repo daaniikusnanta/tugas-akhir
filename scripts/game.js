@@ -261,3 +261,122 @@ function showPolicyPanel(policyType, runtime) {
 		policiesScrollable.instVars['max'] = policiesScrollable.y;
 	}
 }
+
+function initializeStatusViews(runtime) {
+	let statusData = {};
+	const panelStatus = runtime.objects.UIPanel.getAllInstances().filter(panel => panel.instVars['id'] == "status_panel")[0];
+	let initialY = panelStatus.y + 20;
+	let initialX = panelStatus.x + panelStatus.width / 6;
+
+	console.log("Status", status);
+	
+	for (const variable in status) {
+		const statusName = status[variable];
+		if (!statusData[statusName.type]) {
+			console.log("adding status Type");
+			statusData[statusName.type] = {
+				statuses: []
+			};
+		}
+		statusData[statusName.type].statuses.push(variable);
+		
+		const row = Math.ceil(statusData[statusName.type].statuses.length / 3) - 1;
+		const column = (statusData[statusName.type].statuses.length - 1) % 3;
+		const instanceY = initialY + row * 100;
+		const instanceX = initialX + column * panelStatus.width / 3;
+		
+		console.log("Status name", statusName, initialY, row, instanceY, instanceX);
+		
+		let statusNameText = runtime.objects.UIText.createInstance("PanelStatus", instanceX, instanceY, true, "status_name");
+		statusNameText.instVars['id'] = variable + "_status_title";
+		statusNameText.text = statusName.name;
+		statusNameText.isVisible = false;
+		addTextToCache(statusNameText);
+
+		console.log("Status name text", statusNameText.getChildCount(), statusNameText.getChildAt(0), statusNameText.getChildAt(1), statusNameText.getChildAt(2));
+
+		// let sliderBarBG = runtime.objects.SliderBarBG.createInstance("PanelStatus", instanceX, instanceY + 40);
+		let sliderBarBG = statusNameText.getChildAt(1);
+		sliderBarBG.instVars['id'] = variable + "_status_slider_bg";
+		console.log("Slider bar bg", sliderBarBG.instVars['id'])
+		sliderBarBG.isVisible = false;
+		
+		// let sliderBar = runtime.objects.SliderBar.createInstance("PanelStatus", instanceX, instanceY + 34);
+		let sliderBar = statusNameText.getChildAt(0);
+		sliderBar.instVars['minX'] = instanceX - sliderBarBG.width/2;
+		sliderBar.instVars['maxX'] = instanceX + sliderBarBG.width/2;
+		sliderBar.instVars['maxValue'] = 100;
+		sliderBar.instVars['value'] = 0;
+		sliderBar.instVars['id'] = variable + "_status_slider";
+		sliderBar.isVisible = false;
+		
+		// let statusValueText = runtime.objects.UIText.createInstance("PanelStatus", instanceX, instanceY + 30);
+		let statusValueText = statusNameText.getChildAt(2);
+		statusValueText.instVars['id'] = variable + "_status_text";
+		statusValueText.colorRgb = [1, 1, 1];
+		statusValueText.isVisible = false;
+		addTextToCache(statusValueText);
+
+		const clickablePanelX = instanceX + 50;
+		const clickablePanelY = instanceY - 10;
+		// let clickablePanel = runtime.objects.ClickablePanel.createInstance("PanelStatus", instanceX, instanceY - 10);
+		let clickablePanel = statusNameText.getChildAt(3);
+		clickablePanel.instVars['id'] = variable + "_clickable_panel_status";
+		clickablePanel.instVars['clickable'] = true;
+		clickablePanel.instVars['isDisabled'] = true;
+		clickablePanel.instVars['panelId'] = "status_panel";	
+		addClickablePanelToCache(clickablePanel);
+	}
+
+	for (const variable in statusData) {
+		
+		const data = statusData[variable];
+		console.log("Data", data);
+		statusViewData[variable] = {
+			statuses: data.statuses,
+		};
+	}
+}
+
+let statusViewData = {};
+
+function showStatusPanel(statusType, runtime) {
+	console.log("Status type ", statusType);
+	const statusPanel = runtime.objects.UIPanel.getAllInstances().filter(panel => panel.instVars['id'] == "status_panel")[0];
+
+	for (const statusName in status) {
+		console.log("Status name invisible", statusName);
+		const statusNameText = getTextById(statusName + "_status_title");
+		statusNameText.isVisible = false;
+		const statusValueText = getTextById(statusName + "_status_text");
+		statusValueText.isVisible = false;
+		const sliderBarBG = runtime.objects.SliderBarBG.getAllInstances().filter(s => s.instVars['id'] == statusName + "_status_slider_bg")[0];
+		sliderBarBG.isVisible = false;
+		const sliderBar = runtime.objects.SliderBar.getAllInstances().filter(s => s.instVars['id'] == statusName + "_status_slider")[0];
+		sliderBar.isVisible = false;
+		const clickablePanel = getClickablePanelById(statusName + "_clickable_panel_status");
+		clickablePanel.instVars['isDisabled'] = true;
+	}
+
+	if (statusViewData[statusType]) {
+		console.log("Setting height", statusType, statusViewData[statusType]);
+
+		for (const statusName of statusViewData[statusType].statuses) {
+			console.log("Status name visible", statusName);
+			const statusNameText = getTextById(statusName + "_status_title");
+			statusNameText.isVisible = true;
+			const statusValueText = getTextById(statusName + "_status_text");
+			statusValueText.isVisible = true;
+			const sliderBarBG = runtime.objects.SliderBarBG.getAllInstances().filter(s => s.instVars['id'] == statusName + "_status_slider_bg")[0];
+			sliderBarBG.isVisible = true;
+			const sliderBar = runtime.objects.SliderBar.getAllInstances().filter(s => s.instVars['id'] == statusName + "_status_slider")[0];
+			sliderBar.isVisible = true;
+			const clickablePanel = getClickablePanelById(statusName + "_clickable_panel_status");
+			clickablePanel.instVars['isDisabled'] = false;
+			
+			// setSliderValue(sliderBar, statusValueText, status[statusName].value, status[statusName].value.toString());
+		}
+
+		statusPanel.height = 20 + Math.ceil(statusViewData[statusType].statuses.length / 3) * 100;
+	}
+}

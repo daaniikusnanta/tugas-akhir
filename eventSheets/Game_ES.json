@@ -84,7 +84,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "initializePolicyViews(runtime);"
+							"script": "initializePolicyViews(runtime);\ninitializeStatusViews(runtime);"
 						},
 						{
 							"callFunction": "SetupClickablePanels",
@@ -962,9 +962,44 @@
 										"layer": "\"Panel\" & uppercase(left(status, 1)) & right(status, len(status)-1)",
 										"visibility": "visible"
 									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 201423185339505,
+									"parameters": {
+										"layer": "\"PanelStatus\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"type": "script",
+									"script": "showStatusPanel(localVars.status, runtime);"
 								}
 							],
 							"sid": 829436645292242
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 371537167153535
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 599450487188985,
+									"parameters": {
+										"layer": "\"PanelStatus\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 644586353903636
 						}
 					]
 				},
@@ -1164,8 +1199,8 @@
 								},
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "SliderBar2",
-									"sid": 548759821945114,
+									"objectClass": "Slider",
+									"sid": 861653185970785,
 									"parameters": {
 										"instance-variable": "id",
 										"comparison": 0,
