@@ -2,7 +2,7 @@ import { status, updateStatus } from "./status-data.js";
 import { crisis, crisisFsms, updateCrisis } from "./crisis-data.js";
 import { addTextToCache, getTextById, addClickablePanelToCache, getClickablePanelById, setSliderValue, clamp } from "./utils.js";
 import { expandCrisisTiles } from "./tile-data.js";
-import { policy } from "./policy-data.js";
+import { policy, createPolicyEffectViews, showPolicyEffectViews } from "./policy-data.js";
 import { updateIncome, updateSpending } from "./fiscal-data.js";
 
 function updateAllStatus() {
