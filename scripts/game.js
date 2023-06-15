@@ -14,7 +14,8 @@ import {
   createPolicyEffectViews,
   showPolicyEffectViews,
   updatePolicyEffectViews,
-  implementPolicyChange,
+  applyPolicyChange,
+  setupPolicyPopUp,
   updatePolicy,
 } from "./policy-data.js";
 import { updateIncome, updateSpending } from "./fiscal-data.js";

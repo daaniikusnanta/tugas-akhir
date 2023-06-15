@@ -1,7 +1,7 @@
 import { updateIncomeFromPolicy, updateSpendingFromPolicy } from "./fiscal-data.js";
 import { status } from "./status-data.js";
 import { crisis } from "./crisis-data.js";
-import { addTextToCache, clamp, getTextById } from "./utils.js";
+import { addTextToCache, clamp, getTextById, setSliderValue } from "./utils.js";
 
 /**
  * @typedef {{
@@ -38,7 +38,7 @@ export let policy = {
         description: "A tax on income.",
         type: "finance",
         value: 50,
-        finalValue: 0,
+        finalValue: 50,
         implementationCost: 0,
         implementationDelay: 0,
         implementationDuration: 0,
@@ -51,7 +51,7 @@ export let policy = {
             "taxes": {
                 name: "Taxes",
                 type: "status",
-                effectDelay: 0,
+                effectDelay: 5,
                 valueType: "positive",
                 value: 0,
                 valueDelta: 0,
@@ -61,7 +61,7 @@ export let policy = {
             "discrimination": {
                 name: "Discrimination",
                 type: "crisis",
-                effectDelay: 0,
+                effectDelay: 10,
                 valueType: "positive",
                 value: 0,
                 valueDelta: 0,
@@ -81,7 +81,7 @@ export let policy = {
             "investment": {
                 name: "Investment",
                 type: "status",
-                effectDelay: 0,
+                effectDelay: 3,
                 valueType: "negative",
                 value: 0,
                 valueDelta: 0,
@@ -91,7 +91,7 @@ export let policy = {
             "poverty": {
                 name: "Poverty",
                 type: "crisis",
-                effectDelay: 0,
+                effectDelay: 1,
                 valueType: "positive",
                 value: 0,
                 valueDelta: 0,
@@ -115,7 +115,7 @@ export let policy = {
         description: "A grant to fund research.",
         type: "education",
         value: 50,
-        finalValue: 0,
+        finalValue: 50,
         implementationCost: 0,
         implementationDelay: 0,
         implementationDuration: 0,
@@ -140,7 +140,8 @@ export let policy = {
     }
 }
 
-export function implementPolicyChange(policyName, newValue) {
+export function applyPolicyChange(policyName, newValue) {
+    console.log("Applying policy change: " + policyName + " to " + newValue);
     let policyData = policy[policyName];
     if (policyData) {
         policyData.finalValue = clamp(newValue, 0, 100);
@@ -151,7 +152,7 @@ export function implementPolicyChange(policyName, newValue) {
         for (const effect in policyData.effects) {
             let effectData = policyData.effects[effect];
             effectData.effectDuration = 0;
-            effectData.valueDelta = (effectData.formula(finalValue) - value) / implementationDelay;
+            effectData.valueDelta = (effectData.formula(finalValue) - effectData.value) / (effectData.effectDelay + 1);
         }
 
         updateIncomeFromPolicy(policyData);
@@ -162,11 +163,11 @@ export function implementPolicyChange(policyName, newValue) {
 export function updatePolicy(policyName) {
     let policyData = policy[policyName];
     let { value, finalValue, implementationDelay, implementationDuration } = policyData;
-
+    console.log("update policy", policyData, value, finalValue, implementationDelay, implementationDuration);
     // If the delay duration has passed, update the policy value
-    if (policyData, implementationDuration >= implementationDelay) {
-        policyData.value == finalValue;
-
+    if (policyData && implementationDuration >= implementationDelay) {
+        policyData.value = finalValue;
+        console.log("updated", policyData);
         updatePolicyEffects(policyName);
     }
 
@@ -179,16 +180,19 @@ export function updatePolicyEffects(policyName) {
     if (policyData) {
         for (const effect in policyData.effects) {
             let policyEffectData = policyData.effects[effect];
-            let { effectDelay, effectDuration } = policyEffectData;
-
+            let { effectDelay, effectDuration, valueDelta } = policyEffectData;
             // If the change is not complete yet, update the effect value
             if (effectDuration <= effectDelay) {
                 let effectData = status[effect] ?? crisis[effect];
+                
+                console.log("update policy effect", effect, effectDelay, effectDuration, valueDelta, effectData);
 
                 if (effectData) {
                     const update = - 0.3 + policyData.value * 0.2;
-                    effectData.value += effectData.valueDelta;
-                    effectData.policyValue += effectData.valueDelta;
+                    effectData.value += valueDelta;
+                    effectData.policyValue += valueDelta;
+                    policyEffectData.value += valueDelta;
+                    console.log("updated", effectData);
                     // effectData.lastUpdatePolicy += update;
                 }
             }
@@ -205,6 +209,15 @@ export function setupPolicyPopUp(policyName, runtime) {
     policyDescText.text = policyData.description ?? "";
 
     const slider = runtime.objects.Slider.getPickedInstances()[0];
+    const sliderFinal = runtime.objects.Slider.getAllInstances().filter(s => s.instVars['id'] === "policy_pop_up_final_slider")[0];
+
+    console.log("setupPolicyPopUp", policyName, policyData, slider, sliderFinal);
+    if (policyData.value != policyData.finalValue) {
+        sliderFinal.isVisible = true;
+        setSliderValue(sliderFinal, null, policyData.finalValue, null);
+    } else {
+        sliderFinal.isVisible = false;
+    }
 
     const costText = getTextById("policy_pop_up_cost_slider");
     const cost = policyData.minCost + (policyData.value / 100 * (policyData.maxCost - policyData.minCost));
@@ -293,7 +306,7 @@ export function showPolicyEffectViews(policyName, runtime) {
         const effectValue = effectName.getChildAt(0);
         effectValue.text = effectData.value.toString();
         const value = Math.abs(effectData.value)
-        const newValue = Math.abs(effectData.formula(policyData.value));
+        const newValue = Math.abs(effectData.formula(policyData.finalValue));
         const valueChange = newValue - value;
 
         const effectSliderPositive = effectName.getChildAt(2);
