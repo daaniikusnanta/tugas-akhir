@@ -166,7 +166,7 @@
 						},
 						{
 							"type": "script",
-							"script": "updateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);\nupdateFiscalViews(runtime);"
+							"script": "updateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateAllPolicies(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);\nupdateFiscalViews(runtime);"
 						}
 					],
 					"sid": 268964243012299,
@@ -678,10 +678,6 @@
 							],
 							"actions": [
 								{
-									"type": "script",
-									"script": "console.log(\"tes\");"
-								},
-								{
 									"id": "set-layer-interactive",
 									"objectClass": "System",
 									"sid": 651210894824282,
@@ -709,6 +705,74 @@
 								}
 							],
 							"sid": 237507252989424
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 799799022137702,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"policy_pop_up_apply\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 819224740265340,
+									"parameters": {
+										"variable": "policyToSet",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Slider",
+									"sid": 991030584785036,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"policy_pop_up_slider\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 528971214959198,
+									"parameters": {
+										"layer": "\"UI\"",
+										"interactive": true
+									}
+								},
+								{
+									"type": "script",
+									"script": "const policySlider = runtime.objects.Slider.getPickedInstances()[0];\nimplementPolicyChange(runtime.globalVars.policyToSet, policySlider.instVars['value']);"
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 261540939581523,
+									"parameters": {
+										"layer": "\"Background\"",
+										"interactive": true
+									}
+								},
+								{
+									"callFunction": "showPolicyPopUp",
+									"sid": 981055359000690,
+									"parameters": [
+										"\"\"",
+										false
+									]
+								}
+							],
+							"sid": 695490178969382
 						}
 					]
 				},
@@ -1477,7 +1541,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const slider = runtime.objects.Slider.getPickedInstances()[0];\nconst policyName = runtime.globalVars.policyToSet;\nconsole.log(policyName);\nconst policyData = policy[policyName];\nconst costText = getTextById(\"policy_pop_up_cost_slider\");\nconst cost = policyData.minCost + (slider.instVars['value'] / 100 * (policyData.maxCost - policyData.minCost));\nsetSliderValue(slider, costText, slider.instVars['value'], cost.toString());\n\nconst revenueText = getTextById(\"policy_pop_up_revenue_slider\");\nconst revenue = policyData.minRevenue + (slider.instVars['value'] / 100 * (policyData.maxRevenue - policyData.minRevenue));\nsetSliderValue(slider, revenueText, slider.instVars['value'], revenue.toString());"
+									"script": "const slider = runtime.objects.Slider.getPickedInstances()[0];\nconst policyName = runtime.globalVars.policyToSet;\nconsole.log(policyName);\nconst policyData = policy[policyName];\nconst costText = getTextById(\"policy_pop_up_cost_slider\");\nconst cost = policyData.minCost + (slider.instVars['value'] / 100 * (policyData.maxCost - policyData.minCost));\nsetSliderValue(slider, costText, slider.instVars['value'], cost.toString());\n\nconst revenueText = getTextById(\"policy_pop_up_revenue_slider\");\nconst revenue = policyData.minRevenue + (slider.instVars['value'] / 100 * (policyData.maxRevenue - policyData.minRevenue));\nsetSliderValue(slider, revenueText, slider.instVars['value'], revenue.toString());\n\nupdatePolicyEffectViews(policyName, slider.instVars['value']);"
 								}
 							],
 							"sid": 215795582291721

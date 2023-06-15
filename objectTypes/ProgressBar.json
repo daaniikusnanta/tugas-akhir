@@ -31,6 +31,10 @@
 		{
 			"effectId": "setcolor",
 			"name": "SetColor"
+		},
+		{
+			"effectId": "brightness",
+			"name": "Brightness"
 		}
 	],
 	"image": {

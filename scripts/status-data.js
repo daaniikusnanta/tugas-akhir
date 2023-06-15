@@ -23,7 +23,10 @@ export let status = {
         name: "Taxes",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "finance",
         causes: [],
     },
@@ -31,7 +34,10 @@ export let status = {
         name: "Debt",
         description: "The amount of debt",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "finance",
         causes: [],
     },
@@ -39,7 +45,10 @@ export let status = {
         name: "Economy",
         description: "The state of the economy.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "finance",
         causes: [
             {
@@ -60,7 +69,10 @@ export let status = {
         name: "Disease Control",
         description: "The state of the disease control.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "health",
         causes: [],
     },
@@ -68,7 +80,10 @@ export let status = {
         name: "Health Workers",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "health",
         causes: [
             {
@@ -81,7 +96,10 @@ export let status = {
         name: "Public Health",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "health",
         causes: [],
     },
@@ -89,7 +107,10 @@ export let status = {
         name: "Healthcare System",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "health",
         causes: [
             {
@@ -102,7 +123,10 @@ export let status = {
         name: "Education System",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "education",
         causes: [
             {
@@ -115,7 +139,10 @@ export let status = {
         name: "Teachers",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "education",
         causes: [],
     },
@@ -123,7 +150,10 @@ export let status = {
         name: "Research",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "education",
         causes: [
             {
@@ -136,7 +166,10 @@ export let status = {
         name: "Social Security",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "social",
         causes: [],
     },
@@ -144,7 +177,10 @@ export let status = {
         name: "Empowerment",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "social",
         causes: [],
     },
@@ -152,7 +188,10 @@ export let status = {
         name: "Population Control",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "social",
         causes: [
             {
@@ -169,7 +208,10 @@ export let status = {
         name: "Wage Income",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "labor",
         causes: [],
     },
@@ -177,7 +219,10 @@ export let status = {
         name: "Work Environment",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "labor",
         causes: [
             {
@@ -190,7 +235,10 @@ export let status = {
         name: "Productive Workers",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "labor",
         causes: [
             {
@@ -211,7 +259,10 @@ export let status = {
         name: "Jobs",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "labor",
         causes: [
             {
@@ -228,7 +279,10 @@ export let status = {
         name: "Justice System",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "stability",
         causes: [],
     },
@@ -236,7 +290,10 @@ export let status = {
         name: "Governance",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "stability",
         causes: [],
     },
@@ -244,7 +301,10 @@ export let status = {
         name: "Media Neutrality",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "stability",
         causes: [
             {
@@ -257,7 +317,10 @@ export let status = {
         name: "Security",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "stability",
         causes: [
             {
@@ -294,7 +357,10 @@ export let status = {
         name: "Communication & Information",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "infrastructure",
         causes: [
             {
@@ -307,7 +373,10 @@ export let status = {
         name: "Transportation",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "infrastructure",
         causes: [
             {
@@ -324,7 +393,10 @@ export let status = {
         name: "Power & Energy",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "infrastructure",
         causes: [
             {
@@ -341,7 +413,10 @@ export let status = {
         name: "Urban Housing",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "infrastructure",
         causes: [
             {
@@ -358,7 +433,10 @@ export let status = {
         name: "Pollution Control",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "environment",
         causes: [],
     },
@@ -366,7 +444,10 @@ export let status = {
         name: "Forest",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "environment",
         causes: [],
     },
@@ -374,7 +455,10 @@ export let status = {
         name: "Biodiversity",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "environment",
         causes: [
             {
@@ -395,7 +479,10 @@ export let status = {
         name: "Marine",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "environment",
         causes: [
             {
@@ -408,7 +495,10 @@ export let status = {
         name: "Investment",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "industry",
         causes: [
             {
@@ -450,7 +540,10 @@ export let status = {
         name: "Mineral Oil Industry",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "industry",
         causes: [
             {
@@ -464,7 +557,10 @@ export let status = {
         name: "Manufacturing",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "industry",
         causes: [
             {
@@ -478,7 +574,10 @@ export let status = {
         name: "Agriculture",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "industry",
         causes: [
             {
@@ -496,7 +595,10 @@ export let status = {
         name: "Fisheries",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "industry",
         causes: [
             {
@@ -518,7 +620,10 @@ export let status = {
         name: "Tourism and Creative Industries",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "industry",
         causes: [
             {
@@ -551,7 +656,10 @@ export let status = {
         name: "Sustainability and Environment",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "industry",
         causes: [
             {
@@ -564,7 +672,10 @@ export let status = {
         name: "Foreign Relations",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "defense",
         causes: [
             {
@@ -577,7 +688,10 @@ export let status = {
         name: "Defense Force",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "defense",
         causes: [],
     },
@@ -585,7 +699,10 @@ export let status = {
         name: "Defense Infrastructure",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "defense",
         causes: [
             {
@@ -598,7 +715,10 @@ export let status = {
         name: "Mineral Oil",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "nature",
         causes: [
             {
@@ -615,7 +735,10 @@ export let status = {
         name: "Water and Land",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "nature",
         causes: [
             {
@@ -632,7 +755,10 @@ export let status = {
         name: "Food Sources",
         description: "The amount of taxes collected.",
         value: 0,
-        lastUpdate: 0,
+        causeValue: 0,
+        policyValue: 0,
+        lastUpdateCause: 0,
+        lastUpdatePolicy: 0,
         type: "nature",
         causes: [
             {
@@ -661,6 +787,7 @@ export let status = {
  */
 export function initializeStatus(levelVariables) {
     for (const variable in levelVariables) {
+        status[variable].causeValue = levelVariables[variable];
         status[variable].value = levelVariables[variable];
     }
 }
@@ -673,8 +800,8 @@ export function updateStatus(variable) {
     let totalUpdate = 0;
     for (const cause of status[variable].causes) {
         const update = cause.formula();
-        status[variable].value += update;
+        status[variable].causeValue += update;
         totalUpdate += update;
     }
-    status[variable].lastUpdate = totalUpdate;
+    status[variable].lastUpdateCause = totalUpdate;
 }

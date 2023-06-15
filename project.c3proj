@@ -114,6 +114,13 @@
 		},
 		{
 			"type": "effect",
+			"id": "brightness",
+			"name": "Brightness",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
 			"id": "exposure",
 			"name": "Exposure",
 			"author": "Scirra",

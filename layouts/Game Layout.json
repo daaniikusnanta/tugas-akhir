@@ -2256,7 +2256,7 @@
 						"right-margin": 12,
 						"top-margin": 12,
 						"bottom-margin": 12,
-						"edges": "tile",
+						"edges": "stretch",
 						"fill": "tile",
 						"initially-visible": true,
 						"origin": "top-left",
@@ -2279,6 +2279,12 @@
 									0.5725490196078431,
 									1
 								]
+							}
+						},
+						"Brightness": {
+							"isEnabled": true,
+							"parameters": {
+								"brightness": 1
 							}
 						}
 					},
@@ -4961,7 +4967,7 @@
 										}
 									},
 									{
-										"uid": 4,
+										"uid": 28,
 										"flags": {
 											"x": true,
 											"y": true,
@@ -5026,17 +5032,17 @@
 								"right-margin": 12,
 								"top-margin": 12,
 								"bottom-margin": 12,
-								"edges": "tile",
+								"edges": "stretch",
 								"fill": "tile",
-								"initially-visible": true,
+								"initially-visible": false,
 								"origin": "left",
 								"seams": "overlap"
 							},
 							"uid": 4,
 							"instanceVariables": {
-								"minWidth": 24,
+								"minWidth": 0,
 								"id": "",
-								"maxWidth": 320
+								"maxWidth": 270
 							},
 							"behaviors": {},
 							"effects": {
@@ -5044,22 +5050,28 @@
 									"isEnabled": true,
 									"parameters": {
 										"color": [
-											0.5058823529411764,
-											0.9333333333333333,
-											0.803921568627451,
+											0.23921568627450981,
+											0.807843137254902,
+											0.6549019607843137,
 											1
 										]
+									}
+								},
+								"Brightness": {
+									"isEnabled": true,
+									"parameters": {
+										"brightness": 1.2
 									}
 								}
 							},
 							"sceneGraphData": {
-								"parent-uid": 68,
+								"parent-uid": 69,
 								"uid": 4,
 								"flags": {
 									"x": true,
 									"y": true,
 									"z": true,
-									"w": true,
+									"w": false,
 									"h": true,
 									"a": true,
 									"o": false,
@@ -5081,9 +5093,9 @@
 								}
 							},
 							"world": {
-								"x": 620,
+								"x": 890,
 								"y": -192,
-								"width": 145.01890012650097,
+								"width": 111.57806208804072,
 								"height": 54,
 								"originX": 0,
 								"originY": 0.5,
@@ -5105,7 +5117,7 @@
 								"right-margin": 12,
 								"top-margin": 12,
 								"bottom-margin": 12,
-								"edges": "tile",
+								"edges": "stretch",
 								"fill": "tile",
 								"initially-visible": true,
 								"origin": "left",
@@ -5113,9 +5125,9 @@
 							},
 							"uid": 69,
 							"instanceVariables": {
-								"minWidth": 24,
+								"minWidth": 0,
 								"id": "",
-								"maxWidth": 320
+								"maxWidth": 270
 							},
 							"behaviors": {},
 							"effects": {
@@ -5129,11 +5141,34 @@
 											1
 										]
 									}
+								},
+								"Brightness": {
+									"isEnabled": true,
+									"parameters": {
+										"brightness": 1
+									}
 								}
 							},
 							"sceneGraphData": {
 								"parent-uid": 68,
 								"uid": 69,
+								"children": [
+									{
+										"uid": 4,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": false,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": true,
+											"d": true,
+											"sm": "normal"
+										}
+									}
+								],
 								"flags": {
 									"x": true,
 									"y": true,
@@ -5160,9 +5195,9 @@
 								}
 							},
 							"world": {
-								"x": 620,
+								"x": 890,
 								"y": -192,
-								"width": 24,
+								"width": 47.04360044367661,
 								"height": 54,
 								"originX": 0,
 								"originY": 0.5,
@@ -5657,6 +5692,193 @@
 								],
 								"angle": 0,
 								"zElevation": 0
+							}
+						},
+						{
+							"type": "ProgressBar",
+							"properties": {
+								"left-margin": 12,
+								"right-margin": 12,
+								"top-margin": 12,
+								"bottom-margin": 12,
+								"edges": "stretch",
+								"fill": "tile",
+								"initially-visible": false,
+								"origin": "right",
+								"seams": "overlap"
+							},
+							"uid": 26,
+							"instanceVariables": {
+								"minWidth": 0,
+								"id": "",
+								"maxWidth": 270
+							},
+							"behaviors": {},
+							"effects": {
+								"SetColor": {
+									"isEnabled": true,
+									"parameters": {
+										"color": [
+											0.8431372549019608,
+											0.3568627450980392,
+											0.4549019607843137,
+											1
+										]
+									}
+								},
+								"Brightness": {
+									"isEnabled": true,
+									"parameters": {
+										"brightness": 1.2
+									}
+								}
+							},
+							"sceneGraphData": {
+								"parent-uid": 28,
+								"uid": 26,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": false,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 890,
+								"y": -192,
+								"width": 111.57806208804072,
+								"height": 54,
+								"originX": 1,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "ProgressBar",
+							"properties": {
+								"left-margin": 12,
+								"right-margin": 12,
+								"top-margin": 12,
+								"bottom-margin": 12,
+								"edges": "stretch",
+								"fill": "tile",
+								"initially-visible": true,
+								"origin": "right",
+								"seams": "overlap"
+							},
+							"uid": 28,
+							"instanceVariables": {
+								"minWidth": 0,
+								"id": "",
+								"maxWidth": 270
+							},
+							"behaviors": {},
+							"effects": {
+								"SetColor": {
+									"isEnabled": true,
+									"parameters": {
+										"color": [
+											0.7843137254901961,
+											0.2549019607843137,
+											0.2823529411764706,
+											1
+										]
+									}
+								},
+								"Brightness": {
+									"isEnabled": true,
+									"parameters": {
+										"brightness": 1
+									}
+								}
+							},
+							"sceneGraphData": {
+								"parent-uid": 68,
+								"uid": 28,
+								"children": [
+									{
+										"uid": 26,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": false,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": true,
+											"d": true,
+											"sm": "normal"
+										}
+									}
+								],
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": true,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 890,
+								"y": -192,
+								"width": 42.434897935846834,
+								"height": 54,
+								"originX": 1,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
 							}
 						}
 					],
