@@ -1,7 +1,7 @@
 import { updateIncomeFromPolicy, updateSpendingFromPolicy } from "./fiscal-data.js";
 import { status } from "./status-data.js";
 import { crisis } from "./crisis-data.js";
-import { addTextToCache, clamp, getTextById, setSliderValue } from "./utils.js";
+import { addTextToCache, clamp, getObjectbyId, getTextById, resetScrollablePosition, setDeltaSliderZOrder, setScrollableHeight, setSliderValue } from "./utils.js";
 
 /**
  * @typedef {{
@@ -175,43 +175,47 @@ export function updatePolicy(policyName) {
 }
 
 export function updatePolicyEffects(policyName) {
-    let policyData = policy[policyName];
-    
-    if (policyData) {
-        for (const effect in policyData.effects) {
-            let policyEffectData = policyData.effects[effect];
-            let { effectDelay, effectDuration, valueDelta } = policyEffectData;
-            // If the change is not complete yet, update the effect value
-            if (effectDuration <= effectDelay) {
-                let effectData = status[effect] ?? crisis[effect];
-                
-                console.log("update policy effect", effect, effectDelay, effectDuration, valueDelta, effectData);
+    const policyData = policy[policyName];
 
-                if (effectData) {
-                    const update = - 0.3 + policyData.value * 0.2;
-                    effectData.value += valueDelta;
-                    effectData.policyValue += valueDelta;
-                    policyEffectData.value += valueDelta;
-                    console.log("updated", effectData);
-                    // effectData.lastUpdatePolicy += update;
-                }
+    if (!policyData) {
+        throw new Error("Policy does not exist: " + policyName);
+    }
+    
+    for (const effect in policyData.effects) {
+        const policyEffectData = policyData.effects[effect];
+        const { effectDelay, effectDuration, valueDelta } = policyEffectData;
+
+        // If the change is not complete yet, update the effect value
+        if (effectDuration <= effectDelay) {
+            const effectData = status[effect] ?? crisis[effect];
+            
+            // console.log("update policy effect", effect, effectDelay, effectDuration, valueDelta, effectData);
+            if (!effectData) {
+                throw new Error("Effect does not exist in the status or crisis: " + effect);
             }
-            policyEffectData.effectDuration++;
+
+            effectData.value += valueDelta;
+            effectData.policyValue += valueDelta;
+            policyEffectData.value += valueDelta;
+            console.log("updated", effectData);
+            // effectData.lastUpdatePolicy += update;
         }
+        policyEffectData.effectDuration++;
     }
 }
 
 export function setupPolicyPopUp(policyName, runtime) {
     const policyData = policy[policyName];
+
     const policyNameText = getTextById("policy_pop_up_name");
     policyNameText.text = policyData.name ?? policyName;
     const policyDescText = getTextById("policy_pop_up_description");
     policyDescText.text = policyData.description ?? "";
 
     const slider = runtime.objects.Slider.getPickedInstances()[0];
-    const sliderFinal = runtime.objects.Slider.getAllInstances().filter(s => s.instVars['id'] === "policy_pop_up_final_slider")[0];
+    const sliderFinal = getObjectbyId(runtime.objects.Slider, "policy_pop_up_final_slider");
 
-    console.log("setupPolicyPopUp", policyName, policyData, slider, sliderFinal);
+    // console.log("setupPolicyPopUp", policyName, policyData, slider, sliderFinal);
     if (policyData.value != policyData.finalValue) {
         sliderFinal.isVisible = true;
         setSliderValue(sliderFinal, null, policyData.finalValue, null);
@@ -229,10 +233,8 @@ export function setupPolicyPopUp(policyName, runtime) {
 }
 
 export function createPolicyEffectViews(runtime) {
-    const scrollableEffects = runtime.objects.ScrollablePanel.getAllInstances().filter(s => s.instVars['id'] === "pop_up_policy_effects")[0];
+    const scrollableEffects = getObjectbyId(runtime.objects.ScrollablePanel, "pop_up_policy_effects");
     let initialY = scrollableEffects.y + 10;
-
-    const policyEffectPositions = {};
 
     for (const policyName in policy) {
         let policyData = policy[policyName];
@@ -251,23 +253,15 @@ export function createPolicyEffectViews(runtime) {
         
             const effectValue = effectName.getChildAt(0);
             effectValue.text = effectData.value.toString();
-            effectValue.instVars['id'] = effect + "_" + policyName + "_effects_value";
         
             const effectSliderPositive = effectName.getChildAt(2);
-            effectSliderPositive.instVars['id'] = effect + "_" + policyName + "_positive_effects_slider";
-
             const effectSliderNegative = effectName.getChildAt(3);
-            effectSliderNegative.instVars['id'] = effect + "_" + policyName + "_negative_effects_slider";
 
-            if (effectData.valueType === "positive") {
-                effectSliderPositive.isVisible = true;
-                effectSliderNegative.isVisible = false;
-            } else {
-                effectSliderPositive.isVisible = false;
-                effectSliderNegative.isVisible = true;
-            }
-            console.log("create type", policyName, effect);
-            console.log("create type", effectData.valueType, effectName.getChildAt(0), effectName.getChildAt(1), effectName.getChildAt(2), effectName.getChildAt(3));
+            effectSliderPositive.isVisible = effectData.valueType === "positive";
+            effectSliderNegative.isVisible = !effectSliderPositive.isVisible;
+
+            // console.log("create type", policyName, effect);
+            // console.log("create type", effectData.valueType, effectName.getChildAt(0), effectName.getChildAt(1), effectName.getChildAt(2), effectName.getChildAt(3));
 
             scrollableEffects.addChild(effectName, { transformX: true, transformY: true });
         
@@ -278,81 +272,51 @@ export function createPolicyEffectViews(runtime) {
 
 export function showPolicyEffectViews(policyName, runtime) {
     const policyData = policy[policyName];
-    console.log("showing", policyName, policyData);
-    const scrollableEffects = runtime.objects.ScrollablePanel.getAllInstances().filter(s => s.instVars['id'] === "pop_up_policy_effects")[0];
-    scrollableEffects.y = scrollableEffects.instVars['initialY'];
 
-    for (const otherPolicyName in policy) {
-        let otherPolicyData = policy[otherPolicyName];
-        console.log("other", otherPolicyName, policyName);
-        if (otherPolicyName === policyName) continue;
-
-        for (const effect in otherPolicyData.effects) {
-            console.log("hide", effect + "_" + otherPolicyName + "_effects_name");
-            const effectName = getTextById(effect + "_" + otherPolicyName + "_effects_name");
-            effectName.isVisible = false;
-
-            console.log("children", effectName.getChildAt(0), effectName.getChildAt(1), effectName.getChildAt(2), effectName.getChildAt(3));
-        }
-    }
+    hideOtherPolicyViews(policyName);
 
     for (const effect in policyData.effects) {
         const effectData = policyData.effects[effect];
 
         const effectName = getTextById(effect + "_" + policyName + "_effects_name");
-        console.log("text", effectName.instVars['id'], effectName.text, effectName.isVisible);
+        // console.log("text", effectName.instVars['id'], effectName.text, effectName.isVisible);
         effectName.isVisible = true;
 
         const effectValue = effectName.getChildAt(0);
         effectValue.text = effectData.value.toString();
-        const value = Math.abs(effectData.value)
-        const newValue = Math.abs(effectData.formula(policyData.finalValue));
-        const valueChange = newValue - value;
 
         const effectSliderPositive = effectName.getChildAt(2);
-        effectSliderPositive.isVisible = effectData.valueType === "positive";
         const effectSliderNegative = effectName.getChildAt(3);
-        effectSliderNegative.isVisible = effectData.valueType === "negative";
+        effectSliderPositive.isVisible = effectData.valueType === "positive";
+        effectSliderNegative.isVisible = !effectSliderPositive.isVisible;
 
         const effectSlider = effectData.valueType === "negative" ? effectSliderNegative : effectSliderPositive;
         const effectSliderChange = effectSlider.getChildAt(0);
+
+        const value = Math.abs(effectData.value)
+        const newValue = Math.abs(effectData.formula(policyData.finalValue));
+        const valueChange = newValue - value;
         
         effectSlider.width = value / 100 * effectSlider.instVars['maxWidth'];
         effectSliderChange.width = newValue / 100 * effectSliderChange.instVars['maxWidth'];
         
-        if (valueChange > 0) {
-            effectSliderChange.moveAdjacentToInstance(effectSlider, false);
-            effectSliderChange.isVisible = true;
-        } else if (valueChange < 0) {
-            effectSliderChange.moveAdjacentToInstance(effectSlider, true);
-            effectSliderChange.isVisible = true;
-        } else {
-            effectSliderChange.isVisible = false;
-        }
+        setDeltaSliderZOrder(valueChange, effectSliderChange, effectSlider);
     }
-
-    const popUpPolicyEffectsPanel = runtime.objects.UIPanel2.getAllInstances().filter(p => p.instVars['id'] == "pop_up_policy_effects")[0];
-    scrollableEffects.height = Object.keys(policyData.effects).length * 120 + 40 / 2;
-	scrollableEffects.instVars['min'] = scrollableEffects.y - scrollableEffects.height + popUpPolicyEffectsPanel.height;
-	scrollableEffects.instVars['max'] = scrollableEffects.y;
+    
+    const scrollableEffects = getObjectbyId(runtime.objects.ScrollablePanel, "pop_up_policy_effects");
+    resetScrollablePosition(scrollableEffects);
+    setScrollableHeight(runtime, scrollableEffects, Object.keys(policyData.effects).length, 120, 20);
 }
 
 export function updatePolicyEffectViews(policyName, newPolicyValue) {
     const policyData = policy[policyName];
 
     for (const effect in policyData.effects) {
-        console.log("update", effect + "_" + policyName + "_effects_name", newPolicyValue)
+        // console.log("update", effect + "_" + policyName + "_effects_name", newPolicyValue)
         const effectData = policyData.effects[effect];
         
-        // TODO: should use formula
-
         const effectName = getTextById(effect + "_" + policyName + "_effects_name");
-        const value = Math.abs(effectData.value);
-
         const newValue = effectData.formula(newPolicyValue);
-        const newValueAbs = Math.abs(effectData.formula(newPolicyValue));
-
-        const valueChange = newValueAbs - value;
 
         const effectValue = effectName.getChildAt(0);
         effectValue.text = newValue.toString();
@@ -363,16 +327,30 @@ export function updatePolicyEffectViews(policyName, newPolicyValue) {
         const effectSlider = effectData.valueType === "negative" ? effectSliderNegative : effectSliderPositive;
         const effectSliderChange = effectSlider.getChildAt(0);
         
-        effectSliderChange.width = newValueAbs / 100 * effectSliderChange.instVars['maxWidth'];
-        
-        if (valueChange > 0) {
-            effectSliderChange.moveAdjacentToInstance(effectSlider, false);
-            effectSliderChange.isVisible = true;
-        } else if (valueChange < 0) {
-            effectSliderChange.moveAdjacentToInstance(effectSlider, true);
-            effectSliderChange.isVisible = true;
-        } else {
-            effectSliderChange.isVisible = false;
+        effectSliderChange.width = Math.abs(newValue) / 100 * effectSliderChange.instVars['maxWidth'];
+
+        const valueChange = Math.abs(newValue) - Math.abs(effectData.value);
+        setDeltaSliderZOrder(valueChange, effectSliderChange, effectSlider);
+    }
+}
+
+/**
+ * Hide all policy effect views except the one excluded
+ * @param {string} excludedPolicyName Policy name to exclude
+ */
+export function hideOtherPolicyViews(excludedPolicyName) {
+    for (const otherPolicyName in policy) {
+        let otherPolicyData = policy[otherPolicyName];
+        // console.log("other", otherPolicyName, policyName);
+
+        if (otherPolicyName === excludedPolicyName) continue;
+
+        for (const effect in otherPolicyData.effects) {
+            // console.log("hide", effect + "_" + otherPolicyName + "_effects_name");
+            const effectName = getTextById(effect + "_" + otherPolicyName + "_effects_name");
+            effectName.isVisible = false;
+
+            // console.log("children", effectName.getChildAt(0), effectName.getChildAt(1), effectName.getChildAt(2), effectName.getChildAt(3));
         }
     }
 }

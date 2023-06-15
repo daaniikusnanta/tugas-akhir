@@ -5880,6 +5880,49 @@
 								"zElevation": 0,
 								"blendMode": "source-atop"
 							}
+						},
+						{
+							"type": "SliderBar2",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 36,
+							"instanceVariables": {
+								"value": 0,
+								"minX": 410,
+								"maxX": 1454,
+								"maxValue": 100,
+								"isDraggable": false,
+								"id": "policy_pop_up_final_slider"
+							},
+							"behaviors": {
+								"DragDrop": {
+									"properties": {
+										"axes": "horizontal-only",
+										"enabled": false
+									}
+								}
+							},
+							"world": {
+								"x": 616.2237548828125,
+								"y": 675,
+								"width": 64,
+								"height": 64,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.5
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
 						}
 					],
 					"sid": 759522960228966,

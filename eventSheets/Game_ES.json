@@ -752,7 +752,7 @@
 								},
 								{
 									"type": "script",
-									"script": "const policySlider = runtime.objects.Slider.getPickedInstances()[0];\nimplementPolicyChange(runtime.globalVars.policyToSet, policySlider.instVars['value']);"
+									"script": "const policySlider = runtime.objects.Slider.getPickedInstances()[0];\napplyPolicyChange(runtime.globalVars.policyToSet, policySlider.instVars['value']);"
 								},
 								{
 									"id": "set-layer-interactive",
@@ -1279,7 +1279,7 @@
 								},
 								{
 									"type": "script",
-									"script": "console.log(\"policyPopUp\", localVars.policyName);\nconst policyName = localVars.policyName;\nconst policyData = policy[policyName];\nconst policyNameText = getTextById(\"policy_pop_up_name\");\npolicyNameText.text = policyData.name ?? policyName;\nconst policyDescText = getTextById(\"policy_pop_up_description\");\npolicyDescText.text = policyData.description ?? \"\";\n\nconst slider = runtime.objects.Slider.getPickedInstances()[0];\nconst costText = getTextById(\"policy_pop_up_cost_slider\");\nconst cost = policyData.minCost + (policyData.value / 100 * (policyData.maxCost - policyData.minCost));\nsetSliderValue(slider, costText, policyData.value, cost.toString());\n\nconst revenueText = getTextById(\"policy_pop_up_revenue_slider\");\nconst revenue = policyData.minRevenue + (policyData.value / 100 * (policyData.maxRevenue - policyData.minRevenue));\nsetSliderValue(slider, revenueText, policyData.value, revenue.toString());\n\nshowPolicyEffectViews(policyName, runtime);"
+									"script": "console.log(\"policyPopUp\", localVars.policyName);\nsetupPolicyPopUp(localVars.policyName, runtime)\n\nshowPolicyEffectViews(localVars.policyName, runtime);"
 								},
 								{
 									"id": "set-eventvar-value",
