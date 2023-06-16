@@ -50,10 +50,10 @@ export function initializeTileBiome(runtime) {
                     crisis: [],
                 };
                 
-                const tileText = runtime.objects.UIText.createInstance("tilemap", (x+1) * 64 - 32 - 16, (y+1) * 64 - 32 - 16);
-                tileText.text = mapTileCount.toString();
-                tileText.scale = 0.2;
-                tileText.colorRgb = [0.1, 0.1, 0.1];
+                // const tileText = runtime.objects.UIText.createInstance("tilemap", (x+1) * 64 - 32 - 16, (y+1) * 64 - 32 - 16);
+                // tileText.text = mapTileCount.toString();
+                // tileText.scale = 0.2;
+                // tileText.colorRgb = [0.1, 0.1, 0.1];
                 row.push(tileInfo); 
             } else {
                 row.push(null);
@@ -74,16 +74,16 @@ export function initializeTileBiome(runtime) {
 export function expandCrisisTiles(runtime, crisisName) { 
     const crisis = myCrisis[crisisName];
     let crisisTiles = getCrisisTiles(crisisName);
-    console.log(crisis, mapTileCount);
+    // console.log(crisis, mapTileCount);
     const expectedTiles = Math.floor((clamp(crisis.value, 0, 100) - crisis.thresholds[1]) / (100 - crisis.thresholds[1]) * mapTileCount);
-    console.log("expectedTiles", expectedTiles, crisisTiles.length, crisisName);
+    // console.log("expectedTiles", expectedTiles, crisisTiles.length, crisisName);
     if (expectedTiles === crisisTiles.length || expectedTiles < 0) {
         return;
     }
 
     const tilesToExpand = expectedTiles - crisisTiles.length;
     const tilemapCrisis = runtime.objects.TilemapCrisis.getAllInstances().filter(t => t.instVars['id'] === crisis.type + "_crisis_tilemap")[0];
-    console.log("tilesToExpand", tilesToExpand);
+    // console.log("tilesToExpand", tilesToExpand);
 
     if (tilesToExpand > 0) {
         // Add tiles
@@ -148,13 +148,13 @@ export function expandCrisisTiles(runtime, crisisName) {
                     tileID = tileID | ITilemapInstance.TILE_FLIPPED_VERTICAL;
                 }
 
-                console.log(tile, tileID);
+                // console.log(tile, tileID);
                 tilemapCrisis.setTileAt(tile.x, tile.y, tileID);
             }
         });
     } else {
         const tilesToRemove = Math.abs(tilesToExpand);
-        console.log("Removing tiles");
+        // console.log("Removing tiles");
 
         // Remove tiles
         let removedTiles = [];
@@ -186,7 +186,7 @@ export function expandCrisisTiles(runtime, crisisName) {
             }
 
             if (!isSameCrisisTypeExists) {
-                console.log(tile);
+                // console.log(tile);
                 tilemapCrisis.setTileAt(tile.x, tile.y, -1);
             }
         });

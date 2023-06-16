@@ -240,8 +240,8 @@ export function createPolicyEffectViews(runtime) {
         let policyData = policy[policyName];
 
         for (const effect in policyData.effects) {
-            let instanceY = initialY + Object.keys(policyData.effects).indexOf(effect) * 120;
-            const instanceX = scrollableEffects.x + 30;
+            let instanceY = initialY + Object.keys(policyData.effects).indexOf(effect) * 100;
+            const instanceX = scrollableEffects.x + (scrollableEffects.width - 1042) / 2;
 
             const effectData = policyData.effects[effect];
             effectData.value = effectData.formula(policyData.value);
@@ -264,8 +264,6 @@ export function createPolicyEffectViews(runtime) {
             // console.log("create type", effectData.valueType, effectName.getChildAt(0), effectName.getChildAt(1), effectName.getChildAt(2), effectName.getChildAt(3));
 
             scrollableEffects.addChild(effectName, { transformX: true, transformY: true });
-        
-            instanceY += 120;
         }    
     }
 }
@@ -305,7 +303,7 @@ export function showPolicyEffectViews(policyName, runtime) {
     
     const scrollableEffects = getObjectbyId(runtime.objects.ScrollablePanel, "pop_up_policy_effects");
     resetScrollablePosition(scrollableEffects);
-    setScrollableHeight(runtime, scrollableEffects, Object.keys(policyData.effects).length, 120, 20);
+    setScrollableHeight(runtime, scrollableEffects, Object.keys(policyData.effects).length, 100, 0);
 }
 
 export function updatePolicyEffectViews(policyName, newPolicyValue) {

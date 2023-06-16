@@ -137,9 +137,331 @@
 								"variable": "isRunning",
 								"value": "true"
 							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 296259754165563,
+							"parameters": {
+								"type": "log",
+								"message": "AdvancedRandom.Classic2d(30, 30)"
+							}
+						},
+						{
+							"id": "octaves",
+							"objectClass": "AdvancedRandom",
+							"sid": 745515024942395,
+							"parameters": {
+								"count": "4"
+							}
+						},
+						{
+							"id": "save-snapshot",
+							"objectClass": "DrawingCanvas",
+							"sid": 143419434089495
 						}
 					],
 					"sid": 982971445756731
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-snapshot",
+							"objectClass": "DrawingCanvas",
+							"sid": 870849232223322
+						}
+					],
+					"actions": [],
+					"sid": 601435468302829,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 799447981525447
+						},
+						{
+							"eventType": "variable",
+							"name": "x2",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 156184328777973
+						},
+						{
+							"eventType": "variable",
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 198344457953677
+						},
+						{
+							"eventType": "variable",
+							"name": "y2",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 372237291161452
+						},
+						{
+							"eventType": "variable",
+							"name": "value",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 314238303015152
+						},
+						{
+							"eventType": "variable",
+							"name": "size",
+							"type": "number",
+							"initialValue": "24",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 408048897174458
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 929917186944899,
+									"parameters": {
+										"count": "DrawingCanvas.SnapshotWidth /size"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 775544751080122,
+									"parameters": {
+										"variable": "x2",
+										"value": "loopindex"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 943406322547707,
+									"parameters": {
+										"type": "log",
+										"message": "\"index x\" & \"|\" & x2 & \"|\" & loopindex & \"|\" &  DrawingCanvas.SnapshotWidth"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 745998586770433,
+									"disabled": true,
+									"parameters": {
+										"variable": "size",
+										"value": "DrawingCanvas.SnapshotWidth / 16"
+									}
+								}
+							],
+							"sid": 817846582257505,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 114449957966035,
+											"parameters": {
+												"count": "DrawingCanvas.SnapshotHeight / size"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 753731901106937,
+											"parameters": {
+												"variable": "y2",
+												"value": "loopindex"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 685410931659168,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"index y\" & \"|\" & y  & \"|\" & loopindex & \"|\" &  DrawingCanvas.SnapshotHeight"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 374677041897173,
+											"parameters": {
+												"variable": "value",
+												"value": "AdvancedRandom.Classic2d(x2 * size * 5, y2 * size * 5)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 251752560827617,
+											"parameters": {
+												"variable": "value",
+												"value": "value > 0.5 ? (value > 0.6 ? (value > 0.7 ? 1 : 0.6) : 0.5) : 0"
+											}
+										}
+									],
+									"sid": 842669720058480,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "repeat",
+													"objectClass": "System",
+													"sid": 578245109010097,
+													"parameters": {
+														"count": "size"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 514291972632929,
+													"parameters": {
+														"variable": "x",
+														"value": "(x2)*size + (loopindex)"
+													}
+												}
+											],
+											"sid": 556035278403685,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "repeat",
+															"objectClass": "System",
+															"sid": 316988429410212,
+															"parameters": {
+																"count": "size"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 395239042506136,
+															"parameters": {
+																"variable": "y",
+																"value": "(y2)*size + (loopindex)"
+															}
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 838773028301173,
+															"disabled": true,
+															"parameters": {
+																"type": "log",
+																"message": "\"size\" & \"|\" & x  & \"|\" & y"
+															}
+														}
+													],
+													"sid": 775446966100984,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 366595872216604,
+																	"parameters": {
+																		"variable": "x",
+																		"comparison": 3,
+																		"value": "DrawingCanvas.SnapshotWidth"
+																	}
+																},
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 677860760001763,
+																	"parameters": {
+																		"variable": "y",
+																		"comparison": 3,
+																		"value": "DrawingCanvas.SnapshotHeight"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "snapshot-set-pixel",
+																	"objectClass": "DrawingCanvas",
+																	"sid": 947874719897002,
+																	"disabled": true,
+																	"parameters": {
+																		"x": "x",
+																		"y": "y",
+																		"color": "rgbEx(value* 100, (value)* 100, (value)*100)"
+																	}
+																},
+																{
+																	"id": "snapshot-set-pixel",
+																	"objectClass": "DrawingCanvas",
+																	"sid": 607931615427131,
+																	"parameters": {
+																		"x": "x",
+																		"y": "y",
+																		"color": "rgbEx((1-value)* 100, (1-value)* 100, (1-value)*100)"
+																	}
+																}
+															],
+															"sid": 744355622312139
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "load-snapshot",
+									"objectClass": "DrawingCanvas",
+									"sid": 480307224200177
+								}
+							],
+							"sid": 915947284796594
+						}
+					]
 				},
 				{
 					"eventType": "block",

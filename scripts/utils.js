@@ -177,7 +177,7 @@ export function setScrollableHeight(runtime, scrollable, itemCount, itemHeight, 
 	const panel = getObjectbyId(runtime.objects.Panel, scrollable.instVars['id']);
 
     scrollable.height = itemCount * itemHeight + padding;
-	scrollable.instVars['min'] = scrollable.y - scrollable.height + panel.height;
+	scrollable.instVars['min'] = scrollable.height > panel.height ? scrollable.y - scrollable.height + panel.height : scrollable.y;
 	scrollable.instVars['max'] = scrollable.y;
 }
 
