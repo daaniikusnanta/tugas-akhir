@@ -584,7 +584,24 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "ClickablePanel",
+									"sid": 442669351087261,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "ClickablePanel",
+									"sid": 320114353674088,
+									"parameters": {
+										"opacity": "0"
+									}
+								}
+							],
 							"sid": 157978589217224,
 							"children": [
 								{
@@ -663,51 +680,6 @@
 										}
 									],
 									"sid": 929020611372655
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "ClickablePanel",
-											"sid": 897765947683853,
-											"parameters": {
-												"instance-variable": "isDisabled"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-opacity",
-											"objectClass": "ClickablePanel",
-											"sid": 849980784525880,
-											"parameters": {
-												"opacity": "50"
-											}
-										}
-									],
-									"sid": 570985512512462
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 162450484547109
-										}
-									],
-									"actions": [
-										{
-											"id": "set-opacity",
-											"objectClass": "ClickablePanel",
-											"sid": 449890010608570,
-											"parameters": {
-												"opacity": "100"
-											}
-										}
-									],
-									"sid": 626823398962806
 								}
 							]
 						}
@@ -745,16 +717,84 @@
 							}
 						},
 						{
+							"id": "set-opacity",
+							"objectClass": "ClickablePanel",
+							"sid": 237503344661793,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
 							"id": "set-effect-enabled",
 							"objectClass": "ClickablePanel",
-							"sid": 966321700560153,
+							"sid": 960162924208362,
 							"parameters": {
 								"mode": "enable",
 								"effect": "\"Exposure\""
 							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 724036903993907,
+							"parameters": {
+								"type": "log",
+								"message": "\"pressed\""
+							}
 						}
 					],
-					"sid": 341874086567797
+					"sid": 341874086567797,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "ClickablePanel",
+									"sid": 181853214349644,
+									"parameters": {
+										"instance-variable": "isSelected"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "ClickablePanel",
+									"sid": 195547894205949,
+									"parameters": {
+										"effect": "\"Exposure\"",
+										"parameter-index": "0",
+										"value": "100"
+									}
+								}
+							],
+							"sid": 220330902048965
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 771814436191155
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "ClickablePanel",
+									"sid": 616357641366253,
+									"parameters": {
+										"effect": "\"Exposure\"",
+										"parameter-index": "0",
+										"value": "50"
+									}
+								}
+							],
+							"sid": 333435527709754
+						}
+					]
 				},
 				{
 					"aceType": "action",
@@ -779,6 +819,25 @@
 							}
 						},
 						{
+							"id": "set-effect-parameter",
+							"objectClass": "ClickablePanel",
+							"sid": 356499726015338,
+							"parameters": {
+								"effect": "\"Exposure\"",
+								"parameter-index": "0",
+								"value": "50"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "ClickablePanel",
+							"sid": 374090255502712,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Exposure\""
+							}
+						},
+						{
 							"id": "set-boolean-instvar",
 							"objectClass": "ClickablePanel",
 							"sid": 559019741200813,
@@ -788,16 +847,280 @@
 							}
 						},
 						{
-							"id": "set-effect-enabled",
-							"objectClass": "ClickablePanel",
-							"sid": 358786831504867,
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 586923763046893,
 							"parameters": {
-								"mode": "disable",
-								"effect": "\"Exposure\""
+								"type": "log",
+								"message": "\"released\""
 							}
 						}
 					],
 					"sid": 346369416909405
+				},
+				{
+					"aceType": "action",
+					"aceName": "IsSelected",
+					"objectClass": "ClickablePanel",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "ClickablePanel",
+							"sid": 895610021368576,
+							"parameters": {
+								"instance-variable": "isSelected",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "ClickablePanel",
+							"sid": 491241397386947,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 538440401233234,
+							"parameters": {
+								"type": "log",
+								"message": "\"selected\""
+							}
+						}
+					],
+					"sid": 249038933207337
+				},
+				{
+					"aceType": "action",
+					"aceName": "IsUnselected",
+					"objectClass": "ClickablePanel",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "ClickablePanel",
+							"sid": 725360595541511,
+							"parameters": {
+								"instance-variable": "isSelected",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "ClickablePanel",
+							"sid": 738792984169092,
+							"parameters": {
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 561775995470960,
+							"parameters": {
+								"type": "log",
+								"message": "\"unselected\""
+							}
+						}
+					],
+					"sid": 180509031755869
+				},
+				{
+					"aceType": "action",
+					"aceName": "IsHovered",
+					"objectClass": "ClickablePanel",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "ClickablePanel",
+							"sid": 279450042210017,
+							"parameters": {
+								"instance-variable": "isHovered",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "ClickablePanel",
+							"sid": 889291515648646,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Exposure\""
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 305405040272905,
+							"parameters": {
+								"type": "log",
+								"message": "\"hovered\""
+							}
+						}
+					],
+					"sid": 660888241628534,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "ClickablePanel",
+									"sid": 631623483118718,
+									"parameters": {
+										"instance-variable": "isSelected"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "ClickablePanel",
+									"sid": 814435153774823,
+									"parameters": {
+										"opacity": "100"
+									}
+								}
+							],
+							"sid": 505782341391903
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 586524157308382
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "ClickablePanel",
+									"sid": 674331835876503,
+									"parameters": {
+										"opacity": "50"
+									}
+								}
+							],
+							"sid": 318758494015187
+						}
+					]
+				},
+				{
+					"aceType": "action",
+					"aceName": "IsUnhovered",
+					"objectClass": "ClickablePanel",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "ClickablePanel",
+							"sid": 515697678784250,
+							"parameters": {
+								"instance-variable": "isHovered",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "ClickablePanel",
+							"sid": 114379629392352,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Exposure\""
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 881989138190428,
+							"parameters": {
+								"type": "log",
+								"message": "\"unhovered\""
+							}
+						}
+					],
+					"sid": 658121809116357,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "ClickablePanel",
+									"sid": 221825367358574,
+									"parameters": {
+										"instance-variable": "isSelected"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "ClickablePanel",
+									"sid": 774568141757729,
+									"parameters": {
+										"opacity": "100"
+									}
+								}
+							],
+							"sid": 334542424624741
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 219095277909400
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "ClickablePanel",
+									"sid": 515440496173127,
+									"parameters": {
+										"opacity": "0"
+									}
+								}
+							],
+							"sid": 900281613402060
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -879,7 +1202,7 @@
 						},
 						{
 							"type": "script",
-							"script": "const clickablePanel = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst panel = runtime.objects.UIPanel.getAllInstances().filter(p => p.instVars['id'] === clickablePanel.instVars['panelId'])[0];\n\nconst res = clamp((clickablePanel.y + clickablePanel.height) - panel.y, 0, 1) + \nclamp((panel.y + panel.height) - clickablePanel.y, 0, 1) +\nclamp((clickablePanel.x + clickablePanel.width) - panel.x, 0, 1) + \nclamp((panel.x + panel.width) - clickablePanel.x, 0, 1)\nconsole.log(\"clicked\");"
+							"script": "const clickablePanel = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst panel = runtime.objects.UIPanel.getAllInstances().filter(p => p.instVars['id'] === clickablePanel.instVars['panelId'])[0];\n\nconst res = clamp((clickablePanel.y + clickablePanel.height) - panel.y, 0, 1) + \nclamp((panel.y + panel.height) - clickablePanel.y, 0, 1) +\nclamp((clickablePanel.x + clickablePanel.width) - panel.x, 0, 1) + \nclamp((panel.x + panel.width) - clickablePanel.x, 0, 1)\n// console.log(\"clicked\");"
 						}
 					],
 					"sid": 697352901199159
@@ -956,23 +1279,81 @@
 					],
 					"actions": [
 						{
+							"callFunction": "PanelClicked",
+							"sid": 275886394724743,
+							"parameters": [
+								"ClickablePanel.UID"
+							]
+						},
+						{
 							"customAction": "IsReleased",
 							"objectClass": "ClickablePanel",
-							"sid": 582882859721278
+							"sid": 475834501608798
 						},
 						{
 							"type": "script",
 							"script": "const clickablePanel = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst panel = runtime.objects.UIPanel.getAllInstances().filter(p => p.instVars['id'] === clickablePanel.instVars['panelId'])[0];\n\nconst res = clamp((clickablePanel.y + clickablePanel.height) - panel.y, 0, 1) + \nclamp((panel.y + panel.height) - clickablePanel.y, 0, 1) +\nclamp((clickablePanel.x + clickablePanel.width) - panel.x, 0, 1) + \nclamp((panel.x + panel.width) - clickablePanel.x, 0, 1)\nconsole.log(\"release\");"
-						},
-						{
-							"callFunction": "PanelClicked",
-							"sid": 274352430333938,
-							"parameters": [
-								"ClickablePanel.UID"
-							]
 						}
 					],
-					"sid": 539609790766057
+					"sid": 539609790766057,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "ClickablePanel",
+									"sid": 412614989404237,
+									"parameters": {
+										"instance-variable": "selectable"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 538456378956847,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ClickablePanel",
+											"sid": 790752490100376,
+											"parameters": {
+												"instance-variable": "isSelected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "IsUnselected",
+											"objectClass": "ClickablePanel",
+											"sid": 742050382680394
+										}
+									],
+									"sid": 629127494085938
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 319398136425820
+										}
+									],
+									"actions": [
+										{
+											"customAction": "IsSelected",
+											"objectClass": "ClickablePanel",
+											"sid": 422180863049046
+										}
+									],
+									"sid": 125039466634960
+								}
+							]
+						}
+					]
 				},
 				{
 					"functionName": "PanelClicked",
@@ -1086,21 +1467,9 @@
 					],
 					"actions": [
 						{
-							"id": "set-visible",
+							"customAction": "IsHovered",
 							"objectClass": "ClickablePanel",
-							"sid": 640929148614087,
-							"parameters": {
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "ClickablePanel",
-							"sid": 335612633041707,
-							"parameters": {
-								"instance-variable": "isHovered",
-								"value": "true"
-							}
+							"sid": 190343107064336
 						},
 						{
 							"id": "set-eventvar-value",
@@ -1113,7 +1482,8 @@
 						},
 						{
 							"type": "script",
-							"script": "const clickablePanel = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst panel = runtime.objects.UIPanel.getAllInstances().filter(p => p.instVars['id'] === clickablePanel.instVars['panelId'])[0];\n\nconst res = clamp((clickablePanel.y + clickablePanel.height) - panel.y, 0, 1) + \nclamp((panel.y + panel.height) - clickablePanel.y, 0, 1) +\nclamp((clickablePanel.x + clickablePanel.width) - panel.x, 0, 1) + \nclamp((panel.x + panel.width) - clickablePanel.x, 0, 1)\nconsole.log(\"hovered\", clickablePanel.uid, runtime.globalVars.hoveredUid);"
+							"script": "const clickablePanel = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst panel = runtime.objects.UIPanel.getAllInstances().filter(p => p.instVars['id'] === clickablePanel.instVars['panelId'])[0];\n\nconst res = clamp((clickablePanel.y + clickablePanel.height) - panel.y, 0, 1) + \nclamp((panel.y + panel.height) - clickablePanel.y, 0, 1) +\nclamp((clickablePanel.x + clickablePanel.width) - panel.x, 0, 1) + \nclamp((panel.x + panel.width) - clickablePanel.x, 0, 1)\nconsole.log(\"hovered\", clickablePanel.uid, runtime.globalVars.hoveredUid);",
+							"disabled": true
 						}
 					],
 					"sid": 396779752367683
@@ -1160,23 +1530,6 @@
 					],
 					"actions": [
 						{
-							"id": "set-visible",
-							"objectClass": "ClickablePanel",
-							"sid": 127916177166996,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "ClickablePanel",
-							"sid": 917596816130861,
-							"parameters": {
-								"instance-variable": "isHovered",
-								"value": "false"
-							}
-						},
-						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 955494698785781,
@@ -1186,11 +1539,30 @@
 							}
 						},
 						{
-							"type": "script",
-							"script": "console.log(\"release hovered\");"
+							"customAction": "IsUnhovered",
+							"objectClass": "ClickablePanel",
+							"sid": 365245556522556
 						}
 					],
-					"sid": 140963499206150
+					"sid": 140963499206150,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "ClickablePanel",
+									"sid": 462163321918471,
+									"parameters": {
+										"instance-variable": "isSelected"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 156930251888480
+						}
+					]
 				},
 				{
 					"functionName": "IsClickablePanelOutsidePanel",

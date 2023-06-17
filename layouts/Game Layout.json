@@ -1248,7 +1248,1045 @@
 							"global": false
 						}
 					],
-					"instances": [],
+					"instances": [
+						{
+							"type": "UIPanel",
+							"properties": {
+								"left-margin": 16,
+								"right-margin": 16,
+								"top-margin": 16,
+								"bottom-margin": 16,
+								"edges": "stretch",
+								"fill": "stretch",
+								"initially-visible": true,
+								"origin": "top-left",
+								"seams": "overlap"
+							},
+							"uid": 79,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"world": {
+								"x": 1930,
+								"y": -198,
+								"width": 294.37913219934467,
+								"height": 122.12187752301628,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "ClickablePanel",
+							"properties": {
+								"left-margin": 16,
+								"right-margin": 16,
+								"top-margin": 16,
+								"bottom-margin": 16,
+								"edges": "stretch",
+								"fill": "stretch",
+								"initially-visible": true,
+								"origin": "top-left",
+								"seams": "overlap"
+							},
+							"uid": 116,
+							"instanceVariables": {
+								"id": "tes",
+								"isPressed": false,
+								"isHovered": false,
+								"clickable": true,
+								"isDisabled": false,
+								"panelId": "",
+								"selectable": true,
+								"hasGroup": false,
+								"isSelected": false
+							},
+							"behaviors": {},
+							"effects": {
+								"Exposure": {
+									"isEnabled": false,
+									"parameters": {
+										"exposure": 0.5
+									}
+								}
+							},
+							"sceneGraphData": {
+								"parent-uid": 111,
+								"uid": 116,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 1964.7781801677595,
+								"y": -185.58111572265625,
+								"width": 230.50611195007627,
+								"height": 96.3254538805459,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									0
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Crisis Name",
+								"enable-bbcode": true,
+								"character-width": 63,
+								"character-height": 80,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
+								"spacing-data": "[[19,\" \"],[10,\"Ii.,;:!'|\"],[16,\"jl]\"],[17,\"1[\"],[18,\"`\"],[20,\"t(\"],[21,\"\\\")\"],[22,\"f\"],[24,\"°\"],[26,\"=<>\"],[27,\"-\"],[28,\"r\"],[29,\"?\"],[30,\"z~\"],[31,\"5679+*\"],[32,\"Jbcdghnpqu02_\"],[33,\"aeo3\\\\\"],[34,\"Zs8/\"],[35,\"Fkx\"],[36,\"ELvy4\"],[37,\"$\"],[38,\"CDP\"],[39,\"BGHOTU£\"],[40,\"RS\"],[41,\"NY€\"],[42,\"K#\"],[43,\"QVX\"],[44,\"&\"],[45,\"%\"],[46,\"M\"],[47,\"A\"],[54,\"mw\"],[56,\"@\"],[61,\"W\"]]",
+								"scale": 0.3,
+								"character-spacing": 0,
+								"line-height": 0,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 111,
+							"instanceVariables": {
+								"id": "crisis_name"
+							},
+							"behaviors": {},
+							"template": {
+								"mode": "template",
+								"templateName": "crisis_view",
+								"sourceTemplateName": "extreme_crisis_view",
+								"components": [
+									{
+										"id": "plugin",
+										"component": [
+											{
+												"key": "plugin",
+												"state": [
+													[
+														"text",
+														false
+													],
+													[
+														"enable-bbcode",
+														true
+													],
+													[
+														"character-width",
+														true
+													],
+													[
+														"character-height",
+														true
+													],
+													[
+														"character-set",
+														true
+													],
+													[
+														"spacing-data",
+														true
+													],
+													[
+														"scale",
+														true
+													],
+													[
+														"character-spacing",
+														true
+													],
+													[
+														"line-height",
+														true
+													],
+													[
+														"horizontal-alignment",
+														true
+													],
+													[
+														"vertical-alignment",
+														true
+													],
+													[
+														"wrapping",
+														true
+													],
+													[
+														"initially-visible",
+														true
+													],
+													[
+														"origin",
+														true
+													],
+													[
+														"read-aloud",
+														true
+													]
+												]
+											}
+										]
+									},
+									{
+										"id": "instance-variable",
+										"component": [
+											{
+												"key": "instance-variable",
+												"state": [
+													{
+														"iv": "id",
+														"state": false
+													}
+												]
+											}
+										]
+									},
+									{
+										"id": "behavior",
+										"component": []
+									},
+									{
+										"id": "effect",
+										"component": []
+									},
+									{
+										"id": "world-instance",
+										"component": [
+											{
+												"key": "world-instance",
+												"state": [
+													[
+														"x",
+														false
+													],
+													[
+														"y",
+														false
+													],
+													[
+														"z",
+														true
+													],
+													[
+														"w",
+														true
+													],
+													[
+														"h",
+														true
+													],
+													[
+														"a",
+														true
+													],
+													[
+														"o",
+														true
+													],
+													[
+														"c",
+														true
+													],
+													[
+														"sx",
+														true
+													],
+													[
+														"sy",
+														true
+													],
+													[
+														"bm",
+														true
+													],
+													[
+														"twpx",
+														true
+													],
+													[
+														"twpy",
+														true
+													],
+													[
+														"twpz",
+														true
+													],
+													[
+														"twpw",
+														true
+													],
+													[
+														"twph",
+														true
+													],
+													[
+														"twpa",
+														true
+													],
+													[
+														"dwp",
+														true
+													],
+													[
+														"ssm",
+														true
+													]
+												]
+											}
+										]
+									}
+								],
+								"replicasUIDs": null
+							},
+							"sceneGraphData": {
+								"parent-uid": null,
+								"uid": 111,
+								"children": [
+									{
+										"uid": 112,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 115,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 114,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 113,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 116,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									}
+								],
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 1977,
+								"y": -181,
+								"width": 205.6280809183172,
+								"height": 30,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Crisis State",
+								"enable-bbcode": true,
+								"character-width": 63,
+								"character-height": 80,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
+								"spacing-data": "[[19,\" \"],[10,\"Ii.,;:!'|\"],[16,\"jl]\"],[17,\"1[\"],[18,\"`\"],[20,\"t(\"],[21,\"\\\")\"],[22,\"f\"],[24,\"°\"],[26,\"=<>\"],[27,\"-\"],[28,\"r\"],[29,\"?\"],[30,\"z~\"],[31,\"5679+*\"],[32,\"Jbcdghnpqu02_\"],[33,\"aeo3\\\\\"],[34,\"Zs8/\"],[35,\"Fkx\"],[36,\"ELvy4\"],[37,\"$\"],[38,\"CDP\"],[39,\"BGHOTU£\"],[40,\"RS\"],[41,\"NY€\"],[42,\"K#\"],[43,\"QVX\"],[44,\"&\"],[45,\"%\"],[46,\"M\"],[47,\"A\"],[54,\"mw\"],[56,\"@\"],[61,\"W\"]]",
+								"scale": 0.27,
+								"character-spacing": 0,
+								"line-height": 0,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 112,
+							"instanceVariables": {
+								"id": "extreme_crisis_state"
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 111,
+								"uid": 112,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 1977,
+								"y": -152,
+								"width": 165,
+								"height": 30,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "SliderBarBG",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 113,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"template": {
+								"mode": "replica",
+								"templateName": "",
+								"sourceTemplateName": "status_slider_bg",
+								"components": [
+									{
+										"id": "plugin",
+										"component": [
+											{
+												"key": "plugin",
+												"state": [
+													[
+														"initially-visible",
+														true
+													],
+													[
+														"initial-animation",
+														true
+													],
+													[
+														"initial-frame",
+														false
+													],
+													[
+														"enable-collisions",
+														true
+													]
+												]
+											}
+										]
+									},
+									{
+										"id": "instance-variable",
+										"component": [
+											{
+												"key": "instance-variable",
+												"state": [
+													{
+														"iv": "id",
+														"state": true
+													}
+												]
+											}
+										]
+									},
+									{
+										"id": "behavior",
+										"component": []
+									},
+									{
+										"id": "effect",
+										"component": []
+									},
+									{
+										"id": "world-instance",
+										"component": [
+											{
+												"key": "world-instance",
+												"state": [
+													[
+														"x",
+														false
+													],
+													[
+														"y",
+														false
+													],
+													[
+														"z",
+														true
+													],
+													[
+														"w",
+														true
+													],
+													[
+														"h",
+														true
+													],
+													[
+														"a",
+														true
+													],
+													[
+														"o",
+														true
+													],
+													[
+														"c",
+														true
+													],
+													[
+														"sx",
+														true
+													],
+													[
+														"sy",
+														true
+													],
+													[
+														"bm",
+														false
+													],
+													[
+														"twpx",
+														true
+													],
+													[
+														"twpy",
+														true
+													],
+													[
+														"twpz",
+														true
+													],
+													[
+														"twpw",
+														true
+													],
+													[
+														"twph",
+														true
+													],
+													[
+														"twpa",
+														true
+													],
+													[
+														"dwp",
+														true
+													],
+													[
+														"ssm",
+														true
+													]
+												]
+											}
+										]
+									}
+								],
+								"replicasUIDs": null
+							},
+							"sceneGraphData": {
+								"parent-uid": 111,
+								"uid": 113,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 2080,
+								"y": -109,
+								"width": 204,
+								"height": 13,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "SliderBar",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 114,
+							"instanceVariables": {
+								"value": 0,
+								"minX": 126,
+								"maxX": 330,
+								"maxValue": 100,
+								"isDraggable": true,
+								"id": ""
+							},
+							"behaviors": {
+								"DragDrop": {
+									"properties": {
+										"axes": "horizontal-only",
+										"enabled": true
+									}
+								}
+							},
+							"template": {
+								"mode": "replica",
+								"templateName": "",
+								"sourceTemplateName": "status_slider",
+								"components": [
+									{
+										"id": "plugin",
+										"component": [
+											{
+												"key": "plugin",
+												"state": [
+													[
+														"initially-visible",
+														true
+													],
+													[
+														"initial-animation",
+														true
+													],
+													[
+														"initial-frame",
+														true
+													],
+													[
+														"enable-collisions",
+														true
+													]
+												]
+											}
+										]
+									},
+									{
+										"id": "instance-variable",
+										"component": [
+											{
+												"key": "instance-variable",
+												"state": [
+													{
+														"iv": "value",
+														"state": true
+													},
+													{
+														"iv": "minX",
+														"state": true
+													},
+													{
+														"iv": "maxX",
+														"state": true
+													},
+													{
+														"iv": "maxValue",
+														"state": true
+													},
+													{
+														"iv": "isDraggable",
+														"state": true
+													},
+													{
+														"iv": "id",
+														"state": true
+													}
+												]
+											}
+										]
+									},
+									{
+										"id": "behavior",
+										"component": [
+											{
+												"key": "DragDrop",
+												"state": [
+													[
+														"axes",
+														true
+													],
+													[
+														"enabled",
+														true
+													]
+												]
+											}
+										]
+									},
+									{
+										"id": "effect",
+										"component": []
+									},
+									{
+										"id": "world-instance",
+										"component": [
+											{
+												"key": "world-instance",
+												"state": [
+													[
+														"x",
+														false
+													],
+													[
+														"y",
+														false
+													],
+													[
+														"z",
+														true
+													],
+													[
+														"w",
+														true
+													],
+													[
+														"h",
+														true
+													],
+													[
+														"a",
+														true
+													],
+													[
+														"o",
+														true
+													],
+													[
+														"c",
+														true
+													],
+													[
+														"sx",
+														true
+													],
+													[
+														"sy",
+														true
+													],
+													[
+														"bm",
+														false
+													],
+													[
+														"twpx",
+														true
+													],
+													[
+														"twpy",
+														true
+													],
+													[
+														"twpz",
+														true
+													],
+													[
+														"twpw",
+														true
+													],
+													[
+														"twph",
+														true
+													],
+													[
+														"twpa",
+														true
+													],
+													[
+														"dwp",
+														true
+													],
+													[
+														"ssm",
+														true
+													]
+												]
+											}
+										]
+									}
+								],
+								"replicasUIDs": null
+							},
+							"sceneGraphData": {
+								"parent-uid": 111,
+								"uid": 114,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 1991,
+								"y": -116,
+								"width": 16,
+								"height": 15,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "0",
+								"enable-bbcode": true,
+								"character-width": 63,
+								"character-height": 80,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
+								"spacing-data": "[[19,\" \"],[10,\"Ii.,;:!'|\"],[16,\"jl]\"],[17,\"1[\"],[18,\"`\"],[20,\"t(\"],[21,\"\\\")\"],[22,\"f\"],[24,\"°\"],[26,\"=<>\"],[27,\"-\"],[28,\"r\"],[29,\"?\"],[30,\"z~\"],[31,\"5679+*\"],[32,\"Jbcdghnpqu02_\"],[33,\"aeo3\\\\\"],[34,\"Zs8/\"],[35,\"Fkx\"],[36,\"ELvy4\"],[37,\"$\"],[38,\"CDP\"],[39,\"BGHOTU£\"],[40,\"RS\"],[41,\"NY€\"],[42,\"K#\"],[43,\"QVX\"],[44,\"&\"],[45,\"%\"],[46,\"M\"],[47,\"A\"],[54,\"mw\"],[56,\"@\"],[61,\"W\"]]",
+								"scale": 0.27,
+								"character-spacing": 0,
+								"line-height": 0,
+								"horizontal-alignment": "right",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-right",
+								"read-aloud": false
+							},
+							"uid": 115,
+							"instanceVariables": {
+								"id": "extreme_crisis_state"
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 111,
+								"uid": 115,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 2181,
+								"y": -152,
+								"width": 36,
+								"height": 30,
+								"originX": 1,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						}
+					],
 					"sid": 824019098048967,
 					"effectTypes": [],
 					"isInitiallyVisible": false,
@@ -4090,7 +5128,10 @@
 						"isHovered": false,
 						"clickable": true,
 						"isDisabled": false,
-						"panelId": ""
+						"panelId": "",
+						"selectable": false,
+						"hasGroup": false,
+						"isSelected": false
 					},
 					"behaviors": {},
 					"effects": {
@@ -4127,7 +5168,7 @@
 						"bottom-margin": 16,
 						"edges": "stretch",
 						"fill": "stretch",
-						"initially-visible": false,
+						"initially-visible": true,
 						"origin": "top-left",
 						"seams": "overlap"
 					},
@@ -4138,7 +5179,10 @@
 						"isHovered": false,
 						"clickable": true,
 						"isDisabled": false,
-						"panelId": ""
+						"panelId": "",
+						"selectable": true,
+						"hasGroup": false,
+						"isSelected": false
 					},
 					"behaviors": {},
 					"effects": {
@@ -4188,7 +5232,7 @@
 							1,
 							1,
 							1,
-							1
+							0
 						],
 						"angle": 0,
 						"zElevation": 0
@@ -5208,47 +6252,6 @@
 							0.7568627450980392,
 							0.7843137254901961,
 							0.8627450980392157,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UIText",
-					"properties": {
-						"text": "Extreme Crisis State",
-						"enable-bbcode": true,
-						"character-width": 63,
-						"character-height": 80,
-						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
-						"spacing-data": "[[19,\" \"],[10,\"Ii.,;:!'|\"],[16,\"jl]\"],[17,\"1[\"],[18,\"`\"],[20,\"t(\"],[21,\"\\\")\"],[22,\"f\"],[24,\"°\"],[26,\"=<>\"],[27,\"-\"],[28,\"r\"],[29,\"?\"],[30,\"z~\"],[31,\"5679+*\"],[32,\"Jbcdghnpqu02_\"],[33,\"aeo3\\\\\"],[34,\"Zs8/\"],[35,\"Fkx\"],[36,\"ELvy4\"],[37,\"$\"],[38,\"CDP\"],[39,\"BGHOTU£\"],[40,\"RS\"],[41,\"NY€\"],[42,\"K#\"],[43,\"QVX\"],[44,\"&\"],[45,\"%\"],[46,\"M\"],[47,\"A\"],[54,\"mw\"],[56,\"@\"],[61,\"W\"]]",
-						"scale": 0.3,
-						"character-spacing": 0,
-						"line-height": 0,
-						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 79,
-					"instanceVariables": {
-						"id": "extreme_crisis_state"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 1343,
-						"y": -148,
-						"width": 258,
-						"height": 30,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
 							1
 						],
 						"angle": 0,

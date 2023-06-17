@@ -203,14 +203,16 @@
 	},
 	"layouts": {
 		"items": [
-			"Game Layout"
+			"Game Layout",
+			"Create Level Layout"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
 			"Game_ES",
-			"Common_ES"
+			"Common_ES",
+			"CreateLevel_ES"
 		],
 		"subfolders": []
 	},

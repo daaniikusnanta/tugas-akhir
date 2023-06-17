@@ -99,6 +99,23 @@ const levelVariables = {
     },
 };
 
+const crisisLevel = {
+    "pandemic": {
+        name: "Pandemic",
+        description: "",
+        crisisValues: {
+            "infectious_disease": 90
+        },
+        statusValues: {
+
+        }
+    }
+}
+
+const situationLevel = {
+    
+}
+
 /**
  * Sets the level variables to the given level.
  * @param {number} level The level to set the variables to.

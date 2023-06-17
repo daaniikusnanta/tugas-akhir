@@ -7,6 +7,8 @@ import {
   getClickablePanelById,
   setSliderValue,
   clamp,
+  getObjectbyId,
+  setScrollableHeight,
 } from "./utils.js";
 import { expandCrisisTiles } from "./tile-data.js";
 import {
@@ -45,112 +47,134 @@ function updateFiscalViews(runtime) {
 
 export function setupCrisisViews(runtime) {
   const margin = 40;
-  const crisisScrollable =
-    runtime.objects.ScrollablePanel.getAllInstances().filter(
-      (scrollable) => scrollable.instVars["id"] == "crisis"
-    )[0];
-  const x = crisisScrollable.x + crisisScrollable.width / 2;
-  let y = crisisScrollable.y + margin / 2;
+  const crisisScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "crisis");
+  setScrollableHeight(runtime, crisisScrollable, Object.keys(crisis).length, 100, 10);
 
-  for (const variable in crisis) {
-    const clickablePanelX = crisisScrollable.x + 10;
-    const clickablePanelY = y - 5;
-    let clickablePanel = runtime.objects.ClickablePanel.createInstance(
-      "panelcrisisbackground",
-      clickablePanelX,
-      clickablePanelY
-    );
-    clickablePanel.instVars["id"] = variable + "_clickable_panel_crisis";
-    clickablePanel.instVars["clickable"] = true;
-    clickablePanel.instVars["panelId"] = "crisis";
-    clickablePanel.blendMode = "source-atop";
-    clickablePanel.width = crisisScrollable.width - 20;
-    clickablePanel.height = 80;
-    addClickablePanelToCache(clickablePanel);
-    crisisScrollable.addChild(clickablePanel, {
-      transformX: true,
-      transformY: true,
-    });
+  let initialY = crisisScrollable.y + 5;
 
-    let sliderBarBG = runtime.objects.SliderBarBG.createInstance(
-      "panelcrisisbackground",
-      x,
-      y + 40
-    );
-    sliderBarBG.blendMode = "source-atop";
-    sliderBarBG.animationFrame = 1;
-    crisisScrollable.addChild(sliderBarBG, {
-      transformX: true,
-      transformY: true,
-    });
+  for (const crisisName in crisis) {
+    const crisisData = crisis[crisisName];
 
-    let sliderBar = runtime.objects.SliderBar.createInstance(
-      "panelcrisisbackground",
-      x,
-      y + 34
-    );
+    const instanceX = crisisScrollable.x + 40;
+    const instanceY = initialY + Object.keys(crisis).indexOf(crisisName) * 105;
 
-    sliderBar.instVars["minX"] = x - sliderBarBG.width / 2;
-    sliderBar.instVars["maxX"] = x + sliderBarBG.width / 2;
-    sliderBar.instVars["maxValue"] = 100;
-    sliderBar.instVars["value"] = 0;
-    sliderBar.instVars["id"] = variable + "_crisis_slider";
-    sliderBar.blendMode = "source-atop";
-    crisisScrollable.addChild(sliderBar, {
-      transformX: true,
-      transformY: true,
-    });
+    const crisisView = runtime.objects.UIText.createInstance("panelCrisisBackground", instanceX, instanceY, true, "crisis_view");
+    crisisView.instVars["id"] = crisisName + "_crisis_name";
+    crisisView.text = crisisData.name;
+    addTextToCache(crisisView);
+    crisisScrollable.addChild(crisisView, {transformX: true, transformY: true});
 
-    let xText = x - sliderBarBG.width / 2;
+    const crisisState = crisisView.getChildAt(0);
+    const crisisValue = crisisView.getChildAt(1);
+    crisisValue.instVars["id"] = crisisName + "_crisis_slider";
 
-    let titleText = runtime.objects.UIText.createInstance(
-      "panelcrisisbackground",
-      xText,
-      y
-    );
-    titleText.colorRgb = [255, 255, 255];
-    titleText.blendMode = "source-atop";
-    titleText.characterScale = 0.3;
-    addTextToCache(titleText);
+    const crisisSliderBG = crisisView.getChildAt(3);
+    const crisisSlider = crisisView.getChildAt(2);
+    crisisSlider.instVars["id"] = crisisName + "_crisis_slider";
+    crisisSlider.instVars["minX"] = crisisSliderBG.x - (crisisSliderBG.width / 2);
+    crisisSlider.instVars["maxX"] = crisisSliderBG.x + (crisisSliderBG.width / 2);
 
-    const words = variable.replace("_", " ").split(" ");
-    for (let i = 0; i < words.length; i++) {
-      words[i] = words[i][0].toUpperCase() + words[i].substr(1);
-    }
-    titleText.text = words.join(" ");
+    const crisisClickablePanel = crisisView.getChildAt(4);
+    crisisClickablePanel.instVars["id"] = crisisName + "_clickable_panel_crisis";
+    crisisClickablePanel.instVars["panelId"] = "crisis";
+    crisisClickablePanel.instVars["clickable"] = true;
+    addClickablePanelToCache(crisisClickablePanel);
+    // const clickablePanelX = crisisScrollable.x + 10;
+    // const clickablePanelY = y - 5;
+    // let clickablePanel = runtime.objects.ClickablePanel.createInstance(
+    //   "panelcrisisbackground",
+    //   clickablePanelX,
+    //   clickablePanelY
+    // );
+    // clickablePanel.instVars["id"] = variable + "_clickable_panel_crisis";
+    // clickablePanel.instVars["clickable"] = true;
+    // clickablePanel.instVars["panelId"] = "crisis";
+    // clickablePanel.blendMode = "source-atop";
+    // clickablePanel.width = crisisScrollable.width - 20;
+    // clickablePanel.height = 80;
+    // addClickablePanelToCache(clickablePanel);
+    // crisisScrollable.addChild(clickablePanel, {
+    //   transformX: true,
+    //   transformY: true,
+    // });
 
-    crisisScrollable.addChild(titleText, {
-      transformX: true,
-      transformY: true,
-    });
+    // let sliderBarBG = runtime.objects.SliderBarBG.createInstance(
+    //   "panelcrisisbackground",
+    //   x,
+    //   y + 40
+    // );
+    // sliderBarBG.blendMode = "source-atop";
+    // sliderBarBG.animationFrame = 1;
+    // crisisScrollable.addChild(sliderBarBG, {
+    //   transformX: true,
+    //   transformY: true,
+    // });
 
-    let valueText = runtime.objects.UIText.createInstance(
-      "panelcrisisbackground",
-      xText,
-      y + 52
-    );
-    valueText.instVars["id"] = variable + "_crisis_text";
-    valueText.colorRgb = [193, 200, 220];
-    valueText.text = "0";
-    valueText.blendMode = "source-atop";
-    valueText.characterScale = 0.25;
-    crisisScrollable.addChild(valueText, {
-      transformX: true,
-      transformY: true,
-    });
-    addTextToCache(valueText);
+    // let sliderBar = runtime.objects.SliderBar.createInstance(
+    //   "panelcrisisbackground",
+    //   x,
+    //   y + 34
+    // );
 
-    y += 52 + margin;
+    // sliderBar.instVars["minX"] = x - sliderBarBG.width / 2;
+    // sliderBar.instVars["maxX"] = x + sliderBarBG.width / 2;
+    // sliderBar.instVars["maxValue"] = 100;
+    // sliderBar.instVars["value"] = 0;
+    // sliderBar.instVars["id"] = variable + "_crisis_slider";
+    // sliderBar.blendMode = "source-atop";
+    // crisisScrollable.addChild(sliderBar, {
+    //   transformX: true,
+    //   transformY: true,
+    // });
+
+    // let xText = x - sliderBarBG.width / 2;
+
+    // let titleText = runtime.objects.UIText.createInstance(
+    //   "panelcrisisbackground",
+    //   xText,
+    //   y
+    // );
+    // titleText.colorRgb = [255, 255, 255];
+    // titleText.blendMode = "source-atop";
+    // titleText.characterScale = 0.3;
+    // addTextToCache(titleText);
+
+    // const words = variable.replace("_", " ").split(" ");
+    // for (let i = 0; i < words.length; i++) {
+    //   words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    // }
+    // titleText.text = words.join(" ");
+
+    // crisisScrollable.addChild(titleText, {
+    //   transformX: true,
+    //   transformY: true,
+    // });
+
+    // let valueText = runtime.objects.UIText.createInstance(
+    //   "panelcrisisbackground",
+    //   xText,
+    //   y + 52
+    // );
+    // valueText.instVars["id"] = variable + "_crisis_text";
+    // valueText.colorRgb = [193, 200, 220];
+    // valueText.text = "0";
+    // valueText.blendMode = "source-atop";
+    // valueText.characterScale = 0.25;
+    // crisisScrollable.addChild(valueText, {
+    //   transformX: true,
+    //   transformY: true,
+    // });
+    // addTextToCache(valueText);
   }
 
-  const crisisPanel = runtime.objects.UIPanel.getAllInstances().filter(
-    (panel) => panel.instVars["id"] == "crisis"
-  )[0];
-  crisisScrollable.height =
-    Object.keys(crisis).length * (margin + 52) + margin / 2;
-  crisisScrollable.instVars["min"] =
-    crisisScrollable.y - crisisScrollable.height + crisisPanel.height;
-  crisisScrollable.instVars["max"] = crisisScrollable.y;
+  // const crisisPanel = runtime.objects.UIPanel.getAllInstances().filter(
+  //   (panel) => panel.instVars["id"] == "crisis"
+  // )[0];
+  // crisisScrollable.height =
+  //   Object.keys(crisis).length * (margin + 52) + margin / 2;
+  // crisisScrollable.instVars["min"] =
+  //   crisisScrollable.y - crisisScrollable.height + crisisPanel.height;
+  // crisisScrollable.instVars["max"] = crisisScrollable.y;
 }
 
 export function updateStatusView(runtime) {
@@ -164,9 +188,9 @@ export function updateStatusView(runtime) {
     const value = status[id].value;
 
     const statusText = getTextById(id + "_status_text");
-	const totalLastUpdate = status[id].lastUpdateCause + status[id].lastUpdatePolicy;
+    const totalLastUpdate = status[id].lastUpdateCause + status[id].lastUpdatePolicy;
     const update =
-	totalLastUpdate >= 0
+      totalLastUpdate >= 0
         ? "+" + totalLastUpdate.toFixed(2)
         : totalLastUpdate.toFixed(2);
     const text = value.toFixed(2).toString() + " (" + update + ")";
@@ -175,32 +199,46 @@ export function updateStatusView(runtime) {
 }
 
 export function updateCrisisView(runtime) {
-  let crisisSliders = runtime.objects.SliderBar.getAllInstances();
-  crisisSliders = crisisSliders.filter((slider) =>
-    slider.instVars["id"].endsWith("crisis_slider")
-  );
+  for (const crisisName in crisis) {
+    const crisisData = crisis[crisisName];
 
-  for (const crisisSlider of crisisSliders) {
-    const id = crisisSlider.instVars["id"].replace("_crisis_slider", "");
-    const value = crisis[id].value;
+    const crisisView = getTextById(crisisName + "_crisis_name");
 
-    const crisisText = getTextById(id + "_crisis_text");
-	const totalLastUpdate = crisis[id].lastUpdateCause + crisis[id].lastUpdatePolicy;
-    const update =
-      totalLastUpdate >= 0
-        ? "+" + totalLastUpdate.toFixed(2)
-        : totalLastUpdate.toFixed(2);
-    const text = value.toFixed(2).toString() + " (" + update + ")";
-    setSliderValue(crisisSlider, crisisText, value, text);
+    const crisisState = crisisView.getChildAt(0);
+    crisisState.text = crisisFsms[crisisName].value;
+
+    const crisisValue = crisisView.getChildAt(1);
+    const crisisSlider = crisisView.getChildAt(2);
+    setSliderValue(crisisSlider, crisisValue, crisisData.value, crisisData.value.toFixed(2));
 
     if (
-      crisisFsms[id].value === crisis[id].states[2] ||
-      (crisisFsms[id].value === crisis[id].states[3] && !crisis[id].isGlobal)
+      crisisFsms[crisisName].value === crisisData.states[2] ||
+      (crisisFsms[crisisName].value === crisisData.states[3] && !crisisData.isGlobal)
     ) {
-      console.log("Expanding", id);
-      expandCrisisTiles(runtime, id);
+      console.log("Expanding", crisisName);
+      expandCrisisTiles(runtime, crisisName);
     }
   }
+  // let crisisSliders = runtime.objects.SliderBar.getAllInstances();
+  // crisisSliders = crisisSliders.filter((slider) =>
+  //   slider.instVars["id"].endsWith("crisis_slider")
+  // );
+
+  // for (const crisisSlider of crisisSliders) {
+  //   const id = crisisSlider.instVars["id"].replace("_crisis_slider", "");
+  //   const value = crisis[id].value;
+
+  //   const crisisText = getTextById(id + "_crisis_text");
+  // const totalLastUpdate = crisis[id].lastUpdateCause + crisis[id].lastUpdatePolicy;
+  //   const update =
+  //     totalLastUpdate >= 0
+  //       ? "+" + totalLastUpdate.toFixed(2)
+  //       : totalLastUpdate.toFixed(2);
+  //   const text = value.toFixed(2).toString() + " (" + update + ")";
+  //   setSliderValue(crisisSlider, crisisText, value, text);
+
+  //   
+  // }
 }
 
 /**
@@ -262,7 +300,6 @@ function initializePolicyViews(runtime) {
     clickablePanel.instVars["panelId"] = "policy";
     clickablePanel.width = policiesScrollable.width - 40;
     clickablePanel.height = 100;
-    clickablePanel.isVisible = false;
     addClickablePanelToCache(clickablePanel);
     policiesScrollable.addChild(clickablePanel);
 
@@ -438,7 +475,7 @@ function initializeStatusViews(runtime) {
     let clickablePanel = statusNameText.getChildAt(3);
     clickablePanel.instVars["id"] = variable + "_clickable_panel_status";
     clickablePanel.instVars["clickable"] = true;
-    clickablePanel.instVars["isDisabled"] = true;
+    // clickablePanel.instVars["isDisabled"] = true;
     clickablePanel.instVars["panelId"] = "status_panel";
     addClickablePanelToCache(clickablePanel);
   }

@@ -1,0 +1,1263 @@
+{
+	"name": "CreateLevel_ES",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Common_ES"
+		},
+		{
+			"eventType": "variable",
+			"name": "size",
+			"type": "number",
+			"initialValue": "16",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 566622208950491
+		},
+		{
+			"eventType": "variable",
+			"name": "zm",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 132024530944638
+		},
+		{
+			"eventType": "variable",
+			"name": "threshold",
+			"type": "number",
+			"initialValue": "0.5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 995874091574490
+		},
+		{
+			"eventType": "variable",
+			"name": "octave",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 290376410734486
+		},
+		{
+			"eventType": "variable",
+			"name": "colors",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 987151788495541
+		},
+		{
+			"eventType": "variable",
+			"name": "flipped",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 857179913202627
+		},
+		{
+			"eventType": "variable",
+			"name": "bicolor",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 848585838474953
+		},
+		{
+			"eventType": "variable",
+			"name": "map_ready",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 822483937613223
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 437888076344484
+				}
+			],
+			"actions": [
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 463249465848759,
+					"parameters": {
+						"name": "BUTTON_CLICKED",
+						"string": "LayoutName",
+						"function": "MenuButtonClicked2"
+					}
+				},
+				{
+					"id": "save-snapshot",
+					"objectClass": "DrawingCanvas",
+					"sid": 551097612324812
+				}
+			],
+			"sid": 960208698320484
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-snapshot",
+					"objectClass": "DrawingCanvas",
+					"sid": 290059394199844
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 884653577407959,
+					"parameters": {
+						"variable": "map_ready",
+						"value": "true"
+					}
+				},
+				{
+					"callFunction": "CreateMap",
+					"sid": 680520238765025
+				}
+			],
+			"sid": 358193614011007
+		},
+		{
+			"functionName": "CreateMap",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 528757578562795,
+					"parameters": {
+						"variable": "map_ready"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "octaves",
+					"objectClass": "AdvancedRandom",
+					"sid": 904941517264163,
+					"parameters": {
+						"count": "octave"
+					}
+				},
+				{
+					"id": "createGradient",
+					"objectClass": "AdvancedRandom",
+					"sid": 170529101887321,
+					"parameters": {
+						"name": "\"gradient\"",
+						"isColor": "color"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 235030745006763,
+					"parameters": {
+						"type": "log",
+						"message": "AdvancedRandom.Seed"
+					}
+				}
+			],
+			"sid": 807485863673609,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 643012428567786,
+							"parameters": {
+								"object": "Button"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Button",
+							"sid": 265166535843305,
+							"parameters": {
+								"instance-variable": "isDisabled",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 129639767568032
+				},
+				{
+					"eventType": "variable",
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 839093007496166
+				},
+				{
+					"eventType": "variable",
+					"name": "x2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 794927751761672
+				},
+				{
+					"eventType": "variable",
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 309540823141820
+				},
+				{
+					"eventType": "variable",
+					"name": "y2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 468604128624486
+				},
+				{
+					"eventType": "variable",
+					"name": "value",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 763815148788751
+				},
+				{
+					"eventType": "variable",
+					"name": "colorSea",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 510373636588073
+				},
+				{
+					"eventType": "variable",
+					"name": "colorLand",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 717929100906655
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 741027950947216,
+							"parameters": {
+								"count": "DrawingCanvas.SnapshotWidth /size"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 380156589499447,
+							"parameters": {
+								"variable": "x2",
+								"value": "loopindex"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 808189427896754,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "\"index x\" & \"|\" & x2 & \"|\" & loopindex & \"|\" &  DrawingCanvas.SnapshotWidth"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 695783024142042,
+							"disabled": true,
+							"parameters": {
+								"variable": "size",
+								"value": "DrawingCanvas.SnapshotWidth / 16"
+							}
+						}
+					],
+					"sid": 544802272833779,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 768787099214494,
+									"parameters": {
+										"count": "DrawingCanvas.SnapshotHeight / size"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 542421890491794,
+									"parameters": {
+										"variable": "y2",
+										"value": "loopindex"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 452682798819807,
+									"disabled": true,
+									"parameters": {
+										"type": "log",
+										"message": "\"index y\" & \"|\" & y  & \"|\" & loopindex & \"|\" &  DrawingCanvas.SnapshotHeight"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 379332391081604,
+									"parameters": {
+										"variable": "value",
+										"value": "AdvancedRandom.Classic2d(x2 * size * zm, y2 * size * zm)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 592643310830215,
+									"disabled": true,
+									"parameters": {
+										"variable": "value",
+										"value": "AdvancedRandom.Classic2d(y2 * AdvancedRandom.Classic2d(x2 * zm * size, y2 * zm * size), x2 * AdvancedRandom.Classic2d(y2 * zm * size, x2 * zm * size))"
+									}
+								}
+							],
+							"sid": 505842416989340,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 289190429331998,
+											"parameters": {
+												"variable": "bicolor"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 770739412510298,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 835126985430787,
+													"parameters": {
+														"variable": "flipped"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 662159854321549,
+													"parameters": {
+														"variable": "value",
+														"value": "value > threshold ? rgbEx255(127, 191, 114) : rgbEx255(63, 124, 196)"
+													}
+												},
+												{
+													"id": "snapshot-set-pixel",
+													"objectClass": "DrawingCanvas",
+													"sid": 509524216531622,
+													"disabled": true,
+													"parameters": {
+														"x": "x",
+														"y": "y",
+														"color": "rgbEx((1-value)* 100, (1-value)* 100, (1-value)*100)"
+													}
+												}
+											],
+											"sid": 569969908536968
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 442080414561997
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 840273442104580,
+													"parameters": {
+														"variable": "value",
+														"value": "value <=  threshold ? rgbEx255(127, 191, 114) : rgbEx255(63, 124, 196)"
+													}
+												},
+												{
+													"id": "snapshot-set-pixel",
+													"objectClass": "DrawingCanvas",
+													"sid": 524652682315721,
+													"disabled": true,
+													"parameters": {
+														"x": "x",
+														"y": "y",
+														"color": "rgbEx(value* 100, (value)* 100, (value)*100)"
+													}
+												}
+											],
+											"sid": 741779187803686
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 538529906883063
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 464762549708379,
+											"parameters": {
+												"variable": "value",
+												"value": "round(value * colors) / colors"
+											}
+										}
+									],
+									"sid": 852212878299568,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 609259950526511,
+													"parameters": {
+														"variable": "flipped"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "addStop",
+													"objectClass": "AdvancedRandom",
+													"sid": 477560344770985,
+													"parameters": {
+														"position": "0",
+														"value": "rgbEx255(63, 124, 196)"
+													}
+												},
+												{
+													"id": "addStop",
+													"objectClass": "AdvancedRandom",
+													"sid": 252043836211190,
+													"parameters": {
+														"position": "1",
+														"value": "rgbEx255(127, 191, 114)"
+													}
+												}
+											],
+											"sid": 138749021894933
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 811405455464880
+												}
+											],
+											"actions": [
+												{
+													"id": "addStop",
+													"objectClass": "AdvancedRandom",
+													"sid": 426019797860451,
+													"parameters": {
+														"position": "0",
+														"value": "rgbEx255(127, 191, 114)"
+													}
+												},
+												{
+													"id": "addStop",
+													"objectClass": "AdvancedRandom",
+													"sid": 250728358821314,
+													"parameters": {
+														"position": "1",
+														"value": "rgbEx255(63, 124, 196)"
+													}
+												}
+											],
+											"sid": 235096318475336
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 357970942267611,
+											"parameters": {
+												"count": "size"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 963004909012498,
+											"parameters": {
+												"variable": "x",
+												"value": "(x2)*size + (loopindex)"
+											}
+										}
+									],
+									"sid": 679575045299250,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "repeat",
+													"objectClass": "System",
+													"sid": 906321094288718,
+													"parameters": {
+														"count": "size"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 608780490817701,
+													"parameters": {
+														"variable": "y",
+														"value": "(y2)*size + (loopindex)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 558319644297469,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "\"size\" & \"|\" & x  & \"|\" & y"
+													}
+												}
+											],
+											"sid": 836928809484931,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 163624874317916,
+															"parameters": {
+																"variable": "x",
+																"comparison": 3,
+																"value": "DrawingCanvas.SnapshotWidth"
+															}
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 835454348400366,
+															"parameters": {
+																"variable": "y",
+																"comparison": 3,
+																"value": "DrawingCanvas.SnapshotHeight"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 806674815069876,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 105377677990465,
+																	"parameters": {
+																		"variable": "bicolor"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "snapshot-set-pixel",
+																	"objectClass": "DrawingCanvas",
+																	"sid": 967708642957713,
+																	"parameters": {
+																		"x": "x",
+																		"y": "y",
+																		"color": "value"
+																	}
+																}
+															],
+															"sid": 745201475005048
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 385276247977866
+																}
+															],
+															"actions": [
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 736608257343746,
+																	"disabled": true,
+																	"parameters": {
+																		"type": "log",
+																		"message": "x2 & \"|\" & y2 & \"|\" & value"
+																	}
+																},
+																{
+																	"id": "snapshot-set-pixel",
+																	"objectClass": "DrawingCanvas",
+																	"sid": 457324041778003,
+																	"parameters": {
+																		"x": "x",
+																		"y": "y",
+																		"color": "AdvancedRandom.Gradient(value)"
+																	}
+																}
+															],
+															"sid": 123311127889993
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "load-snapshot",
+							"objectClass": "DrawingCanvas",
+							"sid": 622303806453390
+						}
+					],
+					"sid": 150007336909722
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 349903428242494,
+							"parameters": {
+								"object": "Button"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Button",
+							"sid": 175190242379048,
+							"parameters": {
+								"instance-variable": "isDisabled",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 376665812657669
+				}
+			]
+		},
+		{
+			"functionName": "MenuButtonClicked2",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": true,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "uid",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 949243749098947
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Button",
+					"sid": 165550141539459,
+					"parameters": {
+						"unique-id": "uid"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 301879775807056,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 195853029338623,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"flip_color\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 458894296800218,
+							"parameters": {
+								"variable": "flipped"
+							}
+						},
+						{
+							"callFunction": "CreateMap",
+							"sid": 902986187874163
+						}
+					],
+					"sid": 246641046855493
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 141668795133145,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"bicolor\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 473616607174914,
+							"parameters": {
+								"variable": "bicolor"
+							}
+						},
+						{
+							"callFunction": "CreateMap",
+							"sid": 492496299736184
+						}
+					],
+					"sid": 432803898097269
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 493638364458267,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"new\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "seed",
+							"objectClass": "AdvancedRandom",
+							"sid": 729912665918408,
+							"parameters": {
+								"seed": "AdvancedRandom.RandomSeed"
+							}
+						},
+						{
+							"callFunction": "CreateMap",
+							"sid": 116513802492371
+						}
+					],
+					"sid": 846511029487078
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SliderBar2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 942719958468730
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 989831643507717,
+							"parameters": {
+								"object": "Slider"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetupSliderBar2",
+							"sid": 892608299287573
+						}
+					],
+					"sid": 886247137777311
+				},
+				{
+					"functionName": "SetupSliderBar2",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Slider",
+							"sid": 769039402297195,
+							"parameters": {
+								"x": "Self.minX + Self.value/Self.maxValue * (Self.maxX - Self.minX)"
+							}
+						}
+					],
+					"sid": 123603943680102,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UIText",
+									"sid": 408405854903051,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "Slider.id"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 170222275518806,
+									"parameters": {
+										"text": "Slider.value"
+									}
+								}
+							],
+							"sid": 509809705514916
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-dragging",
+							"objectClass": "Slider",
+							"sid": 881580077233864,
+							"behaviorType": "DragDrop"
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Slider",
+							"sid": 546083165453754,
+							"parameters": {
+								"instance-variable": "isDraggable"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Slider",
+							"sid": 717168976208513,
+							"parameters": {
+								"x": "clamp(Self.X, Self.minX, Self.maxX)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Slider",
+							"sid": 927774729442205,
+							"parameters": {
+								"instance-variable": "value",
+								"value": "(Self.X - Self.minX) / (Self.maxX - Self.minX) * Self.maxValue"
+							}
+						}
+					],
+					"sid": 958163253000268,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Slider",
+									"sid": 599007230948831,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"zoom\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 535963582719562,
+									"parameters": {
+										"variable": "zm",
+										"value": "Slider.value"
+									}
+								},
+								{
+									"callFunction": "CreateMap",
+									"sid": 597363635165326
+								}
+							],
+							"sid": 545016390882462
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Slider",
+									"sid": 345250143951347,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"threshold\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 855071667521340,
+									"parameters": {
+										"variable": "threshold",
+										"value": "Slider.value"
+									}
+								},
+								{
+									"callFunction": "CreateMap",
+									"sid": 989858626158846
+								}
+							],
+							"sid": 204534680663153
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Slider",
+									"sid": 568367241544682,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"size\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 148043557408571,
+									"parameters": {
+										"variable": "size",
+										"value": "Slider.value + 1"
+									}
+								},
+								{
+									"callFunction": "CreateMap",
+									"sid": 752202592214194
+								}
+							],
+							"sid": 624356314996120
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Slider",
+									"sid": 663775000233629,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"octave\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 446140777446871,
+									"parameters": {
+										"variable": "octave",
+										"value": "Slider.value"
+									}
+								},
+								{
+									"callFunction": "CreateMap",
+									"sid": 408426690717843
+								}
+							],
+							"sid": 771405263996148
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Slider",
+									"sid": 163827658992804,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"colors\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 486515858799460,
+									"disabled": true,
+									"parameters": {
+										"variable": "colors",
+										"value": "round(Slider.value) +1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 269771507165492,
+									"parameters": {
+										"variable": "colors",
+										"value": "Slider.value + 1"
+									}
+								},
+								{
+									"callFunction": "CreateMap",
+									"sid": 639982819823824
+								}
+							],
+							"sid": 717193197348771
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UIText",
+									"sid": 536707995256298,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "Slider.id"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 249771089755614,
+									"parameters": {
+										"text": "Slider.value"
+									}
+								}
+							],
+							"sid": 224561669498037,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Slider",
+											"sid": 548006207954099,
+											"parameters": {
+												"instance-variable": "id",
+												"comparison": 0,
+												"value": "\"colors\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "UIText",
+											"sid": 787749395026452,
+											"parameters": {
+												"text": "round(Slider.value) +1"
+											}
+										}
+									],
+									"sid": 614471910698856
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "SetSliderValue2",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "value",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 200328330475411
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Slider",
+							"sid": 311784877273437,
+							"parameters": {
+								"instance-variable": "value",
+								"value": "value"
+							}
+						},
+						{
+							"id": "set-x",
+							"objectClass": "Slider",
+							"sid": 595577322291989,
+							"parameters": {
+								"x": "Self.minX +clamp (value/Self.maxValue * (Self.maxValue - Self.minX), Self.minX, Self.maxX)"
+							}
+						}
+					],
+					"sid": 531056998503971
+				}
+			],
+			"sid": 302609104592723
+		}
+	],
+	"sid": 943331261340760
+}

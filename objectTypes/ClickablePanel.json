@@ -45,6 +45,27 @@
 			"desc": "",
 			"show": true,
 			"sid": 478275312133039
+		},
+		{
+			"name": "selectable",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 389780591899716
+		},
+		{
+			"name": "hasGroup",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 636209437912494
+		},
+		{
+			"name": "isSelected",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 599008412711521
 		}
 	],
 	"behaviorTypes": [],
