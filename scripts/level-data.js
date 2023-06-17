@@ -110,11 +110,13 @@ const crisisLevel = {
 
         }
     }
-}
+};
 
 const situationLevel = {
     
-}
+};
+
+
 
 /**
  * Sets the level variables to the given level.

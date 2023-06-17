@@ -3180,6 +3180,15 @@
 						{
 							"id": "set-layer-scale",
 							"objectClass": "System",
+							"sid": 451359460706017,
+							"parameters": {
+								"layer": "\"Crisis\"",
+								"scale": "zoom"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
 							"sid": 968820191536516,
 							"parameters": {
 								"layer": "\"Grid\"",

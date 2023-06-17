@@ -23,6 +23,36 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "MAP_WIDTH_SMALL",
+			"type": "number",
+			"initialValue": "1920",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 716380198540163
+		},
+		{
+			"eventType": "variable",
+			"name": "MAP_WIDTH_MEDIUM",
+			"type": "number",
+			"initialValue": "2528",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 794375863176791
+		},
+		{
+			"eventType": "variable",
+			"name": "MAP_WIDTH_LARGE",
+			"type": "number",
+			"initialValue": "3504",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 984565871703451
+		},
+		{
+			"eventType": "variable",
 			"name": "touchedUid",
 			"type": "number",
 			"initialValue": "0",

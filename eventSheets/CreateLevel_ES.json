@@ -9,7 +9,7 @@
 			"eventType": "variable",
 			"name": "size",
 			"type": "number",
-			"initialValue": "16",
+			"initialValue": "13.8",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -19,7 +19,7 @@
 			"eventType": "variable",
 			"name": "zm",
 			"type": "number",
-			"initialValue": "1",
+			"initialValue": "0.5",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -309,7 +309,6 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 808189427896754,
-							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"index x\" & \"|\" & x2 & \"|\" & loopindex & \"|\" &  DrawingCanvas.SnapshotWidth"
@@ -372,11 +371,11 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 592643310830215,
+									"sid": 764747567380129,
 									"disabled": true,
 									"parameters": {
 										"variable": "value",
-										"value": "AdvancedRandom.Classic2d(y2 * AdvancedRandom.Classic2d(x2 * zm * size, y2 * zm * size), x2 * AdvancedRandom.Classic2d(y2 * zm * size, x2 * zm * size))"
+										"value": "AdvancedRandom.Classic2d(x2 * AdvancedRandom.Classic2d(x2 * zm * size, y2 * zm * size), y2 * AdvancedRandom.Classic2d(y2 * zm * size, x2 * zm * size)) ^ 3"
 									}
 								}
 							],
@@ -777,6 +776,14 @@
 					"parameters": {
 						"unique-id": "uid"
 					}
+				},
+				{
+					"id": "layer-is-interactive",
+					"objectClass": "System",
+					"sid": 841219490364039,
+					"parameters": {
+						"layer": "Button.LayerName"
+					}
 				}
 			],
 			"actions": [],
@@ -871,6 +878,123 @@
 						}
 					],
 					"sid": 846511029487078
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 586960068651090,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"geography_size_small\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "seed",
+							"objectClass": "AdvancedRandom",
+							"sid": 770916608696175,
+							"parameters": {
+								"seed": "AdvancedRandom.RandomSeed"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 475467778023808,
+							"parameters": {
+								"variable": "size",
+								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_SMALL / 64)"
+							}
+						},
+						{
+							"callFunction": "CreateMap",
+							"sid": 901552289954569
+						}
+					],
+					"sid": 413496623052228
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 524048007198379,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"geography_size_medium\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "seed",
+							"objectClass": "AdvancedRandom",
+							"sid": 724201500918157,
+							"parameters": {
+								"seed": "AdvancedRandom.RandomSeed"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 542445222326092,
+							"parameters": {
+								"variable": "size",
+								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_MEDIUM / 64)"
+							}
+						},
+						{
+							"callFunction": "CreateMap",
+							"sid": 778149562445079
+						}
+					],
+					"sid": 813636258626797
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 279028662627360,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"geography_size_large\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "seed",
+							"objectClass": "AdvancedRandom",
+							"sid": 682805884812442,
+							"parameters": {
+								"seed": "AdvancedRandom.RandomSeed"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 555381730951682,
+							"parameters": {
+								"variable": "size",
+								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_LARGE / 64)"
+							}
+						},
+						{
+							"callFunction": "CreateMap",
+							"sid": 842297829099360
+						}
+					],
+					"sid": 976836125502235
 				}
 			]
 		},
@@ -971,6 +1095,14 @@
 							"sid": 546083165453754,
 							"parameters": {
 								"instance-variable": "isDraggable"
+							}
+						},
+						{
+							"id": "layer-is-interactive",
+							"objectClass": "System",
+							"sid": 260160262096215,
+							"parameters": {
+								"layer": "Slider.LayerName"
 							}
 						}
 					],
@@ -1159,6 +1291,47 @@
 								}
 							],
 							"sid": 717193197348771
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Slider",
+									"sid": 865159633507314,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"geography_land_water\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 771263819172195,
+									"disabled": true,
+									"parameters": {
+										"variable": "colors",
+										"value": "round(Slider.value) +1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 126495266325217,
+									"parameters": {
+										"variable": "threshold",
+										"value": "0.4 + Slider.value"
+									}
+								},
+								{
+									"callFunction": "CreateMap",
+									"sid": 177220874236448
+								}
+							],
+							"sid": 980418633432627
 						},
 						{
 							"eventType": "block",
