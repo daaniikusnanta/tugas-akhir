@@ -9,10 +9,12 @@ runOnStartup(async runtime => {
 
 async function OnBeforeProjectStart(runtime) {
 	runtime.addEventListener("tick", () => Tick(runtime));
-	runtime.getLayout("Game Layout").addEventListener(
+	runtime.getLayout("SmallMapLayout").addEventListener(
 		"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
-	runtime.getLayout("Game Layout").addEventListener(
-		"afterlayoutstart", () => GameLayoutAfterLayoutStartHandler(runtime));
+	runtime.getLayout("MediumMapLayout").addEventListener(
+		"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
+	runtime.getLayout("LargeMapLayout").addEventListener(
+		"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
 
 	runtime.objects.UIText.addEventListener("instancedestroy", ({ instance: text }) => {
 		deleteTextFromCache(text.instVars['id']);
@@ -29,9 +31,4 @@ function Tick(runtime) {
 function GameLayoutBeforeLayoutStartHandler(runtime) {
 	setupTextCache(runtime);
 	setupClickablePanelCache(runtime);
-}
-
-function GameLayoutAfterLayoutStartHandler(runtime) {
-	setLevelVariables(0, runtime);
-	initializeTileBiome(runtime);
 }

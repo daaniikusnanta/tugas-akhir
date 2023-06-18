@@ -47,6 +47,26 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "maxX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 291570800667561
+		},
+		{
+			"eventType": "variable",
+			"name": "maxY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 805073486357332
+		},
+		{
+			"eventType": "variable",
 			"name": "colors",
 			"type": "number",
 			"initialValue": "10",
@@ -54,6 +74,16 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 987151788495541
+		},
+		{
+			"eventType": "variable",
+			"name": "map_width",
+			"type": "number",
+			"initialValue": "1920",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 407824890545657
 		},
 		{
 			"eventType": "variable",
@@ -184,6 +214,24 @@
 						"type": "log",
 						"message": "AdvancedRandom.Seed"
 					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 698686819230636,
+					"parameters": {
+						"variable": "maxX",
+						"value": "ceil(DrawingCanvas.SnapshotWidth / size)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 922158683175403,
+					"parameters": {
+						"variable": "maxY",
+						"value": "ceil(DrawingCanvas.SnapshotHeight / size)"
+					}
 				}
 			],
 			"sid": 807485863673609,
@@ -265,6 +313,16 @@
 				},
 				{
 					"eventType": "variable",
+					"name": "mapValue",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 544891094633258
+				},
+				{
+					"eventType": "variable",
 					"name": "colorSea",
 					"type": "number",
 					"initialValue": "0",
@@ -309,6 +367,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 808189427896754,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"index x\" & \"|\" & x2 & \"|\" & loopindex & \"|\" &  DrawingCanvas.SnapshotWidth"
@@ -366,6 +425,16 @@
 									"parameters": {
 										"variable": "value",
 										"value": "AdvancedRandom.Classic2d(x2 * size * zm, y2 * size * zm)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 189481549876746,
+									"disabled": true,
+									"parameters": {
+										"variable": "value",
+										"value": "Functions.processValue(x2, y2, maxX, maxY, AdvancedRandom.Classic2d(x2 * size * zm, y2 * size * zm))"
 									}
 								},
 								{
@@ -442,6 +511,15 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 194612376879806,
+													"parameters": {
+														"variable": "mapValue",
+														"value": "value <=  threshold ? 1 : 0"
+													}
+												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
@@ -555,6 +633,32 @@
 											"sid": 235096318475336
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-at-xy",
+											"objectClass": "MapData",
+											"sid": 318050440264847,
+											"parameters": {
+												"x": "x2",
+												"y": "y2",
+												"value": "mapValue"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 884518592604000,
+											"parameters": {
+												"type": "log",
+												"message": "\"MapValue \" & x2 & \"|\" & y2 & \"|\" &  mapValue"
+											}
+										}
+									],
+									"sid": 880150790670714
 								},
 								{
 									"eventType": "block",
@@ -752,6 +856,60 @@
 			]
 		},
 		{
+			"functionName": "processValue",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 306007690494530
+				},
+				{
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 967873539353629
+				},
+				{
+					"name": "width",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 553888486921764
+				},
+				{
+					"name": "height",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 901863808952020
+				},
+				{
+					"name": "value",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 721190859340944
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const {x, y, width, height, value} = localVars;\n\n// needs tweaking\nconst falloffMinDistance = 4;\nconst falloffRadius = Math.min(width, height);\nconst distance = Math.sqrt((x - width/2)**2 + (y - height/2)**2);\n\nlet falloff = 1;\nif (distance > falloffMinDistance) {\nfalloff = Math.max(0, (falloffRadius - distance) / (falloffRadius - falloffMinDistance));\n}\n\nconst falloffNoise = value * falloff;\n\nruntime.setReturnValue(1 - falloffNoise)"
+				}
+			],
+			"sid": 197015115840067
+		},
+		{
 			"functionName": "MenuButtonClicked2",
 			"functionDescription": "",
 			"functionCategory": "",
@@ -903,12 +1061,40 @@
 							}
 						},
 						{
+							"id": "set-size",
+							"objectClass": "MapData",
+							"sid": 440121071133954,
+							"parameters": {
+								"width": "floor(MAP_WIDTH_SMALL / 64)",
+								"height": "floor((MAP_WIDTH_SMALL / 16 * 9) / 64)",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 722840316149887,
+							"parameters": {
+								"type": "log",
+								"message": "\"Small\" & MapData.Width & \"|\" & MapData.Height"
+							}
+						},
+						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 475467778023808,
 							"parameters": {
 								"variable": "size",
 								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_SMALL / 64)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 833298963782959,
+							"parameters": {
+								"variable": "map_width",
+								"value": "MAP_WIDTH_SMALL"
 							}
 						},
 						{
@@ -942,12 +1128,31 @@
 							}
 						},
 						{
+							"id": "set-size",
+							"objectClass": "MapData",
+							"sid": 335370170844619,
+							"parameters": {
+								"width": "floor(MAP_WIDTH_MEDIUM / 64)",
+								"height": "floor((MAP_WIDTH_MEDIUM / 16 * 9) / 64)",
+								"depth": "1"
+							}
+						},
+						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 542445222326092,
 							"parameters": {
 								"variable": "size",
 								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_MEDIUM / 64)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 249644131906441,
+							"parameters": {
+								"variable": "map_width",
+								"value": "MAP_WIDTH_MEDIUM"
 							}
 						},
 						{
@@ -981,6 +1186,16 @@
 							}
 						},
 						{
+							"id": "set-size",
+							"objectClass": "MapData",
+							"sid": 776520969943968,
+							"parameters": {
+								"width": "floor(MAP_WIDTH_LARGE / 64)",
+								"height": "floor((MAP_WIDTH_LARGE / 16 * 9) / 64)",
+								"depth": "1"
+							}
+						},
+						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 555381730951682,
@@ -990,11 +1205,127 @@
 							}
 						},
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 179185701331329,
+							"parameters": {
+								"variable": "map_width",
+								"value": "MAP_WIDTH_LARGE"
+							}
+						},
+						{
 							"callFunction": "CreateMap",
 							"sid": 842297829099360
 						}
 					],
 					"sid": 976836125502235
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 767765901647767,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"next\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 467627601076284,
+							"parameters": {
+								"type": "log",
+								"message": "\"Create \" & MapData.Width & \"|\" & MapData.Height"
+							}
+						}
+					],
+					"sid": 959089417526797,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 477937138116602,
+									"parameters": {
+										"variable": "map_width",
+										"comparison": 0,
+										"value": "MAP_WIDTH_SMALL"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 488296818273710,
+									"parameters": {
+										"layout": "SmallMapLayout"
+									}
+								}
+							],
+							"sid": 630102247387663
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 656065580126414,
+									"parameters": {
+										"variable": "map_width",
+										"comparison": 0,
+										"value": "MAP_WIDTH_MEDIUM"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 188220166427744,
+									"parameters": {
+										"layout": "MediumMapLayout"
+									}
+								}
+							],
+							"sid": 720756740601180
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 839675550144931,
+									"parameters": {
+										"variable": "map_width",
+										"comparison": 0,
+										"value": "MAP_WIDTH_LARGE"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 648835930550819,
+									"parameters": {
+										"layout": "LargeMapLayout"
+									}
+								}
+							],
+							"sid": 749803686781602
+						}
+					]
 				}
 			]
 		},

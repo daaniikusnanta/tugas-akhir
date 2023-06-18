@@ -83,8 +83,12 @@
 					],
 					"actions": [
 						{
+							"callFunction": "setupMap",
+							"sid": 298997681691886
+						},
+						{
 							"type": "script",
-							"script": "initializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);"
+							"script": "initializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);"
 						},
 						{
 							"callFunction": "SetupClickablePanels",
@@ -1367,6 +1371,115 @@
 								}
 							],
 							"sid": 538780034970911
+						}
+					]
+				},
+				{
+					"functionName": "setupMap",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "is-empty",
+							"objectClass": "MapData",
+							"sid": 355190005855381,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 940653053421972,
+							"parameters": {
+								"type": "log",
+								"message": "\"Setup\" & MapData.Width & \"|\" & MapData.Height"
+							}
+						}
+					],
+					"sid": 648571395013887,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "MapData",
+									"sid": 760406613150797,
+									"parameters": {
+										"axes": "xy"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 456183873283089,
+									"parameters": {
+										"type": "log",
+										"message": "\"Array \" & MapData.CurX & \"|\" & MapData.CurY & \"|\" &  MapData.CurValue"
+									}
+								}
+							],
+							"sid": 721234900582712,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-current-value",
+											"objectClass": "MapData",
+											"sid": 395597803044781,
+											"parameters": {
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "erase-tile",
+											"objectClass": "TilemapBiome",
+											"sid": 972721182172325,
+											"parameters": {
+												"tile-x": "MapData.CurX",
+												"tile-y": "MapData.CurY"
+											}
+										}
+									],
+									"sid": 251292988278848
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 419937548858994
+										}
+									],
+									"actions": [
+										{
+											"id": "set-tile",
+											"objectClass": "TilemapBiome",
+											"sid": 962497160339204,
+											"parameters": {
+												"tile-x": "MapData.CurX",
+												"tile-y": "MapData.CurY",
+												"tile": "2",
+												"state": "normal"
+											}
+										}
+									],
+									"sid": 664634947625454
+								}
+							]
 						}
 					]
 				}

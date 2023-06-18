@@ -10,7 +10,7 @@ import {
   getObjectbyId,
   setScrollableHeight,
 } from "./utils.js";
-import { expandCrisisTiles } from "./tile-data.js";
+import { expandCrisisTiles, initializeTileBiome } from "./tile-data.js";
 import {
   policy,
   createPolicyEffectViews,
@@ -21,6 +21,7 @@ import {
   updatePolicy,
 } from "./policy-data.js";
 import { updateIncome, updateSpending } from "./fiscal-data.js";
+import { setLevelVariables } from "./level-data.js";
 
 function updateAllStatus() {
   for (const statusName in status) {
