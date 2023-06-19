@@ -7,7 +7,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "size",
+			"name": "mapSize",
 			"type": "number",
 			"initialValue": "13.8",
 			"comment": "",
@@ -17,7 +17,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "zm",
+			"name": "mapZoom",
 			"type": "number",
 			"initialValue": "0.5",
 			"comment": "",
@@ -27,7 +27,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "threshold",
+			"name": "mapThreshold",
 			"type": "number",
 			"initialValue": "0.5",
 			"comment": "",
@@ -69,7 +69,7 @@
 			"eventType": "variable",
 			"name": "colors",
 			"type": "number",
-			"initialValue": "10",
+			"initialValue": "20",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -104,6 +104,16 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 848585838474953
+		},
+		{
+			"eventType": "variable",
+			"name": "seed",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 674121724462828
 		},
 		{
 			"eventType": "variable",
@@ -207,21 +217,12 @@
 					}
 				},
 				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 235030745006763,
-					"parameters": {
-						"type": "log",
-						"message": "AdvancedRandom.Seed"
-					}
-				},
-				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 698686819230636,
 					"parameters": {
 						"variable": "maxX",
-						"value": "ceil(DrawingCanvas.SnapshotWidth / size)"
+						"value": "ceil(DrawingCanvas.SnapshotWidth / mapSize)"
 					}
 				},
 				{
@@ -230,7 +231,16 @@
 					"sid": 922158683175403,
 					"parameters": {
 						"variable": "maxY",
-						"value": "ceil(DrawingCanvas.SnapshotHeight / size)"
+						"value": "ceil(DrawingCanvas.SnapshotHeight / mapSize)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 988675746989106,
+					"parameters": {
+						"variable": "seed",
+						"value": "AdvancedRandom.Seed"
 					}
 				}
 			],
@@ -349,7 +359,7 @@
 							"objectClass": "System",
 							"sid": 741027950947216,
 							"parameters": {
-								"count": "DrawingCanvas.SnapshotWidth /size"
+								"count": "DrawingCanvas.SnapshotWidth /mapSize"
 							}
 						}
 					],
@@ -379,7 +389,7 @@
 							"sid": 695783024142042,
 							"disabled": true,
 							"parameters": {
-								"variable": "size",
+								"variable": "mapSize",
 								"value": "DrawingCanvas.SnapshotWidth / 16"
 							}
 						}
@@ -394,7 +404,7 @@
 									"objectClass": "System",
 									"sid": 768787099214494,
 									"parameters": {
-										"count": "DrawingCanvas.SnapshotHeight / size"
+										"count": "DrawingCanvas.SnapshotHeight / mapSize"
 									}
 								}
 							],
@@ -424,7 +434,7 @@
 									"sid": 379332391081604,
 									"parameters": {
 										"variable": "value",
-										"value": "AdvancedRandom.Classic2d(x2 * size * zm, y2 * size * zm)"
+										"value": "AdvancedRandom.Classic2d(x2 * mapSize * mapZoom, y2 * mapSize * mapZoom)"
 									}
 								},
 								{
@@ -434,7 +444,7 @@
 									"disabled": true,
 									"parameters": {
 										"variable": "value",
-										"value": "Functions.processValue(x2, y2, maxX, maxY, AdvancedRandom.Classic2d(x2 * size * zm, y2 * size * zm))"
+										"value": "Functions.processValue(x2, y2, maxX, maxY, AdvancedRandom.Classic2d(x2 * mapSize * mapZoom, y2 * mapSize * mapZoom))"
 									}
 								},
 								{
@@ -444,7 +454,7 @@
 									"disabled": true,
 									"parameters": {
 										"variable": "value",
-										"value": "AdvancedRandom.Classic2d(x2 * AdvancedRandom.Classic2d(x2 * zm * size, y2 * zm * size), y2 * AdvancedRandom.Classic2d(y2 * zm * size, x2 * zm * size)) ^ 3"
+										"value": "AdvancedRandom.Classic2d(x2 * AdvancedRandom.Classic2d(x2 * mapZoom * mapSize, y2 * mapZoom * mapSize), y2 * AdvancedRandom.Classic2d(y2 * mapZoom * mapSize, x2 * mapZoom * mapSize)) ^ 3"
 									}
 								}
 							],
@@ -484,7 +494,7 @@
 													"sid": 662159854321549,
 													"parameters": {
 														"variable": "value",
-														"value": "value > threshold ? rgbEx255(127, 191, 114) : rgbEx255(63, 124, 196)"
+														"value": "value > mapThreshold ? rgbEx255(127, 191, 114) : rgbEx255(63, 124, 196)"
 													}
 												},
 												{
@@ -517,7 +527,7 @@
 													"sid": 194612376879806,
 													"parameters": {
 														"variable": "mapValue",
-														"value": "value <=  threshold ? 1 : 0"
+														"value": "value <=  mapThreshold ? 1 : 0"
 													}
 												},
 												{
@@ -526,7 +536,7 @@
 													"sid": 840273442104580,
 													"parameters": {
 														"variable": "value",
-														"value": "value <=  threshold ? rgbEx255(127, 191, 114) : rgbEx255(63, 124, 196)"
+														"value": "value <=  mapThreshold ? rgbEx255(127, 191, 114) : rgbEx255(63, 124, 196)"
 													}
 												},
 												{
@@ -641,7 +651,7 @@
 										{
 											"id": "set-at-xy",
 											"objectClass": "MapData",
-											"sid": 318050440264847,
+											"sid": 335782995716083,
 											"parameters": {
 												"x": "x2",
 												"y": "y2",
@@ -668,7 +678,7 @@
 											"objectClass": "System",
 											"sid": 357970942267611,
 											"parameters": {
-												"count": "size"
+												"count": "mapSize"
 											}
 										}
 									],
@@ -679,7 +689,7 @@
 											"sid": 963004909012498,
 											"parameters": {
 												"variable": "x",
-												"value": "(x2)*size + (loopindex)"
+												"value": "(x2)*mapSize + (loopindex)"
 											}
 										}
 									],
@@ -693,7 +703,7 @@
 													"objectClass": "System",
 													"sid": 906321094288718,
 													"parameters": {
-														"count": "size"
+														"count": "mapSize"
 													}
 												}
 											],
@@ -704,7 +714,7 @@
 													"sid": 608780490817701,
 													"parameters": {
 														"variable": "y",
-														"value": "(y2)*size + (loopindex)"
+														"value": "(y2)*mapSize + (loopindex)"
 													}
 												},
 												{
@@ -1084,7 +1094,7 @@
 							"objectClass": "System",
 							"sid": 475467778023808,
 							"parameters": {
-								"variable": "size",
+								"variable": "mapSize",
 								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_SMALL / 64)"
 							}
 						},
@@ -1142,7 +1152,7 @@
 							"objectClass": "System",
 							"sid": 542445222326092,
 							"parameters": {
-								"variable": "size",
+								"variable": "mapSize",
 								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_MEDIUM / 64)"
 							}
 						},
@@ -1200,7 +1210,7 @@
 							"objectClass": "System",
 							"sid": 555381730951682,
 							"parameters": {
-								"variable": "size",
+								"variable": "mapSize",
 								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_LARGE / 64)"
 							}
 						},
@@ -1478,7 +1488,7 @@
 									"objectClass": "System",
 									"sid": 535963582719562,
 									"parameters": {
-										"variable": "zm",
+										"variable": "mapZoom",
 										"value": "Slider.value"
 									}
 								},
@@ -1509,7 +1519,7 @@
 									"objectClass": "System",
 									"sid": 855071667521340,
 									"parameters": {
-										"variable": "threshold",
+										"variable": "mapThreshold",
 										"value": "Slider.value"
 									}
 								},
@@ -1540,7 +1550,7 @@
 									"objectClass": "System",
 									"sid": 148043557408571,
 									"parameters": {
-										"variable": "size",
+										"variable": "mapSize",
 										"value": "Slider.value + 1"
 									}
 								},
@@ -1653,7 +1663,7 @@
 									"objectClass": "System",
 									"sid": 126495266325217,
 									"parameters": {
-										"variable": "threshold",
+										"variable": "mapThreshold",
 										"value": "0.4 + Slider.value"
 									}
 								},

@@ -3,7 +3,15 @@
 	"plugin-id": "DrawingCanvas",
 	"sid": 554795428561067,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 723009668193304
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": []
 }

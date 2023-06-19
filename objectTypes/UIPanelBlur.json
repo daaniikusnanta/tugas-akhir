@@ -1,7 +1,7 @@
 {
-	"name": "UIPanel",
+	"name": "UIPanelBlur",
 	"plugin-id": "NinePatch",
-	"sid": 229785423124815,
+	"sid": 223563945909328,
 	"isGlobal": false,
 	"instanceVariables": [
 		{
@@ -9,11 +9,24 @@
 			"type": "string",
 			"desc": "",
 			"show": true,
-			"sid": 248779726102864
+			"sid": 250404746341683
 		}
 	],
 	"behaviorTypes": [],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "screen",
+			"name": "Screen"
+		},
+		{
+			"effectId": "blurhorizontal",
+			"name": "BlurHorizontal"
+		},
+		{
+			"effectId": "blurvertical",
+			"name": "BlurVertical"
+		}
+	],
 	"image": {
 		"width": 250,
 		"height": 250,
@@ -22,7 +35,7 @@
 		"originalSource": "",
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
-		"imageSpriteId": 8967563,
+		"imageSpriteId": 7442300,
 		"useCollisionPoly": true
 	}
 }

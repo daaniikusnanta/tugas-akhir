@@ -102,11 +102,11 @@
 							"behaviors": {},
 							"ownData": {
 								"tilemapData": {
-									"width": 54,
-									"height": 30,
-									"max-width": 84,
-									"max-height": 47,
-									"data": "11x0,24vd,5x24hd,40x0,22hd,6x24hd,32x0,29hd,2x31hd,29,3x0,29hd,31hv,27vd,24hd,26,25,26vd,24hd,32x0,2x31hd,32,31hd,2x0,29hd,31hd,33,32,4x25,24hd,32x0,31hd,2x32,31hd,2x0,2x31hd,2x32,28vd,3x25,24hd,31x0,29hd,3x31hd,29vd,2x0,2x31hd,2x32,28hv,3x25,24hd,31x0,32,33vd,2x31hd,3x0,2x31hd,33hd,32,3x25,26hv,24hd,31x0,2x32,2x31hd,3x0,29hv,2x31hd,27hv,5x24hd,31x0,2x32,31hd,29vd,6x0,22hv,5x24hd,31x0,30hv,32,29vd,9x0,22hv,3x24hd,44x0,3x24hd,43x0,22hd,3x24hd,43x0,3x24hd,26,34x0,1hd,2x3,1,4x0,15hd,20hd,24hd,26,25,31x0,1hd,6x3,1,3x0,2x17hd,20hd,2x25,30x0,2x3,5,3x4,5vd,2x3,3x0,3x17hd,2x25,30x0,2x3,6x4,3,3x0,3x17hd,21hd,25,30x0,3,4,5hd,4x4,2x3,3x0,3x17hd,2x18,30x0,5vd,7x3,1vd,3x0,15hv,2x17hd,19hd,18,30x0,4,2x3vd,4,2x3,1vd,7x0,15hv,2x17hd,30x0,4,5vd,3vd,2x4,3,41x0,2x4,3vd,4,2x3,41x0,7vd,4,2x3vd,3,1vd,41x0,2x11,10hd,6vd,3,42x0,2x11,12vd,10vd,6vd,5x0,15hd,3x17hd,15,32x0,3x11,10hd,10vd,8,2x0,15hd,8x17hd,30x0,3x11,3x10hd,5x17hd,18,3x17hd,18,17hd,30x0,3x11,3x10hd,13hd,17hd,19,18,19vd,2x17hd,2x18,2x17hd,30x0,12hv,11,3x10hd,12,11,14hd,3x18,17hd,3x18,2x17hd,30x0,3x10hd,12,11,11hv,5x11,10hd,13hd,18,3x17hd,2568x0"
+									"width": 55,
+									"height": 31,
+									"max-width": 88,
+									"max-height": 48,
+									"data": "11x0,24vd,5x24hd,41x0,22hd,6x24hd,33x0,29hd,2x31hd,29,3x0,29hd,31hv,27vd,24hd,26,25,26vd,24hd,33x0,2x31hd,32,31hd,2x0,29hd,31hd,33,32,4x25,24hd,33x0,31hd,2x32,31hd,2x0,2x31hd,2x32,28vd,3x25,24hd,32x0,29hd,3x31hd,29vd,2x0,2x31hd,2x32,28hv,3x25,24hd,32x0,32,33vd,2x31hd,3x0,2x31hd,33hd,32,3x25,26hv,24hd,32x0,2x32,2x31hd,3x0,29hv,2x31hd,27hv,5x24hd,32x0,2x32,31hd,29vd,6x0,22hv,5x24hd,32x0,30hv,32,29vd,9x0,22hv,3x24hd,45x0,3x24hd,44x0,22hd,3x24hd,44x0,3x24hd,26,35x0,1hd,2x3,1,4x0,15hd,20hd,24hd,26,25,32x0,1hd,6x3,1,3x0,2x17hd,20hd,2x25,31x0,2x3,5,3x4,5vd,2x3,3x0,3x17hd,2x25,31x0,2x3,6x4,3,3x0,3x17hd,21hd,25,31x0,3,4,5hd,4x4,2x3,3x0,3x17hd,2x18,31x0,5vd,7x3,1vd,3x0,15hv,2x17hd,19hd,18,31x0,4,2x3vd,4,2x3,1vd,7x0,15hv,2x17hd,31x0,4,5vd,3vd,2x4,3,42x0,2x4,3vd,4,2x3,42x0,7vd,4,2x3vd,3,1vd,42x0,2x11,10hd,6vd,3,43x0,2x11,12vd,10vd,6vd,5x0,15hd,3x17hd,15,33x0,3x11,10hd,10vd,8,2x0,15hd,8x17hd,31x0,3x11,3x10hd,5x17hd,18,3x17hd,18,17hd,31x0,3x11,3x10hd,13hd,17hd,19,18,19vd,2x17hd,2x18,2x17hd,31x0,12hv,11,3x10hd,12,11,14hd,3x18,17hd,3x18,2x17hd,31x0,3x10hd,12,11,11hv,5x11,10hd,13hd,18,3x17hd,1164x0,2x3,47x0,3,1601x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -118,8 +118,8 @@
 							"world": {
 								"x": 0,
 								"y": 0,
-								"width": 3504,
-								"height": 1971,
+								"width": 3521,
+								"height": 1989,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -129,6 +129,35 @@
 									1
 								],
 								"zElevation": 0
+							}
+						},
+						{
+							"type": "DrawingCanvas",
+							"properties": {
+								"resolution-mode": "auto",
+								"initially-visible": true,
+								"origin": "top-left",
+								"antialiasing": "off"
+							},
+							"uid": 370,
+							"instanceVariables": {
+								"id": "map_texture"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 0,
+								"y": 0,
+								"width": 517.6356504981732,
+								"height": 291.17005340522223,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0
 							}
 						}
 					],
@@ -186,11 +215,11 @@
 							"behaviors": {},
 							"ownData": {
 								"tilemapData": {
-									"width": 54,
-									"height": 30,
-									"max-width": 92,
-									"max-height": 54,
-									"data": "4968x0"
+									"width": 55,
+									"height": 31,
+									"max-width": 93,
+									"max-height": 55,
+									"data": "5115x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -202,8 +231,8 @@
 							"world": {
 								"x": 0,
 								"y": 0,
-								"width": 3504,
-								"height": 1971,
+								"width": 3521,
+								"height": 1989,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -236,11 +265,11 @@
 							"behaviors": {},
 							"ownData": {
 								"tilemapData": {
-									"width": 54,
-									"height": 30,
-									"max-width": 92,
-									"max-height": 54,
-									"data": "4968x0"
+									"width": 55,
+									"height": 31,
+									"max-width": 93,
+									"max-height": 55,
+									"data": "5115x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -252,8 +281,8 @@
 							"world": {
 								"x": 0,
 								"y": 0,
-								"width": 3504,
-								"height": 1971,
+								"width": 3521,
+								"height": 1989,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -286,11 +315,11 @@
 							"behaviors": {},
 							"ownData": {
 								"tilemapData": {
-									"width": 54,
-									"height": 30,
-									"max-width": 92,
-									"max-height": 54,
-									"data": "4968x0"
+									"width": 55,
+									"height": 31,
+									"max-width": 93,
+									"max-height": 55,
+									"data": "5115x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -302,8 +331,8 @@
 							"world": {
 								"x": 0,
 								"y": 0,
-								"width": 3504,
-								"height": 1971,
+								"width": 3521,
+								"height": 1989,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -336,11 +365,11 @@
 							"behaviors": {},
 							"ownData": {
 								"tilemapData": {
-									"width": 54,
-									"height": 30,
-									"max-width": 92,
-									"max-height": 54,
-									"data": "4968x0"
+									"width": 55,
+									"height": 31,
+									"max-width": 93,
+									"max-height": 55,
+									"data": "5115x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -352,8 +381,8 @@
 							"world": {
 								"x": 0,
 								"y": 0,
-								"width": 3504,
-								"height": 1971,
+								"width": 3521,
+								"height": 1989,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -386,11 +415,11 @@
 							"behaviors": {},
 							"ownData": {
 								"tilemapData": {
-									"width": 54,
-									"height": 30,
-									"max-width": 92,
-									"max-height": 54,
-									"data": "4968x0"
+									"width": 55,
+									"height": 31,
+									"max-width": 93,
+									"max-height": 55,
+									"data": "5115x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -402,8 +431,8 @@
 							"world": {
 								"x": 0,
 								"y": 0,
-								"width": 3504,
-								"height": 1971,
+								"width": 3521,
+								"height": 1989,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -436,11 +465,11 @@
 							"behaviors": {},
 							"ownData": {
 								"tilemapData": {
-									"width": 54,
-									"height": 30,
-									"max-width": 92,
-									"max-height": 54,
-									"data": "4968x0"
+									"width": 55,
+									"height": 31,
+									"max-width": 93,
+									"max-height": 55,
+									"data": "5115x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -452,8 +481,8 @@
 							"world": {
 								"x": 0,
 								"y": 0,
-								"width": 3504,
-								"height": 1971,
+								"width": 3521,
+								"height": 1989,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -486,11 +515,11 @@
 							"behaviors": {},
 							"ownData": {
 								"tilemapData": {
-									"width": 54,
-									"height": 30,
-									"max-width": 92,
-									"max-height": 54,
-									"data": "4968x0"
+									"width": 55,
+									"height": 31,
+									"max-width": 93,
+									"max-height": 55,
+									"data": "5115x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -502,8 +531,8 @@
 							"world": {
 								"x": 0,
 								"y": 0,
-								"width": 3504,
-								"height": 1971,
+								"width": 3521,
+								"height": 1989,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -536,11 +565,11 @@
 							"behaviors": {},
 							"ownData": {
 								"tilemapData": {
-									"width": 54,
-									"height": 30,
-									"max-width": 92,
-									"max-height": 54,
-									"data": "4968x0"
+									"width": 55,
+									"height": 31,
+									"max-width": 93,
+									"max-height": 55,
+									"data": "5115x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -552,8 +581,8 @@
 							"world": {
 								"x": 0,
 								"y": 0,
-								"width": 3504,
-								"height": 1971,
+								"width": 3521,
+								"height": 1989,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -586,11 +615,11 @@
 							"behaviors": {},
 							"ownData": {
 								"tilemapData": {
-									"width": 54,
-									"height": 30,
-									"max-width": 92,
-									"max-height": 54,
-									"data": "4968x0"
+									"width": 55,
+									"height": 31,
+									"max-width": 93,
+									"max-height": 55,
+									"data": "5115x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -602,8 +631,8 @@
 							"world": {
 								"x": 0,
 								"y": 0,
-								"width": 3504,
-								"height": 1971,
+								"width": 3521,
+								"height": 1989,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -636,11 +665,11 @@
 							"behaviors": {},
 							"ownData": {
 								"tilemapData": {
-									"width": 54,
-									"height": 30,
-									"max-width": 92,
-									"max-height": 54,
-									"data": "4968x0"
+									"width": 55,
+									"height": 31,
+									"max-width": 93,
+									"max-height": 55,
+									"data": "5115x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -652,8 +681,8 @@
 							"world": {
 								"x": 0,
 								"y": 0,
-								"width": 3504,
-								"height": 1971,
+								"width": 3521,
+								"height": 1989,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -686,11 +715,11 @@
 							"behaviors": {},
 							"ownData": {
 								"tilemapData": {
-									"width": 54,
-									"height": 30,
-									"max-width": 92,
-									"max-height": 54,
-									"data": "4968x0"
+									"width": 55,
+									"height": 31,
+									"max-width": 93,
+									"max-height": 55,
+									"data": "5115x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -702,8 +731,8 @@
 							"world": {
 								"x": 0,
 								"y": 0,
-								"width": 3504,
-								"height": 1971,
+								"width": 3521,
+								"height": 1989,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -930,10 +959,10 @@
 								{
 									"type": "UIPanel",
 									"properties": {
-										"left-margin": 16,
-										"right-margin": 16,
-										"top-margin": 16,
-										"bottom-margin": 16,
+										"left-margin": 15,
+										"right-margin": 15,
+										"top-margin": 15,
+										"bottom-margin": 15,
 										"edges": "stretch",
 										"fill": "stretch",
 										"initially-visible": true,
@@ -1123,10 +1152,10 @@
 								{
 									"type": "UIPanel",
 									"properties": {
-										"left-margin": 16,
-										"right-margin": 16,
-										"top-margin": 16,
-										"bottom-margin": 16,
+										"left-margin": 15,
+										"right-margin": 15,
+										"top-margin": 15,
+										"bottom-margin": 15,
 										"edges": "stretch",
 										"fill": "stretch",
 										"initially-visible": true,
@@ -1258,10 +1287,10 @@
 						{
 							"type": "UIPanel",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 15,
+								"right-margin": 15,
+								"top-margin": 15,
+								"bottom-margin": 15,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -2329,10 +2358,10 @@
 						{
 							"type": "UIPanel",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 15,
+								"right-margin": 15,
+								"top-margin": 15,
+								"bottom-margin": 15,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -2488,10 +2517,10 @@
 						{
 							"type": "UIPanel",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 15,
+								"right-margin": 15,
+								"top-margin": 15,
+								"bottom-margin": 15,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -3465,10 +3494,10 @@
 						{
 							"type": "UIPanel",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 15,
+								"right-margin": 15,
+								"top-margin": 15,
+								"bottom-margin": 15,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -3562,10 +3591,10 @@
 						{
 							"type": "UIPanel",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 15,
+								"right-margin": 15,
+								"top-margin": 15,
+								"bottom-margin": 15,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -3793,10 +3822,10 @@
 				{
 					"type": "UIPanel",
 					"properties": {
-						"left-margin": 16,
-						"right-margin": 16,
-						"top-margin": 16,
-						"bottom-margin": 16,
+						"left-margin": 15,
+						"right-margin": 15,
+						"top-margin": 15,
+						"bottom-margin": 15,
 						"edges": "stretch",
 						"fill": "stretch",
 						"initially-visible": true,
@@ -4222,7 +4251,7 @@
 					}
 				},
 				{
-					"type": "UIPanel",
+					"type": "UIPanelBlur",
 					"properties": {
 						"left-margin": 16,
 						"right-margin": 16,
@@ -4233,6 +4262,59 @@
 						"initially-visible": true,
 						"origin": "top-left",
 						"seams": "overlap"
+					},
+					"uid": 366,
+					"instanceVariables": {
+						"id": ""
+					},
+					"behaviors": {},
+					"effects": {
+						"Screen": {
+							"isEnabled": true,
+							"parameters": {}
+						},
+						"BlurHorizontal": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"BlurVertical": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 0,
+						"y": 980,
+						"width": 1920,
+						"height": 100,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIPanel",
+					"properties": {
+						"left-margin": 15,
+						"right-margin": 15,
+						"top-margin": 15,
+						"bottom-margin": 15,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "exact"
 					},
 					"uid": 274,
 					"instanceVariables": {
@@ -4250,7 +4332,7 @@
 							1,
 							1,
 							1,
-							1
+							0.7
 						],
 						"angle": 0,
 						"zElevation": 0

@@ -135,6 +135,20 @@
 		},
 		{
 			"type": "effect",
+			"id": "blurhorizontal",
+			"name": "Blur horizontal",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "blurvertical",
+			"name": "Blur vertical",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
 			"id": "brightness",
 			"name": "Brightness",
 			"author": "Scirra",
@@ -144,6 +158,13 @@
 			"type": "effect",
 			"id": "exposure",
 			"name": "Exposure",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "screen",
+			"name": "Screen",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -183,7 +204,9 @@
 			"SliderBarBG2",
 			"AdvancedRandom",
 			"DrawingCanvas",
-			"MapData"
+			"MapData",
+			"Blur",
+			"UIPanelBlur"
 		],
 		"subfolders": [
 			{

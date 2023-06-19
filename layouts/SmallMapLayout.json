@@ -103,10 +103,10 @@
 							"ownData": {
 								"tilemapData": {
 									"width": 30,
-									"height": 16,
+									"height": 17,
 									"max-width": 78,
-									"max-height": 47,
-									"data": "11x0,24vd,5x24hd,40x0,22hd,6x24hd,32x0,29hd,2x31hd,29,3x0,29hd,31hv,27vd,24hd,26,25,26vd,24hd,32x0,2x31hd,32,31hd,2x0,29hd,31hd,33,32,4x25,24hd,32x0,31hd,2x32,31hd,2x0,2x31hd,2x32,28vd,3x25,24hd,31x0,29hd,3x31hd,29vd,2x0,2x31hd,2x32,28hv,3x25,24hd,31x0,32,33vd,2x31hd,3x0,2x31hd,33hd,32,3x25,26hv,24hd,31x0,2x32,2x31hd,3x0,29hv,2x31hd,27hv,5x24hd,31x0,2x32,31hd,29vd,6x0,22hv,5x24hd,31x0,30hv,32,29vd,9x0,22hv,3x24hd,44x0,3x24hd,43x0,22hd,3x24hd,43x0,3x24hd,26,34x0,1hd,2x3,1,4x0,15hd,20hd,24hd,26,25,31x0,1hd,6x3,1,3x0,2x17hd,20hd,2x25,30x0,2x3,5,3x4,5vd,2x3,3x0,3x17hd,2x25,30x0,2x3,6x4,3,3x0,3x17hd,21hd,25,30x0,3,4,5hd,4x4,2x3,3x0,3x17hd,2x18,30x0,5vd,7x3,1vd,3x0,15hv,2x17hd,19hd,18,30x0,4,2x3vd,4,2x3,1vd,7x0,15hv,2x17hd,30x0,4,5vd,3vd,2x4,3,41x0,2x4,3vd,4,2x3,41x0,7vd,4,2x3vd,3,1vd,41x0,2x11,10hd,6vd,3,42x0,2x11,12vd,10vd,6vd,5x0,15hd,3x17hd,15,32x0,3x11,10hd,10vd,8,2x0,15hd,8x17hd,30x0,3x11,3x10hd,5x17hd,18,3x17hd,18,17hd,30x0,3x11,3x10hd,13hd,17hd,19,18,19vd,2x17hd,2x18,2x17hd,30x0,12hv,11,3x10hd,12,11,14hd,3x18,17hd,3x18,2x17hd,30x0,3x10hd,12,11,11hv,5x11,10hd,13hd,18,3x17hd,2286x0"
+									"max-height": 50,
+									"data": "11x0,24vd,5x24hd,43x0,22hd,6x24hd,35x0,29hd,2x31hd,29,3x0,29hd,31hv,27vd,24hd,26,25,26vd,24hd,35x0,2x31hd,32,31hd,2x0,29hd,31hd,33,32,4x25,24hd,35x0,31hd,2x32,31hd,2x0,2x31hd,2x32,28vd,3x25,24hd,34x0,29hd,3x31hd,29vd,2x0,2x31hd,2x32,28hv,3x25,24hd,34x0,32,33vd,2x31hd,3x0,2x31hd,33hd,32,3x25,26hv,24hd,34x0,2x32,2x31hd,3x0,29hv,2x31hd,27hv,5x24hd,34x0,2x32,31hd,29vd,6x0,22hv,5x24hd,34x0,30hv,32,29vd,9x0,22hv,3x24hd,47x0,3x24hd,46x0,22hd,3x24hd,46x0,3x24hd,26,37x0,1hd,2x3,1,4x0,15hd,20hd,24hd,26,25,34x0,1hd,6x3,1,3x0,2x17hd,20hd,2x25,33x0,2x3,5,3x4,5vd,2x3,3x0,3x17hd,2x25,33x0,2x3,6x4,3,3x0,3x17hd,21hd,25,33x0,3,4,5hd,4x4,2x3,3x0,3x17hd,2x18,33x0,5vd,7x3,1vd,3x0,15hv,2x17hd,19hd,18,33x0,4,2x3vd,4,2x3,1vd,7x0,15hv,2x17hd,33x0,4,5vd,3vd,2x4,3,44x0,2x4,3vd,4,2x3,44x0,7vd,4,2x3vd,3,1vd,44x0,2x11,10hd,6vd,3,45x0,2x11,12vd,10vd,6vd,5x0,15hd,3x17hd,15,35x0,3x11,10hd,10vd,8,2x0,15hd,8x17hd,33x0,3x11,3x10hd,5x17hd,18,3x17hd,18,17hd,33x0,3x11,3x10hd,13hd,17hd,19,18,19vd,2x17hd,2x18,2x17hd,33x0,12hv,11,3x10hd,12,11,14hd,3x18,17hd,3x18,2x17hd,33x0,3x10hd,12,11,11hv,5x11,10hd,13hd,18,3x17hd,2433x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -115,6 +115,35 @@
 								"tile-x-spacing": 0,
 								"tile-y-spacing": 0
 							},
+							"world": {
+								"x": 0,
+								"y": 0,
+								"width": 1920,
+								"height": 1090,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "DrawingCanvas",
+							"properties": {
+								"resolution-mode": "auto",
+								"initially-visible": true,
+								"origin": "top-left",
+								"antialiasing": "off"
+							},
+							"uid": 371,
+							"instanceVariables": {
+								"id": "map_texture"
+							},
+							"behaviors": {},
 							"world": {
 								"x": 0,
 								"y": 0,
@@ -128,7 +157,8 @@
 									1,
 									1
 								],
-								"zElevation": 0
+								"angle": 0,
+								"blendMode": "source-atop"
 							}
 						}
 					],
@@ -189,8 +219,8 @@
 									"width": 30,
 									"height": 16,
 									"max-width": 77,
-									"max-height": 47,
-									"data": "3619x0"
+									"max-height": 48,
+									"data": "3696x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -239,8 +269,8 @@
 									"width": 30,
 									"height": 16,
 									"max-width": 77,
-									"max-height": 47,
-									"data": "3619x0"
+									"max-height": 48,
+									"data": "3696x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -289,8 +319,8 @@
 									"width": 30,
 									"height": 16,
 									"max-width": 77,
-									"max-height": 47,
-									"data": "3619x0"
+									"max-height": 48,
+									"data": "3696x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -339,8 +369,8 @@
 									"width": 30,
 									"height": 16,
 									"max-width": 77,
-									"max-height": 47,
-									"data": "3619x0"
+									"max-height": 48,
+									"data": "3696x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -389,8 +419,8 @@
 									"width": 30,
 									"height": 16,
 									"max-width": 77,
-									"max-height": 47,
-									"data": "3619x0"
+									"max-height": 48,
+									"data": "3696x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -439,8 +469,8 @@
 									"width": 30,
 									"height": 16,
 									"max-width": 77,
-									"max-height": 47,
-									"data": "3619x0"
+									"max-height": 48,
+									"data": "3696x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -489,8 +519,8 @@
 									"width": 30,
 									"height": 16,
 									"max-width": 77,
-									"max-height": 47,
-									"data": "3619x0"
+									"max-height": 48,
+									"data": "3696x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -539,8 +569,8 @@
 									"width": 30,
 									"height": 16,
 									"max-width": 77,
-									"max-height": 47,
-									"data": "3619x0"
+									"max-height": 48,
+									"data": "3696x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -589,8 +619,8 @@
 									"width": 30,
 									"height": 16,
 									"max-width": 77,
-									"max-height": 47,
-									"data": "3619x0"
+									"max-height": 48,
+									"data": "3696x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -639,8 +669,8 @@
 									"width": 30,
 									"height": 16,
 									"max-width": 82,
-									"max-height": 50,
-									"data": "4100x0"
+									"max-height": 51,
+									"data": "4182x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -689,8 +719,8 @@
 									"width": 30,
 									"height": 16,
 									"max-width": 82,
-									"max-height": 51,
-									"data": "4182x0"
+									"max-height": 52,
+									"data": "4264x0"
 								},
 								"tile-width": 64,
 								"tile-height": 64,
@@ -930,10 +960,10 @@
 								{
 									"type": "UIPanel",
 									"properties": {
-										"left-margin": 16,
-										"right-margin": 16,
-										"top-margin": 16,
-										"bottom-margin": 16,
+										"left-margin": 15,
+										"right-margin": 15,
+										"top-margin": 15,
+										"bottom-margin": 15,
 										"edges": "stretch",
 										"fill": "stretch",
 										"initially-visible": true,
@@ -1123,10 +1153,10 @@
 								{
 									"type": "UIPanel",
 									"properties": {
-										"left-margin": 16,
-										"right-margin": 16,
-										"top-margin": 16,
-										"bottom-margin": 16,
+										"left-margin": 15,
+										"right-margin": 15,
+										"top-margin": 15,
+										"bottom-margin": 15,
 										"edges": "stretch",
 										"fill": "stretch",
 										"initially-visible": true,
@@ -1258,10 +1288,10 @@
 						{
 							"type": "UIPanel",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 15,
+								"right-margin": 15,
+								"top-margin": 15,
+								"bottom-margin": 15,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -2329,10 +2359,10 @@
 						{
 							"type": "UIPanel",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 15,
+								"right-margin": 15,
+								"top-margin": 15,
+								"bottom-margin": 15,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -2488,10 +2518,10 @@
 						{
 							"type": "UIPanel",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 15,
+								"right-margin": 15,
+								"top-margin": 15,
+								"bottom-margin": 15,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -3465,10 +3495,10 @@
 						{
 							"type": "UIPanel",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 15,
+								"right-margin": 15,
+								"top-margin": 15,
+								"bottom-margin": 15,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -3562,10 +3592,10 @@
 						{
 							"type": "UIPanel",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 15,
+								"right-margin": 15,
+								"top-margin": 15,
+								"bottom-margin": 15,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -3793,10 +3823,10 @@
 				{
 					"type": "UIPanel",
 					"properties": {
-						"left-margin": 16,
-						"right-margin": 16,
-						"top-margin": 16,
-						"bottom-margin": 16,
+						"left-margin": 15,
+						"right-margin": 15,
+						"top-margin": 15,
+						"bottom-margin": 15,
 						"edges": "stretch",
 						"fill": "stretch",
 						"initially-visible": true,
@@ -4224,10 +4254,10 @@
 				{
 					"type": "UIPanel",
 					"properties": {
-						"left-margin": 16,
-						"right-margin": 16,
-						"top-margin": 16,
-						"bottom-margin": 16,
+						"left-margin": 15,
+						"right-margin": 15,
+						"top-margin": 15,
+						"bottom-margin": 15,
 						"edges": "stretch",
 						"fill": "stretch",
 						"initially-visible": true,
