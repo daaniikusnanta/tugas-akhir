@@ -1,4 +1,4 @@
-import { initializeCrisis } from "./crisis-data.js";
+import { initializeCrisis, isCrisisMaximized, isExtremeCrisisEmpty } from "./crisis-data.js";
 import { initializeStatus, status } from "./status-data.js";
 import { updateCrisisView, updateStatusView, setupCrisisViews } from "./game.js";
 import { addTextToCache, getObjectbyId, setScrollableHeight } from "./utils.js";
@@ -193,4 +193,29 @@ export function setLevelVariables(level, runtime) {
     setupCrisisViews(runtime);
     updateStatusView(runtime);
     updateCrisisView(runtime);
+}
+
+export function checkGameOverCondition(runtime) {
+    console.log("Checking game over condition");
+    // Win
+    if (isExtremeCrisisEmpty()) {
+        console.log("Win");
+        stopGame(runtime);
+        runtime.layout.getLayer("UI").isVisible = false;
+        runtime.layout.getLayer("Win").isVisible = true;
+    }
+
+    // Lose
+    if (isCrisisMaximized()) {
+        console.log("Lose");
+        stopGame(runtime);
+        runtime.layout.getLayer("UI").isVisible = false;
+        runtime.layout.getLayer("Lose").isVisible = true;
+    }
+}
+
+function stopGame(runtime) {
+    const gameManager = runtime.objects.GameManager.getAllInstances()[0];
+    gameManager.behaviors.Timer.stopTimer("Tick");
+    runtime.globalVars['isRunning'] = false;
 }

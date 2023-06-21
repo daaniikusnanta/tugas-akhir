@@ -2261,3 +2261,28 @@ function showExtremeCrisis(initialY) {
     initialY += 100;
   }
 }
+
+/**
+ * Check if the extreme crisis is empty.
+ * @returns {boolean} True if the extreme crisis is empty.
+ */
+export function isExtremeCrisisEmpty() {
+  console.log(extremeCrisis);
+  return extremeCrisis.length === 0;
+}
+
+/**
+ * Check if a crisis is maximized.
+ * @returns {boolean} True if a crisis is maximized.
+ */
+export function isCrisisMaximized() {
+  for (const crisisName in crisis) {
+    const crisisData = crisis[crisisName];
+    console.log("check crisis", crisisData.name, crisisData.value, crisisData.value >= 100);
+    if (crisisData.value >= 100) {
+      return true;
+    }
+  }
+
+  return false;
+}

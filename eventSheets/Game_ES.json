@@ -187,7 +187,7 @@
 						},
 						{
 							"type": "script",
-							"script": "updateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateAllPolicies(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);\nupdateFiscalViews(runtime);"
+							"script": "updateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateAllPolicies(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);\nupdateFiscalViews(runtime);\ncheckGameOverCondition(runtime);"
 						}
 					],
 					"sid": 268964243012299,
