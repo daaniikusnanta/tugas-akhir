@@ -428,13 +428,7 @@ function initializeStatusViews(runtime) {
 
     console.log("Status name", statusName, initialY, row, instanceY, instanceX);
 
-    let statusNameText = runtime.objects.UIText.createInstance(
-      "PanelStatus",
-      instanceX,
-      instanceY,
-      true,
-      "status_name"
-    );
+    let statusNameText = runtime.objects.UIText.createInstance("PanelStatus", instanceX, instanceY, true, "status_name");
     statusNameText.instVars["id"] = variable + "_status_title";
     statusNameText.text = statusName.name;
     statusNameText.isVisible = false;

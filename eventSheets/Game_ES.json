@@ -1446,6 +1446,7 @@
 									"id": "log",
 									"objectClass": "Browser",
 									"sid": 385603572012208,
+									"disabled": true,
 									"parameters": {
 										"type": "log",
 										"message": "\"Array \" & MapData.CurX & \"|\" & MapData.CurY & \"|\" &  MapData.CurValue"

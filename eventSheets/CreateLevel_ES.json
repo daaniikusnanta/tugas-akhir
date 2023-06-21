@@ -367,9 +367,9 @@
 						{
 							"id": "repeat",
 							"objectClass": "System",
-							"sid": 741027950947216,
+							"sid": 147288558284331,
 							"parameters": {
-								"count": "DrawingCanvas.SnapshotWidth /mapSize"
+								"count": "ceil(DrawingCanvas.SnapshotWidth /mapSize)"
 							}
 						}
 					],
@@ -412,9 +412,9 @@
 								{
 									"id": "repeat",
 									"objectClass": "System",
-									"sid": 768787099214494,
+									"sid": 837894491958780,
 									"parameters": {
-										"count": "DrawingCanvas.SnapshotHeight / mapSize"
+										"count": "ceil(DrawingCanvas.SnapshotHeight / mapSize)"
 									}
 								}
 							],
@@ -1083,10 +1083,10 @@
 						{
 							"id": "set-size",
 							"objectClass": "MapData",
-							"sid": 440121071133954,
+							"sid": 141692409052248,
 							"parameters": {
-								"width": "floor(MAP_WIDTH_SMALL / 64)",
-								"height": "floor((MAP_WIDTH_SMALL / 16 * 9) / 64)",
+								"width": "ceil(MAP_WIDTH_SMALL / 64)",
+								"height": "ceil((MAP_WIDTH_SMALL / 16 * 9) / 64)",
 								"depth": "1"
 							}
 						},
@@ -1150,10 +1150,10 @@
 						{
 							"id": "set-size",
 							"objectClass": "MapData",
-							"sid": 335370170844619,
+							"sid": 262462062947316,
 							"parameters": {
-								"width": "floor(MAP_WIDTH_MEDIUM / 64)",
-								"height": "floor((MAP_WIDTH_MEDIUM / 16 * 9) / 64)",
+								"width": "ceil(MAP_WIDTH_MEDIUM / 64)",
+								"height": "ceil((MAP_WIDTH_MEDIUM / 16 * 9) / 64)",
 								"depth": "1"
 							}
 						},
@@ -1208,10 +1208,10 @@
 						{
 							"id": "set-size",
 							"objectClass": "MapData",
-							"sid": 776520969943968,
+							"sid": 384632308642374,
 							"parameters": {
-								"width": "floor(MAP_WIDTH_LARGE / 64)",
-								"height": "floor((MAP_WIDTH_LARGE / 16 * 9) / 64)",
+								"width": "ceil(MAP_WIDTH_LARGE / 64)",
+								"height": "ceil((MAP_WIDTH_LARGE / 16 * 9) / 64)",
 								"depth": "1"
 							}
 						},
@@ -1340,7 +1340,7 @@
 										{
 											"id": "go-to-layout",
 											"objectClass": "System",
-											"sid": 742993226552314,
+											"sid": 371057664618371,
 											"parameters": {
 												"layout": "MediumMapLayout"
 											}
@@ -1366,7 +1366,7 @@
 										{
 											"id": "go-to-layout",
 											"objectClass": "System",
-											"sid": 684305731372362,
+											"sid": 602603502682790,
 											"parameters": {
 												"layout": "LargeMapLayout"
 											}
