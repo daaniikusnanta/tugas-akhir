@@ -21,7 +21,7 @@ import {
   updatePolicy,
 } from "./policy-data.js";
 import { updateIncome, updateSpending } from "./fiscal-data.js";
-import { setLevelVariables } from "./level-data.js";
+import { setLevelVariables, createInitialCrisisViews, chooseInitialCrisis, setInitialCrisisVariables } from "./level-data.js";
 
 function updateAllStatus() {
   for (const statusName in status) {

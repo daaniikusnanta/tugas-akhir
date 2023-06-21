@@ -968,7 +968,7 @@
 										"fill": "stretch",
 										"initially-visible": true,
 										"origin": "top-left",
-										"seams": "overlap"
+										"seams": "exact"
 									},
 									"uid": 219,
 									"instanceVariables": {
@@ -1161,7 +1161,7 @@
 										"fill": "stretch",
 										"initially-visible": true,
 										"origin": "top-left",
-										"seams": "overlap"
+										"seams": "exact"
 									},
 									"uid": 226,
 									"instanceVariables": {
@@ -1296,7 +1296,7 @@
 								"fill": "stretch",
 								"initially-visible": true,
 								"origin": "top-left",
-								"seams": "overlap"
+								"seams": "exact"
 							},
 							"uid": 79,
 							"instanceVariables": {
@@ -1331,7 +1331,7 @@
 								"fill": "stretch",
 								"initially-visible": true,
 								"origin": "top-left",
-								"seams": "overlap"
+								"seams": "exact"
 							},
 							"uid": 116,
 							"instanceVariables": {
@@ -1342,8 +1342,9 @@
 								"isDisabled": false,
 								"panelId": "",
 								"selectable": false,
+								"isSelected": false,
 								"hasGroup": false,
-								"isSelected": false
+								"groupId": ""
 							},
 							"behaviors": {},
 							"effects": {
@@ -2367,7 +2368,7 @@
 								"fill": "stretch",
 								"initially-visible": true,
 								"origin": "top-left",
-								"seams": "overlap"
+								"seams": "exact"
 							},
 							"uid": 10,
 							"instanceVariables": {
@@ -2526,7 +2527,7 @@
 								"fill": "stretch",
 								"initially-visible": true,
 								"origin": "top-left",
-								"seams": "overlap"
+								"seams": "exact"
 							},
 							"uid": 83,
 							"instanceVariables": {
@@ -3503,7 +3504,7 @@
 								"fill": "stretch",
 								"initially-visible": true,
 								"origin": "top-left",
-								"seams": "overlap"
+								"seams": "exact"
 							},
 							"uid": 65,
 							"instanceVariables": {
@@ -3600,7 +3601,7 @@
 								"fill": "stretch",
 								"initially-visible": true,
 								"origin": "top-left",
-								"seams": "overlap"
+								"seams": "exact"
 							},
 							"uid": 40,
 							"instanceVariables": {
@@ -3831,7 +3832,7 @@
 						"fill": "stretch",
 						"initially-visible": true,
 						"origin": "top-left",
-						"seams": "overlap"
+						"seams": "exact"
 					},
 					"uid": 12,
 					"instanceVariables": {
@@ -4262,7 +4263,7 @@
 						"fill": "stretch",
 						"initially-visible": true,
 						"origin": "top-left",
-						"seams": "overlap"
+						"seams": "exact"
 					},
 					"uid": 14,
 					"instanceVariables": {
@@ -5155,7 +5156,7 @@
 						"fill": "stretch",
 						"initially-visible": true,
 						"origin": "top-left",
-						"seams": "overlap"
+						"seams": "exact"
 					},
 					"uid": 66,
 					"instanceVariables": {
@@ -5165,9 +5166,10 @@
 						"clickable": true,
 						"isDisabled": false,
 						"panelId": "",
-						"selectable": false,
+						"selectable": true,
+						"isSelected": false,
 						"hasGroup": false,
-						"isSelected": false
+						"groupId": ""
 					},
 					"behaviors": {},
 					"effects": {
@@ -6472,7 +6474,7 @@
 								"fill": "stretch",
 								"initially-visible": true,
 								"origin": "top-left",
-								"seams": "overlap"
+								"seams": "exact"
 							},
 							"uid": 3,
 							"instanceVariables": {
@@ -6535,7 +6537,7 @@
 								"fill": "stretch",
 								"initially-visible": true,
 								"origin": "top-left",
-								"seams": "overlap"
+								"seams": "exact"
 							},
 							"uid": 48,
 							"instanceVariables": {
@@ -7361,7 +7363,7 @@
 								"fill": "stretch",
 								"initially-visible": true,
 								"origin": "top-left",
-								"seams": "overlap"
+								"seams": "exact"
 							},
 							"uid": 71,
 							"instanceVariables": {
@@ -7478,7 +7480,7 @@
 								"fill": "stretch",
 								"initially-visible": true,
 								"origin": "top-left",
-								"seams": "overlap"
+								"seams": "exact"
 							},
 							"uid": 73,
 							"instanceVariables": {

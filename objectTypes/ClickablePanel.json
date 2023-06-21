@@ -54,6 +54,13 @@
 			"sid": 389780591899716
 		},
 		{
+			"name": "isSelected",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 599008412711521
+		},
+		{
 			"name": "hasGroup",
 			"type": "boolean",
 			"desc": "",
@@ -61,11 +68,11 @@
 			"sid": 636209437912494
 		},
 		{
-			"name": "isSelected",
-			"type": "boolean",
+			"name": "groupId",
+			"type": "string",
 			"desc": "",
 			"show": true,
-			"sid": 599008412711521
+			"sid": 198364361434367
 		}
 	],
 	"behaviorTypes": [],

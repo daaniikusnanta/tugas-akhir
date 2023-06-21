@@ -28,9 +28,9 @@
      inkscape:deskcolor="#2b2b2b"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.4324916"
-     inkscape:cx="1331.596"
-     inkscape:cy="639.79434"
+     inkscape:zoom="4.051698"
+     inkscape:cx="2456.6244"
+     inkscape:cy="641.33605"
      inkscape:window-width="1920"
      inkscape:window-height="991"
      inkscape:window-x="-9"
@@ -1010,17 +1010,17 @@
        style="font-weight:bold;font-size:37.3333px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold,  Bold';white-space:pre;shape-inside:url(#rect18641);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.00032;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:70.1;stroke-dasharray:none;stroke-opacity:0.651961;paint-order:fill markers stroke"><tspan
          x="-1536"
          y="993.64321"
-         id="tspan22897">Crisis area dependent </tspan><tspan
+         id="tspan29975">Crisis area dependent </tspan><tspan
          x="-1536"
          y="1040.3098"
-         id="tspan22899">on region area
+         id="tspan29977">on region area
 </tspan><tspan
          x="-1536"
          y="1086.9765"
-         id="tspan22901">Region1 : {[tile[x][y], ...], </tspan><tspan
+         id="tspan29979">Region1 : {[tile[x][y], ...], </tspan><tspan
          x="-1536"
          y="1133.6431"
-         id="tspan22903">[crisisA, crisisB]}</tspan></text>
+         id="tspan29981">[crisisA, crisisB]}</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,145.80613,0)"
@@ -1028,17 +1028,17 @@
        style="font-weight:bold;font-size:37.3333px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold,  Bold';white-space:pre;shape-inside:url(#rect18699);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.00032;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:70.1;stroke-dasharray:none;stroke-opacity:0.651961;paint-order:fill markers stroke"><tspan
          x="-1536"
          y="993.64321"
-         id="tspan22905">Crisis area NOT dependent </tspan><tspan
+         id="tspan29983">Crisis area NOT dependent </tspan><tspan
          x="-1536"
          y="1040.3098"
-         id="tspan22907">on region area
+         id="tspan29985">on region area
 </tspan><tspan
          x="-1536"
          y="1086.9765"
-         id="tspan22909">Tile[x][y] : {region1, </tspan><tspan
+         id="tspan29987">Tile[x][y] : {region1, </tspan><tspan
          x="-1536"
          y="1133.6431"
-         id="tspan22911">[crisisA, crisisB]}</tspan></text>
+         id="tspan29989">[crisisA, crisisB]}</tspan></text>
     <path
        style="fill:#ee7ce6;fill-opacity:0.720588;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:70.1;paint-order:fill markers stroke"
        d="m 321.73328,321.73335 h 16.93333 v 16.93333 z"
@@ -2219,7 +2219,7 @@
        x="694.26666"
        y="169.33333" />
     <path
-       style="fill:#e9dec0;fill-opacity:1;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:70.1;paint-order:fill markers stroke"
+       style="fill:#aec966;fill-opacity:1;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:70.1;paint-order:fill markers stroke"
        d="m 677.33333,169.33333 h 16.93333 v 16.93333 z"
        id="path4684-3" />
     <rect
@@ -2824,5 +2824,9 @@
          x="321.73334"
          y="118.53333" />
     </g>
+    <path
+       style="fill:#d1c196;fill-opacity:1;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:70.1;paint-order:fill markers stroke"
+       d="m 660.4,152.4 h 16.93333 v 16.93333 z"
+       id="path28721" />
   </g>
 </svg>

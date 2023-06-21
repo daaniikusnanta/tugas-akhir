@@ -1,6 +1,7 @@
 import { initializeCrisis } from "./crisis-data.js";
 import { initializeStatus, status } from "./status-data.js";
 import { updateCrisisView, updateStatusView, setupCrisisViews } from "./game.js";
+import { addTextToCache, getObjectbyId, setScrollableHeight } from "./utils.js";
 
 /**
  * @type {{[level: number]: {[variable: string]: number}}}
@@ -99,15 +100,19 @@ const levelVariables = {
     },
 };
 
-const crisisLevel = {
+const initialCrisis = {
     "pandemic": {
         name: "Pandemic",
-        description: "",
-        crisisValues: {
+        description: "Pandemic description",
+        values: {
             "infectious_disease": 90
-        },
-        statusValues: {
-
+        }
+    },
+    "extreme_poverty": {
+        name: "Extreme Poverty",
+        description: "Extreme poverty",
+        values: {
+            "poverty": 70
         }
     }
 };
@@ -116,6 +121,65 @@ const situationLevel = {
     
 };
 
+export let chosenInitialCrisis = initialCrisis[Object.keys(initialCrisis)[0]];
+
+export function setInitialCrisisVariables() {
+    const initialCrisisData = initialCrisis[chosenInitialCrisis];
+
+    for (const valueName in initialCrisisData.values) {
+        const valueData = status[valueName] ?? crisis[valueName];
+        
+        valueData.value = initialCrisisData.values[valueName];
+    }
+}
+
+export function chooseInitialCrisis(initialCrisisName) {
+    chosenInitialCrisis = initialCrisisName;
+}
+
+/**
+ * 
+ * @param {*} runtime 
+ */
+export function createInitialCrisisViews(runtime) {
+    const initialCrisisScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "initial_crisis");
+    const initialY = initialCrisisScrollable.y + 10;
+
+    for (const initialCrisisVariable in initialCrisis) {
+        const initialCrisisData = initialCrisis[initialCrisisVariable];
+
+        const instanceX = initialCrisisScrollable.x + 17;
+        const instanceY = initialY + Object.keys(initialCrisis).indexOf(initialCrisisVariable) * 150;
+
+        const initialCrisisName = runtime.objects.UIText.createInstance("CreateCrisisMG", instanceX, instanceY, true, "initial_crisis");
+        initialCrisisName.text = initialCrisisData.name;
+        initialCrisisName.instVars['id'] = initialCrisisVariable + "_initial_crisis_name";
+        addTextToCache(initialCrisisName);
+
+        const initialCrisisDescription = initialCrisisName.getChildAt(0);
+        initialCrisisDescription.text = initialCrisisData.description;
+
+        const initialCrisisClickable = initialCrisisName.getChildAt(1);
+        initialCrisisClickable.opacity = 0;
+        initialCrisisClickable.instVars['clickable'] = true;
+        initialCrisisClickable.instVars['selectable'] = true;
+        initialCrisisClickable.instVars['panelId'] = initialCrisisScrollable.instVars['id'];
+        initialCrisisClickable.instVars['id'] = initialCrisisVariable + "_initial_crisis_clickable";
+        initialCrisisClickable.instVars['hasGroup'] = true;
+        initialCrisisClickable.instVars['groupId'] = "initial_crisis";
+
+        if (initialCrisisVariable === Object.keys(initialCrisis)[0]) {
+            initialCrisisClickable.instVars['isSelected'] = true;
+            initialCrisisClickable.opacity = 50;
+        }
+
+        console.log(initialCrisisClickable);
+
+        initialCrisisScrollable.addChild(initialCrisisName, { transformX: true, transformY: true });
+    }
+
+    setScrollableHeight(runtime, initialCrisisScrollable, Object.keys(initialCrisis).length, 150, 20);
+}
 
 
 /**

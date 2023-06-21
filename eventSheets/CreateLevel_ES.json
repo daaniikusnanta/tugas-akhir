@@ -146,6 +146,16 @@
 					}
 				},
 				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 908671393795389,
+					"parameters": {
+						"name": "PANEL_CLICKED",
+						"string": "LayoutName",
+						"function": "UIPanelClicked2"
+					}
+				},
+				{
 					"id": "save-snapshot",
 					"objectClass": "DrawingCanvas",
 					"sid": 551097612324812
@@ -1261,83 +1271,293 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-eventvar",
+									"id": "layer-is-visible",
 									"objectClass": "System",
-									"sid": 477937138116602,
+									"sid": 165990528267304,
 									"parameters": {
-										"variable": "map_width",
-										"comparison": 0,
-										"value": "MAP_WIDTH_SMALL"
+										"layer": "\"CreateCrisis\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "go-to-layout",
-									"objectClass": "System",
-									"sid": 488296818273710,
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 623266583478061,
 									"parameters": {
-										"layout": "SmallMapLayout"
+										"type": "log",
+										"message": "\"in crisis \""
 									}
+								},
+								{
+									"type": "script",
+									"script": "setInitialCrisisVariables();"
 								}
 							],
-							"sid": 630102247387663
+							"sid": 895680646756345,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 987122800791397,
+											"parameters": {
+												"variable": "map_width",
+												"comparison": 0,
+												"value": "MAP_WIDTH_SMALL"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 996494309741756,
+											"parameters": {
+												"layout": "SmallMapLayout"
+											}
+										}
+									],
+									"sid": 244265572948109
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 394338038597923,
+											"parameters": {
+												"variable": "map_width",
+												"comparison": 0,
+												"value": "MAP_WIDTH_MEDIUM"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 742993226552314,
+											"parameters": {
+												"layout": "MediumMapLayout"
+											}
+										}
+									],
+									"sid": 389602484247474
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 326113118783156,
+											"parameters": {
+												"variable": "map_width",
+												"comparison": 0,
+												"value": "MAP_WIDTH_LARGE"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 684305731372362,
+											"parameters": {
+												"layout": "LargeMapLayout"
+											}
+										}
+									],
+									"sid": 455838287085776
+								}
+							]
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-eventvar",
+									"id": "layer-is-visible",
 									"objectClass": "System",
-									"sid": 656065580126414,
+									"sid": 395836050536613,
 									"parameters": {
-										"variable": "map_width",
-										"comparison": 0,
-										"value": "MAP_WIDTH_MEDIUM"
+										"layer": "\"CreateGeography\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "go-to-layout",
-									"objectClass": "System",
-									"sid": 188220166427744,
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 648305781449429,
 									"parameters": {
-										"layout": "MediumMapLayout"
+										"type": "log",
+										"message": "\"in geography\""
+									}
+								},
+								{
+									"type": "script",
+									"script": "createInitialCrisisViews(runtime);"
+								},
+								{
+									"callFunction": "showLayer",
+									"sid": 212563329323636,
+									"parameters": [
+										"\"CreateCrisis\""
+									]
+								}
+							],
+							"sid": 537208329796958
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 475147938448137,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"back\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 869446915587084,
+							"parameters": {
+								"type": "log",
+								"message": "\"Create \" & MapData.Width & \"|\" & MapData.Height"
+							}
+						}
+					],
+					"sid": 679494723314992,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 551160735053665,
+									"parameters": {
+										"layer": "\"CreateCrisis\""
 									}
 								}
 							],
-							"sid": 720756740601180
+							"actions": [
+								{
+									"callFunction": "showLayer",
+									"sid": 608323151677055,
+									"parameters": [
+										"\"CreateGeography\""
+									]
+								}
+							],
+							"sid": 475787296098013
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-eventvar",
+									"id": "layer-is-visible",
 									"objectClass": "System",
-									"sid": 839675550144931,
+									"sid": 715188854137039,
 									"parameters": {
-										"variable": "map_width",
-										"comparison": 0,
-										"value": "MAP_WIDTH_LARGE"
+										"layer": "\"CreateGeography\""
 									}
 								}
 							],
-							"actions": [
-								{
-									"id": "go-to-layout",
-									"objectClass": "System",
-									"sid": 648835930550819,
-									"parameters": {
-										"layout": "LargeMapLayout"
-									}
-								}
-							],
-							"sid": 749803686781602
+							"actions": [],
+							"sid": 132537448009835
 						}
 					]
 				}
 			]
+		},
+		{
+			"functionName": "showLayer",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "layerName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 765490604983225
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 106963592284428,
+					"parameters": {
+						"layer": "\"CreateGeography\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 697232023307777,
+					"parameters": {
+						"layer": "\"CreateGeography\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 713329751378966,
+					"parameters": {
+						"layer": "\"CreateCrisis\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 153412871909879,
+					"parameters": {
+						"layer": "\"CreateCrisis\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 566209163177892,
+					"parameters": {
+						"layer": "layerName",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 195658815060225,
+					"parameters": {
+						"layer": "layerName",
+						"interactive": true
+					}
+				}
+			],
+			"sid": 232029996006653
 		},
 		{
 			"eventType": "group",
@@ -1771,6 +1991,61 @@
 				}
 			],
 			"sid": 302609104592723
+		},
+		{
+			"functionName": "UIPanelClicked2",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": true,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "uid",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 947893673009566
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "ClickablePanel",
+					"sid": 257194790460039,
+					"parameters": {
+						"unique-id": "uid"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 271930313313117,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 712113728033057,
+							"parameters": {
+								"first-value": "RegexMatchCount(ClickablePanel.id, \"initial_crisis_clickable$\", \"\")",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const clicklable = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst initialCrisisName = clickable.instVars['id'].replace(\"_initial_crisis_clickable\", \"\");\n\nchooseInitialCrisis(initialCrisisName);",
+							"disabled": true
+						}
+					],
+					"sid": 485022333466131
+				}
+			]
 		}
 	],
 	"sid": 943331261340760

@@ -928,7 +928,170 @@
 							}
 						}
 					],
-					"sid": 249038933207337
+					"sid": 249038933207337,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "groupId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 605231881195414
+						},
+						{
+							"eventType": "variable",
+							"name": "selectedId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 875380768270365
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "ClickablePanel",
+									"sid": 791428540226955,
+									"parameters": {
+										"instance-variable": "hasGroup"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 558777379764068,
+									"parameters": {
+										"type": "log",
+										"message": "\"hasGroup\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 688194868662321,
+									"parameters": {
+										"variable": "groupId",
+										"value": "ClickablePanel.groupId"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 119552023354249,
+									"parameters": {
+										"variable": "selectedId",
+										"value": "ClickablePanel.id"
+									}
+								},
+								{
+									"callFunction": "unselectOtherClickable",
+									"sid": 820564475150070,
+									"parameters": [
+										"groupId",
+										"selectedId"
+									]
+								}
+							],
+							"sid": 604735545443605
+						}
+					]
+				},
+				{
+					"functionName": "unselectOtherClickable",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "groupId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 497085730213468
+						},
+						{
+							"name": "selectedId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 762437971365148
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 401335644994200,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 431090647932777,
+									"parameters": {
+										"object": "ClickablePanel"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 837702278368507,
+									"parameters": {
+										"type": "log",
+										"message": "\"iterate \" & ClickablePanel.id"
+									}
+								}
+							],
+							"sid": 329585895056467,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "ClickablePanel",
+											"sid": 100417408392078,
+											"parameters": {
+												"instance-variable": "groupId",
+												"comparison": 0,
+												"value": "groupId"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "ClickablePanel",
+											"sid": 541455632133467,
+											"parameters": {
+												"instance-variable": "id",
+												"comparison": 1,
+												"value": "selectedId"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "IsUnselected",
+											"objectClass": "ClickablePanel",
+											"sid": 793932015246611
+										}
+									],
+									"sid": 480216499141271
+								}
+							]
+						}
+					]
 				},
 				{
 					"aceType": "action",
@@ -963,10 +1126,10 @@
 						{
 							"id": "log",
 							"objectClass": "Browser",
-							"sid": 561775995470960,
+							"sid": 566223111410986,
 							"parameters": {
 								"type": "log",
-								"message": "\"unselected\""
+								"message": "\"unselected \" & ClickablePanel.id"
 							}
 						}
 					],
@@ -1180,6 +1343,7 @@
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "ClickablePanel",
 							"sid": 878363709014184,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "isDisabled"
 							},
@@ -1189,6 +1353,7 @@
 							"id": "compare-instance-variable",
 							"objectClass": "UIPanel",
 							"sid": 932012321900496,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "id",
 								"comparison": 0,
@@ -1199,6 +1364,7 @@
 							"id": "layer-is-visible",
 							"objectClass": "System",
 							"sid": 556326486121421,
+							"disabled": true,
 							"parameters": {
 								"layer": "ClickablePanel.LayerName"
 							}
@@ -1207,6 +1373,7 @@
 							"id": "compare-two-values",
 							"objectClass": "System",
 							"sid": 884367333490249,
+							"disabled": true,
 							"parameters": {
 								"first-value": "clamp((ClickablePanel.Y + ClickablePanel.Height) - UIPanel.Y, 0, 1) + \r\nclamp((UIPanel.Y + UIPanel.Height) - ClickablePanel.Y, 0, 1) +\nclamp((ClickablePanel.X + ClickablePanel.Width) - UIPanel.X, 0, 1) + \nclamp((UIPanel.X + UIPanel.Width) - ClickablePanel.X, 0, 1)",
 								"comparison": 0,
@@ -1217,6 +1384,7 @@
 							"id": "compare-eventvar",
 							"objectClass": "System",
 							"sid": 669039615176350,
+							"disabled": true,
 							"parameters": {
 								"variable": "touchedUid",
 								"comparison": 0,

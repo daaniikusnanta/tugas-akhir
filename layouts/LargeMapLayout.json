@@ -1341,8 +1341,9 @@
 								"isDisabled": false,
 								"panelId": "",
 								"selectable": false,
+								"isSelected": false,
 								"hasGroup": false,
-								"isSelected": false
+								"groupId": ""
 							},
 							"behaviors": {},
 							"effects": {
@@ -5218,8 +5219,9 @@
 						"isDisabled": false,
 						"panelId": "",
 						"selectable": false,
+						"isSelected": false,
 						"hasGroup": false,
-						"isSelected": false
+						"groupId": ""
 					},
 					"behaviors": {},
 					"effects": {
