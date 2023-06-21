@@ -40,7 +40,8 @@ export function initializeTileBiome(runtime) {
 
             if (tile !== -1) {
                 const tileID = tile & ITilemapInstance.TILE_ID_MASK;
-                const biome = getBiomeString(tileID);
+                // const biome = getBiomeString(tileID);
+                const biome = "biome";
                 mapTileCount++;
                 const tileInfo = {
                     x: x,

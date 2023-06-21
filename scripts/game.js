@@ -403,9 +403,8 @@ function showPolicyPanel(policyType, runtime) {
 
 function initializeStatusViews(runtime) {
   let statusData = {};
-  const panelStatus = runtime.objects.UIPanel.getAllInstances().filter(
-    (panel) => panel.instVars["id"] == "status_panel"
-  )[0];
+  const panelStatus = getObjectbyId(runtime.objects.Panel, "status_panel");
+  const panelStatusBlur = getObjectbyId(runtime.objects.UIPanelBlur, "status_panel");
   let initialY = panelStatus.y + 20;
   let initialX = panelStatus.x + panelStatus.width / 6;
 
@@ -488,9 +487,8 @@ let statusViewData = {};
 
 function showStatusPanel(statusType, runtime) {
   console.log("Status type ", statusType);
-  const statusPanel = runtime.objects.UIPanel.getAllInstances().filter(
-    (panel) => panel.instVars["id"] == "status_panel"
-  )[0];
+  const statusPanel = getObjectbyId(runtime.objects.Panel, "status_panel");
+  const statusPanelBlur = getObjectbyId(runtime.objects.UIPanelBlur, "status_panel");
 
   for (const statusName in status) {
     console.log("Status name invisible", statusName);
@@ -538,6 +536,8 @@ function showStatusPanel(statusType, runtime) {
     }
 
     statusPanel.height =
+      20 + Math.ceil(statusViewData[statusType].statuses.length / 3) * 100;
+    statusPanelBlur.height =
       20 + Math.ceil(statusViewData[statusType].statuses.length / 3) * 100;
   }
 }

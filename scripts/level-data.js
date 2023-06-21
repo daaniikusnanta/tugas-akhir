@@ -195,6 +195,10 @@ export function setLevelVariables(level, runtime) {
     updateCrisisView(runtime);
 }
 
+/**
+ * 
+ * @param {IRuntime} runtime 
+ */
 export function checkGameOverCondition(runtime) {
     console.log("Checking game over condition");
     // Win
@@ -214,6 +218,10 @@ export function checkGameOverCondition(runtime) {
     }
 }
 
+/**
+ * 
+ * @param {IRuntime} runtime 
+ */
 function stopGame(runtime) {
     const gameManager = runtime.objects.GameManager.getAllInstances()[0];
     gameManager.behaviors.Timer.stopTimer("Tick");

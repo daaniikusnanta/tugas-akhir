@@ -1430,6 +1430,46 @@
 					"sid": 648571395013887,
 					"children": [
 						{
+							"eventType": "variable",
+							"name": "topTile",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 528775806058443
+						},
+						{
+							"eventType": "variable",
+							"name": "rightTile",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 973976415973191
+						},
+						{
+							"eventType": "variable",
+							"name": "bottomTile",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 765901316533299
+						},
+						{
+							"eventType": "variable",
+							"name": "leftTile",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 786870824089923
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -1446,10 +1486,85 @@
 									"id": "log",
 									"objectClass": "Browser",
 									"sid": 385603572012208,
-									"disabled": true,
 									"parameters": {
 										"type": "log",
 										"message": "\"Array \" & MapData.CurX & \"|\" & MapData.CurY & \"|\" &  MapData.CurValue"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 601343467678394,
+									"parameters": {
+										"variable": "topTile",
+										"value": "MapData.At(MapData.CurX, MapData.CurY - 1) > 0 | MapData.CurY - 1 < 0 ? 1: 0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 232942412419582,
+									"parameters": {
+										"variable": "rightTile",
+										"value": "MapData.At(MapData.CurX + 1, MapData.CurY) > 0 | MapData.CurX + 1 >= MapData.Width  ? 1: 0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 933242105065105,
+									"parameters": {
+										"variable": "bottomTile",
+										"value": "MapData.At(MapData.CurX, MapData.CurY + 1) > 0 | MapData.CurY + 1 >= MapData.Height  ? 1: 0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 449973954164519,
+									"parameters": {
+										"variable": "leftTile",
+										"value": "MapData.At(MapData.CurX - 1, MapData.CurY) > 0 | MapData.CurX - 1 < 0 ? 1: 0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 554876501189109,
+									"disabled": true,
+									"parameters": {
+										"variable": "topTile",
+										"value": "MapData.At(MapData.CurX, MapData.CurY - 1) > 0 | MapData.CurY - 1 < MapData.Height ? 1: 0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 560457159924167,
+									"disabled": true,
+									"parameters": {
+										"variable": "rightTile",
+										"value": "MapData.At(MapData.CurX + 1, MapData.CurY) > 0 | MapData.CurX + 1 > MapData.Width  ? 1: 0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 327534167981986,
+									"disabled": true,
+									"parameters": {
+										"variable": "bottomTile",
+										"value": "MapData.At(MapData.CurX, MapData.CurY + 1) > 0 | MapData.CurY + 1 > MapData.Height  ? 1: 0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 134083280596119,
+									"disabled": true,
+									"parameters": {
+										"variable": "leftTile",
+										"value": "MapData.At(MapData.CurX - 1, MapData.CurY) > 0  ? 1: 0"
 									}
 								}
 							],
@@ -1490,20 +1605,298 @@
 											"sid": 682335998322308
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 518525608510766,
+									"children": [
 										{
-											"id": "set-tile",
-											"objectClass": "TilemapBiome",
-											"sid": 872346245822684,
-											"parameters": {
-												"tile-x": "MapData.CurX",
-												"tile-y": "MapData.CurY",
-												"tile": "2",
-												"state": "normal"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 951904855850395,
+													"parameters": {
+														"first-value": "topTile + rightTile + bottomTile + leftTile",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TilemapBiome",
+													"sid": 364295423856824,
+													"parameters": {
+														"tile-x": "MapData.CurX",
+														"tile-y": "MapData.CurY",
+														"tile": "2",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 684030228760244
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 845781152740176,
+													"parameters": {
+														"first-value": "topTile + rightTile + bottomTile + leftTile",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TilemapBiome",
+													"sid": 154823842132398,
+													"parameters": {
+														"tile-x": "MapData.CurX",
+														"tile-y": "MapData.CurY",
+														"tile": "1",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 937726341797239,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 684017859486427,
+															"parameters": {
+																"variable": "bottomTile",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-tile-state",
+															"objectClass": "TilemapBiome",
+															"sid": 387007643579734,
+															"parameters": {
+																"tile-x": "MapData.CurX",
+																"tile-y": "MapData.CurY",
+																"state": "rotated-90"
+															}
+														}
+													],
+													"sid": 457134567731856
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 566975116704723,
+															"parameters": {
+																"variable": "leftTile",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-tile-state",
+															"objectClass": "TilemapBiome",
+															"sid": 210605491815157,
+															"parameters": {
+																"tile-x": "MapData.CurX",
+																"tile-y": "MapData.CurY",
+																"state": "rotated-180"
+															}
+														}
+													],
+													"sid": 120906974772620
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 414032873112982,
+															"parameters": {
+																"variable": "topTile",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-tile-state",
+															"objectClass": "TilemapBiome",
+															"sid": 693431479051190,
+															"parameters": {
+																"tile-x": "MapData.CurX",
+																"tile-y": "MapData.CurY",
+																"state": "rotated-270"
+															}
+														}
+													],
+													"sid": 455105036198021
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 822861411528858,
+													"parameters": {
+														"first-value": "topTile + rightTile + bottomTile + leftTile",
+														"comparison": 0,
+														"second-value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TilemapBiome",
+													"sid": 174837890222613,
+													"parameters": {
+														"tile-x": "MapData.CurX",
+														"tile-y": "MapData.CurY",
+														"tile": "0",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 290560513522916,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 601437937903103,
+															"parameters": {
+																"first-value": "rightTile + bottomTile",
+																"comparison": 0,
+																"second-value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-tile-state",
+															"objectClass": "TilemapBiome",
+															"sid": 967228127057731,
+															"parameters": {
+																"tile-x": "MapData.CurX",
+																"tile-y": "MapData.CurY",
+																"state": "rotated-90"
+															}
+														}
+													],
+													"sid": 673379346042270
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 165347790321534,
+															"parameters": {
+																"first-value": "bottomTile + leftTile",
+																"comparison": 0,
+																"second-value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-tile-state",
+															"objectClass": "TilemapBiome",
+															"sid": 797167456531463,
+															"parameters": {
+																"tile-x": "MapData.CurX",
+																"tile-y": "MapData.CurY",
+																"state": "rotated-180"
+															}
+														}
+													],
+													"sid": 853164335726604
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 933577477177509,
+															"parameters": {
+																"first-value": "leftTile + topTile",
+																"comparison": 0,
+																"second-value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-tile-state",
+															"objectClass": "TilemapBiome",
+															"sid": 353446021878062,
+															"parameters": {
+																"tile-x": "MapData.CurX",
+																"tile-y": "MapData.CurY",
+																"state": "rotated-270"
+															}
+														}
+													],
+													"sid": 881121788890800
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 857883801140927,
+													"parameters": {
+														"first-value": "topTile + rightTile + bottomTile + leftTile",
+														"comparison": 5,
+														"second-value": "3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TilemapBiome",
+													"sid": 160929808086064,
+													"parameters": {
+														"tile-x": "MapData.CurX",
+														"tile-y": "MapData.CurY",
+														"tile": "3",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 815493399737596
 										}
-									],
-									"sid": 518525608510766
+									]
 								}
 							]
 						},

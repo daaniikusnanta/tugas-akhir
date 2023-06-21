@@ -2278,7 +2278,6 @@ export function isExtremeCrisisEmpty() {
 export function isCrisisMaximized() {
   for (const crisisName in crisis) {
     const crisisData = crisis[crisisName];
-    console.log("check crisis", crisisData.name, crisisData.value, crisisData.value >= 100);
     if (crisisData.value >= 100) {
       return true;
     }

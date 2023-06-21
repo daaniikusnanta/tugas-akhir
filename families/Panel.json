@@ -7,7 +7,6 @@
 	"effectTypes": [],
 	"members": [
 		"UIPanel",
-		"UIPanel2",
-		"UIPanelBlur"
+		"UIPanel2"
 	]
 }
