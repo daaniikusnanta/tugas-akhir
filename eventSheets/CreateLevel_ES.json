@@ -2039,8 +2039,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "const clicklable = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst initialCrisisName = clickable.instVars['id'].replace(\"_initial_crisis_clickable\", \"\");\n\nchooseInitialCrisis(initialCrisisName);",
-							"disabled": true
+							"script": "const clickable = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst initialCrisisName = clickable.instVars['id'].replace(\"_initial_crisis_clickable\", \"\");\n\nchooseInitialCrisis(initialCrisisName);"
 						}
 					],
 					"sid": 485022333466131

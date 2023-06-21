@@ -1343,7 +1343,6 @@
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "ClickablePanel",
 							"sid": 878363709014184,
-							"disabled": true,
 							"parameters": {
 								"instance-variable": "isDisabled"
 							},
@@ -1353,7 +1352,6 @@
 							"id": "compare-instance-variable",
 							"objectClass": "UIPanel",
 							"sid": 932012321900496,
-							"disabled": true,
 							"parameters": {
 								"instance-variable": "id",
 								"comparison": 0,
@@ -1364,7 +1362,6 @@
 							"id": "layer-is-visible",
 							"objectClass": "System",
 							"sid": 556326486121421,
-							"disabled": true,
 							"parameters": {
 								"layer": "ClickablePanel.LayerName"
 							}
@@ -1373,7 +1370,6 @@
 							"id": "compare-two-values",
 							"objectClass": "System",
 							"sid": 884367333490249,
-							"disabled": true,
 							"parameters": {
 								"first-value": "clamp((ClickablePanel.Y + ClickablePanel.Height) - UIPanel.Y, 0, 1) + \r\nclamp((UIPanel.Y + UIPanel.Height) - ClickablePanel.Y, 0, 1) +\nclamp((ClickablePanel.X + ClickablePanel.Width) - UIPanel.X, 0, 1) + \nclamp((UIPanel.X + UIPanel.Width) - ClickablePanel.X, 0, 1)",
 								"comparison": 0,
@@ -1384,7 +1380,6 @@
 							"id": "compare-eventvar",
 							"objectClass": "System",
 							"sid": 669039615176350,
-							"disabled": true,
 							"parameters": {
 								"variable": "touchedUid",
 								"comparison": 0,

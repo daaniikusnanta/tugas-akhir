@@ -64,6 +64,10 @@ export function initializeTileBiome(runtime) {
     // console.log(tilemap.mapHeight, tilemap.mapWidth, mapTileCount);
     // console.log(tiles[0].length, tiles.length);
     // console.log(tiles);
+
+    for (const crisisName in myCrisis) {
+        expandCrisisTiles(runtime, crisisName);
+    }
 }
 
 /**

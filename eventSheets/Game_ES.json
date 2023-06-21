@@ -88,7 +88,7 @@
 						},
 						{
 							"type": "script",
-							"script": "initializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);"
+							"script": "initializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\nupdateFSM();"
 						},
 						{
 							"callFunction": "SetupClickablePanels",
@@ -565,7 +565,17 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 462718097224942,
+							"parameters": {
+								"type": "log",
+								"message": "\"clicked \" & Button.id"
+							}
+						}
+					],
 					"sid": 491295315472353,
 					"children": [
 						{
@@ -634,7 +644,17 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 819533039404231,
+									"parameters": {
+										"type": "log",
+										"message": "\"btncrisis\""
+									}
+								}
+							],
 							"sid": 392998340683190,
 							"children": [
 								{
@@ -1106,7 +1126,17 @@
 					],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 596935964607664,
+							"parameters": {
+								"type": "log",
+								"message": "\"crisispanel \" & show"
+							}
+						}
+					],
 					"sid": 289707340048162,
 					"children": [
 						{
