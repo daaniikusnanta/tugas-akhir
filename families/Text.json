@@ -1,11 +1,13 @@
 {
-	"name": "Family1",
+	"name": "Text",
 	"plugin-id": "Spritefont2",
 	"sid": 515506567214559,
 	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"members": [
-		"UIText"
+		"UIText",
+		"TextNotoSerifBlack",
+		"UITextBold"
 	]
 }

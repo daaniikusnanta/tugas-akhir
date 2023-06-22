@@ -154,14 +154,34 @@
 						"string": "LayoutName",
 						"function": "UIPanelClicked2"
 					}
-				},
-				{
-					"id": "save-snapshot",
-					"objectClass": "DrawingCanvas",
-					"sid": 551097612324812
 				}
 			],
-			"sid": 960208698320484
+			"sid": 960208698320484,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "DrawingCanvas",
+							"sid": 974393617172614,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"map_preview\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "save-snapshot",
+							"objectClass": "DrawingCanvas",
+							"sid": 241874073631995
+						}
+					],
+					"sid": 619608157889425
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -170,6 +190,16 @@
 					"id": "on-snapshot",
 					"objectClass": "DrawingCanvas",
 					"sid": 290059394199844
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "DrawingCanvas",
+					"sid": 521385055434829,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "\"map_preview\""
+					}
 				}
 			],
 			"actions": [
@@ -180,6 +210,51 @@
 					"parameters": {
 						"variable": "map_ready",
 						"value": "true"
+					}
+				},
+				{
+					"id": "seed",
+					"objectClass": "AdvancedRandom",
+					"sid": 668430712446293,
+					"parameters": {
+						"seed": "AdvancedRandom.RandomSeed"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "MapData",
+					"sid": 179469402507634,
+					"parameters": {
+						"width": "ceil(MAP_WIDTH_SMALL / 64)",
+						"height": "ceil((MAP_WIDTH_SMALL / 16 * 9) / 64)",
+						"depth": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 827907061090762,
+					"parameters": {
+						"variable": "map_width",
+						"value": "MAP_WIDTH_SMALL"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 417715047340145,
+					"parameters": {
+						"type": "log",
+						"message": "\"Small\" & MapData.Width & \"|\" & MapData.Height"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 222179722043500,
+					"parameters": {
+						"variable": "mapSize",
+						"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_SMALL / 64)"
 					}
 				},
 				{
@@ -251,6 +326,15 @@
 					"parameters": {
 						"variable": "seed",
 						"value": "AdvancedRandom.Seed"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 980268491136691,
+					"parameters": {
+						"type": "log",
+						"message": "\"Map \" & DrawingCanvas.Width & \"|\" & DrawingCanvas.Height & \"|\" &  mapSize & \"|\" &  DrawingCanvas.id"
 					}
 				}
 			],
@@ -429,16 +513,6 @@
 									}
 								},
 								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 452682798819807,
-									"disabled": true,
-									"parameters": {
-										"type": "log",
-										"message": "\"index y\" & \"|\" & y  & \"|\" & loopindex & \"|\" &  DrawingCanvas.SnapshotHeight"
-									}
-								},
-								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 379332391081604,
@@ -534,7 +608,7 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 194612376879806,
+													"sid": 597045189325285,
 													"parameters": {
 														"variable": "mapValue",
 														"value": "value <=  mapThreshold ? 1 : 0"
@@ -672,6 +746,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 884518592604000,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"MapValue \" & x2 & \"|\" & y2 & \"|\" &  mapValue"
@@ -1063,66 +1138,167 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Button",
-							"sid": 586960068651090,
+							"sid": 130008967616813,
 							"parameters": {
 								"instance-variable": "id",
 								"comparison": 0,
-								"value": "\"geography_size_small\""
+								"value": "\"geography_size_next\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UIText",
+							"sid": 661044903556716,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"geography_size\""
 							}
 						}
 					],
 					"actions": [
-						{
-							"id": "seed",
-							"objectClass": "AdvancedRandom",
-							"sid": 770916608696175,
-							"parameters": {
-								"seed": "AdvancedRandom.RandomSeed"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "MapData",
-							"sid": 141692409052248,
-							"parameters": {
-								"width": "ceil(MAP_WIDTH_SMALL / 64)",
-								"height": "ceil((MAP_WIDTH_SMALL / 16 * 9) / 64)",
-								"depth": "1"
-							}
-						},
 						{
 							"id": "log",
 							"objectClass": "Browser",
-							"sid": 722840316149887,
+							"sid": 447996308852309,
 							"parameters": {
 								"type": "log",
-								"message": "\"Small\" & MapData.Width & \"|\" & MapData.Height"
+								"message": "\"next \" & map_width & \"|\" & UIText.Text"
 							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 475467778023808,
-							"parameters": {
-								"variable": "mapSize",
-								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_SMALL / 64)"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 833298963782959,
-							"parameters": {
-								"variable": "map_width",
-								"value": "MAP_WIDTH_SMALL"
-							}
-						},
-						{
-							"callFunction": "CreateMap",
-							"sid": 901552289954569
 						}
 					],
-					"sid": 413496623052228
+					"sid": 729912809538086,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "selectedSize",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 737484529167842
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 314819613264995,
+									"parameters": {
+										"variable": "map_width",
+										"comparison": 0,
+										"value": "MAP_WIDTH_SMALL"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 983660352278624,
+									"parameters": {
+										"text": "\"Medium\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 783316732408239,
+									"parameters": {
+										"variable": "selectedSize",
+										"value": "MAP_WIDTH_MEDIUM"
+									}
+								}
+							],
+							"sid": 860143885160989
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 167916100511666,
+									"parameters": {
+										"variable": "map_width",
+										"comparison": 0,
+										"value": "MAP_WIDTH_MEDIUM"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 471379864743142,
+									"parameters": {
+										"text": "\"Large\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 155026571286231,
+									"parameters": {
+										"variable": "selectedSize",
+										"value": "MAP_WIDTH_LARGE"
+									}
+								}
+							],
+							"sid": 109446723429057
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 213119088092454,
+									"parameters": {
+										"variable": "map_width",
+										"comparison": 0,
+										"value": "MAP_WIDTH_LARGE"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 660786574793413,
+									"parameters": {
+										"text": "\"Small\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 175158535601296,
+									"parameters": {
+										"variable": "selectedSize",
+										"value": "MAP_WIDTH_SMALL"
+									}
+								}
+							],
+							"sid": 826633092737466
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "changeMapSize",
+									"sid": 785252085717419,
+									"parameters": [
+										"selectedSize"
+									]
+								}
+							],
+							"sid": 619822586126727
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1130,115 +1306,157 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Button",
-							"sid": 524048007198379,
+							"sid": 121724567418766,
 							"parameters": {
 								"instance-variable": "id",
 								"comparison": 0,
-								"value": "\"geography_size_medium\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "seed",
-							"objectClass": "AdvancedRandom",
-							"sid": 724201500918157,
-							"parameters": {
-								"seed": "AdvancedRandom.RandomSeed"
+								"value": "\"geography_size_prev\""
 							}
 						},
-						{
-							"id": "set-size",
-							"objectClass": "MapData",
-							"sid": 262462062947316,
-							"parameters": {
-								"width": "ceil(MAP_WIDTH_MEDIUM / 64)",
-								"height": "ceil((MAP_WIDTH_MEDIUM / 16 * 9) / 64)",
-								"depth": "1"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 542445222326092,
-							"parameters": {
-								"variable": "mapSize",
-								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_MEDIUM / 64)"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 249644131906441,
-							"parameters": {
-								"variable": "map_width",
-								"value": "MAP_WIDTH_MEDIUM"
-							}
-						},
-						{
-							"callFunction": "CreateMap",
-							"sid": 778149562445079
-						}
-					],
-					"sid": 813636258626797
-				},
-				{
-					"eventType": "block",
-					"conditions": [
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "Button",
-							"sid": 279028662627360,
+							"objectClass": "UIText",
+							"sid": 577033534129999,
 							"parameters": {
 								"instance-variable": "id",
 								"comparison": 0,
-								"value": "\"geography_size_large\""
+								"value": "\"geography_size\""
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 661879852721527,
+					"children": [
 						{
-							"id": "seed",
-							"objectClass": "AdvancedRandom",
-							"sid": 682805884812442,
-							"parameters": {
-								"seed": "AdvancedRandom.RandomSeed"
-							}
+							"eventType": "variable",
+							"name": "selectedSize",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 929245008961117
 						},
 						{
-							"id": "set-size",
-							"objectClass": "MapData",
-							"sid": 384632308642374,
-							"parameters": {
-								"width": "ceil(MAP_WIDTH_LARGE / 64)",
-								"height": "ceil((MAP_WIDTH_LARGE / 16 * 9) / 64)",
-								"depth": "1"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 894451586169577,
+									"parameters": {
+										"variable": "map_width",
+										"comparison": 0,
+										"value": "MAP_WIDTH_SMALL"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 114002796081885,
+									"parameters": {
+										"text": "\"Large\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 794818016664439,
+									"parameters": {
+										"variable": "selectedSize",
+										"value": "MAP_WIDTH_LARGE"
+									}
+								}
+							],
+							"sid": 717811468887796
 						},
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 555381730951682,
-							"parameters": {
-								"variable": "mapSize",
-								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_LARGE / 64)"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 959968697213202,
+									"parameters": {
+										"variable": "map_width",
+										"comparison": 0,
+										"value": "MAP_WIDTH_LARGE"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 883947866137067,
+									"parameters": {
+										"text": "\"Medium\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 551231077774692,
+									"parameters": {
+										"variable": "selectedSize",
+										"value": "MAP_WIDTH_MEDIUM"
+									}
+								}
+							],
+							"sid": 403296099000526
 						},
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 179185701331329,
-							"parameters": {
-								"variable": "map_width",
-								"value": "MAP_WIDTH_LARGE"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 192818071790148,
+									"parameters": {
+										"variable": "map_width",
+										"comparison": 0,
+										"value": "MAP_WIDTH_MEDIUM"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 937338745829477,
+									"parameters": {
+										"text": "\"Small\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 269804393878059,
+									"parameters": {
+										"variable": "selectedSize",
+										"value": "MAP_WIDTH_SMALL"
+									}
+								}
+							],
+							"sid": 563652973500038
 						},
 						{
-							"callFunction": "CreateMap",
-							"sid": 842297829099360
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "changeMapSize",
+									"sid": 574927764865061,
+									"parameters": [
+										"selectedSize"
+									]
+								}
+							],
+							"sid": 774312672174956
 						}
-					],
-					"sid": 976836125502235
+					]
 				},
 				{
 					"eventType": "block",
@@ -1283,10 +1501,10 @@
 								{
 									"id": "log",
 									"objectClass": "Browser",
-									"sid": 623266583478061,
+									"sid": 846273706338260,
 									"parameters": {
 										"type": "log",
-										"message": "\"in crisis \""
+										"message": "\"in crisis \" & map_width"
 									}
 								},
 								{
@@ -1480,6 +1698,187 @@
 							"sid": 132537448009835
 						}
 					]
+				}
+			]
+		},
+		{
+			"functionName": "changeMapSize",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "size",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 344079775919956
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "seed",
+					"objectClass": "AdvancedRandom",
+					"sid": 280872018594118,
+					"parameters": {
+						"seed": "AdvancedRandom.RandomSeed"
+					}
+				}
+			],
+			"sid": 832333007217171,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 619302384602363,
+							"parameters": {
+								"variable": "size",
+								"comparison": 0,
+								"value": "MAP_WIDTH_SMALL"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "MapData",
+							"sid": 846385108441862,
+							"parameters": {
+								"width": "ceil(MAP_WIDTH_SMALL / 64)",
+								"height": "ceil((MAP_WIDTH_SMALL / 16 * 9) / 64)",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 423443094829836,
+							"parameters": {
+								"variable": "mapSize",
+								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_SMALL / 64)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 148292005872510,
+							"parameters": {
+								"variable": "map_width",
+								"value": "MAP_WIDTH_SMALL"
+							}
+						}
+					],
+					"sid": 215195075292782
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 762441293852486,
+							"parameters": {
+								"variable": "size",
+								"comparison": 0,
+								"value": "MAP_WIDTH_MEDIUM"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "MapData",
+							"sid": 579887128992406,
+							"parameters": {
+								"width": "ceil(MAP_WIDTH_MEDIUM / 64)",
+								"height": "ceil((MAP_WIDTH_MEDIUM / 16 * 9) / 64)",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 169079253609752,
+							"parameters": {
+								"variable": "mapSize",
+								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_MEDIUM / 64)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 288951534943119,
+							"parameters": {
+								"variable": "map_width",
+								"value": "MAP_WIDTH_MEDIUM"
+							}
+						}
+					],
+					"sid": 134551636736874
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 240211602054731,
+							"parameters": {
+								"variable": "size",
+								"comparison": 0,
+								"value": "MAP_WIDTH_LARGE"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "MapData",
+							"sid": 965546871403308,
+							"parameters": {
+								"width": "ceil(MAP_WIDTH_LARGE / 64)",
+								"height": "ceil((MAP_WIDTH_LARGE / 16 * 9) / 64)",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 405804091948999,
+							"parameters": {
+								"variable": "mapSize",
+								"value": "DrawingCanvas.SnapshotWidth / (MAP_WIDTH_LARGE / 64)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 915128706695306,
+							"parameters": {
+								"variable": "map_width",
+								"value": "MAP_WIDTH_LARGE"
+							}
+						}
+					],
+					"sid": 956897284278889
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "CreateMap",
+							"sid": 829136805654480
+						}
+					],
+					"sid": 518156717027679
 				}
 			]
 		},

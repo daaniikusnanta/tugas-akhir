@@ -1,7 +1,7 @@
 {
-	"name": "UIPanel",
-	"plugin-id": "NinePatch",
-	"sid": 229785423124815,
+	"name": "UITextBold",
+	"plugin-id": "Spritefont2",
+	"sid": 492413721227462,
 	"isGlobal": false,
 	"instanceVariables": [
 		{
@@ -9,25 +9,20 @@
 			"type": "string",
 			"desc": "",
 			"show": true,
-			"sid": 248779726102864
+			"sid": 125623322928026
 		}
 	],
 	"behaviorTypes": [],
-	"effectTypes": [
-		{
-			"effectId": "exposure",
-			"name": "Exposure"
-		}
-	],
+	"effectTypes": [],
 	"image": {
-		"width": 250,
-		"height": 250,
+		"width": 1024,
+		"height": 1024,
 		"originX": 0.5,
 		"originY": 0.5,
 		"originalSource": "",
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
-		"imageSpriteId": 3553741,
+		"imageSpriteId": 7330806,
 		"useCollisionPoly": true
 	}
 }

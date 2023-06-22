@@ -206,7 +206,12 @@
 			"DrawingCanvas",
 			"MapData",
 			"Blur",
-			"UIPanelBlur"
+			"UIPanelBlur",
+			"BiomeData",
+			"BG",
+			"UIPanelOutline",
+			"TextNotoSerifBlack",
+			"UITextBold"
 		],
 		"subfolders": [
 			{
@@ -226,9 +231,10 @@
 	"families": {
 		"items": [
 			"Clickable",
-			"Family1",
+			"Text",
 			"Slider",
-			"Panel"
+			"Panel",
+			"SliderBG"
 		],
 		"subfolders": []
 	},
@@ -237,7 +243,8 @@
 			"SmallMapLayout",
 			"MediumMapLayout",
 			"LargeMapLayout",
-			"Create Level Layout"
+			"Create Level Layout",
+			"MenuLayout"
 		],
 		"subfolders": []
 	},
@@ -245,7 +252,8 @@
 		"items": [
 			"Game_ES",
 			"Common_ES",
-			"CreateLevel_ES"
+			"CreateLevel_ES",
+			"Menu_ES"
 		],
 		"subfolders": []
 	},

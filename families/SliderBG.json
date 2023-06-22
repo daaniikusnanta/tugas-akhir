@@ -1,0 +1,12 @@
+{
+	"name": "SliderBG",
+	"plugin-id": "Sprite",
+	"sid": 866612881221265,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"SliderBarBG",
+		"SliderBarBG2"
+	]
+}

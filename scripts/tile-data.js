@@ -141,17 +141,17 @@ export function expandCrisisTiles(runtime, crisisName) {
             if (!isSameCrisisTypeExists) {
                 let tileID = getCrisisTileID(crisis.type);
 
-                if (getNeighbourTiles(tile.x, tile.y).filter(t => t === null).length < 2) {
-                    tileID = tileID + 1;
-                }
+                // if (getNeighbourTiles(tile.x, tile.y).filter(t => t === null).length < 2) {
+                //     tileID = tileID + 1;
+                // }
 
-                if (tile.x + 1 <= tiles[tile.y].length && tiles[tile.y][tile.x + 1] === null) {
-                    tileID = tileID | ITilemapInstance.TILE_FLIPPED_HORIZONTAL;
-                }
+                // if (tile.x + 1 <= tiles[tile.y].length && tiles[tile.y][tile.x + 1] === null) {
+                //     tileID = tileID | ITilemapInstance.TILE_FLIPPED_HORIZONTAL;
+                // }
 
-                if (tile.y - 1 >= 0 && tiles[tile.y - 1][tile.x] === null) {
-                    tileID = tileID | ITilemapInstance.TILE_FLIPPED_VERTICAL;
-                }
+                // if (tile.y - 1 >= 0 && tiles[tile.y - 1][tile.x] === null) {
+                //     tileID = tileID | ITilemapInstance.TILE_FLIPPED_VERTICAL;
+                // }
 
                 // console.log(tile, tileID);
                 tilemapCrisis.setTileAt(tile.x, tile.y, tileID);
@@ -335,24 +335,24 @@ function getCrisisTileID(type) {
         case "finance":
             return 0;
         case "health":
-            return 12;
+            return 1;
         case "education":
-            return 24;
+            return 2;
         case "social":
-            return 36;
+            return 3;
         case "environment":
-            return 48;
+            return 4;
         case "nature":
-            return 60;
+            return 5;
         case "infrastructure":
-            return 72;
+            return 6;
         case "labor":
-            return 84;
+            return 7;
         case "defense":
-            return 96;
+            return 8;
         case "stability":
-            return 108;
+            return 9;
         case "industry":
-            return 120;
+            return 10;
     }
 }

@@ -81,87 +81,746 @@
 				{
 					"name": "Tilemap",
 					"overriden": 0,
-					"subLayers": [],
-					"instances": [
+					"subLayers": [
 						{
-							"type": "TilemapBiome",
-							"properties": {
-								"initially-visible": true,
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0,
-								"tile-x-drawing-offset": 0,
-								"tile-y-drawing-offset": 0,
-								"drawing-mode": "top-to-right"
-							},
-							"uid": 300,
-							"instanceVariables": {},
-							"behaviors": {},
-							"ownData": {
-								"tilemapData": {
-									"width": 55,
-									"height": 31,
-									"max-width": 103,
-									"max-height": 66,
-									"data": "11x0,24vd,5x24hd,59x0,22hd,6x24hd,51x0,29hd,2x31hd,29,3x0,29hd,31hv,27vd,24hd,26,25,26vd,24hd,51x0,2x31hd,32,31hd,2x0,29hd,31hd,33,32,4x25,24hd,51x0,31hd,2x32,31hd,2x0,2x31hd,2x32,28vd,3x25,24hd,50x0,29hd,3x31hd,29vd,2x0,2x31hd,2x32,28hv,3x25,24hd,50x0,32,33vd,2x31hd,3x0,2x31hd,33hd,32,3x25,26hv,24hd,50x0,2x32,2x31hd,3x0,29hv,2x31hd,27hv,5x24hd,50x0,2x32,31hd,29vd,6x0,22hv,5x24hd,50x0,30hv,32,29vd,9x0,22hv,3x24hd,63x0,3x24hd,62x0,22hd,3x24hd,62x0,3x24hd,26,53x0,1hd,2x3,1,4x0,15hd,20hd,24hd,26,25,50x0,1hd,6x3,1,3x0,2x17hd,20hd,2x25,49x0,2x3,5,3x4,5vd,2x3,3x0,3x17hd,2x25,49x0,2x3,6x4,3,3x0,3x17hd,21hd,25,49x0,3,4,5hd,4x4,2x3,3x0,3x17hd,2x18,49x0,5vd,7x3,1vd,3x0,15hv,2x17hd,19hd,18,49x0,4,2x3vd,4,2x3,1vd,7x0,15hv,2x17hd,49x0,4,5vd,3vd,2x4,3,60x0,2x4,3vd,4,2x3,60x0,7vd,4,2x3vd,3,1vd,60x0,2x11,10hd,6vd,3,61x0,2x11,12vd,10vd,6vd,5x0,15hd,3x17hd,15,51x0,3x11,10hd,10vd,8,2x0,15hd,8x17hd,49x0,3x11,3x10hd,5x17hd,18,3x17hd,18,17hd,49x0,3x11,3x10hd,13hd,17hd,19,18,19vd,2x17hd,2x18,2x17hd,49x0,12hv,11,3x10hd,12,11,14hd,3x18,17hd,3x18,2x17hd,49x0,3x10hd,12,11,11hv,5x11,10hd,13hd,18,3x17hd,4867x0"
+							"name": "Biome",
+							"overriden": 0,
+							"subLayers": [],
+							"instances": [
+								{
+									"type": "TilemapBiome",
+									"properties": {
+										"initially-visible": true,
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0,
+										"tile-x-drawing-offset": 0,
+										"tile-y-drawing-offset": 0,
+										"drawing-mode": "top-to-right"
+									},
+									"uid": 300,
+									"instanceVariables": {},
+									"behaviors": {},
+									"ownData": {
+										"tilemapData": {
+											"width": 55,
+											"height": 31,
+											"max-width": 103,
+											"max-height": 66,
+											"data": "11x0,24vd,5x24hd,59x0,22hd,6x24hd,51x0,29hd,2x31hd,29,3x0,29hd,31hv,27vd,24hd,26,25,26vd,24hd,51x0,2x31hd,32,31hd,2x0,29hd,31hd,33,32,4x25,24hd,51x0,31hd,2x32,31hd,2x0,2x31hd,2x32,28vd,3x25,24hd,50x0,29hd,3x31hd,29vd,2x0,2x31hd,2x32,28hv,3x25,24hd,50x0,32,33vd,2x31hd,3x0,2x31hd,33hd,32,3x25,26hv,24hd,50x0,2x32,2x31hd,3x0,29hv,2x31hd,27hv,5x24hd,50x0,2x32,31hd,29vd,6x0,22hv,5x24hd,50x0,30hv,32,29vd,9x0,22hv,3x24hd,63x0,3x24hd,62x0,22hd,3x24hd,62x0,3x24hd,26,53x0,1hd,2x3,1,4x0,15hd,20hd,24hd,26,25,50x0,1hd,6x3,1,3x0,2x17hd,20hd,2x25,49x0,2x3,5,3x4,5vd,2x3,3x0,3x17hd,2x25,49x0,2x3,6x4,3,3x0,3x17hd,21hd,25,49x0,3,4,5hd,4x4,2x3,3x0,3x17hd,2x18,49x0,5vd,7x3,1vd,3x0,15hv,2x17hd,19hd,18,49x0,4,2x3vd,4,2x3,1vd,7x0,15hv,2x17hd,49x0,4,5vd,3vd,2x4,3,60x0,2x4,3vd,4,2x3,60x0,7vd,4,2x3vd,3,1vd,60x0,2x11,10hd,6vd,3,61x0,2x11,12vd,10vd,6vd,5x0,15hd,3x17hd,15,51x0,3x11,10hd,10vd,8,2x0,15hd,8x17hd,49x0,3x11,3x10hd,5x17hd,18,3x17hd,18,17hd,49x0,3x11,3x10hd,13hd,17hd,19,18,19vd,2x17hd,2x18,2x17hd,49x0,12hv,11,3x10hd,12,11,14hd,3x18,17hd,3x18,2x17hd,49x0,3x10hd,12,11,11hv,5x11,10hd,13hd,18,3x17hd,4867x0"
+										},
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0
+									},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											1
+										],
+										"zElevation": 0
+									}
 								},
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0
-							},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 3520,
-								"height": 2044,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"zElevation": 0
-							}
+								{
+									"type": "DrawingCanvas",
+									"properties": {
+										"resolution-mode": "auto",
+										"initially-visible": true,
+										"origin": "top-left",
+										"antialiasing": "off"
+									},
+									"uid": 301,
+									"instanceVariables": {
+										"id": "map_texture"
+									},
+									"behaviors": {},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											1
+										],
+										"angle": 0,
+										"blendMode": "source-atop"
+									}
+								},
+								{
+									"type": "DrawingCanvas",
+									"properties": {
+										"resolution-mode": "auto",
+										"initially-visible": true,
+										"origin": "top-left",
+										"antialiasing": "off"
+									},
+									"uid": 137,
+									"instanceVariables": {
+										"id": "map_color"
+									},
+									"behaviors": {},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											1
+										],
+										"angle": 0,
+										"blendMode": "source-atop"
+									}
+								}
+							],
+							"sid": 804388697590353,
+							"effectTypes": [],
+							"isInitiallyVisible": true,
+							"isInitiallyInteractive": true,
+							"color": [
+								1,
+								1,
+								1,
+								1
+							],
+							"backgroundColor": [
+								0.3686274509803922,
+								0.3686274509803922,
+								0.3686274509803922,
+								1
+							],
+							"isTransparent": true,
+							"parallaxX": 1,
+							"parallaxY": 1,
+							"scaleRate": 1,
+							"forceOwnTexture": false,
+							"renderingMode": "3d",
+							"drawOrder": "z-order",
+							"useRenderCells": false,
+							"blendMode": "normal",
+							"zElevation": 0,
+							"global": false
 						},
 						{
-							"type": "DrawingCanvas",
-							"properties": {
-								"resolution-mode": "auto",
-								"initially-visible": true,
-								"origin": "top-left",
-								"antialiasing": "off"
-							},
-							"uid": 301,
-							"instanceVariables": {
-								"id": "map_texture"
-							},
-							"behaviors": {},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 3520,
-								"height": 2044,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"blendMode": "source-atop"
-							}
+							"name": "Crisis",
+							"overriden": 0,
+							"subLayers": [],
+							"instances": [
+								{
+									"type": "TilemapCrisis",
+									"properties": {
+										"initially-visible": true,
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0,
+										"tile-x-drawing-offset": 0,
+										"tile-y-drawing-offset": 0,
+										"drawing-mode": "top-to-right"
+									},
+									"uid": 302,
+									"instanceVariables": {
+										"id": "finance_crisis_tilemap"
+									},
+									"behaviors": {},
+									"ownData": {
+										"tilemapData": {
+											"width": 55,
+											"height": 31,
+											"max-width": 102,
+											"max-height": 65,
+											"data": "6630x0"
+										},
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0
+									},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											0.7
+										],
+										"zElevation": 0,
+										"blendMode": "source-atop"
+									}
+								},
+								{
+									"type": "TilemapCrisis",
+									"properties": {
+										"initially-visible": true,
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0,
+										"tile-x-drawing-offset": 0,
+										"tile-y-drawing-offset": 0,
+										"drawing-mode": "top-to-right"
+									},
+									"uid": 303,
+									"instanceVariables": {
+										"id": "health_crisis_tilemap"
+									},
+									"behaviors": {},
+									"ownData": {
+										"tilemapData": {
+											"width": 55,
+											"height": 31,
+											"max-width": 102,
+											"max-height": 65,
+											"data": "6630x0"
+										},
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0
+									},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											0.7
+										],
+										"zElevation": 0,
+										"blendMode": "source-atop"
+									}
+								},
+								{
+									"type": "TilemapCrisis",
+									"properties": {
+										"initially-visible": true,
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0,
+										"tile-x-drawing-offset": 0,
+										"tile-y-drawing-offset": 0,
+										"drawing-mode": "top-to-right"
+									},
+									"uid": 304,
+									"instanceVariables": {
+										"id": "education_crisis_tilemap"
+									},
+									"behaviors": {},
+									"ownData": {
+										"tilemapData": {
+											"width": 55,
+											"height": 31,
+											"max-width": 102,
+											"max-height": 65,
+											"data": "6630x0"
+										},
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0
+									},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											0.7
+										],
+										"zElevation": 0,
+										"blendMode": "source-atop"
+									}
+								},
+								{
+									"type": "TilemapCrisis",
+									"properties": {
+										"initially-visible": true,
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0,
+										"tile-x-drawing-offset": 0,
+										"tile-y-drawing-offset": 0,
+										"drawing-mode": "top-to-right"
+									},
+									"uid": 305,
+									"instanceVariables": {
+										"id": "social_crisis_tilemap"
+									},
+									"behaviors": {},
+									"ownData": {
+										"tilemapData": {
+											"width": 55,
+											"height": 31,
+											"max-width": 102,
+											"max-height": 65,
+											"data": "6630x0"
+										},
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0
+									},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											0.7
+										],
+										"zElevation": 0,
+										"blendMode": "source-atop"
+									}
+								},
+								{
+									"type": "TilemapCrisis",
+									"properties": {
+										"initially-visible": true,
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0,
+										"tile-x-drawing-offset": 0,
+										"tile-y-drawing-offset": 0,
+										"drawing-mode": "top-to-right"
+									},
+									"uid": 306,
+									"instanceVariables": {
+										"id": "environment_crisis_tilemap"
+									},
+									"behaviors": {},
+									"ownData": {
+										"tilemapData": {
+											"width": 55,
+											"height": 31,
+											"max-width": 102,
+											"max-height": 65,
+											"data": "6630x0"
+										},
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0
+									},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											0.7
+										],
+										"zElevation": 0,
+										"blendMode": "source-atop"
+									}
+								},
+								{
+									"type": "TilemapCrisis",
+									"properties": {
+										"initially-visible": true,
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0,
+										"tile-x-drawing-offset": 0,
+										"tile-y-drawing-offset": 0,
+										"drawing-mode": "top-to-right"
+									},
+									"uid": 307,
+									"instanceVariables": {
+										"id": "nature_crisis_tilemap"
+									},
+									"behaviors": {},
+									"ownData": {
+										"tilemapData": {
+											"width": 55,
+											"height": 31,
+											"max-width": 102,
+											"max-height": 65,
+											"data": "6630x0"
+										},
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0
+									},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											0.7
+										],
+										"zElevation": 0,
+										"blendMode": "source-atop"
+									}
+								},
+								{
+									"type": "TilemapCrisis",
+									"properties": {
+										"initially-visible": true,
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0,
+										"tile-x-drawing-offset": 0,
+										"tile-y-drawing-offset": 0,
+										"drawing-mode": "top-to-right"
+									},
+									"uid": 308,
+									"instanceVariables": {
+										"id": "labor_crisis_tilemap"
+									},
+									"behaviors": {},
+									"ownData": {
+										"tilemapData": {
+											"width": 55,
+											"height": 31,
+											"max-width": 102,
+											"max-height": 65,
+											"data": "6630x0"
+										},
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0
+									},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											0.7
+										],
+										"zElevation": 0,
+										"blendMode": "source-atop"
+									}
+								},
+								{
+									"type": "TilemapCrisis",
+									"properties": {
+										"initially-visible": true,
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0,
+										"tile-x-drawing-offset": 0,
+										"tile-y-drawing-offset": 0,
+										"drawing-mode": "top-to-right"
+									},
+									"uid": 309,
+									"instanceVariables": {
+										"id": "infrastructure_crisis_tilemap"
+									},
+									"behaviors": {},
+									"ownData": {
+										"tilemapData": {
+											"width": 55,
+											"height": 31,
+											"max-width": 102,
+											"max-height": 65,
+											"data": "6630x0"
+										},
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0
+									},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											0.7
+										],
+										"zElevation": 0,
+										"blendMode": "source-atop"
+									}
+								},
+								{
+									"type": "TilemapCrisis",
+									"properties": {
+										"initially-visible": true,
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0,
+										"tile-x-drawing-offset": 0,
+										"tile-y-drawing-offset": 0,
+										"drawing-mode": "top-to-right"
+									},
+									"uid": 310,
+									"instanceVariables": {
+										"id": "defense_crisis_tilemap"
+									},
+									"behaviors": {},
+									"ownData": {
+										"tilemapData": {
+											"width": 55,
+											"height": 31,
+											"max-width": 102,
+											"max-height": 65,
+											"data": "6630x0"
+										},
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0
+									},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											0.7
+										],
+										"zElevation": 0,
+										"blendMode": "source-atop"
+									}
+								},
+								{
+									"type": "TilemapCrisis",
+									"properties": {
+										"initially-visible": true,
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0,
+										"tile-x-drawing-offset": 0,
+										"tile-y-drawing-offset": 0,
+										"drawing-mode": "top-to-right"
+									},
+									"uid": 311,
+									"instanceVariables": {
+										"id": "stability_crisis_tilemap"
+									},
+									"behaviors": {},
+									"ownData": {
+										"tilemapData": {
+											"width": 55,
+											"height": 31,
+											"max-width": 107,
+											"max-height": 68,
+											"data": "7276x0"
+										},
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0
+									},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											0.7
+										],
+										"zElevation": 0,
+										"blendMode": "source-atop"
+									}
+								},
+								{
+									"type": "TilemapCrisis",
+									"properties": {
+										"initially-visible": true,
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0,
+										"tile-x-drawing-offset": 0,
+										"tile-y-drawing-offset": 0,
+										"drawing-mode": "top-to-right"
+									},
+									"uid": 312,
+									"instanceVariables": {
+										"id": "industry_crisis_tilemap"
+									},
+									"behaviors": {},
+									"ownData": {
+										"tilemapData": {
+											"width": 55,
+											"height": 31,
+											"max-width": 107,
+											"max-height": 69,
+											"data": "7383x0"
+										},
+										"tile-width": 64,
+										"tile-height": 64,
+										"tile-x-offset": 0,
+										"tile-y-offset": 0,
+										"tile-x-spacing": 0,
+										"tile-y-spacing": 0
+									},
+									"world": {
+										"x": 0,
+										"y": 0,
+										"width": 3520,
+										"height": 2044,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											0.7
+										],
+										"zElevation": 0,
+										"blendMode": "source-atop"
+									}
+								}
+							],
+							"sid": 971842951155139,
+							"effectTypes": [],
+							"isInitiallyVisible": true,
+							"isInitiallyInteractive": true,
+							"color": [
+								1,
+								1,
+								1,
+								1
+							],
+							"backgroundColor": [
+								0.3686274509803922,
+								0.3686274509803922,
+								0.3686274509803922,
+								1
+							],
+							"isTransparent": true,
+							"parallaxX": 1,
+							"parallaxY": 1,
+							"scaleRate": 1,
+							"forceOwnTexture": false,
+							"renderingMode": "3d",
+							"drawOrder": "z-order",
+							"useRenderCells": false,
+							"blendMode": "normal",
+							"zElevation": 0,
+							"global": false
 						}
 					],
+					"instances": [],
 					"sid": 650238622022961,
 					"effectTypes": [],
 					"isInitiallyVisible": true,
@@ -183,590 +842,6 @@
 					"parallaxY": 1,
 					"scaleRate": 1,
 					"forceOwnTexture": true,
-					"renderingMode": "3d",
-					"drawOrder": "z-order",
-					"useRenderCells": false,
-					"blendMode": "normal",
-					"zElevation": 0,
-					"global": false
-				},
-				{
-					"name": "Crisis",
-					"overriden": 0,
-					"subLayers": [],
-					"instances": [
-						{
-							"type": "TilemapCrisis",
-							"properties": {
-								"initially-visible": true,
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0,
-								"tile-x-drawing-offset": 0,
-								"tile-y-drawing-offset": 0,
-								"drawing-mode": "top-to-right"
-							},
-							"uid": 302,
-							"instanceVariables": {
-								"id": "finance_crisis_tilemap"
-							},
-							"behaviors": {},
-							"ownData": {
-								"tilemapData": {
-									"width": 55,
-									"height": 31,
-									"max-width": 102,
-									"max-height": 65,
-									"data": "6630x0"
-								},
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0
-							},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 3520,
-								"height": 2044,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									0.85
-								],
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TilemapCrisis",
-							"properties": {
-								"initially-visible": true,
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0,
-								"tile-x-drawing-offset": 0,
-								"tile-y-drawing-offset": 0,
-								"drawing-mode": "top-to-right"
-							},
-							"uid": 303,
-							"instanceVariables": {
-								"id": "health_crisis_tilemap"
-							},
-							"behaviors": {},
-							"ownData": {
-								"tilemapData": {
-									"width": 55,
-									"height": 31,
-									"max-width": 102,
-									"max-height": 65,
-									"data": "6630x0"
-								},
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0
-							},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 3520,
-								"height": 2044,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									0.85
-								],
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TilemapCrisis",
-							"properties": {
-								"initially-visible": true,
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0,
-								"tile-x-drawing-offset": 0,
-								"tile-y-drawing-offset": 0,
-								"drawing-mode": "top-to-right"
-							},
-							"uid": 304,
-							"instanceVariables": {
-								"id": "education_crisis_tilemap"
-							},
-							"behaviors": {},
-							"ownData": {
-								"tilemapData": {
-									"width": 55,
-									"height": 31,
-									"max-width": 102,
-									"max-height": 65,
-									"data": "6630x0"
-								},
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0
-							},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 3520,
-								"height": 2044,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									0.85
-								],
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TilemapCrisis",
-							"properties": {
-								"initially-visible": true,
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0,
-								"tile-x-drawing-offset": 0,
-								"tile-y-drawing-offset": 0,
-								"drawing-mode": "top-to-right"
-							},
-							"uid": 305,
-							"instanceVariables": {
-								"id": "social_crisis_tilemap"
-							},
-							"behaviors": {},
-							"ownData": {
-								"tilemapData": {
-									"width": 55,
-									"height": 31,
-									"max-width": 102,
-									"max-height": 65,
-									"data": "6630x0"
-								},
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0
-							},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 3520,
-								"height": 2044,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									0.85
-								],
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TilemapCrisis",
-							"properties": {
-								"initially-visible": true,
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0,
-								"tile-x-drawing-offset": 0,
-								"tile-y-drawing-offset": 0,
-								"drawing-mode": "top-to-right"
-							},
-							"uid": 306,
-							"instanceVariables": {
-								"id": "environment_crisis_tilemap"
-							},
-							"behaviors": {},
-							"ownData": {
-								"tilemapData": {
-									"width": 55,
-									"height": 31,
-									"max-width": 102,
-									"max-height": 65,
-									"data": "6630x0"
-								},
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0
-							},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 3520,
-								"height": 2044,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									0.85
-								],
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TilemapCrisis",
-							"properties": {
-								"initially-visible": true,
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0,
-								"tile-x-drawing-offset": 0,
-								"tile-y-drawing-offset": 0,
-								"drawing-mode": "top-to-right"
-							},
-							"uid": 307,
-							"instanceVariables": {
-								"id": "nature_crisis_tilemap"
-							},
-							"behaviors": {},
-							"ownData": {
-								"tilemapData": {
-									"width": 55,
-									"height": 31,
-									"max-width": 102,
-									"max-height": 65,
-									"data": "6630x0"
-								},
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0
-							},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 3520,
-								"height": 2044,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									0.85
-								],
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TilemapCrisis",
-							"properties": {
-								"initially-visible": true,
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0,
-								"tile-x-drawing-offset": 0,
-								"tile-y-drawing-offset": 0,
-								"drawing-mode": "top-to-right"
-							},
-							"uid": 308,
-							"instanceVariables": {
-								"id": "labor_crisis_tilemap"
-							},
-							"behaviors": {},
-							"ownData": {
-								"tilemapData": {
-									"width": 55,
-									"height": 31,
-									"max-width": 102,
-									"max-height": 65,
-									"data": "6630x0"
-								},
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0
-							},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 3520,
-								"height": 2044,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									0.85
-								],
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TilemapCrisis",
-							"properties": {
-								"initially-visible": true,
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0,
-								"tile-x-drawing-offset": 0,
-								"tile-y-drawing-offset": 0,
-								"drawing-mode": "top-to-right"
-							},
-							"uid": 309,
-							"instanceVariables": {
-								"id": "infrastructure_crisis_tilemap"
-							},
-							"behaviors": {},
-							"ownData": {
-								"tilemapData": {
-									"width": 55,
-									"height": 31,
-									"max-width": 102,
-									"max-height": 65,
-									"data": "6630x0"
-								},
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0
-							},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 3520,
-								"height": 2044,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									0.85
-								],
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TilemapCrisis",
-							"properties": {
-								"initially-visible": true,
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0,
-								"tile-x-drawing-offset": 0,
-								"tile-y-drawing-offset": 0,
-								"drawing-mode": "top-to-right"
-							},
-							"uid": 310,
-							"instanceVariables": {
-								"id": "defense_crisis_tilemap"
-							},
-							"behaviors": {},
-							"ownData": {
-								"tilemapData": {
-									"width": 55,
-									"height": 31,
-									"max-width": 102,
-									"max-height": 65,
-									"data": "6630x0"
-								},
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0
-							},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 3520,
-								"height": 2044,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									0.85
-								],
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TilemapCrisis",
-							"properties": {
-								"initially-visible": true,
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0,
-								"tile-x-drawing-offset": 0,
-								"tile-y-drawing-offset": 0,
-								"drawing-mode": "top-to-right"
-							},
-							"uid": 311,
-							"instanceVariables": {
-								"id": "stability_crisis_tilemap"
-							},
-							"behaviors": {},
-							"ownData": {
-								"tilemapData": {
-									"width": 55,
-									"height": 31,
-									"max-width": 107,
-									"max-height": 68,
-									"data": "7276x0"
-								},
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0
-							},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 3520,
-								"height": 2044,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									0.85
-								],
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TilemapCrisis",
-							"properties": {
-								"initially-visible": true,
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0,
-								"tile-x-drawing-offset": 0,
-								"tile-y-drawing-offset": 0,
-								"drawing-mode": "top-to-right"
-							},
-							"uid": 312,
-							"instanceVariables": {
-								"id": "industry_crisis_tilemap"
-							},
-							"behaviors": {},
-							"ownData": {
-								"tilemapData": {
-									"width": 55,
-									"height": 31,
-									"max-width": 107,
-									"max-height": 69,
-									"data": "7383x0"
-								},
-								"tile-width": 64,
-								"tile-height": 64,
-								"tile-x-offset": 0,
-								"tile-y-offset": 0,
-								"tile-x-spacing": 0,
-								"tile-y-spacing": 0
-							},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 3520,
-								"height": 2044,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									0.85
-								],
-								"zElevation": 0
-							}
-						}
-					],
-					"sid": 649163147081766,
-					"effectTypes": [],
-					"isInitiallyVisible": true,
-					"isInitiallyInteractive": true,
-					"color": [
-						1,
-						1,
-						1,
-						1
-					],
-					"backgroundColor": [
-						0.3686274509803922,
-						0.3686274509803922,
-						0.3686274509803922,
-						1
-					],
-					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
-					"scaleRate": 1,
-					"forceOwnTexture": false,
 					"renderingMode": "3d",
 					"drawOrder": "z-order",
 					"useRenderCells": false,

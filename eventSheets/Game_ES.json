@@ -1425,10 +1425,130 @@
 								"type": "log",
 								"message": "\"Setup\" & MapData.Width & \"|\" & MapData.Height"
 							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "BiomeData",
+							"sid": 183648249371518,
+							"parameters": {
+								"width": "LayoutWidth",
+								"height": "LayoutHeight",
+								"depth": "1"
+							}
 						}
 					],
 					"sid": 648571395013887,
 					"children": [
+						{
+							"eventType": "variable",
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 570534923671095
+						},
+						{
+							"eventType": "variable",
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 433339527994307
+						},
+						{
+							"eventType": "variable",
+							"name": "biome",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 168008982588151
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 439833045380323,
+									"parameters": {
+										"count": "LayoutWidth"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 217110074972147,
+									"parameters": {
+										"variable": "x",
+										"value": "loopindex"
+									}
+								}
+							],
+							"sid": 689334920133562,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 479142711214070,
+											"parameters": {
+												"count": "LayoutHeight"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 813511635992886,
+											"parameters": {
+												"variable": "y",
+												"value": "loopindex"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 428777315761071,
+											"parameters": {
+												"variable": "biome",
+												"value": "AdvancedRandom.Voronoi2d(x * 0.4, y * 0.4)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 855275756427840,
+											"parameters": {
+												"variable": "biome",
+												"value": "int(biome * 5)"
+											}
+										},
+										{
+											"id": "set-at-xy",
+											"objectClass": "BiomeData",
+											"sid": 168178331373264,
+											"parameters": {
+												"x": "x",
+												"y": "y",
+												"value": "biome"
+											}
+										}
+									],
+									"sid": 545229782002675
+								}
+							]
+						},
 						{
 							"eventType": "variable",
 							"name": "topTile",
@@ -1571,6 +1691,16 @@
 							"sid": 222551907863296,
 							"children": [
 								{
+									"eventType": "variable",
+									"name": "valueBiome",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 194348411287070
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -1605,7 +1735,26 @@
 											"sid": 682335998322308
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 370709758551648,
+											"parameters": {
+												"variable": "valueBiome",
+												"value": "random(0, 1) > 0.7 ? BiomeData.At(MapData.CurX * 64, MapData.CurY * 64) : 0"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 365089044377932,
+											"parameters": {
+												"type": "log",
+												"message": "\"biome \" & MapData.CurValue"
+											}
+										}
+									],
 									"sid": 518525608510766,
 									"children": [
 										{
@@ -1626,11 +1775,11 @@
 												{
 													"id": "set-tile",
 													"objectClass": "TilemapBiome",
-													"sid": 364295423856824,
+													"sid": 542293142021887,
 													"parameters": {
 														"tile-x": "MapData.CurX",
 														"tile-y": "MapData.CurY",
-														"tile": "2",
+														"tile": "3 + valueBiome * 5",
 														"state": "normal"
 													}
 												}
@@ -1655,11 +1804,11 @@
 												{
 													"id": "set-tile",
 													"objectClass": "TilemapBiome",
-													"sid": 154823842132398,
+													"sid": 689803958880591,
 													"parameters": {
 														"tile-x": "MapData.CurX",
 														"tile-y": "MapData.CurY",
-														"tile": "1",
+														"tile": "2 + valueBiome * 5",
 														"state": "normal"
 													}
 												}
@@ -1753,6 +1902,46 @@
 											]
 										},
 										{
+											"eventType": "variable",
+											"name": "upperRightTile",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 682929017944984
+										},
+										{
+											"eventType": "variable",
+											"name": "upperLeftTile",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 476621059532106
+										},
+										{
+											"eventType": "variable",
+											"name": "lowerRightTile",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 555722941568122
+										},
+										{
+											"eventType": "variable",
+											"name": "lowerLeftTile",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 590901595222769
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -1764,23 +1953,119 @@
 														"comparison": 0,
 														"second-value": "2"
 													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 248185133275933,
+													"parameters": {
+														"first-value": "topTile + bottomTile",
+														"comparison": 1,
+														"second-value": "2"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 775580444362094,
+													"parameters": {
+														"first-value": "leftTile + rightTile",
+														"comparison": 1,
+														"second-value": "2"
+													}
 												}
 											],
 											"actions": [
 												{
 													"id": "set-tile",
 													"objectClass": "TilemapBiome",
-													"sid": 174837890222613,
+													"sid": 694369580391525,
 													"parameters": {
 														"tile-x": "MapData.CurX",
 														"tile-y": "MapData.CurY",
-														"tile": "0",
+														"tile": "1 + valueBiome * 5",
 														"state": "normal"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 438704345432462,
+													"parameters": {
+														"variable": "lowerLeftTile",
+														"value": "MapData.At(MapData.CurX - 1, MapData.CurY + 1) > 0 | MapData.CurX - 1 < 0 | MapData.CurY + 1 >= MapData.Height ? 1: 0"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 533926956797506,
+													"parameters": {
+														"variable": "lowerRightTile",
+														"value": "MapData.At(MapData.CurX + 1, MapData.CurY + 1) > 0 | MapData.CurX + 1 >= MapData.Width | MapData.CurY + 1 >= MapData.Height ? 1: 0"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 776064583651853,
+													"parameters": {
+														"variable": "upperRightTile",
+														"value": "MapData.At(MapData.CurX + 1, MapData.CurY - 1) > 0 | MapData.CurX + 1 >= MapData.Width | MapData.CurY - 1 < 0 ? 1 : 0"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 775722309178893,
+													"parameters": {
+														"variable": "upperLeftTile",
+														"value": "MapData.At(MapData.CurX - 1, MapData.CurY - 1) > 0 | MapData.CurX - 1 < 0 | MapData.CurY - 1 < 0 ? 1: 0"
 													}
 												}
 											],
 											"sid": 290560513522916,
 											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 955117987660430,
+															"parameters": {
+																"first-value": "upperLeftTile + lowerRightTile + abs(topTile - rightTile) + abs(leftTile- bottomTile)",
+																"comparison": 0,
+																"second-value": "2"
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 882600654336217,
+															"parameters": {
+																"first-value": "upperRightTile + lowerLeftTile + abs(topTile - leftTile) + abs(rightTile- bottomTile)",
+																"comparison": 0,
+																"second-value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-tile",
+															"objectClass": "TilemapBiome",
+															"sid": 144005859001647,
+															"parameters": {
+																"tile-x": "MapData.CurX",
+																"tile-y": "MapData.CurY",
+																"tile": "0 + valueBiome * 5",
+																"state": "normal"
+															}
+														}
+													],
+													"sid": 220616066651545,
+													"isOrBlock": true
+												},
 												{
 													"eventType": "block",
 													"conditions": [
@@ -1885,16 +2170,65 @@
 												{
 													"id": "set-tile",
 													"objectClass": "TilemapBiome",
-													"sid": 160929808086064,
+													"sid": 783523422758321,
 													"parameters": {
 														"tile-x": "MapData.CurX",
 														"tile-y": "MapData.CurY",
-														"tile": "3",
+														"tile": "4 + valueBiome * 5",
 														"state": "normal"
 													}
 												}
 											],
 											"sid": 815493399737596
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 422508135499734,
+													"parameters": {
+														"first-value": "topTile + rightTile + bottomTile + leftTile",
+														"comparison": 0,
+														"second-value": "2"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 993742694807495,
+													"parameters": {
+														"first-value": "topTile + bottomTile",
+														"comparison": 0,
+														"second-value": "2"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 818733369876570,
+													"parameters": {
+														"first-value": "leftTile + rightTile",
+														"comparison": 0,
+														"second-value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-tile",
+													"objectClass": "TilemapBiome",
+													"sid": 767799055215348,
+													"parameters": {
+														"tile-x": "MapData.CurX",
+														"tile-y": "MapData.CurY",
+														"tile": "4 + valueBiome * 5",
+														"state": "normal"
+													}
+												}
+											],
+											"sid": 998858339703231
 										}
 									]
 								}
@@ -1930,7 +2264,41 @@
 									"sid": 921682019903402
 								}
 							],
-							"sid": 638525054885043
+							"sid": 638525054885043,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "DrawingCanvas",
+									"sid": 921532752225483,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"map_color\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 745470652752636,
+									"parameters": {
+										"type": "log",
+										"message": "\"setupMap \" & DrawingCanvas.id"
+									}
+								},
+								{
+									"id": "save-snapshot",
+									"objectClass": "DrawingCanvas",
+									"sid": 578226367252866
+								}
+							],
+							"sid": 111366054986067,
+							"disabled": true
 						}
 					]
 				},
@@ -1941,6 +2309,16 @@
 							"id": "on-snapshot",
 							"objectClass": "DrawingCanvas",
 							"sid": 963838766427462
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "DrawingCanvas",
+							"sid": 147260840998917,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"map_texture\""
+							}
 						}
 					],
 					"actions": [
@@ -1959,6 +2337,42 @@
 						}
 					],
 					"sid": 681475415740990
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-snapshot",
+							"objectClass": "DrawingCanvas",
+							"sid": 200459232349567
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "DrawingCanvas",
+							"sid": 587425564292123,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"map_color\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 425515972338842,
+							"parameters": {
+								"type": "log",
+								"message": "\"snapshot \" & DrawingCanvas.id"
+							}
+						},
+						{
+							"callFunction": "setupMapColor",
+							"sid": 816013950775389
+						}
+					],
+					"sid": 293527030321382
 				},
 				{
 					"functionName": "setupMapTexture",
@@ -2116,6 +2530,16 @@
 						},
 						{
 							"eventType": "variable",
+							"name": "valueBiome",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 661742077631336
+						},
+						{
+							"eventType": "variable",
 							"name": "threshold",
 							"type": "number",
 							"initialValue": "0.55",
@@ -2178,6 +2602,24 @@
 											"parameters": {
 												"variable": "value",
 												"value": "AdvancedRandom.Classic2d(x / 5.8, y / 5.8)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 535980104496299,
+											"parameters": {
+												"variable": "valueBiome",
+												"value": "AdvancedRandom.Voronoi2d(x * 0.5, y * 0.5)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 572022771438103,
+											"parameters": {
+												"variable": "valueBiome",
+												"value": "(min(int(value * 5), 4) + 1) * 0.2"
 											}
 										},
 										{
@@ -2254,6 +2696,305 @@
 								}
 							],
 							"sid": 806057740764900
+						}
+					]
+				},
+				{
+					"functionName": "setupMapColor",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "createGradient",
+							"objectClass": "AdvancedRandom",
+							"sid": 468047474767766,
+							"parameters": {
+								"name": "\"MapGradient\"",
+								"isColor": "color"
+							}
+						},
+						{
+							"id": "addStop",
+							"objectClass": "AdvancedRandom",
+							"sid": 648990398658272,
+							"parameters": {
+								"position": "0",
+								"value": "rgbEx255(0, 0, 0)"
+							}
+						},
+						{
+							"id": "addStop",
+							"objectClass": "AdvancedRandom",
+							"sid": 535436742353962,
+							"parameters": {
+								"position": "1",
+								"value": "rgbEx255(255, 255, 255)"
+							}
+						},
+						{
+							"id": "addStop",
+							"objectClass": "AdvancedRandom",
+							"sid": 316762598448239,
+							"disabled": true,
+							"parameters": {
+								"position": "0",
+								"value": "rgba255(233, 222, 192, 0)"
+							}
+						},
+						{
+							"id": "addStop",
+							"objectClass": "AdvancedRandom",
+							"sid": 732818581427119,
+							"disabled": true,
+							"parameters": {
+								"position": "1",
+								"value": "rgba255(233, 222, 192, 255)"
+							}
+						},
+						{
+							"id": "addStop",
+							"objectClass": "AdvancedRandom",
+							"sid": 727310950369973,
+							"disabled": true,
+							"parameters": {
+								"position": "0",
+								"value": "rgbEx255(63, 124, 196)"
+							}
+						},
+						{
+							"id": "addStop",
+							"objectClass": "AdvancedRandom",
+							"sid": 897005100980904,
+							"disabled": true,
+							"parameters": {
+								"position": "1",
+								"value": "rgbEx255(127, 191, 114)"
+							}
+						},
+						{
+							"id": "seed",
+							"objectClass": "AdvancedRandom",
+							"sid": 845286804056905,
+							"parameters": {
+								"seed": "seed"
+							}
+						},
+						{
+							"id": "octaves",
+							"objectClass": "AdvancedRandom",
+							"sid": 542332043635028,
+							"parameters": {
+								"count": "1"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 201560099210362,
+							"parameters": {
+								"type": "log",
+								"message": "\"setmaptexture \" & DrawingCanvas.id"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 541281479425446,
+							"parameters": {
+								"type": "log",
+								"message": "\"layout \" & LayoutName"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 834379010789004,
+							"parameters": {
+								"type": "log",
+								"message": "\"map \" & mapZoom"
+							}
+						}
+					],
+					"sid": 901419887212880,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 188126856494336
+						},
+						{
+							"eventType": "variable",
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 371998429706925
+						},
+						{
+							"eventType": "variable",
+							"name": "value",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 644678753743780
+						},
+						{
+							"eventType": "variable",
+							"name": "threshold",
+							"type": "number",
+							"initialValue": "0.55",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": true,
+							"sid": 711899740494753
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 512242736610482,
+									"parameters": {
+										"count": "DrawingCanvas.SnapshotWidth"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 744355703840802,
+									"parameters": {
+										"variable": "x",
+										"value": "loopindex"
+									}
+								}
+							],
+							"sid": 791203839202665,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 258976953616935,
+											"parameters": {
+												"count": "DrawingCanvas.SnapshotHeight"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 323885580315045,
+											"parameters": {
+												"variable": "y",
+												"value": "loopindex"
+											}
+										},
+										{
+											"id": "snapshot-set-pixel",
+											"objectClass": "DrawingCanvas",
+											"sid": 563159558151998,
+											"parameters": {
+												"x": "x",
+												"y": "y",
+												"color": "AdvancedRandom.Gradient(value)"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 660968886162148,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"pixel \" & value"
+											}
+										}
+									],
+									"sid": 369495977467911,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 260358112614571,
+													"parameters": {
+														"variable": "value",
+														"comparison": 3,
+														"value": "mapThreshold"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 338770192599529,
+													"parameters": {
+														"variable": "value",
+														"value": "value / mapThreshold"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 261470159265648,
+													"parameters": {
+														"variable": "value",
+														"value": "value < threshold ? 0 : (value - threshold) / (1 - threshold)"
+													}
+												},
+												{
+													"id": "snapshot-set-pixel",
+													"objectClass": "DrawingCanvas",
+													"sid": 892859218649323,
+													"parameters": {
+														"x": "x",
+														"y": "y",
+														"color": "AdvancedRandom.Gradient(value)"
+													}
+												}
+											],
+											"sid": 404489097397994,
+											"disabled": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "load-snapshot",
+									"objectClass": "DrawingCanvas",
+									"sid": 765836573674442
+								}
+							],
+							"sid": 346050210383700
 						}
 					]
 				}
@@ -4070,6 +4811,15 @@
 							"sid": 451359460706017,
 							"parameters": {
 								"layer": "\"Crisis\"",
+								"scale": "zoom"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 246251216903190,
+							"parameters": {
+								"layer": "\"Biome\"",
 								"scale": "zoom"
 							}
 						},
