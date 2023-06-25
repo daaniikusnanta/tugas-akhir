@@ -1,7 +1,7 @@
 import { initializeCrisis, isCrisisMaximized, isExtremeCrisisEmpty } from "./crisis-data.js";
 import { initializeStatus, status } from "./status-data.js";
 import { updateCrisisView, updateStatusView, setupCrisisViews } from "./game.js";
-import { addTextToCache, getClickablePanelById, getObjectbyId, getTextById, setScrollableHeight } from "./utils.js";
+import { addTextToCache, getClickablePanelById, getObjectbyId, getTextById, setScrollableHeight, toTitleCase } from "./utils.js";
 import { policyMultiplier } from "./policy-data.js";
 
 /**
@@ -232,28 +232,26 @@ function stopGame(runtime) {
 }
 
 export function setupGeographySize(size) {
-    const sizeInformation = getTextById("geography_size_information");
-
     switch (size) {
         case "small":
             policyMultiplier['effectDelay'] = 0.5;
             policyMultiplier['cost'] = 0.5;
             policyMultiplier['revenue'] = 0.5;
-            sizeInformation.text = "Small";
             break;
         case "medium":
             policyMultiplier['effectDelay'] = 1;
             policyMultiplier['cost'] = 1;
             policyMultiplier['revenue'] = 1;
-            sizeInformation.text = "Medium";
             break;
         case "large":
             policyMultiplier['effectDelay'] = 1.7;
             policyMultiplier['cost'] = 1.7;
             policyMultiplier['revenue'] = 1.7;
-            sizeInformation.text = "Large";
             break;
     }
+
+    const sizeInformation = getTextById("geography_size_information");
+    sizeInformation.text = toTitleCase(size);
 
     // console.log(policyMultiplier);
 }
@@ -272,7 +270,41 @@ export function setupGeographyLandWater(landWaterValue) {
     else if (landWaterValue < 60) landWaterValueInformation.text = "Balanced";
     else landWaterValueInformation.text = "More Land";
 
+    // console.log("Agriculture: " + levelVariables.status['agriculture']);
+    // console.log("Fisheries: " + levelVariables.status['fisheries']);
+}
 
-    console.log("Agriculture: " + levelVariables.status['agriculture']);
-    console.log("Fisheries: " + levelVariables.status['fisheries']);
+export function setupSituationGovernment(governmentType) {
+    switch(governmentType) {
+        case "democratic":
+            policyMultiplier['implementationDelay'] = 1;
+            levelVariables.status['governance'] = 83;
+            levelVariables.status['media_neutrality'] = 78;
+            levelVariables.crisis['media_bias'] = 12;
+            break;
+        case "semi_democratic":
+            policyMultiplier['implementationDelay'] = 1;
+            levelVariables.status['governance'] = 83;
+            levelVariables.status['media_neutrality'] = 78;
+            levelVariables.crisis['media_bias'] = 12;
+            break;
+        case "semi_autocratic":
+            policyMultiplier['implementationDelay'] = 1;
+            levelVariables.status['governance'] = 83;
+            levelVariables.status['media_neutrality'] = 78;
+            levelVariables.crisis['media_bias'] = 12;
+            break;        
+        case "autocratic":
+            policyMultiplier['implementationDelay'] = 1;
+            levelVariables.status['governance'] = 83;
+            levelVariables.status['media_neutrality'] = 78;
+            levelVariables.crisis['media_bias'] = 12;
+            break;
+    }
+
+    
+    const governmentInformation = getTextById("situation_government_information");
+    governmentInformation.text = toTitleCase(governmentType.replace("_", " "));
+
+    console.log(governmentType);
 }

@@ -30,6 +30,7 @@ import {
   checkGameOverCondition,
   setupGeographySize,
   setupGeographyLandWater,
+  setupSituationGovernment,
 } from "./level-data.js";
 
 function updateAllStatus() {

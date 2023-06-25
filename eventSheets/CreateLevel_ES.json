@@ -1464,6 +1464,195 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Button",
+							"sid": 440870098035146,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"situation_government_next\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UIText",
+							"sid": 159369423297985,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"situation_government\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 605276740755156,
+							"parameters": {
+								"type": "log",
+								"message": "\"next \" & map_width & \"|\" & UIText.Text"
+							}
+						}
+					],
+					"sid": 445567574912647,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "selectedGovernment",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 698233719917700
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 685619498615429,
+									"parameters": {
+										"variable": "selectedGovernment",
+										"value": "replace(lowercase(UIText.Text), \" \", \"_\")"
+									}
+								}
+							],
+							"sid": 167769212260559
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 893971014795767,
+									"parameters": {
+										"variable": "selectedGovernment",
+										"comparison": 0,
+										"value": "\"democratic\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 800810069162366,
+									"parameters": {
+										"text": "\"Semi Democratic\""
+									}
+								}
+							],
+							"sid": 971180768166768
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 703683304536408,
+									"parameters": {
+										"variable": "selectedGovernment",
+										"comparison": 0,
+										"value": "\"semi_democratic\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 169277300100538,
+									"parameters": {
+										"text": "\"Semi Autocratic\""
+									}
+								}
+							],
+							"sid": 915210799527516
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 425381234689621,
+									"parameters": {
+										"variable": "selectedGovernment",
+										"comparison": 0,
+										"value": "\"semi_autocratic\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 987358306850869,
+									"parameters": {
+										"text": "\"Autocratic\""
+									}
+								}
+							],
+							"sid": 443421037818730
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 358862620272207,
+									"parameters": {
+										"variable": "selectedGovernment",
+										"comparison": 0,
+										"value": "\"autocratic\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 370744595337091,
+									"parameters": {
+										"text": "\"Democratic\""
+									}
+								}
+							],
+							"sid": 254856110755096
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 266817686620092,
+									"parameters": {
+										"variable": "selectedGovernment",
+										"value": "replace(lowercase(UIText.Text), \" \", \"_\")"
+									}
+								},
+								{
+									"type": "script",
+									"script": "setupSituationGovernment(localVars.selectedGovernment);"
+								}
+							],
+							"sid": 151563777579947
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
 							"sid": 767765901647767,
 							"parameters": {
 								"instance-variable": "id",
@@ -1600,9 +1789,9 @@
 								{
 									"id": "layer-is-visible",
 									"objectClass": "System",
-									"sid": 395836050536613,
+									"sid": 518911637750718,
 									"parameters": {
-										"layer": "\"CreateGeography\""
+										"layer": "\"CreateSituation\""
 									}
 								}
 							],
@@ -1610,10 +1799,10 @@
 								{
 									"id": "log",
 									"objectClass": "Browser",
-									"sid": 648305781449429,
+									"sid": 100151451587074,
 									"parameters": {
 										"type": "log",
-										"message": "\"in geography\""
+										"message": "\"in situation\""
 									}
 								},
 								{
@@ -1629,6 +1818,38 @@
 								}
 							],
 							"sid": 537208329796958
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 985469872726185,
+									"parameters": {
+										"layer": "\"CreateGeography\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 765412035377598,
+									"parameters": {
+										"type": "log",
+										"message": "\"in geography\""
+									}
+								},
+								{
+									"callFunction": "showLayer",
+									"sid": 850203431470049,
+									"parameters": [
+										"\"CreateSituation\""
+									]
+								}
+							],
+							"sid": 582537039298336
 						}
 					]
 				},
@@ -1665,6 +1886,44 @@
 								{
 									"id": "layer-is-visible",
 									"objectClass": "System",
+									"sid": 126306823273567,
+									"parameters": {
+										"layer": "\"CreateGeography\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 265941962674829
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 746695032713537,
+									"parameters": {
+										"layer": "\"CreateSituation\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "showLayer",
+									"sid": 912936581650577,
+									"parameters": [
+										"\"CreateGeography\""
+									]
+								}
+							],
+							"sid": 948518494411017
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
 									"sid": 551160735053665,
 									"parameters": {
 										"layer": "\"CreateCrisis\""
@@ -1674,28 +1933,13 @@
 							"actions": [
 								{
 									"callFunction": "showLayer",
-									"sid": 608323151677055,
+									"sid": 407449476707084,
 									"parameters": [
-										"\"CreateGeography\""
+										"\"CreateSituation\""
 									]
 								}
 							],
 							"sid": 475787296098013
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "layer-is-visible",
-									"objectClass": "System",
-									"sid": 715188854137039,
-									"parameters": {
-										"layer": "\"CreateGeography\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 132537448009835
 						}
 					]
 				}
@@ -1928,6 +2172,24 @@
 					"sid": 697232023307777,
 					"parameters": {
 						"layer": "\"CreateGeography\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 796541067256712,
+					"parameters": {
+						"layer": "\"CreateSituation\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 713284503122571,
+					"parameters": {
+						"layer": "\"CreateSituation\"",
 						"interactive": false
 					}
 				},
