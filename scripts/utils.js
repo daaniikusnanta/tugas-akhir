@@ -77,6 +77,8 @@ export function setupTextCache(runtime) {
 	}
 
 	runtime.objects.UIText.getAllInstances().forEach(addTextToCache);
+	runtime.objects.UITextBold.getAllInstances().forEach(addTextToCache);
+	runtime.objects.TextNotoSerifBlack.getAllInstances().forEach(addTextToCache);
 }
 
 /**

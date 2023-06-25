@@ -3,6 +3,13 @@ import { status } from "./status-data.js";
 import { crisis } from "./crisis-data.js";
 import { addTextToCache, clamp, getObjectbyId, getTextById, resetScrollablePosition, setDeltaSliderZOrder, setScrollableHeight, setSliderValue } from "./utils.js";
 
+export const policyMultiplier = {
+    "cost": 0.5,
+    "revenue": 0.5,
+    "implementationDelay": 0.5,
+    "effectDelay": 0.5,
+};
+
 /**
  * @typedef {{
 *     name: string,
@@ -132,7 +139,6 @@ export let policy = {
                 valueType: "positive",
                 value: 0,
                 valueDelta: 0,
-                value: 0,
                 effectDuration: 0,
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
             }
@@ -201,6 +207,28 @@ export function updatePolicyEffects(policyName) {
             // effectData.lastUpdatePolicy += update;
         }
         policyEffectData.effectDuration++;
+    }
+}
+
+export function setupPolicyMultiplier() {
+    for (const policyName in policy) {
+        const policyData = policy[policyName];
+
+        policyData.minCost = policyData.minCost * policyMultiplier['cost'];
+        policyData.maxCost = policyData.maxCost * policyMultiplier['cost'];
+
+        policyData.minRevenue = policyData.minRevenue * policyMultiplier['revenue'];
+        policyData.maxRevenue = policyData.maxRevenue * policyMultiplier['revenue'];
+
+        policyData.implementationCost = policyData.implementationCost * policyMultiplier['cost'];
+
+        policyData.implementationDelay = policyData.implementationDelay * policyMultiplier['implementationDelay'];
+
+        for (const effectName in policyData.effects) {
+            const effectData = policyData.effects[effectName];
+
+            effectData.effectDelay = effectData.effectDelay * policyMultiplier['effectDelay'];
+        }
     }
 }
 

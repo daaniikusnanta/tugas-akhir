@@ -211,7 +211,8 @@
 			"BG",
 			"UIPanelOutline",
 			"TextNotoSerifBlack",
-			"UITextBold"
+			"UITextBold",
+			"UIPanelOutlineSide"
 		],
 		"subfolders": [
 			{

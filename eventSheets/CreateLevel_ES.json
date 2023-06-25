@@ -1773,6 +1773,10 @@
 								"variable": "map_width",
 								"value": "MAP_WIDTH_SMALL"
 							}
+						},
+						{
+							"type": "script",
+							"script": "setupGeographySize(\"small\");"
 						}
 					],
 					"sid": 215195075292782
@@ -1819,6 +1823,10 @@
 								"variable": "map_width",
 								"value": "MAP_WIDTH_MEDIUM"
 							}
+						},
+						{
+							"type": "script",
+							"script": "setupGeographySize(\"medium\");"
 						}
 					],
 					"sid": 134551636736874
@@ -1865,6 +1873,10 @@
 								"variable": "map_width",
 								"value": "MAP_WIDTH_LARGE"
 							}
+						},
+						{
+							"type": "script",
+							"script": "setupGeographySize(\"large\");"
 						}
 					],
 					"sid": 956897284278889

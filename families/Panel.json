@@ -2,12 +2,21 @@
 	"name": "Panel",
 	"plugin-id": "NinePatch",
 	"sid": 765377492340131,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 409091806464145
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"members": [
 		"UIPanel",
 		"UIPanel2",
-		"UIPanelOutline"
+		"UIPanelOutline",
+		"UIPanelOutlineSide"
 	]
 }

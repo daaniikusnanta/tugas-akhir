@@ -88,7 +88,7 @@
 						},
 						{
 							"type": "script",
-							"script": "initializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\nupdateFSM();"
+							"script": "setupPolicyMultiplier();\ninitializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\nupdateFSM();"
 						},
 						{
 							"callFunction": "SetupClickablePanels",

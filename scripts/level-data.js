@@ -2,6 +2,7 @@ import { initializeCrisis, isCrisisMaximized, isExtremeCrisisEmpty } from "./cri
 import { initializeStatus, status } from "./status-data.js";
 import { updateCrisisView, updateStatusView, setupCrisisViews } from "./game.js";
 import { addTextToCache, getObjectbyId, setScrollableHeight } from "./utils.js";
+import { policyMultiplier } from "./policy-data.js";
 
 /**
  * @type {{[level: number]: {[variable: string]: number}}}
@@ -101,14 +102,14 @@ const levelVariables = {
 const initialCrisis = {
     "pandemic": {
         name: "Pandemic",
-        description: "Pandemic description",
+        description: "A very infectious disease has plagued the world. Focus on your country's condition to prevent more spread.",
         values: {
             "infectious_disease": 90
         }
     },
     "extreme_poverty": {
         name: "Extreme Poverty",
-        description: "Extreme poverty",
+        description: "A majority of population in your country lives below the poverty line. Try to improve their wellbeing.",
         values: {
             "poverty": 70
         }
@@ -143,15 +144,17 @@ export function chooseInitialCrisis(initialCrisisName) {
  */
 export function createInitialCrisisViews(runtime) {
     const initialCrisisScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "initial_crisis");
-    const initialY = initialCrisisScrollable.y + 10;
+    const initialY = initialCrisisScrollable.y + 30;
+    const itemHeight = 160;
+    const margin = 10;
 
     for (const initialCrisisVariable in initialCrisis) {
         const initialCrisisData = initialCrisis[initialCrisisVariable];
 
-        const instanceX = initialCrisisScrollable.x + 17;
-        const instanceY = initialY + Object.keys(initialCrisis).indexOf(initialCrisisVariable) * 150;
+        const instanceX = initialCrisisScrollable.x + 30;
+        const instanceY = initialY + Object.keys(initialCrisis).indexOf(initialCrisisVariable) * (itemHeight + margin*2);
 
-        const initialCrisisName = runtime.objects.UIText.createInstance("CreateCrisisMG", instanceX, instanceY, true, "initial_crisis");
+        const initialCrisisName = runtime.objects.UITextBold.createInstance("CreateCrisisMG", instanceX, instanceY, true, "initial_crisis_view");
         initialCrisisName.text = initialCrisisData.name;
         initialCrisisName.instVars['id'] = initialCrisisVariable + "_initial_crisis_name";
         addTextToCache(initialCrisisName);
@@ -178,7 +181,7 @@ export function createInitialCrisisViews(runtime) {
         initialCrisisScrollable.addChild(initialCrisisName, { transformX: true, transformY: true });
     }
 
-    setScrollableHeight(runtime, initialCrisisScrollable, Object.keys(initialCrisis).length, 150, 20);
+    setScrollableHeight(runtime, initialCrisisScrollable, Object.keys(initialCrisis).length, itemHeight + margin*2, margin);
 }
 
 
@@ -226,4 +229,26 @@ function stopGame(runtime) {
     const gameManager = runtime.objects.GameManager.getAllInstances()[0];
     gameManager.behaviors.Timer.stopTimer("Tick");
     runtime.globalVars['isRunning'] = false;
+}
+
+export function setupGeographySize(size) {
+    switch (size) {
+        case "small":
+            policyMultiplier['effectDelay'] = 0.5;
+            policyMultiplier['cost'] = 0.5;
+            policyMultiplier['revenue'] = 0.5;
+            break;
+        case "medium":
+            policyMultiplier['effectDelay'] = 1;
+            policyMultiplier['cost'] = 1;
+            policyMultiplier['revenue'] = 1;
+            break;
+        case "large":
+            policyMultiplier['effectDelay'] = 1.7;
+            policyMultiplier['cost'] = 1.7;
+            policyMultiplier['revenue'] = 1.7;
+            break;
+    }
+
+    console.log(policyMultiplier);
 }

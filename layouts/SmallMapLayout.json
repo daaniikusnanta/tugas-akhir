@@ -1031,10 +1031,10 @@
 						{
 							"type": "UIPanelBlur",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 24,
+								"right-margin": 24,
+								"top-margin": 24,
+								"bottom-margin": 24,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -1084,10 +1084,10 @@
 						{
 							"type": "UIPanelBlur",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 24,
+								"right-margin": 24,
+								"top-margin": 24,
+								"bottom-margin": 24,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -1562,10 +1562,10 @@
 						{
 							"type": "ClickablePanel",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 24,
+								"right-margin": 24,
+								"top-margin": 24,
+								"bottom-margin": 24,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -3751,10 +3751,10 @@
 						{
 							"type": "UIPanelBlur",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 24,
+								"right-margin": 24,
+								"top-margin": 24,
+								"bottom-margin": 24,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,
@@ -3875,10 +3875,10 @@
 						{
 							"type": "ClickablePanel",
 							"properties": {
-								"left-margin": 16,
-								"right-margin": 16,
-								"top-margin": 16,
-								"bottom-margin": 16,
+								"left-margin": 24,
+								"right-margin": 24,
+								"top-margin": 24,
+								"bottom-margin": 24,
 								"edges": "stretch",
 								"fill": "stretch",
 								"initially-visible": true,

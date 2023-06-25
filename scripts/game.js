@@ -19,9 +19,17 @@ import {
   applyPolicyChange,
   setupPolicyPopUp,
   updatePolicy,
+  setupPolicyMultiplier,
 } from "./policy-data.js";
 import { updateIncome, updateSpending } from "./fiscal-data.js";
-import { setLevelVariables, createInitialCrisisViews, chooseInitialCrisis, setInitialCrisisVariables, checkGameOverCondition } from "./level-data.js";
+import { 
+  setLevelVariables, 
+  createInitialCrisisViews, 
+  chooseInitialCrisis, 
+  setInitialCrisisVariables, 
+  checkGameOverCondition,
+  setupGeographySize,
+} from "./level-data.js";
 
 function updateAllStatus() {
   for (const statusName in status) {
