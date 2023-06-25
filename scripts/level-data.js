@@ -1,7 +1,7 @@
 import { initializeCrisis, isCrisisMaximized, isExtremeCrisisEmpty } from "./crisis-data.js";
 import { initializeStatus, status } from "./status-data.js";
 import { updateCrisisView, updateStatusView, setupCrisisViews } from "./game.js";
-import { addTextToCache, getObjectbyId, setScrollableHeight } from "./utils.js";
+import { addTextToCache, getClickablePanelById, getObjectbyId, getTextById, setScrollableHeight } from "./utils.js";
 import { policyMultiplier } from "./policy-data.js";
 
 /**
@@ -232,21 +232,26 @@ function stopGame(runtime) {
 }
 
 export function setupGeographySize(size) {
+    const sizeInformation = getTextById("geography_size_information");
+
     switch (size) {
         case "small":
             policyMultiplier['effectDelay'] = 0.5;
             policyMultiplier['cost'] = 0.5;
             policyMultiplier['revenue'] = 0.5;
+            sizeInformation.text = "Small";
             break;
         case "medium":
             policyMultiplier['effectDelay'] = 1;
             policyMultiplier['cost'] = 1;
             policyMultiplier['revenue'] = 1;
+            sizeInformation.text = "Medium";
             break;
         case "large":
             policyMultiplier['effectDelay'] = 1.7;
             policyMultiplier['cost'] = 1.7;
             policyMultiplier['revenue'] = 1.7;
+            sizeInformation.text = "Large";
             break;
     }
 
@@ -261,6 +266,12 @@ export function setupGeographyLandWater(landWaterValue) {
 
     levelVariables.status['agriculture'] = minAgricultureValue + Math.round(landWaterValue / 100 * (maxAgricultureValue - minAgricultureValue));
     levelVariables.status['fisheries'] = minFisheriesValue + Math.round((100 - landWaterValue) / 100 * (maxFisheriesValue - minFisheriesValue));
+
+    const landWaterValueInformation = getTextById("geography_land_water_information");
+    if (landWaterValue < 40) landWaterValueInformation.text = "More Water";
+    else if (landWaterValue < 60) landWaterValueInformation.text = "Balanced";
+    else landWaterValueInformation.text = "More Land";
+
 
     console.log("Agriculture: " + levelVariables.status['agriculture']);
     console.log("Fisheries: " + levelVariables.status['fisheries']);

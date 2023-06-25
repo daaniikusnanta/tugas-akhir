@@ -15,6 +15,8 @@ async function OnBeforeProjectStart(runtime) {
 		"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
 	runtime.getLayout("LargeMapLayout").addEventListener(
 		"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
+	runtime.getLayout("CreateLevelLayout").addEventListener(
+		"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
 
 	runtime.objects.UIText.addEventListener("instancedestroy", ({ instance: text }) => {
 		deleteTextFromCache(text.instVars['id']);

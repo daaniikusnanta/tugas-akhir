@@ -1,5 +1,5 @@
 {
-	"name": "Create Level Layout",
+	"name": "CreateLevelLayout",
 	"layers": [
 		{
 			"name": "Main",
@@ -249,7 +249,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1120,
+						"x": 1122,
 						"y": 521,
 						"width": 217.79997762044377,
 						"height": 41.86666107177757,
@@ -278,7 +278,7 @@
 						"character-spacing": 1,
 						"line-height": 0,
 						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
+						"vertical-alignment": "center",
 						"wrapping": "word",
 						"initially-visible": true,
 						"origin": "top-left",
@@ -290,10 +290,10 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1120,
-						"y": 563,
+						"x": 1122,
+						"y": 565,
 						"width": 81,
-						"height": 39,
+						"height": 37.202131195412335,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -331,10 +331,92 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1120,
-						"y": 605,
-						"width": 289,
+						"x": 1122,
+						"y": 610,
+						"width": 277.580051711589,
 						"height": 39,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIText",
+					"properties": {
+						"text": "Small",
+						"enable-bbcode": true,
+						"character-width": 75,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+						"spacing-data": "[[12,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+						"scale": 0.45,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 163,
+					"instanceVariables": {
+						"id": "geography_size_information"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1207.7978688045876,
+						"y": 569,
+						"width": 134,
+						"height": 30.590547190493567,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIText",
+					"properties": {
+						"text": "Balanced",
+						"enable-bbcode": true,
+						"character-width": 75,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+						"spacing-data": "[[12,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+						"scale": 0.45,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 200,
+					"instanceVariables": {
+						"id": "geography_land_water_information"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1408.2023458043764,
+						"y": 613.9147124716789,
+						"width": 205.6747173765027,
+						"height": 30.590547190493567,
 						"originX": 0,
 						"originY": 0,
 						"color": [

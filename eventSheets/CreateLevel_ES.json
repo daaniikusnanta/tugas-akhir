@@ -2299,6 +2299,10 @@
 									}
 								},
 								{
+									"type": "script",
+									"script": "const slider = runtime.objects.Slider.getPickedInstances()[0];\nconst landWaterValue = slider.instVars['value'] / slider.instVars['maxValue'] * 100;\n\nsetupGeographyLandWater(landWaterValue);"
+								},
+								{
 									"callFunction": "CreateMap",
 									"sid": 177220874236448
 								}
