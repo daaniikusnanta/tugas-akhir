@@ -29,6 +29,7 @@ import {
   setInitialCrisisVariables, 
   checkGameOverCondition,
   setupGeographySize,
+  setupGeographyLandWater,
 } from "./level-data.js";
 
 function updateAllStatus() {

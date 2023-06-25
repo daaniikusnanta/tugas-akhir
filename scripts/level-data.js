@@ -41,8 +41,8 @@ const levelVariables = {
         investment: 79,
         mineral_oil_industry: 75,
         manufacturing: 96,
-        agriculture: 80,
-        fisheries: 85,
+        agriculture: 56,
+        fisheries: 56,
         tourism_creative: 75,
         sustainability: 67,
         foreign_relations: 88,
@@ -250,5 +250,18 @@ export function setupGeographySize(size) {
             break;
     }
 
-    console.log(policyMultiplier);
+    // console.log(policyMultiplier);
+}
+
+export function setupGeographyLandWater(landWaterValue) {
+    const minFisheriesValue = 12;
+    const maxFisheriesValue = 87;
+    const minAgricultureValue = 12;
+    const maxAgricultureValue = 87;
+
+    levelVariables.status['agriculture'] = minAgricultureValue + Math.round(landWaterValue / 100 * (maxAgricultureValue - minAgricultureValue));
+    levelVariables.status['fisheries'] = minFisheriesValue + Math.round((100 - landWaterValue) / 100 * (maxFisheriesValue - minFisheriesValue));
+
+    console.log("Agriculture: " + levelVariables.status['agriculture']);
+    console.log("Fisheries: " + levelVariables.status['fisheries']);
 }
