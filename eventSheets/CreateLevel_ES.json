@@ -1482,17 +1482,7 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 605276740755156,
-							"parameters": {
-								"type": "log",
-								"message": "\"next \" & map_width & \"|\" & UIText.Text"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 445567574912647,
 					"children": [
 						{
@@ -1644,6 +1634,491 @@
 								}
 							],
 							"sid": 151563777579947
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 544666700861499,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"situation_government_prev\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UIText",
+							"sid": 338976161442378,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"situation_government\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 878768432421083,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "selectedGovernment",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 467579144323060
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 423424672627232,
+									"parameters": {
+										"variable": "selectedGovernment",
+										"value": "replace(lowercase(UIText.Text), \" \", \"_\")"
+									}
+								}
+							],
+							"sid": 198484174309900
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 277120874988738,
+									"parameters": {
+										"variable": "selectedGovernment",
+										"comparison": 0,
+										"value": "\"democratic\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 975257657148231,
+									"parameters": {
+										"text": "\"Autocratic\""
+									}
+								}
+							],
+							"sid": 281598035007133
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 674255227191782,
+									"parameters": {
+										"variable": "selectedGovernment",
+										"comparison": 0,
+										"value": "\"semi_democratic\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 741748965584179,
+									"parameters": {
+										"text": "\"Democratic\""
+									}
+								}
+							],
+							"sid": 514616387445327
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 177594748513099,
+									"parameters": {
+										"variable": "selectedGovernment",
+										"comparison": 0,
+										"value": "\"semi_autocratic\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 314823676023549,
+									"parameters": {
+										"text": "\"Semi Democratic\""
+									}
+								}
+							],
+							"sid": 338376944009925
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 596272814009890,
+									"parameters": {
+										"variable": "selectedGovernment",
+										"comparison": 0,
+										"value": "\"autocratic\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 931510050120483,
+									"parameters": {
+										"text": "\"Semi Autocratic\""
+									}
+								}
+							],
+							"sid": 370794271349802
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 536156409587328,
+									"parameters": {
+										"variable": "selectedGovernment",
+										"value": "replace(lowercase(UIText.Text), \" \", \"_\")"
+									}
+								},
+								{
+									"type": "script",
+									"script": "setupSituationGovernment(localVars.selectedGovernment);"
+								}
+							],
+							"sid": 867501985746183
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 148096855450660,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"situation_economy_next\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UIText",
+							"sid": 184106110109572,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"situation_economy\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 478507034978492,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "selectedEconomy",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 368186092791237
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 875839078288545,
+									"parameters": {
+										"variable": "selectedEconomy",
+										"value": "replace(lowercase(UIText.Text), \" \", \"_\")"
+									}
+								}
+							],
+							"sid": 441703229745250
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 287865445645738,
+									"parameters": {
+										"variable": "selectedEconomy",
+										"comparison": 0,
+										"value": "\"developed\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 571623241391222,
+									"parameters": {
+										"text": "\"Newly Emerging\""
+									}
+								}
+							],
+							"sid": 283757869940712
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 239107101869923,
+									"parameters": {
+										"variable": "selectedEconomy",
+										"comparison": 0,
+										"value": "\"newly_emerging\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 546072699801219,
+									"parameters": {
+										"text": "\"Developing\""
+									}
+								}
+							],
+							"sid": 402817435163328
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 465452809111963,
+									"parameters": {
+										"variable": "selectedEconomy",
+										"comparison": 0,
+										"value": "\"developing\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 921799191331636,
+									"parameters": {
+										"text": "\"Developed\""
+									}
+								}
+							],
+							"sid": 197467144214343
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 484515474196344,
+									"parameters": {
+										"variable": "selectedEconomy",
+										"value": "replace(lowercase(UIText.Text), \" \", \"_\")"
+									}
+								},
+								{
+									"type": "script",
+									"script": "setupSituationEconomy(localVars.selectedEconomy);"
+								}
+							],
+							"sid": 158143361114616
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 345038472626446,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"situation_economy_prev\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UIText",
+							"sid": 339743675434358,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"situation_economy\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 685283747133693,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "selectedEconomy",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 470729211209972
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 617069192010743,
+									"parameters": {
+										"variable": "selectedEconomy",
+										"value": "replace(lowercase(UIText.Text), \" \", \"_\")"
+									}
+								}
+							],
+							"sid": 221775592754337
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 276976675140609,
+									"parameters": {
+										"variable": "selectedEconomy",
+										"comparison": 0,
+										"value": "\"developed\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 962870842525670,
+									"parameters": {
+										"text": "\"Developing\""
+									}
+								}
+							],
+							"sid": 651068929749655
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 437900167836562,
+									"parameters": {
+										"variable": "selectedEconomy",
+										"comparison": 0,
+										"value": "\"newly_emerging\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 336396105222078,
+									"parameters": {
+										"text": "\"Developed\""
+									}
+								}
+							],
+							"sid": 764048671827597
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 736557010290548,
+									"parameters": {
+										"variable": "selectedEconomy",
+										"comparison": 0,
+										"value": "\"developing\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UIText",
+									"sid": 426718778911111,
+									"parameters": {
+										"text": "\"Newly Emerging\""
+									}
+								}
+							],
+							"sid": 394725060935757
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 179477781351210,
+									"parameters": {
+										"variable": "selectedEconomy",
+										"value": "replace(lowercase(UIText.Text), \" \", \"_\")"
+									}
+								},
+								{
+									"type": "script",
+									"script": "setupSituationEconomy(localVars.selectedEconomy);"
+								}
+							],
+							"sid": 326437996491958
 						}
 					]
 				},

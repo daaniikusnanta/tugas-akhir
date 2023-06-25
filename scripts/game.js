@@ -31,6 +31,7 @@ import {
   setupGeographySize,
   setupGeographyLandWater,
   setupSituationGovernment,
+  setupSituationEconomy,
 } from "./level-data.js";
 
 function updateAllStatus() {

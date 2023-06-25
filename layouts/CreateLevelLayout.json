@@ -514,7 +514,7 @@
 				{
 					"type": "UITextBold",
 					"properties": {
-						"text": "Land and Water:",
+						"text": "Economy:",
 						"enable-bbcode": true,
 						"character-width": 77,
 						"character-height": 82,
@@ -577,7 +577,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1363.008692739867,
+						"x": 1358.008692739867,
 						"y": 727.5379693545938,
 						"width": 340,
 						"height": 30.590547190493567,
@@ -596,7 +596,7 @@
 				{
 					"type": "UIText",
 					"properties": {
-						"text": "Balanced",
+						"text": "Developed",
 						"enable-bbcode": true,
 						"character-width": 75,
 						"character-height": 82,
@@ -614,13 +614,13 @@
 					},
 					"uid": 234,
 					"instanceVariables": {
-						"id": "geography_land_water_information"
+						"id": "situation_economy_information"
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1408.4131697396558,
+						"x": 1303.4131697396558,
 						"y": 772.4526818262726,
-						"width": 205.6747173765027,
+						"width": 293.6747173765027,
 						"height": 30.590547190493567,
 						"originX": 0,
 						"originY": 0,
@@ -1605,160 +1605,6 @@
 					}
 				},
 				{
-					"type": "SliderBarBG2",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 203,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 755,
-						"y": 421,
-						"width": 515,
-						"height": 28,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "SliderBar2",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 204,
-					"instanceVariables": {
-						"value": 0.1,
-						"minX": 497.75,
-						"maxX": 1013.25,
-						"maxValue": 0.2,
-						"isDraggable": true,
-						"id": "geography_land_water"
-					},
-					"behaviors": {
-						"DragDrop": {
-							"properties": {
-								"axes": "horizontal-only",
-								"enabled": true
-							}
-						}
-					},
-					"world": {
-						"x": 554,
-						"y": 421,
-						"width": 52,
-						"height": 52,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UIText",
-					"properties": {
-						"text": "More water",
-						"enable-bbcode": true,
-						"character-width": 75,
-						"character-height": 82,
-						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
-						"spacing-data": "[[12,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
-						"scale": 0.4,
-						"character-spacing": 0,
-						"line-height": 0,
-						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 205,
-					"instanceVariables": {
-						"id": ""
-					},
-					"behaviors": {},
-					"world": {
-						"x": 498,
-						"y": 442,
-						"width": 181,
-						"height": 54,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							0.8
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UIText",
-					"properties": {
-						"text": "More land",
-						"enable-bbcode": true,
-						"character-width": 75,
-						"character-height": 82,
-						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
-						"spacing-data": "[[12,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
-						"scale": 0.4,
-						"character-spacing": 0,
-						"line-height": 0,
-						"horizontal-alignment": "right",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-right",
-						"read-aloud": false
-					},
-					"uid": 206,
-					"instanceVariables": {
-						"id": ""
-					},
-					"behaviors": {},
-					"world": {
-						"x": 1012,
-						"y": 442,
-						"width": 157.99998982747297,
-						"height": 54,
-						"originX": 1,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							0.8
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "TextNotoSerifBlack",
 					"properties": {
 						"text": "SITUATION",
@@ -1999,7 +1845,7 @@
 				{
 					"type": "UITextBold",
 					"properties": {
-						"text": "Land & Water",
+						"text": "Economy",
 						"enable-bbcode": true,
 						"character-width": 77,
 						"character-height": 82,
@@ -2325,6 +2171,162 @@
 							0.9176470588235294,
 							0.7215686274509804,
 							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIPanel",
+					"properties": {
+						"left-margin": 24,
+						"right-margin": 24,
+						"top-margin": 24,
+						"bottom-margin": 24,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "exact"
+					},
+					"uid": 203,
+					"instanceVariables": {
+						"id": ""
+					},
+					"behaviors": {},
+					"effects": {
+						"Exposure": {
+							"isEnabled": true,
+							"parameters": {
+								"exposure": 0
+							}
+						}
+					},
+					"world": {
+						"x": 557.2023706110817,
+						"y": 399.68454902097665,
+						"width": 397,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.8
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIText",
+					"properties": {
+						"text": "Developed",
+						"enable-bbcode": true,
+						"character-width": 75,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+						"spacing-data": "[[12,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+						"scale": 0.5,
+						"character-spacing": 1,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 204,
+					"instanceVariables": {
+						"id": "situation_economy"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 558.2023706110817,
+						"y": 400.68454902097665,
+						"width": 397,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Geography Size Button",
+						"initial-frame": 4,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 205,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "situation_economy_next"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 988.2023706110817,
+						"y": 423.68454902097665,
+						"width": 48,
+						"height": 48,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.8
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Geography Size Button",
+						"initial-frame": 3,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 206,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"id": "situation_economy_prev"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 522.2023706110817,
+						"y": 423.68454902097665,
+						"width": 48,
+						"height": 48,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.8
 						],
 						"angle": 0,
 						"zElevation": 0

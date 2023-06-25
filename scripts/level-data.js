@@ -275,7 +275,7 @@ export function setupGeographyLandWater(landWaterValue) {
 }
 
 export function setupSituationGovernment(governmentType) {
-    switch(governmentType) {
+    switch (governmentType) {
         case "democratic":
             policyMultiplier['implementationDelay'] = 1;
             levelVariables.status['governance'] = 83;
@@ -302,9 +302,60 @@ export function setupSituationGovernment(governmentType) {
             break;
     }
 
-    
     const governmentInformation = getTextById("situation_government_information");
     governmentInformation.text = toTitleCase(governmentType.replace("_", " "));
 
-    console.log(governmentType);
+    // console.log(governmentType);
+}
+
+export function setupSituationEconomy(economyType) {
+    switch (economyType) {
+        case "developed":
+            levelVariables.status['research'] = 80;
+            levelVariables.status['education_system'] = 87;
+            levelVariables.status['healthcare_system'] = 78;
+            levelVariables.status['manufacturing'] = 78;
+            levelVariables.status['water_land'] = 40;
+            levelVariables.status['defense_infrastructure'] = 80;
+            levelVariables.crisis['mental_health_crisis'] = 50;
+            levelVariables.crisis['discrimination'] = 40;
+            levelVariables.crisis['housing_crisis'] = 40;
+            levelVariables.crisis['pollution'] = 38;
+            levelVariables.crisis['political_instability'] = 42;
+            levelVariables.crisis['infrastructure_equality'] = 10;
+            break;
+        case "newly_emerging":
+            levelVariables.status['research'] = 80;
+            levelVariables.status['education_system'] = 87;
+            levelVariables.status['healthcare_system'] = 78;
+            levelVariables.status['manufacturing'] = 78;
+            levelVariables.status['water_land'] = 40;
+            levelVariables.status['defense_infrastructure'] = 80;
+            levelVariables.crisis['mental_health_crisis'] = 50;
+            levelVariables.crisis['discrimination'] = 40;
+            levelVariables.crisis['housing_crisis'] = 40;
+            levelVariables.crisis['pollution'] = 38;
+            levelVariables.crisis['political_instability'] = 42;
+            levelVariables.crisis['infrastructure_equality'] = 10;
+            break;
+        case "developing":
+            levelVariables.status['research'] = 80;
+            levelVariables.status['education_system'] = 87;
+            levelVariables.status['healthcare_system'] = 78;
+            levelVariables.status['manufacturing'] = 78;
+            levelVariables.status['water_land'] = 40;
+            levelVariables.status['defense_infrastructure'] = 80;
+            levelVariables.crisis['mental_health_crisis'] = 50;
+            levelVariables.crisis['discrimination'] = 40;
+            levelVariables.crisis['housing_crisis'] = 40;
+            levelVariables.crisis['pollution'] = 38;
+            levelVariables.crisis['political_instability'] = 42;
+            levelVariables.crisis['infrastructure_equality'] = 10;
+            break;
+    }
+
+    const economyInformation = getTextById("situation_economy_information");
+    economyInformation.text = toTitleCase(economyType.replace("_", " "));
+
+    // console.log(economyType);
 }
