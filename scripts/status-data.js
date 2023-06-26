@@ -1,6 +1,6 @@
 import { crisis } from "./crisis-data.js";
 import { policy } from "./policy-data.js";
-import { getObjectbyId, getTextById, setScrollableHeight } from "./utils.js";
+import { getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeight } from "./utils.js";
 
 /**
  * @typedef {
@@ -882,6 +882,7 @@ export function setupStatusCauses(runtime, statusName) {
         }
     }
     // console.log("Cause count ", causeCount);
+    resetScrollablePosition(causeScrollable);
     setScrollableHeight(runtime, causeScrollable, causeCount, 70, 20, "cause_effect_status_pop_up");
 }
 
@@ -942,5 +943,6 @@ export function setupStatusEffects(runtime, statusName) {
         }
     }
 
+    resetScrollablePosition(effectScrollable);
     setScrollableHeight(runtime, effectScrollable, effectCount, 70, 20, "cause_effect_status_pop_up");
 }

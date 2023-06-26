@@ -185,6 +185,8 @@ export function setScrollableHeight(runtime, scrollable, itemCount, itemHeight, 
     scrollable.height = itemCount * itemHeight + padding;
 	scrollable.instVars['min'] = scrollable.height > panel.height ? scrollable.y - scrollable.height + panel.height : scrollable.y;
 	scrollable.instVars['max'] = scrollable.y;
+
+	console.log("setScrollable ", scrollable.instVars['id'], scrollable.height, scrollable.instVars['min'], scrollable.instVars['max']);
 }
 
 /**
@@ -200,12 +202,12 @@ export function resetScrollablePosition(scrollable, x, y) {
         throw new TypeError('The scrollable parameter cannot be null or undefined.');
     }
 
-    if (x !== undefined && typeof x !== 'number') {
-        throw new TypeError('The x parameter must be a number.');
+    if (x !== undefined && (typeof x !== 'number' || x <= 0)) {
+        throw new TypeError('The x parameter must be a positive number.');
     }
 
-    if (y !== undefined && typeof y !== 'number') {
-        throw new TypeError('The y parameter must be a number.');
+    if (y !== undefined && (typeof y !== 'number' || y <= 0)) {
+        throw new TypeError('The y parameter must be a positive number.');
     }
 
     switch (scrollable.instVars['direction']) {

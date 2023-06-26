@@ -6,7 +6,8 @@ import {
 import { 
   crisis, 
   crisisFsms, 
-  updateCrisis 
+  updateCrisis ,
+  setupCrisisPopUp,
 } from "./crisis-data.js";
 import {
   addTextToCache,
@@ -74,7 +75,7 @@ function updateFiscalViews(runtime) {
 export function setupCrisisViews(runtime) {
   const margin = 40;
   const crisisScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "crisis");
-  setScrollableHeight(runtime, crisisScrollable, Object.keys(crisis).length, 100, 10);
+  setScrollableHeight(runtime, crisisScrollable, Object.keys(crisis).length, 105, 20);
 
   let initialY = crisisScrollable.y + 5;
 

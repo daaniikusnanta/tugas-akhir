@@ -1,6 +1,7 @@
 import { createMachine } from "./fsm.js";
 import { status } from "./status-data.js";
 import { addTextToCache, getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeight } from "./utils.js";
+import { policy } from "./policy-data.js";
 
 /**
  * @typedef {{
@@ -2284,4 +2285,143 @@ export function isCrisisMaximized() {
   }
 
   return false;
+}
+
+export function setupCrisisPopUp(crisisName, runtime) {
+  const crisisData = crisis[crisisName];
+
+  const crisisTitle = getTextById("crisis_pop_up_name");
+  crisisTitle.text = crisisData.name;
+
+  const crisisDescription = getTextById("crisis_pop_up_description");
+  crisisDescription.text = crisisData.description;
+  
+  setupCrisisCauses(runtime, crisisName);
+  setupCrisisEffects(runtime, crisisName);
+}
+
+export function setupCrisisCauses(runtime, crisisName) {
+  const crisisData = crisis[crisisName];
+
+  const causeScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "crisis_causes");
+  const initialY = causeScrollable.y + 10;
+  let causeCount = 0;
+  let instanceX = causeScrollable.x + (causeScrollable.width - 296) / 2;
+  let instanceY = initialY;
+
+  for (const causeView of causeScrollable.children()) {
+      causeView.destroy();
+  }
+
+  // From crisis causes
+  for (const causeObj of crisisData.causes) {
+      const causeData = status[causeObj.cause] ?? crisis[causeObj.cause];
+      console.log("crisis causes ", causeObj.cause);
+      causeCount++;
+      instanceY = initialY + (causeCount - 1) * 70;
+
+      const causeName = runtime.objects.UIText.createInstance("CrisisPopUpMG", instanceX, instanceY, true, "cause_effect_view");
+      const causeNameText = status[causeObj.cause] ? "Status: " + causeData.name : "Crisis: " + causeData.name;
+      causeName.text = causeNameText;
+      causeName.instVars['id'] = causeObj.cause + "_cause";
+
+      const causeValue = causeName.getChildAt(0);
+      const value = causeObj.formula() >= 0 ? "+" + causeObj.formula().toFixed(2) : causeObj.formula().toFixed(2);
+      causeValue.text = value + " per day";
+
+      causeScrollable.addChild(causeName, { transformX: true, transformY: true });
+  }
+
+  // From policy
+  for (const policyName in policy) {
+      const policyData = policy[policyName];
+      // console.log("Policy ", policyName);
+
+      for (const effectName in policyData.effects) {
+          // console.log("Effect ", effectName);
+          if (effectName == crisisName) {
+              const effectData = policyData.effects[effectName];
+              // console.log("Effect data ", effectData.name);
+
+              causeCount++;
+              instanceY = initialY + (causeCount - 1) * 70;
+
+              const causeName = runtime.objects.UIText.createInstance("CrisisPopUpMG", instanceX, instanceY, true, "cause_effect_view");
+              causeName.text = "Policy: " + policyData.name;
+              causeName.instVars['id'] = policyData.name + "_cause";
+
+              const causeValue = causeName.getChildAt(0);
+              const value = effectData.formula(policyData.value) >= 0 ? "+" + effectData.formula(policyData.value).toFixed(2) : effectData.formula(policyData.value).toFixed(2);
+              causeValue.text = value;
+
+              causeScrollable.addChild(causeName, { transformX: true, transformY: true });
+
+              continue;
+          }
+      }
+  }
+  // console.log("Cause count ", causeCount);
+  resetScrollablePosition(causeScrollable);
+  setScrollableHeight(runtime, causeScrollable, causeCount, 70, 20, "cause_effect_crisis_pop_up");
+}
+
+export function setupCrisisEffects(runtime, crisisName) {
+  const crisisData = crisis[crisisName];
+
+  const effectScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "crisis_effects");
+  const initialY = effectScrollable.y + 10;
+  let effectCount = 0;
+  let instanceX = effectScrollable.x + (effectScrollable.width - 296) / 2;
+  let instanceY = initialY;
+
+  for (const effectView of effectScrollable.children()) {
+      effectView.destroy();
+  }
+
+  // From other crisis
+  for (const otherStatusName in status) {
+      const otherStatusData = status[otherStatusName];
+
+      for (const causeObj of otherStatusData.causes) {
+          if (causeObj.cause == crisisName) {
+              effectCount++;
+              instanceY = initialY + (effectCount - 1) * 70;
+
+              const effectName = runtime.objects.UIText.createInstance("CrisisPopUpMG", instanceX, instanceY, true, "cause_effect_view");
+              effectName.text = "Status: " + otherStatusData.name;
+              effectName.instVars['id'] = otherStatusData.name + "_effect";
+
+              const effectValue = effectName.getChildAt(0);
+              const value = causeObj.formula() >= 0 ? "+" + causeObj.formula().toFixed(2) : causeObj.formula().toFixed(2);
+              effectValue.text = value + " per day";
+
+              effectScrollable.addChild(effectName, { transformX: true, transformY: true });
+          }
+      }
+  }
+
+  // From other crisis
+  for (const otherCrisisName in crisis) {
+      const otherCrisisData = crisis[otherCrisisName];
+
+      for (const causeObj of otherCrisisData.causes) {
+          if (causeObj.cause == crisisName) {
+              effectCount++;
+              instanceY = initialY + (effectCount - 1) * 70;
+
+              const effectName = runtime.objects.UIText.createInstance("CrisisPopUpMG", instanceX, instanceY, true, "cause_effect_view");
+              effectName.text = "Crisis: " + otherCrisisData.name;
+              effectName.instVars['id'] = otherCrisisData.name + "_effect";
+
+              const effectValue = effectName.getChildAt(0);
+              const value = causeObj.formula() >= 0 ? "+" + causeObj.formula().toFixed(2) : causeObj.formula().toFixed(2);
+              effectValue.text = value + " per day";
+
+              effectScrollable.addChild(effectName, { transformX: true, transformY: true });
+          }
+      }
+  }
+
+  resetScrollablePosition(effectScrollable);
+  setScrollableHeight(runtime, effectScrollable, effectCount, 70, 20, "cause_effect_crisis_pop_up");
 }

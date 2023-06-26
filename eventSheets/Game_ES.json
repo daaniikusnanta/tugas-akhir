@@ -858,6 +858,50 @@
 								}
 							],
 							"sid": 369958728711919
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 903061653461072,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"crisis_pop_up_close\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 917600463368423,
+									"parameters": {
+										"layer": "\"UI\"",
+										"interactive": true
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 368599244907626,
+									"parameters": {
+										"layer": "\"Background\"",
+										"interactive": true
+									}
+								},
+								{
+									"callFunction": "showCrisisPopUp",
+									"sid": 587878883023581,
+									"parameters": [
+										"\"\"",
+										false
+									]
+								}
+							],
+							"sid": 304519710343957
 						}
 					]
 				},
@@ -994,6 +1038,57 @@
 								}
 							],
 							"sid": 928431890772571
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 152764963612566,
+									"parameters": {
+										"first-value": "RegexMatchCount(ClickablePanel.id, \"clickable_panel_crisis$\", \"\")",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "showCrisisPanel",
+									"sid": 469312048407482,
+									"parameters": [
+										false
+									]
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 655658362995499,
+									"parameters": {
+										"layer": "\"UI\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 995417616109573,
+									"parameters": {
+										"layer": "\"Background\"",
+										"interactive": false
+									}
+								},
+								{
+									"callFunction": "showCrisisPopUp",
+									"sid": 569950869119806,
+									"parameters": [
+										"RegexReplace(ClickablePanel.id, \"_clickable_panel_crisis$\", \"\", \"\") ",
+										true
+									]
+								}
+							],
+							"sid": 309379442599604
 						}
 					]
 				},
@@ -1592,6 +1687,113 @@
 								}
 							],
 							"sid": 652659296252275
+						}
+					]
+				},
+				{
+					"functionName": "showCrisisPopUp",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "crisisName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 734759197463648
+						},
+						{
+							"name": "show",
+							"type": "boolean",
+							"initialValue": "true",
+							"comment": "",
+							"sid": 861711545890798
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 346735228765740,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 266526659814152,
+									"parameters": {
+										"variable": "show"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "console.log(\"popup true\");"
+								},
+								{
+									"type": "script",
+									"script": "console.log(\"crisis pop up \", localVars.crisisName);\nsetupCrisisPopUp(localVars.crisisName, runtime)"
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 475752116242674,
+									"parameters": {
+										"layer": "\"CrisisPopUp\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 717273533814884,
+									"parameters": {
+										"layer": "\"CrisisPopUp\"",
+										"interactive": true
+									}
+								}
+							],
+							"sid": 409240594293085
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 925153363403141
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "console.log(\"popup false\");"
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 779207237831123,
+									"parameters": {
+										"layer": "\"CrisisPopUp\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 723487273707759,
+									"parameters": {
+										"layer": "\"CrisisPopUp\"",
+										"interactive": false
+									}
+								}
+							],
+							"sid": 964080059212312
 						}
 					]
 				},
