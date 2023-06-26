@@ -504,9 +504,9 @@
 						{
 							"id": "cursor-is-over-object",
 							"objectClass": "Mouse",
-							"sid": 114371523533205,
+							"sid": 989134782895765,
 							"parameters": {
-								"object": "UIPanel"
+								"object": "Panel"
 							},
 							"isInverted": true
 						}
@@ -844,7 +844,17 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 900034861656824,
+							"parameters": {
+								"type": "log",
+								"message": "\"clicked \" "
+							}
+						}
+					],
 					"sid": 445806361381016,
 					"children": [
 						{
@@ -903,6 +913,15 @@
 									"parameters": {
 										"layer": "\"Background\"",
 										"interactive": false
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 960582297915313,
+									"parameters": {
+										"type": "log",
+										"message": "\"clicked \" & RegexReplace(ClickablePanel.id, \"_clickable_panel_policy$\", \"\", \"\") "
 									}
 								},
 								{
@@ -1298,7 +1317,17 @@
 					],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 589633470818525,
+							"parameters": {
+								"type": "log",
+								"message": "\"policyPopUp \" & show"
+							}
+						}
+					],
 					"sid": 519526908750769,
 					"children": [
 						{

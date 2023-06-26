@@ -1,0 +1,25 @@
+{
+	"name": "UIPanelSide",
+	"plugin-id": "NinePatch",
+	"sid": 207614585789578,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "exposure",
+			"name": "Exposure"
+		}
+	],
+	"image": {
+		"width": 250,
+		"height": 250,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 9390689,
+		"useCollisionPoly": true
+	}
+}

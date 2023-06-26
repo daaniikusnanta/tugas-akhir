@@ -22,11 +22,11 @@ import {
   setupPolicyMultiplier,
 } from "./policy-data.js";
 import { updateIncome, updateSpending } from "./fiscal-data.js";
-import { 
-  setLevelVariables, 
-  createInitialCrisisViews, 
-  chooseInitialCrisis, 
-  setInitialCrisisVariables, 
+import {
+  setLevelVariables,
+  createInitialCrisisViews,
+  chooseInitialCrisis,
+  setInitialCrisisVariables,
   checkGameOverCondition,
   setupGeographySize,
   setupGeographyLandWater,
@@ -74,7 +74,7 @@ export function setupCrisisViews(runtime) {
     crisisView.instVars["id"] = crisisName + "_crisis_name";
     crisisView.text = crisisData.name;
     addTextToCache(crisisView);
-    crisisScrollable.addChild(crisisView, {transformX: true, transformY: true});
+    crisisScrollable.addChild(crisisView, { transformX: true, transformY: true });
 
     const crisisState = crisisView.getChildAt(0);
     const crisisValue = crisisView.getChildAt(1);
@@ -276,85 +276,101 @@ export function setStatusValue(statusVariable, value) {
 }
 
 function initializePolicyViews(runtime) {
-  let policyData = {};
-  const policiesScrollable =
-    runtime.objects.ScrollablePanel.getAllInstances().filter(
-      (scrollable) => scrollable.instVars["id"] == "policy"
-    )[0];
-  const x = policiesScrollable.x + policiesScrollable.width / 2;
-  let initialY = policiesScrollable.y + 40 / 2;
+  let policyViewData = {};
+
+  const policiesScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "policy");
+  const initialY = policiesScrollable.y + 40;
+  const initialX = ((policiesScrollable.width - 320 * 2) / 4);
+
   console.log("Policy", policy);
 
-  for (const variable in policy) {
-    const policyName = policy[variable];
-    if (!policyData[policyName.type]) {
-      console.log("adding policy");
-      policyData[policyName.type] = {
-        count: 0,
-        y: initialY,
+  for (const policyName in policy) {
+    const policyData = policy[policyName];
+
+    if (!policyViewData[policyData.type]) {
+      policyViewData[policyData.type] = {
         policies: [],
       };
     }
     console.log("Policy name", policyName);
 
-    const instanceY = policyData[policyName.type].y;
+    const policyViewDataType = policyViewData[policyData.type];
+    policyViewDataType.policies.push(policyName);
+    // console.log("Policy view data type", policyViewDataType, policyViewDataType.policies.indexOf(policyName));
+    const columnX = policyViewDataType.policies.indexOf(policyName) % 2 == 0 ? initialX : initialX * 3 + 320;
+    const instanceX = policiesScrollable.x + 10 + columnX;
+    const instanceY = initialY + Math.floor((policyViewDataType.policies.indexOf(policyName)) / 2) * 84;
 
-    const clickablePanelX = policiesScrollable.x + 40;
-    const clickablePanelY = instanceY - 10;
-    let clickablePanel = runtime.objects.ClickablePanel.createInstance(
-      "PanelPolicy",
-      clickablePanelX,
-      clickablePanelY
-    );
-    clickablePanel.instVars["id"] = variable + "_clickable_panel_policy";
-    clickablePanel.instVars["clickable"] = true;
-    clickablePanel.instVars["isDisabled"] = true;
-    clickablePanel.instVars["panelId"] = "policy";
-    clickablePanel.width = policiesScrollable.width - 40;
-    clickablePanel.height = 100;
-    addClickablePanelToCache(clickablePanel);
-    policiesScrollable.addChild(clickablePanel);
+    const policyView = runtime.objects.UIText.createInstance("PanelPolicyMG", instanceX, instanceY, true, "policy_view");
+    policyView.instVars["id"] = policyName + "_policy_view";
+    policyView.isVisible = false;
+    policyView.text = policyData.name;
+    addTextToCache(policyView);
 
-    let policyNameText = runtime.objects.UIText.createInstance(
-      "PanelPolicy",
-      x,
-      instanceY
-    );
-    policyNameText.instVars["id"] = variable + "_policy_title";
-    policyNameText.colorRgb = [1, 1, 1];
-    policyNameText.text = policyName.name;
-    policyNameText.blendMode = "source-atop";
-    policyNameText.characterScale = 0.25;
-    policyNameText.isVisible = false;
-    addTextToCache(policyNameText);
-    policiesScrollable.addChild(policyNameText);
+    const policyClickable = policyView.getChildAt(3);
+    policyClickable.instVars["id"] = policyName + "_clickable_panel_policy";
+    policyClickable.instVars["clickable"] = true;
+    policyClickable.instVars["isDisabled"] = true;
+    policyClickable.instVars["panelId"] = "policy";
+    policyClickable.opacity = 0;
+    addClickablePanelToCache(policyClickable);
 
-    let policyValueText = runtime.objects.UIText.createInstance(
-      "PanelPolicy",
-      x,
-      instanceY + 30
-    );
-    policyValueText.instVars["id"] = variable + "_policy_value";
-    policyValueText.colorRgb = [1, 1, 1];
-    policyValueText.text = policyName.value.toString();
-    policyValueText.blendMode = "source-atop";
-    policyValueText.characterScale = 0.25;
-    policyValueText.isVisible = false;
-    addTextToCache(policyValueText);
-    policiesScrollable.addChild(policyValueText);
+    policiesScrollable.addChild(policyView);
 
-    policyData[policyName.type].y += 50;
-    policyData[policyName.type].count++;
-    policyData[policyName.type].policies.push(variable);
+    // const clickablePanelX = policiesScrollable.x + 40;
+    // const clickablePanelY = instanceY - 10;
+    // let clickablePanel = runtime.objects.ClickablePanel.createInstance(
+    //   "PanelPolicy",
+    //   clickablePanelX,
+    //   clickablePanelY
+    // );
+    // clickablePanel.instVars["id"] = variable + "_clickable_panel_policy";
+    // clickablePanel.instVars["clickable"] = true;
+    // clickablePanel.instVars["isDisabled"] = true;
+    // clickablePanel.instVars["panelId"] = "policy";
+    // clickablePanel.width = policiesScrollable.width - 40;
+    // clickablePanel.height = 100;
+    // addClickablePanelToCache(clickablePanel);
+    // policiesScrollable.addChild(clickablePanel);
+
+    // let policyNameText = runtime.objects.UIText.createInstance(
+    //   "PanelPolicy",
+    //   x,
+    //   instanceY
+    // );
+    // policyNameText.instVars["id"] = variable + "_policy_title";
+    // policyNameText.colorRgb = [1, 1, 1];
+    // policyNameText.text = policyName.name;
+    // policyNameText.blendMode = "source-atop";
+    // policyNameText.characterScale = 0.25;
+    // policyNameText.isVisible = false;
+    // addTextToCache(policyNameText);
+    // policiesScrollable.addChild(policyNameText);
+
+    // let policyValueText = runtime.objects.UIText.createInstance(
+    //   "PanelPolicy",
+    //   x,
+    //   instanceY + 30
+    // );
+    // policyValueText.instVars["id"] = variable + "_policy_value";
+    // policyValueText.colorRgb = [1, 1, 1];
+    // policyValueText.text = policyName.value.toString();
+    // policyValueText.blendMode = "source-atop";
+    // policyValueText.characterScale = 0.25;
+    // policyValueText.isVisible = false;
+    // addTextToCache(policyValueText);
+    // policiesScrollable.addChild(policyValueText);
+
+    // policyData[policyName.type].y += 50;
+    // policyData[policyName.type].count++;
   }
 
-  console.log("Policy data", policyData);
+  // console.log("Policy data", policyData);
 
-  for (const variable in policyData) {
-    const data = policyData[variable];
-    console.log("Data", data);
-    policyScrollableData[variable] = {
-      height: data.count * 90 + 20,
+  for (const policyType in policyViewData) {
+    const data = policyViewData[policyType];
+    // console.log("Data", data);
+    policyScrollableData[policyType] = {
       policies: data.policies,
     };
   }
@@ -365,51 +381,61 @@ let policyScrollableData = {};
 function showPolicyPanel(policyType, runtime) {
   console.log("Policy scrollable data", policyScrollableData);
   console.log("Policy type", policyType);
-  let policiesScrollable =
-    runtime.objects.ScrollablePanel.getAllInstances().filter(
-      (scrollable) => scrollable.instVars["id"] == "policy"
-    )[0];
-  const policyPanel = runtime.objects.UIPanel.getAllInstances().filter(
-    (panel) => panel.instVars["id"] == "policy"
-  )[0];
 
   for (const policyName in policy) {
-    console.log("Policy name invisible", policyName);
-    const policyNameText = getTextById(policyName + "_policy_title");
-    policyNameText.isVisible = false;
-    const policyValueText = getTextById(policyName + "_policy_value");
-    policyValueText.isVisible = false;
-    const clickablePanel = getClickablePanelById(
-      policyName + "_clickable_panel_policy"
-    );
-    clickablePanel.instVars["isDisabled"] = true;
+    // console.log("Policy name invisible", policyName);
+    const policyView = getTextById(policyName + "_policy_view");
+    policyView.isVisible = false;
+
+    const policyClickable = policyView.getChildAt(3);
+    policyClickable.instVars["isDisabled"] = true;
+
+    // const policyValueText = getTextById(policyName + "_policy_value");
+    // policyValueText.isVisible = false;
+
+    // const clickablePanel = getClickablePanelById(
+    //   policyName + "_clickable_panel_policy"
+    // );
+    // clickablePanel.instVars["isDisabled"] = true;
   }
 
   if (policyScrollableData[policyType]) {
-    console.log("Setting height", policyType, policyScrollableData[policyType]);
-    const scrollableHeight = policyScrollableData[policyType].height;
-    policiesScrollable.height = scrollableHeight;
-    policiesScrollable.instVars["min"] =
-      policiesScrollable.y - policiesScrollable.height + policyPanel.height;
-    policiesScrollable.instVars["max"] = policiesScrollable.y;
+    // console.log("Setting height", policyType, policyScrollableData[policyType]);
+    
+    // const scrollableHeight = policyScrollableData[policyType].height;
+    // policiesScrollable.height = scrollableHeight;
+    // policiesScrollable.instVars["min"] =
+    //   policiesScrollable.y - policiesScrollable.height + policyPanel.height;
+    // policiesScrollable.instVars["max"] = policiesScrollable.y;
 
     for (const policyName of policyScrollableData[policyType].policies) {
-      console.log("Policy name visible", policyName);
-      const policyNameText = getTextById(policyName + "_policy_title");
-      policyNameText.isVisible = true;
-      const policyValueText = getTextById(policyName + "_policy_value");
-      policyValueText.isVisible = true;
-      const clickablePanel = getClickablePanelById(
-        policyName + "_clickable_panel_policy"
-      );
-      clickablePanel.instVars["isDisabled"] = false;
+      const policyView = getTextById(policyName + "_policy_view");
+      policyView.isVisible = true;
+
+      const policyClickable = policyView.getChildAt(3);
+      policyClickable.instVars["isDisabled"] = false;
+
+      // console.log("Policy name visible", policyName);
+      // const policyNameText = getTextById(policyName + "_policy_title");
+      // policyNameText.isVisible = true;
+      // const policyValueText = getTextById(policyName + "_policy_value");
+      // policyValueText.isVisible = true;
+      // const clickablePanel = getClickablePanelById(
+      //   policyName + "_clickable_panel_policy"
+      // );
+      // clickablePanel.instVars["isDisabled"] = false;
     }
-  } else {
-    policiesScrollable.height = 0;
-    policiesScrollable.instVars["min"] =
-      policiesScrollable.y - policiesScrollable.height + policyPanel.height;
-    policiesScrollable.instVars["max"] = policiesScrollable.y;
-  }
+
+    const policiesScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "policy");
+    // const policyPanel = getObjectbyId(runtime.objects.Panel, "policy");
+    setScrollableHeight(runtime, policiesScrollable, Math.ceil(policyScrollableData[policyType].policies.length / 2), 84, 20);
+  } 
+  // else {
+  //   policiesScrollable.height = 0;
+  //   policiesScrollable.instVars["min"] =
+  //     policiesScrollable.y - policiesScrollable.height + policyPanel.height;
+  //   policiesScrollable.instVars["max"] = policiesScrollable.y;
+  // }
 }
 
 function initializeStatusViews(runtime) {

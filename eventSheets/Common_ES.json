@@ -1394,6 +1394,15 @@
 							"sid": 260263901236748
 						},
 						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 642968983120023,
+							"parameters": {
+								"type": "log",
+								"message": "\"toucheduid \" & touchedUid"
+							}
+						},
+						{
 							"type": "script",
 							"script": "const clickablePanel = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst panel = runtime.objects.UIPanel.getAllInstances().filter(p => p.instVars['id'] === clickablePanel.instVars['panelId'])[0];\n\nconst res = clamp((clickablePanel.y + clickablePanel.height) - panel.y, 0, 1) + \nclamp((panel.y + panel.height) - clickablePanel.y, 0, 1) +\nclamp((clickablePanel.x + clickablePanel.width) - panel.x, 0, 1) + \nclamp((panel.x + panel.width) - clickablePanel.x, 0, 1)\n// console.log(\"clicked\");",
 							"disabled": true
@@ -1456,6 +1465,7 @@
 							"id": "compare-two-values",
 							"objectClass": "System",
 							"sid": 650736758281557,
+							"disabled": true,
 							"parameters": {
 								"first-value": "clamp((ClickablePanel.Y + ClickablePanel.Height) - Panel.Y, 0, 1) + \r\nclamp((Panel.Y + Panel.Height) - ClickablePanel.Y, 0, 1) +\nclamp((ClickablePanel.X + ClickablePanel.Width) - Panel.X, 0, 1) + \nclamp((Panel.X + Panel.Width) - ClickablePanel.X, 0, 1)",
 								"comparison": 0,
@@ -1473,16 +1483,25 @@
 					],
 					"actions": [
 						{
+							"customAction": "IsReleased",
+							"objectClass": "ClickablePanel",
+							"sid": 131870947307573
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 983969870170150,
+							"parameters": {
+								"type": "log",
+								"message": "\"toucheduid \" & touchedUid"
+							}
+						},
+						{
 							"callFunction": "PanelClicked",
 							"sid": 275886394724743,
 							"parameters": [
 								"ClickablePanel.UID"
 							]
-						},
-						{
-							"customAction": "IsReleased",
-							"objectClass": "ClickablePanel",
-							"sid": 475834501608798
 						},
 						{
 							"type": "script",
@@ -1569,6 +1588,15 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 281786517460940,
+							"parameters": {
+								"type": "log",
+								"message": "\"panelCliced\""
+							}
+						},
 						{
 							"id": "call-mapped-function",
 							"objectClass": "Functions",

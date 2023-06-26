@@ -17,6 +17,8 @@
 		"UIPanel",
 		"UIPanel2",
 		"UIPanelOutline",
-		"UIPanelOutlineSide"
+		"UIPanelOutlineSide",
+		"UIPanelSide",
+		"UIPanelOutlineMiddle"
 	]
 }
