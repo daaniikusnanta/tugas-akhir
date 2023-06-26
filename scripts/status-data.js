@@ -1,4 +1,6 @@
 import { crisis } from "./crisis-data.js";
+import { policy } from "./policy-data.js";
+import { getObjectbyId, getTextById, setScrollableHeight } from "./utils.js";
 
 /**
  * @typedef {
@@ -537,7 +539,7 @@ export let status = {
         ],
     },
     "mineral_oil_industry": {
-        name: "Mineral Oil Industry",
+        name: "Mineral & Oil Industry",
         description: "The amount of taxes collected.",
         value: 0,
         causeValue: 0,
@@ -617,7 +619,7 @@ export let status = {
         ],
     },
     "tourism_creative": {
-        name: "Tourism and Creative Industries",
+        name: "Tourism and Creative",
         description: "The amount of taxes collected.",
         value: 0,
         causeValue: 0,
@@ -653,7 +655,7 @@ export let status = {
         ],
     },
     "sustainability": {
-        name: "Sustainability and Environment",
+        name: "Sustainability",
         description: "The amount of taxes collected.",
         value: 0,
         causeValue: 0,
@@ -712,7 +714,7 @@ export let status = {
         ],
     },
     "mineral_oil": {
-        name: "Mineral Oil",
+        name: "Mineral & Oil",
         description: "The amount of taxes collected.",
         value: 0,
         causeValue: 0,
@@ -732,7 +734,7 @@ export let status = {
         ],
     },
     "water_land": {
-        name: "Water and Land",
+        name: "Water & Land",
         description: "The amount of taxes collected.",
         value: 0,
         causeValue: 0,
@@ -804,4 +806,141 @@ export function updateStatus(variable) {
         totalUpdate += update;
     }
     status[variable].lastUpdateCause = totalUpdate;
+}
+
+export function setupStatusPopUp(statusName, runtime) {
+    const statusData = status[statusName];
+
+    const statusTitle = getTextById("status_pop_up_name");
+    statusTitle.text = statusData.name;
+
+    const statusDescription = getTextById("status_pop_up_description");
+    statusDescription.text = statusData.description;
+    
+    setupStatusCauses(runtime, statusName);
+    setupStatusEffects(runtime, statusName);
+}
+
+export function setupStatusCauses(runtime, statusName) {
+    const statusData = status[statusName];
+
+    const causeScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "status_causes");
+    const initialY = causeScrollable.y + 10;
+    let causeCount = 0;
+    let instanceX = causeScrollable.x + (causeScrollable.width - 296) / 2;
+    let instanceY = initialY;
+
+    for (const causeView of causeScrollable.children()) {
+        causeView.destroy();
+    }
+
+    // From status causes
+    for (const causeObj of statusData.causes) {
+        const causeData = status[causeObj.cause] ?? crisis[causeObj.cause];
+
+        causeCount++;
+        instanceY = initialY + (causeCount - 1) * 70;
+
+        const causeName = runtime.objects.UIText.createInstance("StatusPopUpMG", instanceX, instanceY, true, "cause_effect_view");
+        const causeNameText = status[causeObj.cause] ? "Status: " + causeData.name : "Crisis: " + causeData.name;
+        causeName.text = causeNameText;
+        causeName.instVars['id'] = causeObj.cause + "_cause";
+
+        const causeValue = causeName.getChildAt(0);
+        const value = causeObj.formula() >= 0 ? "+" + causeObj.formula().toFixed(2) : causeObj.formula().toFixed(2);
+        causeValue.text = value + " per day";
+
+        causeScrollable.addChild(causeName, { transformX: true, transformY: true });
+    }
+
+    // From policy
+    for (const policyName in policy) {
+        const policyData = policy[policyName];
+        // console.log("Policy ", policyName);
+
+        for (const effectName in policyData.effects) {
+            // console.log("Effect ", effectName);
+            if (effectName == statusName) {
+                const effectData = policyData.effects[effectName];
+                // console.log("Effect data ", effectData.name);
+
+                causeCount++;
+                instanceY = initialY + (causeCount - 1) * 70;
+
+                const causeName = runtime.objects.UIText.createInstance("StatusPopUpMG", instanceX, instanceY, true, "cause_effect_view");
+                causeName.text = "Policy: " + policyData.name;
+                causeName.instVars['id'] = policyData.name + "_cause";
+
+                const causeValue = causeName.getChildAt(0);
+                const value = effectData.formula(policyData.value) >= 0 ? "+" + effectData.formula(policyData.value).toFixed(2) : effectData.formula(policyData.value).toFixed(2);
+                causeValue.text = value;
+
+                causeScrollable.addChild(causeName, { transformX: true, transformY: true });
+
+                continue;
+            }
+        }
+    }
+    // console.log("Cause count ", causeCount);
+    setScrollableHeight(runtime, causeScrollable, causeCount, 70, 20, "cause_effect_status_pop_up");
+}
+
+export function setupStatusEffects(runtime, statusName) {
+    const statusData = status[statusName];
+
+    const effectScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "status_effects");
+    const initialY = effectScrollable.y + 10;
+    let effectCount = 0;
+    let instanceX = effectScrollable.x + (effectScrollable.width - 296) / 2;
+    let instanceY = initialY;
+
+    for (const effectView of effectScrollable.children()) {
+        effectView.destroy();
+    }
+
+    // From other status
+    for (const otherStatusName in status) {
+        const otherStatusData = status[otherStatusName];
+
+        for (const causeObj of otherStatusData.causes) {
+            if (causeObj.cause == statusName) {
+                effectCount++;
+                instanceY = initialY + (effectCount - 1) * 70;
+
+                const effectName = runtime.objects.UIText.createInstance("StatusPopUpMG", instanceX, instanceY, true, "cause_effect_view");
+                effectName.text = "Status: " + otherStatusData.name;
+                effectName.instVars['id'] = otherStatusData.name + "_effect";
+
+                const effectValue = effectName.getChildAt(0);
+                const value = causeObj.formula() >= 0 ? "+" + causeObj.formula().toFixed(2) : causeObj.formula().toFixed(2);
+                effectValue.text = value + " per day";
+
+                effectScrollable.addChild(effectName, { transformX: true, transformY: true });
+            }
+        }
+    }
+
+    // From other crisis
+    for (const otherCrisisName in crisis) {
+        const otherCrisisData = crisis[otherCrisisName];
+
+        for (const causeObj of otherCrisisData.causes) {
+            if (causeObj.cause == statusName) {
+                effectCount++;
+                instanceY = initialY + (effectCount - 1) * 70;
+
+                const effectName = runtime.objects.UIText.createInstance("StatusPopUpMG", instanceX, instanceY, true, "cause_effect_view");
+                effectName.text = "Crisis: " + otherCrisisData.name;
+                effectName.instVars['id'] = otherCrisisData.name + "_effect";
+
+                const effectValue = effectName.getChildAt(0);
+                const value = causeObj.formula() >= 0 ? "+" + causeObj.formula().toFixed(2) : causeObj.formula().toFixed(2);
+                effectValue.text = value + " per day";
+
+                effectScrollable.addChild(effectName, { transformX: true, transformY: true });
+            }
+        }
+    }
+
+    setScrollableHeight(runtime, effectScrollable, effectCount, 70, 20, "cause_effect_status_pop_up");
 }

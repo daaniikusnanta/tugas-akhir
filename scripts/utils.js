@@ -174,9 +174,13 @@ export function getObjectbyId(objects, id) {
  * @param {number} itemCount
  * @param {number} itemHeight
  * @param {number} padding
+ * @param {string} [panelId]
  */
-export function setScrollableHeight(runtime, scrollable, itemCount, itemHeight, padding) {
-	const panel = getObjectbyId(runtime.objects.Panel, scrollable.instVars['id']);
+export function setScrollableHeight(runtime, scrollable, itemCount, itemHeight, padding, panelId = null) {
+	if (panelId == null) {
+		panelId = scrollable.instVars['id'];
+	}
+	const panel = getObjectbyId(runtime.objects.Panel, panelId);
 
     scrollable.height = itemCount * itemHeight + padding;
 	scrollable.instVars['min'] = scrollable.height > panel.height ? scrollable.y - scrollable.height + panel.height : scrollable.y;

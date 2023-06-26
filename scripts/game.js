@@ -1,5 +1,13 @@
-import { status, updateStatus } from "./status-data.js";
-import { crisis, crisisFsms, updateCrisis } from "./crisis-data.js";
+import { 
+  status, 
+  updateStatus,
+  setupStatusPopUp 
+} from "./status-data.js";
+import { 
+  crisis, 
+  crisisFsms, 
+  updateCrisis 
+} from "./crisis-data.js";
 import {
   addTextToCache,
   getTextById,
@@ -10,7 +18,10 @@ import {
   getObjectbyId,
   setScrollableHeight,
 } from "./utils.js";
-import { expandCrisisTiles, initializeTileBiome } from "./tile-data.js";
+import { 
+  expandCrisisTiles, 
+  initializeTileBiome 
+} from "./tile-data.js";
 import {
   policy,
   createPolicyEffectViews,
@@ -21,7 +32,10 @@ import {
   updatePolicy,
   setupPolicyMultiplier,
 } from "./policy-data.js";
-import { updateIncome, updateSpending } from "./fiscal-data.js";
+import { 
+  updateIncome, 
+  updateSpending 
+} from "./fiscal-data.js";
 import {
   setLevelVariables,
   createInitialCrisisViews,
@@ -462,7 +476,7 @@ function initializeStatusViews(runtime) {
     const instanceY = initialY + row * 100;
     const instanceX = initialX + (column * panelStatus.width) / 3;
 
-    console.log("Status name", statusName, initialY, row, instanceY, instanceX);
+    // console.log("Status name", statusName, initialY, row, instanceY, instanceX);
 
     let statusNameText = runtime.objects.UIText.createInstance("PanelStatus", instanceX, instanceY, true, "status_name");
     statusNameText.instVars["id"] = variable + "_status_title";
@@ -470,18 +484,18 @@ function initializeStatusViews(runtime) {
     statusNameText.isVisible = false;
     addTextToCache(statusNameText);
 
-    console.log(
-      "Status name text",
-      statusNameText.getChildCount(),
-      statusNameText.getChildAt(0),
-      statusNameText.getChildAt(1),
-      statusNameText.getChildAt(2)
-    );
+    // console.log(
+    //   "Status name text",
+    //   statusNameText.getChildCount(),
+    //   statusNameText.getChildAt(0),
+    //   statusNameText.getChildAt(1),
+    //   statusNameText.getChildAt(2)
+    // );
 
     // let sliderBarBG = runtime.objects.SliderBarBG.createInstance("PanelStatus", instanceX, instanceY + 40);
     let sliderBarBG = statusNameText.getChildAt(1);
     sliderBarBG.instVars["id"] = variable + "_status_slider_bg";
-    console.log("Slider bar bg", sliderBarBG.instVars["id"]);
+    // console.log("Slider bar bg", sliderBarBG.instVars["id"]);
     sliderBarBG.isVisible = false;
 
     // let sliderBar = runtime.objects.SliderBar.createInstance("PanelStatus", instanceX, instanceY + 34);
@@ -500,8 +514,8 @@ function initializeStatusViews(runtime) {
     statusValueText.isVisible = false;
     addTextToCache(statusValueText);
 
-    const clickablePanelX = instanceX + 50;
-    const clickablePanelY = instanceY - 10;
+    // const clickablePanelX = instanceX + 50;
+    // const clickablePanelY = instanceY - 10;
     // let clickablePanel = runtime.objects.ClickablePanel.createInstance("PanelStatus", instanceX, instanceY - 10);
     let clickablePanel = statusNameText.getChildAt(3);
     clickablePanel.instVars["id"] = variable + "_clickable_panel_status";

@@ -814,6 +814,50 @@
 								}
 							],
 							"sid": 695490178969382
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 609087408736789,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"status_pop_up_close\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 785363731883158,
+									"parameters": {
+										"layer": "\"UI\"",
+										"interactive": true
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 984616086393439,
+									"parameters": {
+										"layer": "\"Background\"",
+										"interactive": true
+									}
+								},
+								{
+									"callFunction": "showStatusPopUp",
+									"sid": 450282510955590,
+									"parameters": [
+										"\"\"",
+										false
+									]
+								}
+							],
+							"sid": 369958728711919
 						}
 					]
 				},
@@ -844,36 +888,9 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 900034861656824,
-							"parameters": {
-								"type": "log",
-								"message": "\"clicked \" "
-							}
-						}
-					],
+					"actions": [],
 					"sid": 445806361381016,
 					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "ClickablePanel",
-									"sid": 103493516031450,
-									"parameters": {
-										"instance-variable": "id",
-										"comparison": 0,
-										"value": "\"tes\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 822826177318183
-						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -916,15 +933,6 @@
 									}
 								},
 								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 960582297915313,
-									"parameters": {
-										"type": "log",
-										"message": "\"clicked \" & RegexReplace(ClickablePanel.id, \"_clickable_panel_policy$\", \"\", \"\") "
-									}
-								},
-								{
 									"callFunction": "showPolicyPopUp",
 									"sid": 353662209158789,
 									"parameters": [
@@ -934,6 +942,58 @@
 								}
 							],
 							"sid": 927842640819003
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 523899427282392,
+									"parameters": {
+										"first-value": "RegexMatchCount(ClickablePanel.id, \"clickable_panel_status$\", \"\")",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "showStatusPanel",
+									"sid": 130283734299786,
+									"parameters": [
+										"\"\"",
+										false
+									]
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 173982079499785,
+									"parameters": {
+										"layer": "\"UI\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 217331403875649,
+									"parameters": {
+										"layer": "\"Background\"",
+										"interactive": false
+									}
+								},
+								{
+									"callFunction": "showStatusPopUp",
+									"sid": 292776158127688,
+									"parameters": [
+										"RegexReplace(ClickablePanel.id, \"_clickable_panel_status$\", \"\", \"\") ",
+										true
+									]
+								}
+							],
+							"sid": 928431890772571
 						}
 					]
 				},
@@ -1425,6 +1485,113 @@
 								}
 							],
 							"sid": 538780034970911
+						}
+					]
+				},
+				{
+					"functionName": "showStatusPopUp",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "statusName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 324104761724527
+						},
+						{
+							"name": "show",
+							"type": "boolean",
+							"initialValue": "true",
+							"comment": "",
+							"sid": 664555895620135
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 834384222430286,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 493420952077439,
+									"parameters": {
+										"variable": "show"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "console.log(\"popup true\");"
+								},
+								{
+									"type": "script",
+									"script": "console.log(\"status pop up \", localVars.statusName);\nsetupStatusPopUp(localVars.statusName, runtime)"
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 946202552471851,
+									"parameters": {
+										"layer": "\"StatusPopUp\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 474862775474050,
+									"parameters": {
+										"layer": "\"StatusPopUp\"",
+										"interactive": true
+									}
+								}
+							],
+							"sid": 621819265000644
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 437970063087935
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "console.log(\"popup false\");"
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 417514277488398,
+									"parameters": {
+										"layer": "\"StatusPopUp\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 920780439175683,
+									"parameters": {
+										"layer": "\"StatusPopUp\"",
+										"interactive": false
+									}
+								}
+							],
+							"sid": 652659296252275
 						}
 					]
 				},
