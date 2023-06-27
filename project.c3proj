@@ -163,6 +163,13 @@
 		},
 		{
 			"type": "effect",
+			"id": "grayscale",
+			"name": "Grayscale",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
 			"id": "screen",
 			"name": "Screen",
 			"author": "Scirra",
@@ -214,7 +221,8 @@
 			"UITextBold",
 			"UIPanelOutlineSide",
 			"UIPanelSide",
-			"UIPanelOutlineMiddle"
+			"UIPanelOutlineMiddle",
+			"IncomeBubble"
 		],
 		"subfolders": [
 			{

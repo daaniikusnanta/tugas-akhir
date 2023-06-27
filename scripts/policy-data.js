@@ -14,9 +14,11 @@ export const policyMultiplier = {
  * @typedef {{
 *     name: string,
 *     type: string,
-*     yIntercept: number,
-*     inertia: number,
-*     factor: number,
+*     effectDelay: number,
+*     valueType: string,
+*     value: number,
+*     valueDelta: number,
+*     effectDuration: number,
 *     formula: function(),
 * }} Effect
 */
@@ -42,10 +44,10 @@ export const policyMultiplier = {
 export let policy = {
     "income_tax": {
         name: "Income Tax",
-        description: "A tax on income.",
+        description: "A cut on personal income.",
         type: "finance",
-        value: 50,
-        finalValue: 50,
+        value: 10,
+        finalValue: 10,
         implementationCost: 0,
         implementationDelay: 0,
         implementationDuration: 0,
@@ -65,61 +67,21 @@ export let policy = {
                 effectDuration: 0,
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
-            "discrimination": {
-                name: "Discrimination",
-                type: "crisis",
-                effectDelay: 10,
-                valueType: "positive",
-                value: 0,
-                valueDelta: 0,
-                effectDuration: 0,
-                formula: function (policyValue) {return 0 + 0.2 * policyValue},
-            },
-            "public_health": {
-                name: "Public Health",
+            "wage_income": {
+                name: "Wage & Income",
                 type: "status",
-                effectDelay: 0,
+                effectDelay: 2,
                 valueType: "negative",
                 value: 0,
                 valueDelta: 0,
                 effectDuration: 0,
-                formula: function (policyValue) {return 0 - 0.2 * policyValue},
-            },
-            "investment": {
-                name: "Investment",
-                type: "status",
-                effectDelay: 3,
-                valueType: "negative",
-                value: 0,
-                valueDelta: 0,
-                effectDuration: 0,
-                formula: function (policyValue) {return 0 - 0.2 * policyValue},
-            },
-            "poverty": {
-                name: "Poverty",
-                type: "crisis",
-                effectDelay: 1,
-                valueType: "positive",
-                value: 0,
-                valueDelta: 0,
-                effectDuration: 0,
-                formula: function (policyValue) {return 0 + 0.2 * policyValue},
-            },
-            "economy": {
-                name: "Economy",
-                type: "status",
-                effectDelay: 0,
-                valueType: "positive",
-                value: 0,
-                valueDelta: 0,
-                effectDuration: 0,
-                formula: function (policyValue) {return 0 + 0.2 * policyValue},
-            },
+                formula: function (policyValue) {return 0 - 0.1 * policyValue}
+            }
         }
     },
     "corporate_tax": {
         name: "Corporate Tax",
-        description: "A tax on income.",
+        description: "A tax on corporate's revenue.",
         type: "finance",
         value: 50,
         finalValue: 50,
@@ -142,26 +104,6 @@ export let policy = {
                 effectDuration: 0,
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
-            "discrimination": {
-                name: "Discrimination",
-                type: "crisis",
-                effectDelay: 10,
-                valueType: "positive",
-                value: 0,
-                valueDelta: 0,
-                effectDuration: 0,
-                formula: function (policyValue) {return 0 + 0.2 * policyValue},
-            },
-            "public_health": {
-                name: "Public Health",
-                type: "status",
-                effectDelay: 0,
-                valueType: "negative",
-                value: 0,
-                valueDelta: 0,
-                effectDuration: 0,
-                formula: function (policyValue) {return 0 - 0.2 * policyValue},
-            },
             "investment": {
                 name: "Investment",
                 type: "status",
@@ -171,26 +113,6 @@ export let policy = {
                 valueDelta: 0,
                 effectDuration: 0,
                 formula: function (policyValue) {return 0 - 0.2 * policyValue},
-            },
-            "poverty": {
-                name: "Poverty",
-                type: "crisis",
-                effectDelay: 1,
-                valueType: "positive",
-                value: 0,
-                valueDelta: 0,
-                effectDuration: 0,
-                formula: function (policyValue) {return 0 + 0.2 * policyValue},
-            },
-            "economy": {
-                name: "Economy",
-                type: "status",
-                effectDelay: 0,
-                valueType: "positive",
-                value: 0,
-                valueDelta: 0,
-                effectDuration: 0,
-                formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
         }
     },
@@ -352,12 +274,12 @@ export function createPolicyEffectViews(runtime) {
             effectData.value = effectData.formula(policyData.value);
     
             const effectName = runtime.objects.UIText.createInstance("PolicyPopUpMG", instanceX, instanceY, true, "policy_effect_view");
-            effectName.text = effectData.name;
+            effectName.text = effectData.name + " (" + effectData.effectDelay + " Delay)";
             effectName.instVars['id'] = effect + "_" + policyName + "_effects_name";
             addTextToCache(effectName);
         
             const effectValue = effectName.getChildAt(0);
-            effectValue.text = effectData.value.toString();
+            effectValue.text = effectData.value.toFixed(2).toString();
         
             const effectSliderPositive = effectName.getChildAt(2);
             const effectSliderNegative = effectName.getChildAt(3);
@@ -422,7 +344,7 @@ export function updatePolicyEffectViews(policyName, newPolicyValue) {
         const newValue = effectData.formula(newPolicyValue);
 
         const effectValue = effectName.getChildAt(0);
-        effectValue.text = newValue.toString();
+        effectValue.text = newValue.toFixed(2).toString();
 
         const effectSliderPositive = effectName.getChildAt(2);
         const effectSliderNegative = effectName.getChildAt(3);

@@ -37,11 +37,31 @@
 			"desc": "",
 			"show": true,
 			"sid": 684029041723556
+		},
+		{
+			"name": "isHovered",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 297990426900174
+		},
+		{
+			"name": "initialOpacity",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 630032144400623
 		}
 	],
 	"behaviorTypes": [],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "grayscale",
+			"name": "Grayscale"
+		}
+	],
 	"members": [
-		"Button"
+		"Button",
+		"IncomeBubble"
 	]
 }

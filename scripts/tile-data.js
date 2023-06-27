@@ -18,6 +18,8 @@ import { clamp } from "./utils.js";
  */
 const tiles = [];
 
+export const filledTiles = [];
+
 let mapTileCount = 0;
 
 /**
@@ -56,6 +58,7 @@ export function initializeTileBiome(runtime) {
                 // tileText.scale = 0.2;
                 // tileText.colorRgb = [0.1, 0.1, 0.1];
                 row.push(tileInfo); 
+                filledTiles.push(tileInfo);
             } else {
                 row.push(null);
             }

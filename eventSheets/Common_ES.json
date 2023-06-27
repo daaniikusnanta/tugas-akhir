@@ -230,11 +230,12 @@
 							],
 							"actions": [
 								{
-									"id": "set-opacity",
+									"id": "set-effect-enabled",
 									"objectClass": "Clickable",
-									"sid": 722181143813591,
+									"sid": 744220444620579,
 									"parameters": {
-										"opacity": "50"
+										"mode": "enable",
+										"effect": "\"Grayscale\""
 									}
 								}
 							],
@@ -251,11 +252,12 @@
 							],
 							"actions": [
 								{
-									"id": "set-opacity",
+									"id": "set-effect-enabled",
 									"objectClass": "Clickable",
-									"sid": 302167020356204,
+									"sid": 333300311711773,
 									"parameters": {
-										"opacity": "100"
+										"mode": "disable",
+										"effect": "\"Grayscale\""
 									}
 								}
 							],
@@ -306,9 +308,199 @@
 								"variable": "touchedUid",
 								"value": "Clickable.UID"
 							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 902708607719187,
+							"parameters": {
+								"type": "log",
+								"message": "\"clickable pressed\""
+							}
 						}
 					],
 					"sid": 765709822865291
+				},
+				{
+					"aceType": "action",
+					"aceName": "IsReleased",
+					"objectClass": "Clickable",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "Clickable",
+							"sid": 475969245118987,
+							"parameters": {
+								"width": "Self.InitialWidth",
+								"height": "Self.initialHeight"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 824596826747720,
+							"parameters": {
+								"variable": "touchedUid",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Clickable",
+							"sid": 225979100784972,
+							"parameters": {
+								"instance-variable": "isPressed",
+								"value": "false"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 632961539499683,
+							"parameters": {
+								"type": "log",
+								"message": "\"clickable released\""
+							}
+						}
+					],
+					"sid": 511371155620471
+				},
+				{
+					"aceType": "action",
+					"aceName": "IsHovered",
+					"objectClass": "Clickable",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "Clickable",
+							"sid": 411484306056432,
+							"parameters": {
+								"width": "Self.InitialWidth * 1.1",
+								"height": "Self.initialHeight * 1.1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 405270072055215,
+							"parameters": {
+								"variable": "hoveredUid",
+								"value": "Clickable.UID"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Clickable",
+							"sid": 601994814377079,
+							"parameters": {
+								"instance-variable": "initialOpacity",
+								"value": "Clickable.Opacity"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Clickable",
+							"sid": 230614301961454,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Clickable",
+							"sid": 773728104576118,
+							"parameters": {
+								"instance-variable": "isHovered",
+								"value": "true"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 377492016794415,
+							"parameters": {
+								"type": "log",
+								"message": "\"clickable hovered\""
+							}
+						}
+					],
+					"sid": 544160712434463
+				},
+				{
+					"aceType": "action",
+					"aceName": "isUnhovered",
+					"objectClass": "Clickable",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "Clickable",
+							"sid": 594671841522944,
+							"parameters": {
+								"width": "Self.InitialWidth",
+								"height": "Self.initialHeight"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 907617618107646,
+							"parameters": {
+								"variable": "hoveredUid",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Clickable",
+							"sid": 729224442501110,
+							"parameters": {
+								"opacity": "Clickable.initialOpacity"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Clickable",
+							"sid": 646329581962936,
+							"parameters": {
+								"instance-variable": "isHovered",
+								"value": "false"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 872627959200329,
+							"parameters": {
+								"type": "log",
+								"message": "\"clickable unhovered\""
+							}
+						}
+					],
+					"sid": 137577947678603
 				},
 				{
 					"aceType": "action",
@@ -343,49 +535,6 @@
 						}
 					],
 					"sid": 731018084362081
-				},
-				{
-					"aceType": "action",
-					"aceName": "IsReleased",
-					"objectClass": "Clickable",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": true,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "custom-ace-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-size",
-							"objectClass": "Clickable",
-							"sid": 675470701915536,
-							"parameters": {
-								"width": "Self.InitialWidth",
-								"height": "Self.initialHeight"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 719139037200125,
-							"parameters": {
-								"variable": "touchedUid",
-								"value": "0"
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Clickable",
-							"sid": 245584941359559,
-							"parameters": {
-								"instance-variable": "isPressed",
-								"value": "false"
-							}
-						}
-					],
-					"sid": 315867878964343
 				},
 				{
 					"eventType": "block",
@@ -497,6 +646,138 @@
 						}
 					],
 					"sid": 177868889903729
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 629390416115518,
+							"parameters": {
+								"object": "Clickable"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Clickable",
+							"sid": 855528173007250,
+							"parameters": {
+								"instance-variable": "isHovered"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Clickable",
+							"sid": 922608975635783,
+							"parameters": {
+								"instance-variable": "isDisabled"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 828284415321938,
+							"parameters": {
+								"variable": "hoveredUid",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 848079286299276,
+							"parameters": {
+								"variable": "hoveredUid",
+								"value": "Clickable.UID"
+							}
+						},
+						{
+							"customAction": "IsHovered",
+							"objectClass": "Clickable",
+							"sid": 991286158271123
+						}
+					],
+					"sid": 152144851113113
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 637446013370257,
+							"parameters": {
+								"object": "Clickable"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 871985567395691,
+							"parameters": {
+								"variable": "hoveredUid",
+								"comparison": 1,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "ClickablePanel",
+							"sid": 407501412223248,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "isHovered"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 206228092163898,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Clickable",
+									"sid": 548804542172933,
+									"parameters": {
+										"unique-id": "hoveredUid"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "isUnhovered",
+									"objectClass": "Clickable",
+									"sid": 994532493459170
+								}
+							],
+							"sid": 225703262277133
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 191561794409835,
+									"parameters": {
+										"variable": "hoveredUid",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 249742999678325
+						}
+					]
 				},
 				{
 					"functionName": "ButtonClicked",

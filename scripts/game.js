@@ -34,8 +34,13 @@ import {
   setupPolicyMultiplier,
 } from "./policy-data.js";
 import { 
-  updateIncome, 
-  updateSpending 
+  updateBalance,
+  updateIncomeFromPolicy, 
+  updateSpendingFromPolicy, 
+  removeIncomeBubbleTileIndex,
+  spawnIncomeBubble,
+  setupSpawnIncomeBubble,
+  incomes,
 } from "./fiscal-data.js";
 import {
   setLevelVariables,
@@ -68,8 +73,14 @@ function updateAllPolicies() {
 }
 
 function updateFiscalViews(runtime) {
-  updateIncome(runtime);
-  updateSpending(runtime);
+  updateBalance(runtime);
+}
+
+function initializeFiscalData(runtime) {
+  for (const policyName in policy) {
+    updateIncomeFromPolicy(policyName);
+    updateSpendingFromPolicy(policyName);
+  }
 }
 
 export function setupCrisisViews(runtime) {

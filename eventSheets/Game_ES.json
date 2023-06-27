@@ -57,6 +57,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "incomeBubbleInterval",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 399637249757839
+		},
+		{
+			"eventType": "variable",
 			"name": "policyToSet",
 			"type": "string",
 			"initialValue": "",
@@ -88,7 +98,7 @@
 						},
 						{
 							"type": "script",
-							"script": "setupPolicyMultiplier();\ninitializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\nupdateFSM();"
+							"script": "setupPolicyMultiplier();\ninitializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\ninitializeFiscalData(runtime);\nupdateFSM();"
 						},
 						{
 							"callFunction": "SetupClickablePanels",
@@ -123,6 +133,21 @@
 								"duration": "tickRate",
 								"type": "regular",
 								"tag": "\"Tick\""
+							}
+						},
+						{
+							"type": "script",
+							"script": "const gameManager = runtime.objects.GameManager.getAllInstances()[0];\nconst timer = gameManager.behaviors.Timer;\nruntime.globalVars.incomeBubbleInterval = timer.getDuration(\"Tick\") / Object.keys(incomes).length;"
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "GameManager",
+							"sid": 136985271116290,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "incomeBubbleInterval",
+								"type": "regular",
+								"tag": "\"IncomeBubble\""
 							}
 						},
 						{
@@ -163,6 +188,123 @@
 					"sid": 982971445756731
 				},
 				{
+					"functionName": "updateIncomeBubbles",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 310449305175434,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 188566695777730,
+									"parameters": {
+										"object": "IncomeBubble"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 956959333145604,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "IncomeBubble",
+											"sid": 534640594437473,
+											"parameters": {
+												"instance-variable": "currentDuration",
+												"comparison": 5,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "IncomeBubble",
+											"sid": 270998749821260,
+											"parameters": {
+												"opacity": "IncomeBubble.Opacity - 30"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 599693737957494,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"opacity \" & IncomeBubble.currentDuration & \" \" & IncomeBubble.Opacity"
+											}
+										}
+									],
+									"sid": 845038686460410
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "IncomeBubble",
+											"sid": 874861576141627,
+											"parameters": {
+												"instance-variable": "currentDuration",
+												"comparison": 0,
+												"value": "IncomeBubble.duration"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "script",
+											"script": "const incomeBubble = runtime.objects.IncomeBubble.getPickedInstances()[0];\nremoveIncomeBubbleTileIndex(incomeBubble.instVars['tileIndex']);"
+										},
+										{
+											"id": "destroy",
+											"objectClass": "IncomeBubble",
+											"sid": 671625955071018
+										}
+									],
+									"sid": 867198062629060
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 983881740892752
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "IncomeBubble",
+											"sid": 106122958587833,
+											"parameters": {
+												"instance-variable": "currentDuration",
+												"value": "IncomeBubble.currentDuration + 1"
+											}
+										}
+									],
+									"sid": 450146723451039
+								}
+							]
+						}
+					]
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -188,6 +330,25 @@
 						{
 							"type": "script",
 							"script": "updateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateAllPolicies(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);\nupdateFiscalViews(runtime);\ncheckGameOverCondition(runtime);"
+						},
+						{
+							"type": "script",
+							"script": "const gameManager = runtime.objects.GameManager.getPickedInstances()[0];\nconst timer = gameManager.behaviors.Timer;\nruntime.globalVars.incomeBubbleInterval = timer.getDuration(\"Tick\") / Object.keys(incomes).length;"
+						},
+						{
+							"callFunction": "updateIncomeBubbles",
+							"sid": 454474890206175
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "GameManager",
+							"sid": 665049530398781,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "incomeBubbleInterval",
+								"type": "regular",
+								"tag": "\"IncomeBubble\""
+							}
 						}
 					],
 					"sid": 268964243012299,
@@ -253,6 +414,87 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-timer",
+							"objectClass": "GameManager",
+							"sid": 504545210687120,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"IncomeBubble\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 214173328679598,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "\"Spawn \" & GameManager.Timer.CurrentTime(\"Tick\")"
+							}
+						},
+						{
+							"type": "script",
+							"script": "spawnIncomeBubble(runtime);"
+						}
+					],
+					"sid": 634990383427835,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-timer-running",
+									"objectClass": "GameManager",
+									"sid": 136564265359688,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"Tick\""
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 939463150750346,
+									"parameters": {
+										"first-value": "GameManager.Timer.Duration(\"Tick\") -GameManager.Timer.CurrentTime(\"Tick\") + 0.2",
+										"comparison": 4,
+										"second-value": "GameManager.Timer.Duration(\"IncomeBubble\")"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 688266687092223,
+									"disabled": true,
+									"parameters": {
+										"type": "log",
+										"message": "\"Start \" & GameManager.Timer.Duration(\"Tick\") -GameManager.Timer.CurrentTime(\"Tick\") + 0.2"
+									}
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "GameManager",
+									"sid": 979638145727554,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "incomeBubbleInterval",
+										"type": "regular",
+										"tag": "\"IncomeBubble\""
+									}
+								}
+							],
+							"sid": 152506535759969
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "every-tick",
 							"objectClass": "System",
 							"sid": 626888163548503
@@ -267,7 +509,13 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const gameManager = runtime.objects.GameManager.getPickedInstances()[0];\n\nsetupSpawnIncomeBubble(gameManager);",
+							"disabled": true
+						}
+					],
 					"sid": 448996669788675,
 					"children": [
 						{
@@ -297,6 +545,110 @@
 							"sid": 279920406147001
 						}
 					]
+				},
+				{
+					"functionName": "pauseGame",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "pause-resume-timer",
+							"objectClass": "GameManager",
+							"sid": 990586740348857,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Tick\"",
+								"state": "paused"
+							}
+						},
+						{
+							"id": "pause-resume-timer",
+							"objectClass": "GameManager",
+							"sid": 378180103861121,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"IncomeBubble\"",
+								"state": "paused"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 170240047054886,
+							"parameters": {
+								"variable": "isRunning",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "ProgressBar",
+							"sid": 535862412690032,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"SetColor\""
+							}
+						}
+					],
+					"sid": 359609938174142
+				},
+				{
+					"functionName": "resumeGame",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "pause-resume-timer",
+							"objectClass": "GameManager",
+							"sid": 413037312651356,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Tick\"",
+								"state": "resumed"
+							}
+						},
+						{
+							"id": "pause-resume-timer",
+							"objectClass": "GameManager",
+							"sid": 643066311574698,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"IncomeBubble\"",
+								"state": "resumed"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 414593946723454,
+							"parameters": {
+								"variable": "isRunning",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "ProgressBar",
+							"sid": 553321342387628,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"SetColor\""
+							}
+						}
+					],
+					"sid": 102313444406747
 				},
 				{
 					"eventType": "block",
@@ -332,32 +684,8 @@
 									}
 								},
 								{
-									"id": "pause-resume-timer",
-									"objectClass": "GameManager",
-									"sid": 348984501636003,
-									"behaviorType": "Timer",
-									"parameters": {
-										"tag": "\"Tick\"",
-										"state": "paused"
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 200415206877097,
-									"parameters": {
-										"variable": "isRunning",
-										"value": "false"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "ProgressBar",
-									"sid": 580016124319530,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"SetColor\""
-									}
+									"callFunction": "pauseGame",
+									"sid": 404393857418832
 								}
 							],
 							"sid": 760494216045422
@@ -381,32 +709,8 @@
 									}
 								},
 								{
-									"id": "pause-resume-timer",
-									"objectClass": "GameManager",
-									"sid": 996464581919319,
-									"behaviorType": "Timer",
-									"parameters": {
-										"tag": "\"Tick\"",
-										"state": "resumed"
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 339460927643873,
-									"parameters": {
-										"variable": "isRunning",
-										"value": "true"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "ProgressBar",
-									"sid": 112495763806843,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"SetColor\""
-									}
+									"callFunction": "resumeGame",
+									"sid": 642473253292890
 								}
 							],
 							"sid": 623194381697160
@@ -737,6 +1041,10 @@
 									}
 								},
 								{
+									"callFunction": "resumeGame",
+									"sid": 731958649951407
+								},
+								{
 									"callFunction": "showPolicyPopUp",
 									"sid": 990537249048881,
 									"parameters": [
@@ -805,6 +1113,10 @@
 									}
 								},
 								{
+									"callFunction": "resumeGame",
+									"sid": 138687408890687
+								},
+								{
 									"callFunction": "showPolicyPopUp",
 									"sid": 981055359000690,
 									"parameters": [
@@ -849,6 +1161,10 @@
 									}
 								},
 								{
+									"callFunction": "resumeGame",
+									"sid": 933647060519720
+								},
+								{
 									"callFunction": "showStatusPopUp",
 									"sid": 450282510955590,
 									"parameters": [
@@ -891,6 +1207,10 @@
 										"layer": "\"Background\"",
 										"interactive": true
 									}
+								},
+								{
+									"callFunction": "resumeGame",
+									"sid": 157404848268773
 								},
 								{
 									"callFunction": "showCrisisPopUp",
@@ -977,6 +1297,10 @@
 									}
 								},
 								{
+									"callFunction": "pauseGame",
+									"sid": 883015871945000
+								},
+								{
 									"callFunction": "showPolicyPopUp",
 									"sid": 353662209158789,
 									"parameters": [
@@ -1029,6 +1353,10 @@
 									}
 								},
 								{
+									"callFunction": "pauseGame",
+									"sid": 634161716077619
+								},
+								{
 									"callFunction": "showStatusPopUp",
 									"sid": 292776158127688,
 									"parameters": [
@@ -1078,6 +1406,10 @@
 										"layer": "\"Background\"",
 										"interactive": false
 									}
+								},
+								{
+									"callFunction": "pauseGame",
+									"sid": 719364270689648
 								},
 								{
 									"callFunction": "showCrisisPopUp",
@@ -3483,7 +3815,7 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Slider",
-							"sid": 818671843664456,
+							"sid": 990965242958145,
 							"parameters": {
 								"instance-variable": "value",
 								"value": "(Self.X - Self.minX) / (Self.maxX - Self.minX) * Self.maxValue"
@@ -3589,7 +3921,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const slider = runtime.objects.Slider.getPickedInstances()[0];\nconst policyName = runtime.globalVars.policyToSet;\nconsole.log(policyName);\nconst policyData = policy[policyName];\nconst costText = getTextById(\"policy_pop_up_cost_slider\");\nconst cost = policyData.minCost + (slider.instVars['value'] / 100 * (policyData.maxCost - policyData.minCost));\nsetSliderValue(slider, costText, slider.instVars['value'], cost.toString());\n\nconst revenueText = getTextById(\"policy_pop_up_revenue_slider\");\nconst revenue = policyData.minRevenue + (slider.instVars['value'] / 100 * (policyData.maxRevenue - policyData.minRevenue));\nsetSliderValue(slider, revenueText, slider.instVars['value'], revenue.toString());\n\nupdatePolicyEffectViews(policyName, slider.instVars['value']);"
+									"script": "const slider = runtime.objects.Slider.getPickedInstances()[0];\nconst policyName = runtime.globalVars.policyToSet;\nconsole.log(policyName);\nconst policyData = policy[policyName];\n\nconst costText = getTextById(\"policy_pop_up_cost_slider\");\nconst cost = policyData.minCost + (slider.instVars['value'] / 100 * (policyData.maxCost - policyData.minCost));\nsetSliderValue(slider, costText, slider.instVars['value'], cost.toFixed(2).toString());\n\nconst revenueText = getTextById(\"policy_pop_up_revenue_slider\");\nconst revenue = policyData.minRevenue + (slider.instVars['value'] / 100 * (policyData.maxRevenue - policyData.minRevenue));\nsetSliderValue(slider, revenueText, slider.instVars['value'], revenue.toFixed(2).toString());\n\nupdatePolicyEffectViews(policyName, slider.instVars['value']);"
 								}
 							],
 							"sid": 215795582291721

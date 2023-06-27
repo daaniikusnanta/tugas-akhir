@@ -155,12 +155,13 @@ export function setDeltaSliderZOrder(deltaValue, deltaSlider, mainSlider) {
  * Get an object by id
  * @param {IObjectClass} objects
  * @param {string} id
+ * @param {boolean} [acceptNull=false]
  * @returns {*}
  */ 
-export function getObjectbyId(objects, id) {
+export function getObjectbyId(objects, id, acceptNull = false) {
 	const object = objects.getAllInstances().filter(obj => obj.instVars['id'] === id)[0];
 
-	if (object == null) {
+	if (object == null && !acceptNull) {
 		throw new Error(`Object with id "${id}" not found`);
 	}
 
