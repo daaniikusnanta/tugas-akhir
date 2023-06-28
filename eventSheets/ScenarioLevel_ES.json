@@ -1,0 +1,727 @@
+{
+	"name": "ScenarioLevel_ES",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Common_ES"
+		},
+		{
+			"eventType": "variable",
+			"name": "mapSize2",
+			"type": "number",
+			"initialValue": "13.8",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 148239917310856
+		},
+		{
+			"eventType": "variable",
+			"name": "maxX2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 332714939063485
+		},
+		{
+			"eventType": "variable",
+			"name": "maxY2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 221685796328476
+		},
+		{
+			"eventType": "variable",
+			"name": "map_width2",
+			"type": "number",
+			"initialValue": "1920",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 272657997623784
+		},
+		{
+			"eventType": "variable",
+			"name": "seed2",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 611334396895344
+		},
+		{
+			"eventType": "variable",
+			"name": "map_ready2",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 929257266382185
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 820528866732636
+				}
+			],
+			"actions": [
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 177076413842750,
+					"parameters": {
+						"name": "BUTTON_CLICKED",
+						"string": "LayoutName",
+						"function": "MenuButtonClicked3"
+					}
+				},
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 550503830655022,
+					"parameters": {
+						"name": "PANEL_CLICKED",
+						"string": "LayoutName",
+						"function": "UIPanelClicked3"
+					}
+				},
+				{
+					"type": "script",
+					"script": "createScenarioView(runtime);"
+				}
+			],
+			"sid": 799791227860968,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "DrawingCanvas",
+							"sid": 329596440055944,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"map_preview\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "save-snapshot",
+							"objectClass": "DrawingCanvas",
+							"sid": 317886590888785
+						}
+					],
+					"sid": 660306346999450
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-snapshot",
+					"objectClass": "DrawingCanvas",
+					"sid": 194160796087577
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "DrawingCanvas",
+					"sid": 663436877477293,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "\"map_preview\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 947446902260677,
+					"parameters": {
+						"variable": "map_ready",
+						"value": "true"
+					}
+				},
+				{
+					"callFunction": "setupScenarioMapData",
+					"sid": 379912229853143,
+					"parameters": [
+						"\"sepnovria\""
+					]
+				}
+			],
+			"sid": 551268038771732
+		},
+		{
+			"functionName": "setupScenarioMapData",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "scenarioName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 984169751716184
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 619807202125919,
+					"parameters": {
+						"tag": "\"map_data\"",
+						"file": "sepnovria_data.json"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 979800884046994
+				},
+				{
+					"id": "load",
+					"objectClass": "MapData",
+					"sid": 777639954340275,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 150864690905410,
+					"parameters": {
+						"variable": "map_width",
+						"value": "MapData.Width * 64"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 237900492274239,
+					"parameters": {
+						"variable": "mapSize",
+						"value": "DrawingCanvas.SnapshotWidth / MapData.Width"
+					}
+				},
+				{
+					"callFunction": "CreateMap2",
+					"sid": 457235724535080
+				}
+			],
+			"sid": 679592205565272
+		},
+		{
+			"functionName": "CreateMap2",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 641952911924569,
+					"parameters": {
+						"variable": "map_ready"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 730310104000624,
+					"parameters": {
+						"variable": "maxX",
+						"value": "ceil(DrawingCanvas.SnapshotWidth / mapSize)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 660304782063010,
+					"parameters": {
+						"variable": "maxY",
+						"value": "ceil(DrawingCanvas.SnapshotHeight / mapSize)"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 730031034911504,
+					"parameters": {
+						"type": "log",
+						"message": "\"Map \" & DrawingCanvas.Width & \"|\" & DrawingCanvas.Height & \"|\" &  mapSize & \"|\" &  DrawingCanvas.id"
+					}
+				}
+			],
+			"sid": 154530818476855,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 698499944553294,
+							"parameters": {
+								"object": "Button"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Button",
+							"sid": 726814860380930,
+							"parameters": {
+								"instance-variable": "isDisabled",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 960911545630647
+				},
+				{
+					"eventType": "variable",
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 833137089265204
+				},
+				{
+					"eventType": "variable",
+					"name": "x2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 522413803134530
+				},
+				{
+					"eventType": "variable",
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 729990743043299
+				},
+				{
+					"eventType": "variable",
+					"name": "y2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 945693123552208
+				},
+				{
+					"eventType": "variable",
+					"name": "value",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 200528987171998
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 922663750238870,
+							"parameters": {
+								"count": "MapData.Width"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 318104588527488,
+							"parameters": {
+								"variable": "x2",
+								"value": "loopindex"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 522885005775873,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "\"index x\" & \"|\" & x2 & \"|\" & loopindex & \"|\" &  DrawingCanvas.SnapshotWidth"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 551318983565174,
+							"disabled": true,
+							"parameters": {
+								"variable": "mapSize",
+								"value": "DrawingCanvas.SnapshotWidth / 16"
+							}
+						}
+					],
+					"sid": 809686224597049,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 119545818530103,
+									"parameters": {
+										"count": "MapData.Height"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 866594514433517,
+									"parameters": {
+										"variable": "y2",
+										"value": "loopindex"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 487889363912180,
+									"parameters": {
+										"variable": "value",
+										"value": "MapData.At(x2, y2)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 650993334684426,
+									"disabled": true,
+									"parameters": {
+										"variable": "value",
+										"value": "Functions.processValue(x2, y2, maxX, maxY, AdvancedRandom.Classic2d(x2 * mapSize * mapZoom, y2 * mapSize * mapZoom))"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 365859825447323,
+									"disabled": true,
+									"parameters": {
+										"variable": "value",
+										"value": "AdvancedRandom.Classic2d(x2 * AdvancedRandom.Classic2d(x2 * mapZoom * mapSize, y2 * mapZoom * mapSize), y2 * AdvancedRandom.Classic2d(y2 * mapZoom * mapSize, x2 * mapZoom * mapSize)) ^ 3"
+									}
+								}
+							],
+							"sid": 978215783982675,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 998198947270413,
+											"parameters": {
+												"count": "mapSize"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 398269984697647,
+											"parameters": {
+												"variable": "x",
+												"value": "(x2)*mapSize + (loopindex)"
+											}
+										}
+									],
+									"sid": 883367449176576,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "repeat",
+													"objectClass": "System",
+													"sid": 601562974939074,
+													"parameters": {
+														"count": "mapSize"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 883934059510610,
+													"parameters": {
+														"variable": "y",
+														"value": "(y2)*mapSize + (loopindex)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 913094785689889,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "\"size\" & \"|\" & x  & \"|\" & y"
+													}
+												}
+											],
+											"sid": 965610484801164,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 841421956529109,
+															"parameters": {
+																"variable": "x",
+																"comparison": 3,
+																"value": "DrawingCanvas.SnapshotWidth"
+															}
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 182326934499579,
+															"parameters": {
+																"variable": "y",
+																"comparison": 3,
+																"value": "DrawingCanvas.SnapshotHeight"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "snapshot-set-pixel",
+															"objectClass": "DrawingCanvas",
+															"sid": 812768239227071,
+															"parameters": {
+																"x": "x",
+																"y": "y",
+																"color": "value = 1 ? rgbEx255(127, 191, 114) : rgbEx255(63, 124, 196)"
+															}
+														}
+													],
+													"sid": 435482399109408
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "load-snapshot",
+							"objectClass": "DrawingCanvas",
+							"sid": 164888550155349
+						}
+					],
+					"sid": 339009565461128
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 990401007207547,
+							"parameters": {
+								"object": "Button"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Button",
+							"sid": 662790076020473,
+							"parameters": {
+								"instance-variable": "isDisabled",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 393942989742116
+				}
+			]
+		},
+		{
+			"functionName": "MenuButtonClicked3",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": true,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "uid",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 870882709310258
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Button",
+					"sid": 988423839420276,
+					"parameters": {
+						"unique-id": "uid"
+					}
+				},
+				{
+					"id": "layer-is-interactive",
+					"objectClass": "System",
+					"sid": 722286696634462,
+					"parameters": {
+						"layer": "Button.LayerName"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 866706092614846,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 230696539826951,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"back\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 748752564292331,
+							"parameters": {
+								"layout": "\"MenuLayout\""
+							}
+						}
+					],
+					"sid": 189151349035552
+				}
+			]
+		},
+		{
+			"functionName": "UIPanelClicked3",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": true,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "uid",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 398330968121342
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "ClickablePanel",
+					"sid": 509189003370040,
+					"parameters": {
+						"unique-id": "uid"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 334369422752005,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 897152284191128,
+							"parameters": {
+								"first-value": "RegexMatchCount(ClickablePanel.id, \"scenario_clickable$\", \"\")",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const clickable = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst scenarioName = clickable.instVars['id'].replace(\"_initial_crisis_clickable\", \"\");\n\nchooseInitialCrisis(initialCrisisName);",
+							"disabled": true
+						}
+					],
+					"sid": 634973601410649
+				}
+			]
+		}
+	],
+	"sid": 794443839231255
+}

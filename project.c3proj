@@ -1,11 +1,18 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 34600,
+	"savedWithRelease": 34700,
 	"name": "tugas akhir",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": false,
 	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"bundled": false
+		},
 		{
 			"type": "plugin",
 			"id": "AdvancedRandom",
@@ -51,8 +58,22 @@
 		},
 		{
 			"type": "plugin",
+			"id": "FileSystem",
+			"name": "File system",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Keyboard",
 			"name": "Keyboard",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -222,7 +243,11 @@
 			"UIPanelOutlineSide",
 			"UIPanelSide",
 			"UIPanelOutlineMiddle",
-			"IncomeBubble"
+			"IncomeBubble",
+			"Logo",
+			"AJAX",
+			"LocalStorage",
+			"FileSystem"
 		],
 		"subfolders": [
 			{
@@ -255,7 +280,9 @@
 			"MediumMapLayout",
 			"LargeMapLayout",
 			"CreateLevelLayout",
-			"MenuLayout"
+			"MenuLayout",
+			"ScenarioMapLayout",
+			"ScenarioLevelLayout"
 		],
 		"subfolders": []
 	},
@@ -264,7 +291,8 @@
 			"Game_ES",
 			"Common_ES",
 			"CreateLevel_ES",
-			"Menu_ES"
+			"Menu_ES",
+			"ScenarioLevel_ES"
 		],
 		"subfolders": []
 	},
@@ -433,7 +461,22 @@
 		},
 		"general": {
 			"items": [],
-			"subfolders": []
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "sepnovria_data.json",
+							"type": "application/json",
+							"sid": 946208541970367,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Scenarios"
+				}
+			]
 		}
 	},
 	"timelines": {

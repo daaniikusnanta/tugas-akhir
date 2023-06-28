@@ -116,8 +116,17 @@ const initialCrisis = {
     }
 };
 
-const situationLevel = {
-    
+const scenarios = {
+    "sepnovria": {
+        name: "Pandemic on Sepnovria",
+        description: "Pandemic",
+        parameters: {
+            "size": "large",
+            "landWaterValue": 80,
+            "governmentType": "democratic",
+            "economyType": "newly_emerging",
+        }
+    }
 };
 
 export let chosenInitialCrisisName = Object.keys(initialCrisis)[0];
@@ -182,6 +191,48 @@ export function createInitialCrisisViews(runtime) {
     }
 
     setScrollableHeight(runtime, initialCrisisScrollable, Object.keys(initialCrisis).length, itemHeight + margin*2, margin);
+}
+
+export function createScenarioView(runtime) {
+    const scenarioScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "scenario");
+    const initialY = scenarioScrollable.y + 30;
+    const itemHeight = 160;
+    const margin = 10;
+
+    for (const scenarioVariable in scenarios) {
+        const scenarioData = scenarios[scenarioVariable];
+
+        const instanceX = scenarioScrollable.x + 30;
+        const instanceY = initialY + Object.keys(scenarios).indexOf(scenarioVariable) * (itemHeight + margin*2);
+
+        const scenarioName = runtime.objects.UITextBold.createInstance("ScenarioMG", instanceX, instanceY, true, "scenario_view");
+        scenarioName.text = scenarioData.name;
+        scenarioName.instVars['id'] = scenarioVariable + "_scenario_name";
+        addTextToCache(scenarioName);
+
+        const scenarioDescription = scenarioName.getChildAt(0);
+        scenarioDescription.text = scenarioData.description;
+
+        const scenarioClickable = scenarioName.getChildAt(1);
+        scenarioClickable.opacity = 0;
+        scenarioClickable.instVars['clickable'] = true;
+        scenarioClickable.instVars['selectable'] = true;
+        scenarioClickable.instVars['panelId'] = scenarioScrollable.instVars['id'];
+        scenarioClickable.instVars['id'] = scenarioVariable + "_scenario_clickable";
+        scenarioClickable.instVars['hasGroup'] = true;
+        scenarioClickable.instVars['groupId'] = "scenario";
+
+        if (scenarioVariable === Object.keys(scenarios)[0]) {
+            scenarioClickable.instVars['isSelected'] = true;
+            scenarioClickable.opacity = 50;
+        }
+
+        console.log(scenarioClickable);
+
+        scenarioScrollable.addChild(scenarioName, { transformX: true, transformY: true });
+    }
+
+    setScrollableHeight(runtime, scenarioScrollable, Object.keys(scenarios).length, itemHeight + margin*2, margin);
 }
 
 

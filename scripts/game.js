@@ -52,6 +52,7 @@ import {
   setupGeographyLandWater,
   setupSituationGovernment,
   setupSituationEconomy,
+  createScenarioView,
 } from "./level-data.js";
 
 function updateAllStatus() {

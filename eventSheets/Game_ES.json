@@ -94,20 +94,24 @@
 					"actions": [
 						{
 							"callFunction": "setupMap",
-							"sid": 298997681691886
+							"sid": 298997681691886,
+							"disabled": true
 						},
 						{
 							"type": "script",
-							"script": "setupPolicyMultiplier();\ninitializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\ninitializeFiscalData(runtime);\nupdateFSM();"
+							"script": "setupPolicyMultiplier();\ninitializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\ninitializeFiscalData(runtime);\nupdateFSM();",
+							"disabled": true
 						},
 						{
 							"callFunction": "SetupClickablePanels",
-							"sid": 658224677021982
+							"sid": 658224677021982,
+							"disabled": true
 						},
 						{
 							"id": "map-function",
 							"objectClass": "Functions",
 							"sid": 611279084989323,
+							"disabled": true,
 							"parameters": {
 								"name": "BUTTON_CLICKED",
 								"string": "LayoutName",
@@ -118,6 +122,7 @@
 							"id": "map-function",
 							"objectClass": "Functions",
 							"sid": 137783170310731,
+							"disabled": true,
 							"parameters": {
 								"name": "PANEL_CLICKED",
 								"string": "LayoutName",
@@ -128,6 +133,7 @@
 							"id": "start-timer",
 							"objectClass": "GameManager",
 							"sid": 405763387673053,
+							"disabled": true,
 							"behaviorType": "Timer",
 							"parameters": {
 								"duration": "tickRate",
@@ -137,12 +143,14 @@
 						},
 						{
 							"type": "script",
-							"script": "const gameManager = runtime.objects.GameManager.getAllInstances()[0];\nconst timer = gameManager.behaviors.Timer;\nruntime.globalVars.incomeBubbleInterval = timer.getDuration(\"Tick\") / Object.keys(incomes).length;"
+							"script": "const gameManager = runtime.objects.GameManager.getAllInstances()[0];\nconst timer = gameManager.behaviors.Timer;\nruntime.globalVars.incomeBubbleInterval = timer.getDuration(\"Tick\") / Object.keys(incomes).length;",
+							"disabled": true
 						},
 						{
 							"id": "start-timer",
 							"objectClass": "GameManager",
 							"sid": 136985271116290,
+							"disabled": true,
 							"behaviorType": "Timer",
 							"parameters": {
 								"duration": "incomeBubbleInterval",
@@ -154,6 +162,7 @@
 							"id": "set-text",
 							"objectClass": "TickRate",
 							"sid": 832960829303103,
+							"disabled": true,
 							"parameters": {
 								"text": "\"Tick rate: \" & tickRate"
 							}
@@ -162,30 +171,150 @@
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 320843196971973,
+							"disabled": true,
 							"parameters": {
 								"variable": "isRunning",
 								"value": "true"
 							}
 						},
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 296259754165563,
-							"parameters": {
-								"type": "log",
-								"message": "AdvancedRandom.Classic2d(30, 30)"
-							}
-						},
-						{
 							"id": "octaves",
 							"objectClass": "AdvancedRandom",
 							"sid": 745515024942395,
+							"disabled": true,
 							"parameters": {
 								"count": "4"
 							}
+						},
+						{
+							"callFunction": "exportMap",
+							"sid": 503621720548741
 						}
 					],
 					"sid": 982971445756731
+				},
+				{
+					"functionName": "exportMap",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "MapData",
+							"sid": 134720710023521,
+							"parameters": {
+								"width": "TilemapBiome.MapDisplayWidth",
+								"height": "TilemapBiome.MapDisplayHeight",
+								"depth": "1"
+							}
+						}
+					],
+					"sid": 701397690828887,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 911718186700845
+						},
+						{
+							"eventType": "variable",
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 979339662364868
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 645279876061624,
+									"parameters": {
+										"count": "TilemapBiome.MapDisplayWidth"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 608848155800910,
+									"parameters": {
+										"variable": "x",
+										"value": "loopindex"
+									}
+								}
+							],
+							"sid": 393163702976724,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 117902254483472,
+											"parameters": {
+												"count": "TilemapBiome.MapDisplayHeight"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 656391717768652,
+											"parameters": {
+												"variable": "y",
+												"value": "loopindex"
+											}
+										},
+										{
+											"id": "set-at-xy",
+											"objectClass": "MapData",
+											"sid": 962825688747024,
+											"parameters": {
+												"x": "x",
+												"y": "y",
+												"value": "clamp(TilemapBiome.TileAt(x, y), 0, 1)"
+											}
+										}
+									],
+									"sid": 199711721000196
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "download",
+									"objectClass": "MapData",
+									"sid": 154498151246714,
+									"parameters": {
+										"filename": "\"sepnovria_data.json\""
+									}
+								}
+							],
+							"sid": 384885400030191
+						}
+					]
 				},
 				{
 					"functionName": "updateIncomeBubbles",

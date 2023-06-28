@@ -106,10 +106,10 @@
 						}
 					},
 					"world": {
-						"x": 671,
-						"y": 289,
-						"width": 578,
-						"height": 638,
+						"x": 723,
+						"y": 402,
+						"width": 474,
+						"height": 538,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -141,10 +141,10 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 671,
-						"y": 289,
-						"width": 578,
-						"height": 638,
+						"x": 723,
+						"y": 402,
+						"width": 474,
+						"height": 538,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -152,6 +152,81 @@
 							1,
 							1,
 							0.6
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Logo",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 273,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 960,
+						"y": 193,
+						"width": 759.2597944576037,
+						"height": 259.105304410621,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.9
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Menu Button",
+						"initial-frame": 2,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 274,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"isHovered": false,
+						"initialOpacity": 0,
+						"id": "next"
+					},
+					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": false,
+							"parameters": {
+								"intensity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 965,
+						"y": 480,
+						"width": 271,
+						"height": 68,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
 						],
 						"angle": 0,
 						"zElevation": 0
