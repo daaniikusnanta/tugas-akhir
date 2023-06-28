@@ -1,4 +1,4 @@
-import { initializeCrisis, isCrisisMaximized, isExtremeCrisisEmpty } from "./crisis-data.js";
+import { initializeCrisis, isCrisisMaximized, isExtremeCrisisEmpty, crisis } from "./crisis-data.js";
 import { initializeStatus, status } from "./status-data.js";
 import { updateCrisisView, updateStatusView, setupCrisisViews } from "./game.js";
 import { addTextToCache, getClickablePanelById, getObjectbyId, getTextById, setScrollableHeight, toTitleCase } from "./utils.js";
@@ -121,15 +121,33 @@ const scenarios = {
         name: "Pandemic on Sepnovria",
         description: "Pandemic",
         parameters: {
-            "size": "large",
-            "landWaterValue": 80,
-            "governmentType": "democratic",
-            "economyType": "newly_emerging",
+            size: "large",
+            landWaterValue: 80,
+            governmentType: "democratic",
+            economyType: "newly_emerging",
+        },
+        initialValues: {
+            "infectious_disease": 90
+        }
+    },
+    "situbondo": {
+        name: "Extreme Poverty on Situbondo",
+        description: "Extreme Poverty",
+        parameters: {
+            size: "medium",
+            landWaterValue: 50,
+            governmentType: "semi_autocratic",
+            economyType: "developing",
+        },
+        initialValues: {
+            "poverty": 70
         }
     }
 };
 
 export let chosenInitialCrisisName = Object.keys(initialCrisis)[0];
+
+export let chosenScenarioName = Object.keys(scenarios)[0];
 
 export function setInitialCrisisVariables() {
     const initialCrisisData = initialCrisis[chosenInitialCrisisName];
@@ -140,11 +158,61 @@ export function setInitialCrisisVariables() {
         variableData[valueName] = initialCrisisData.values[valueName];
         console.log(levelVariables);
     }
+
+    console.log("setInitialCrisisVariables", levelVariables);
+}
+
+export function setScenarioVariables() {
+    const scenarioData = scenarios[chosenScenarioName];
+    console.log("setScenarioVariables", levelVariables);
+    for (const valueName in scenarioData.initialValues) {
+        let variableData = (levelVariables.status['valueName']) ? levelVariables.status : levelVariables.crisis;
+        
+        variableData[valueName] = scenarioData.initialValues[valueName];
+        console.log(levelVariables);
+    }
+
+    console.log("setScenarioVariables", levelVariables);
 }
 
 export function chooseInitialCrisis(initialCrisisName) {
     console.log(initialCrisisName);
     chosenInitialCrisisName = initialCrisisName;
+}
+
+export function chooseScenario(scenarioName) {
+    console.log(scenarioName);
+    chosenScenarioName = scenarioName;
+    
+    console.log("chooseScenario", levelVariables);
+    showScenarioInformation();
+}
+
+export function setScenarioSize(runtime) {
+    const scenarioData = scenarios[chosenScenarioName];
+
+    runtime.globalVars.layoutSize = scenarioData.parameters.size;
+}
+
+export function showScenarioInformation() {
+    const scenarioData = scenarios[chosenScenarioName];
+    const parameters = scenarioData.parameters;
+    
+    setupGeographySize(parameters.size);
+    setupGeographyLandWater(parameters.landWaterValue);
+    setupSituationGovernment(parameters.governmentType);
+    setupSituationEconomy(parameters.economyType);
+
+    let crisises = [];
+    for (const valueName in scenarioData.initialValues) {
+        if (crisis[valueName]) {
+            crisises.push(crisis[valueName].name);
+        }
+    }
+    const crisisesText = getTextById("crisis_information");
+    crisisesText.text = crisises.join(", ");
+    
+    console.log("showScenarioInformation", levelVariables);
 }
 
 /**
@@ -242,8 +310,8 @@ export function createScenarioView(runtime) {
  * @param {IRuntime} runtime The runtime scene.
 */  
 export function setLevelVariables(level, runtime) {
-    initializeStatus(levelVariables['status'], runtime);
-    initializeCrisis(levelVariables['crisis'], runtime);
+    initializeStatus(levelVariables.status, runtime);
+    initializeCrisis(levelVariables.crisis, runtime);
     setupCrisisViews(runtime);
     updateStatusView(runtime);
     updateCrisisView(runtime);

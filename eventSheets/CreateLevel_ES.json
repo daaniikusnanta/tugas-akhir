@@ -2367,7 +2367,16 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 521996972998020,
+									"parameters": {
+										"layout": "ScenarioLevelLayout"
+									}
+								}
+							],
 							"sid": 265941962674829
 						},
 						{
@@ -2705,7 +2714,73 @@
 					}
 				}
 			],
-			"sid": 232029996006653
+			"sid": 232029996006653,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 677071011827893,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"next\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 879509454242808,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 541272779902172,
+									"parameters": {
+										"layer": "\"CreateCrisis\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Button",
+									"sid": 601167195753031,
+									"parameters": {
+										"frame-number": "3"
+									}
+								}
+							],
+							"sid": 560135437751957
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 552179396770216
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Button",
+									"sid": 862816053883170,
+									"parameters": {
+										"frame-number": "2"
+									}
+								}
+							],
+							"sid": 890429181372423
+						}
+					]
+				}
+			]
 		},
 		{
 			"eventType": "group",

@@ -63,13 +63,23 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "hoveredUid",
+			"name": "panelHoveredUid",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 794859067839645
+		},
+		{
+			"eventType": "variable",
+			"name": "clickableHoveredUid",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 801113821949854
 		},
 		{
 			"eventType": "group",
@@ -400,7 +410,7 @@
 							"objectClass": "System",
 							"sid": 405270072055215,
 							"parameters": {
-								"variable": "hoveredUid",
+								"variable": "panelHoveredUid",
 								"value": "Clickable.UID"
 							}
 						},
@@ -469,7 +479,7 @@
 							"objectClass": "System",
 							"sid": 907617618107646,
 							"parameters": {
-								"variable": "hoveredUid",
+								"variable": "panelHoveredUid",
 								"value": "0"
 							}
 						},
@@ -679,9 +689,9 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 828284415321938,
+							"sid": 972602089772200,
 							"parameters": {
-								"variable": "hoveredUid",
+								"variable": "clickableHoveredUid",
 								"comparison": 0,
 								"value": "0"
 							}
@@ -691,9 +701,9 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 848079286299276,
+							"sid": 314840856606299,
 							"parameters": {
-								"variable": "hoveredUid",
+								"variable": "clickableHoveredUid",
 								"value": "Clickable.UID"
 							}
 						},
@@ -701,6 +711,15 @@
 							"customAction": "IsHovered",
 							"objectClass": "Clickable",
 							"sid": 991286158271123
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 548387647188427,
+							"parameters": {
+								"type": "log",
+								"message": "\"Clickable hov \" & clickableHoveredUid"
+							}
 						}
 					],
 					"sid": 152144851113113
@@ -720,9 +739,9 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 871985567395691,
+							"sid": 328923261799153,
 							"parameters": {
-								"variable": "hoveredUid",
+								"variable": "clickableHoveredUid",
 								"comparison": 1,
 								"value": "0"
 							}
@@ -746,9 +765,9 @@
 								{
 									"id": "pick-by-unique-id",
 									"objectClass": "Clickable",
-									"sid": 548804542172933,
+									"sid": 763272686164159,
 									"parameters": {
-										"unique-id": "hoveredUid"
+										"unique-id": "clickableHoveredUid"
 									}
 								}
 							],
@@ -768,10 +787,19 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 191561794409835,
+									"sid": 759293471276636,
 									"parameters": {
-										"variable": "hoveredUid",
+										"variable": "clickableHoveredUid",
 										"value": "0"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 255114042313508,
+									"parameters": {
+										"type": "log",
+										"message": "\"Clickable unhov \" & clickableHoveredUid"
 									}
 								}
 							],
@@ -1953,7 +1981,7 @@
 							"objectClass": "System",
 							"sid": 640109051025903,
 							"parameters": {
-								"variable": "hoveredUid",
+								"variable": "panelHoveredUid",
 								"comparison": 0,
 								"value": "0"
 							}
@@ -1980,8 +2008,17 @@
 							"objectClass": "System",
 							"sid": 477923752237058,
 							"parameters": {
-								"variable": "hoveredUid",
+								"variable": "panelHoveredUid",
 								"value": "ClickablePanel.UID"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 489111897833073,
+							"parameters": {
+								"type": "log",
+								"message": "\"Panel hovered \" & panelHoveredUid"
 							}
 						},
 						{
@@ -1996,24 +2033,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 585647974512687,
-							"parameters": {
-								"variable": "hoveredUid",
-								"comparison": 1,
-								"value": "0"
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "ClickablePanel",
-							"sid": 196904583181291,
-							"parameters": {
-								"unique-id": "hoveredUid"
-							}
-						},
-						{
 							"id": "cursor-is-over-object",
 							"objectClass": "Mouse",
 							"sid": 916474124081885,
@@ -2021,6 +2040,16 @@
 								"object": "ClickablePanel"
 							},
 							"isInverted": true
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 687180423839239,
+							"parameters": {
+								"variable": "panelHoveredUid",
+								"comparison": 1,
+								"value": "0"
+							}
 						},
 						{
 							"id": "is-boolean-instance-variable-set",
@@ -2032,39 +2061,54 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 955494698785781,
-							"parameters": {
-								"variable": "hoveredUid",
-								"value": "0"
-							}
-						},
-						{
-							"customAction": "IsUnhovered",
-							"objectClass": "ClickablePanel",
-							"sid": 365245556522556
-						}
-					],
+					"actions": [],
 					"sid": 140963499206150,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-boolean-instance-variable-set",
+									"id": "pick-by-unique-id",
 									"objectClass": "ClickablePanel",
-									"sid": 462163321918471,
+									"sid": 461240024969986,
 									"parameters": {
-										"instance-variable": "isSelected"
-									},
-									"isInverted": true
+										"unique-id": "panelHoveredUid"
+									}
 								}
 							],
-							"actions": [],
-							"sid": 156930251888480
+							"actions": [
+								{
+									"customAction": "IsUnhovered",
+									"objectClass": "ClickablePanel",
+									"sid": 226477865449103
+								}
+							],
+							"sid": 738835936286343
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 813287738292020,
+									"parameters": {
+										"variable": "panelHoveredUid",
+										"value": "0"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 230669111486520,
+									"parameters": {
+										"type": "log",
+										"message": "\"Panel unhovered \" & panelHoveredUid"
+									}
+								}
+							],
+							"sid": 985138112015523
 						}
 					]
 				},

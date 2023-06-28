@@ -191,7 +191,7 @@
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Menu Button",
-						"initial-frame": 2,
+						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
@@ -204,7 +204,7 @@
 						"initialHeight": 0,
 						"isHovered": false,
 						"initialOpacity": 0,
-						"id": "next"
+						"id": "play"
 					},
 					"behaviors": {},
 					"effects": {
@@ -216,7 +216,7 @@
 						}
 					},
 					"world": {
-						"x": 965,
+						"x": 960,
 						"y": 480,
 						"width": 271,
 						"height": 68,

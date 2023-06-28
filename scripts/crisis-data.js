@@ -2065,6 +2065,8 @@ export let crisisFsms = {};
  */
 export function initializeCrisis(levelVariables, runtime) {
   for (const variable in levelVariables) {
+    // console.log("variable: " + variable);
+    if (!crisis[variable]) continue;
     crisis[variable].value = levelVariables[variable];
     crisis[variable].causeValue = levelVariables[variable];
   }

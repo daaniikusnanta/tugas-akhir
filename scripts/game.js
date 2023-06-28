@@ -53,6 +53,10 @@ import {
   setupSituationGovernment,
   setupSituationEconomy,
   createScenarioView,
+  chooseScenario,
+  showScenarioInformation,
+  setScenarioVariables,
+  setScenarioSize,
 } from "./level-data.js";
 
 function updateAllStatus() {

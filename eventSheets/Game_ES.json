@@ -94,24 +94,20 @@
 					"actions": [
 						{
 							"callFunction": "setupMap",
-							"sid": 298997681691886,
-							"disabled": true
+							"sid": 298997681691886
 						},
 						{
 							"type": "script",
-							"script": "setupPolicyMultiplier();\ninitializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\ninitializeFiscalData(runtime);\nupdateFSM();",
-							"disabled": true
+							"script": "setupPolicyMultiplier();\ninitializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\ninitializeFiscalData(runtime);\nupdateFSM();"
 						},
 						{
 							"callFunction": "SetupClickablePanels",
-							"sid": 658224677021982,
-							"disabled": true
+							"sid": 658224677021982
 						},
 						{
 							"id": "map-function",
 							"objectClass": "Functions",
 							"sid": 611279084989323,
-							"disabled": true,
 							"parameters": {
 								"name": "BUTTON_CLICKED",
 								"string": "LayoutName",
@@ -122,7 +118,6 @@
 							"id": "map-function",
 							"objectClass": "Functions",
 							"sid": 137783170310731,
-							"disabled": true,
 							"parameters": {
 								"name": "PANEL_CLICKED",
 								"string": "LayoutName",
@@ -133,7 +128,6 @@
 							"id": "start-timer",
 							"objectClass": "GameManager",
 							"sid": 405763387673053,
-							"disabled": true,
 							"behaviorType": "Timer",
 							"parameters": {
 								"duration": "tickRate",
@@ -143,14 +137,12 @@
 						},
 						{
 							"type": "script",
-							"script": "const gameManager = runtime.objects.GameManager.getAllInstances()[0];\nconst timer = gameManager.behaviors.Timer;\nruntime.globalVars.incomeBubbleInterval = timer.getDuration(\"Tick\") / Object.keys(incomes).length;",
-							"disabled": true
+							"script": "const gameManager = runtime.objects.GameManager.getAllInstances()[0];\nconst timer = gameManager.behaviors.Timer;\nruntime.globalVars.incomeBubbleInterval = timer.getDuration(\"Tick\") / Object.keys(incomes).length;"
 						},
 						{
 							"id": "start-timer",
 							"objectClass": "GameManager",
 							"sid": 136985271116290,
-							"disabled": true,
 							"behaviorType": "Timer",
 							"parameters": {
 								"duration": "incomeBubbleInterval",
@@ -162,7 +154,6 @@
 							"id": "set-text",
 							"objectClass": "TickRate",
 							"sid": 832960829303103,
-							"disabled": true,
 							"parameters": {
 								"text": "\"Tick rate: \" & tickRate"
 							}
@@ -171,7 +162,6 @@
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 320843196971973,
-							"disabled": true,
 							"parameters": {
 								"variable": "isRunning",
 								"value": "true"
@@ -181,14 +171,14 @@
 							"id": "octaves",
 							"objectClass": "AdvancedRandom",
 							"sid": 745515024942395,
-							"disabled": true,
 							"parameters": {
 								"count": "4"
 							}
 						},
 						{
 							"callFunction": "exportMap",
-							"sid": 503621720548741
+							"sid": 503621720548741,
+							"disabled": true
 						}
 					],
 					"sid": 982971445756731
@@ -2465,6 +2455,7 @@
 									"id": "log",
 									"objectClass": "Browser",
 									"sid": 385603572012208,
+									"disabled": true,
 									"parameters": {
 										"type": "log",
 										"message": "\"Array \" & MapData.CurX & \"|\" & MapData.CurY & \"|\" &  MapData.CurValue"
@@ -3185,6 +3176,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 248446438673824,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"snapshot \" & DrawingCanvas.id"
@@ -3221,6 +3213,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 425515972338842,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"snapshot \" & DrawingCanvas.id"

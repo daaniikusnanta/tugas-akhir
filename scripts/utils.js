@@ -244,6 +244,9 @@ export function resetScrollablePosition(scrollable, x, y) {
  * @returns {string}
  */
 export function toTitleCase(str) {
+	if (typeof str !== 'string')
+		throw new TypeError('Expected a string');
+
     if (!str) return str;
     return str.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }

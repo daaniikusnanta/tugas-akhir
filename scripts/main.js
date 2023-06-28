@@ -9,14 +9,24 @@ runOnStartup(async runtime => {
 
 async function OnBeforeProjectStart(runtime) {
 	runtime.addEventListener("tick", () => Tick(runtime));
-	runtime.getLayout("SmallMapLayout").addEventListener(
-		"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
-	runtime.getLayout("MediumMapLayout").addEventListener(
-		"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
-	runtime.getLayout("LargeMapLayout").addEventListener(
-		"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
-	runtime.getLayout("CreateLevelLayout").addEventListener(
-		"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
+
+	const layouts = runtime.getAllLayouts().map(layout => layout.name);
+	for (const layout of layouts) {
+		runtime.getLayout(layout).addEventListener(
+			"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
+	}
+	// runtime.getLayout("SmallMapLayout").addEventListener(
+	// 	"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
+	// runtime.getLayout("MediumMapLayout").addEventListener(
+	// 	"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
+	// runtime.getLayout("LargeMapLayout").addEventListener(
+	// 	"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
+	// runtime.getLayout("CreateLevelLayout").addEventListener(
+	// 	"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
+	// runtime.getLayout("MenuLayout").addEventListener(
+	// 	"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
+	// runtime.getLayout("ScenarioLayout").addEventListener(
+	// 	"beforelayoutstart", () => GameLayoutBeforeLayoutStartHandler(runtime));
 
 	runtime.objects.UIText.addEventListener("instancedestroy", ({ instance: text }) => {
 		deleteTextFromCache(text.instVars['id']);

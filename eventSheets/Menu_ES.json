@@ -1,5 +1,99 @@
 {
 	"name": "Menu_ES",
-	"events": [],
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Common_ES"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 633892232829608
+				}
+			],
+			"actions": [
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 273902656169639,
+					"parameters": {
+						"name": "BUTTON_CLICKED",
+						"string": "LayoutName",
+						"function": "MenuButtonClicked4"
+					}
+				}
+			],
+			"sid": 723645606377145
+		},
+		{
+			"functionName": "MenuButtonClicked4",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": true,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "uid",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 583900706689412
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Button",
+					"sid": 412128870137240,
+					"parameters": {
+						"unique-id": "uid"
+					}
+				},
+				{
+					"id": "layer-is-interactive",
+					"objectClass": "System",
+					"sid": 361801785272179,
+					"parameters": {
+						"layer": "Button.LayerName"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 329445973529081,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 802832056959234,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"play\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 162771297344474,
+							"parameters": {
+								"layout": "ScenarioLevelLayout"
+							}
+						}
+					],
+					"sid": 483170698664867
+				}
+			]
+		}
+	],
 	"sid": 163640109039508
 }

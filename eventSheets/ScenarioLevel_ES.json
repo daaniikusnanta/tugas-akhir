@@ -7,63 +7,13 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "mapSize2",
-			"type": "number",
-			"initialValue": "13.8",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 148239917310856
-		},
-		{
-			"eventType": "variable",
-			"name": "maxX2",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 332714939063485
-		},
-		{
-			"eventType": "variable",
-			"name": "maxY2",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 221685796328476
-		},
-		{
-			"eventType": "variable",
-			"name": "map_width2",
-			"type": "number",
-			"initialValue": "1920",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 272657997623784
-		},
-		{
-			"eventType": "variable",
-			"name": "seed2",
+			"name": "layoutSize",
 			"type": "string",
 			"initialValue": "",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 611334396895344
-		},
-		{
-			"eventType": "variable",
-			"name": "map_ready2",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 929257266382185
+			"sid": 148239917310856
 		},
 		{
 			"eventType": "block",
@@ -186,12 +136,12 @@
 			"conditions": [],
 			"actions": [
 				{
-					"id": "request-project-file",
+					"id": "request-url",
 					"objectClass": "AJAX",
-					"sid": 619807202125919,
+					"sid": 744136173397604,
 					"parameters": {
 						"tag": "\"map_data\"",
-						"file": "sepnovria_data.json"
+						"url": "\"Scenarios/\" & scenarioName & \"_data.json\""
 					}
 				},
 				{
@@ -228,6 +178,10 @@
 				{
 					"callFunction": "CreateMap2",
 					"sid": 457235724535080
+				},
+				{
+					"type": "script",
+					"script": "showScenarioInformation();"
 				}
 			],
 			"sid": 679592205565272
@@ -645,6 +599,32 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Button",
+							"sid": 129447390996935,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"create_scenario\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 391554615122803,
+							"parameters": {
+								"layout": "CreateLevelLayout"
+							}
+						}
+					],
+					"sid": 878727827109214
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
 							"sid": 230696539826951,
 							"parameters": {
 								"instance-variable": "id",
@@ -655,15 +635,117 @@
 					],
 					"actions": [
 						{
-							"id": "go-to-layout-by-name",
+							"id": "go-to-layout",
 							"objectClass": "System",
-							"sid": 748752564292331,
+							"sid": 790008633414657,
 							"parameters": {
-								"layout": "\"MenuLayout\""
+								"layout": "MenuLayout"
 							}
 						}
 					],
 					"sid": 189151349035552
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 670806261449502,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"start\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "setScenarioVariables();\nsetScenarioSize(runtime);"
+						}
+					],
+					"sid": 883506688581515,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 502191063160768,
+									"parameters": {
+										"variable": "layoutSize",
+										"comparison": 0,
+										"value": "\"small\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 686797412368360,
+									"parameters": {
+										"layout": "SmallMapLayout"
+									}
+								}
+							],
+							"sid": 886669113770328
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 823735825663192,
+									"parameters": {
+										"variable": "layoutSize",
+										"comparison": 0,
+										"value": "\"medium\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 134069461151470,
+									"parameters": {
+										"layout": "MediumMapLayout"
+									}
+								}
+							],
+							"sid": 668500452912506
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 978835205014192,
+									"parameters": {
+										"variable": "layoutSize",
+										"comparison": 0,
+										"value": "\"large\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 163378563396456,
+									"parameters": {
+										"layout": "LargeMapLayout"
+									}
+								}
+							],
+							"sid": 527759957511725
+						}
+					]
 				}
 			]
 		},
@@ -714,8 +796,14 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "const clickable = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst scenarioName = clickable.instVars['id'].replace(\"_initial_crisis_clickable\", \"\");\n\nchooseInitialCrisis(initialCrisisName);",
-							"disabled": true
+							"script": "const clickable = runtime.objects.ClickablePanel.getPickedInstances()[0];\nconst scenarioName = clickable.instVars['id'].replace(\"_scenario_clickable\", \"\");\n\nchooseScenario(scenarioName);"
+						},
+						{
+							"callFunction": "setupScenarioMapData",
+							"sid": 186453392969033,
+							"parameters": [
+								"RegexReplace(ClickablePanel.id, \"_scenario_clickable$\", \"\", \"\")"
+							]
 						}
 					],
 					"sid": 634973601410649

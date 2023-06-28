@@ -40,7 +40,7 @@
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Menu Button",
-						"initial-frame": 0,
+						"initial-frame": 3,
 						"enable-collisions": true,
 						"live-preview": false
 					},
@@ -53,7 +53,7 @@
 						"initialHeight": 0,
 						"isHovered": false,
 						"initialOpacity": 0,
-						"id": "next"
+						"id": "start"
 					},
 					"behaviors": {},
 					"effects": {
@@ -653,6 +653,210 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "UIPanelOutline",
+					"properties": {
+						"left-margin": 24,
+						"right-margin": 24,
+						"top-margin": 24,
+						"bottom-margin": 24,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "exact"
+					},
+					"uid": 324,
+					"instanceVariables": {
+						"id": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 467,
+						"y": 782,
+						"width": 577,
+						"height": 125,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.6
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Menu Button",
+						"initial-frame": 4,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 325,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"isHovered": false,
+						"initialOpacity": 0,
+						"id": "create_scenario"
+					},
+					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": false,
+							"parameters": {
+								"intensity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 875,
+						"y": 845,
+						"width": 271,
+						"height": 68,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIText",
+					"properties": {
+						"text": "Want to create your own?",
+						"enable-bbcode": true,
+						"character-width": 75,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+						"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+						"scale": 0.45,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 326,
+					"instanceVariables": {
+						"id": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 490,
+						"y": 805,
+						"width": 247,
+						"height": 77.59054719049357,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UITextBold",
+					"properties": {
+						"text": "Crisis:",
+						"enable-bbcode": true,
+						"character-width": 77,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+						"spacing-data": "[[12,\" \"],[11,\"'\"],[12,\"Iil|\"],[13,\".:!\"],[14,\",;\"],[19,\"`\"],[21,\"j\"],[22,\"[]\"],[23,\"1()\"],[24,\"J\\\"\"],[25,\"r\"],[27,\"°\"],[28,\"ft\"],[31,\"*\"],[33,\"-\"],[35,\"Lsz=\"],[36,\"?<>^\"],[37,\"\\/\"],[38,\"EFahnu7_~\"],[39,\"k2+\"],[40,\"569\"],[41,\"PT38\"],[42,\"Zcevx\"],[43,\"Sg$\"],[44,\"BRbdpqy\"],[45,\"Ho04\"],[46,\"KNU£\"],[48,\"DX\"],[49,\"Y\"],[50,\"&\"],[52,\"CV\"],[53,\"A\"],[54,\"€\"],[55,\"G\"],[57,\"M\"],[59,\"OQ\"],[60,\"#\"],[61,\"m\"],[64,\"@\"],[65,\"w\"],[68,\"%\"],[75,\"W\"]]",
+						"scale": 0.5,
+						"character-spacing": 1,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 328,
+					"instanceVariables": {
+						"id": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1122,
+						"y": 831,
+						"width": 108.58005171158902,
+						"height": 39,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIText",
+					"properties": {
+						"text": "Pandemic",
+						"enable-bbcode": true,
+						"character-width": 75,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+						"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+						"scale": 0.45,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 329,
+					"instanceVariables": {
+						"id": "crisis_information"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1232,
+						"y": 834,
+						"width": 293.6747173765027,
+						"height": 30.590547190493567,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 554167509757588,
@@ -732,7 +936,7 @@
 								"x": 467,
 								"y": 75,
 								"width": 577,
-								"height": 737,
+								"height": 677,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -801,7 +1005,7 @@
 								"x": 467,
 								"y": 168,
 								"width": 577,
-								"height": 644,
+								"height": 584,
 								"originX": 1,
 								"originY": 1,
 								"color": [
@@ -1091,7 +1295,7 @@
 				{
 					"type": "UIText",
 					"properties": {
-						"text": "Choose initial crisis for your country. Try to get out of that crisis without causing even more crisis.",
+						"text": "Choose your scenarios or create your own!",
 						"enable-bbcode": true,
 						"character-width": 75,
 						"character-height": 82,

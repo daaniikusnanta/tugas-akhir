@@ -40,7 +40,7 @@
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Menu Button",
-						"initial-frame": 0,
+						"initial-frame": 2,
 						"enable-collisions": true,
 						"live-preview": false
 					},
@@ -648,6 +648,47 @@
 							1,
 							1,
 							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TextNotoSerifBlack",
+					"properties": {
+						"text": "CREATE SCENARIO",
+						"enable-bbcode": true,
+						"character-width": 84,
+						"character-height": 79,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+						"spacing-data": "[[18,\" \"],[9,\"|\"],[16,\",\"],[17,\".;:'\"],[19,\"!\"],[22,\"-\"],[23,\"\\\\/\"],[25,\"[`\"],[26,\"j]\"],[27,\"°\"],[28,\"il()\"],[31,\"I\"],[32,\"t\"],[34,\"J\\\"\"],[35,\"+=*<>\"],[36,\"s\"],[37,\"c7_\"],[38,\"f5?$\"],[39,\"01269~#^\"],[40,\"e3\"],[41,\"z48\"],[42,\"r£€\"],[43,\"Sao\"],[45,\"g\"],[46,\"CFy\"],[47,\"b\"],[48,\"ELZdpquv\"],[49,\"Phn\"],[50,\"k\"],[51,\"BTx\"],[54,\"GV\"],[55,\"DOQ\"],[56,\"RUY\"],[58,\"KX\"],[59,\"AN&\"],[60,\"H\"],[63,\"@\"],[65,\"w%\"],[69,\"M\"],[73,\"m\"],[82,\"W\"]]",
+						"scale": 0.7,
+						"character-spacing": 1,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center",
+						"read-aloud": false
+					},
+					"uid": 327,
+					"instanceVariables": {
+						"id": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 960,
+						"y": 988,
+						"width": 960,
+						"height": 50.86666107177757,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							0.9137254901960784,
+							0.8901960784313725,
+							0.792156862745098,
 							1
 						],
 						"angle": 0,
