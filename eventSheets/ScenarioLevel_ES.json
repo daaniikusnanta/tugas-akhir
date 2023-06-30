@@ -661,6 +661,59 @@
 					],
 					"actions": [
 						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 301927503202077,
+							"parameters": {
+								"layer": "\"Loading\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 358328042317549,
+							"parameters": {
+								"layer": "\"Scenario\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 915216841144250,
+							"parameters": {
+								"layer": "\"Scenario\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 943784623263856,
+							"parameters": {
+								"layer": "\"Main\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 597754328105200,
+							"parameters": {
+								"layer": "\"Main\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 160273039870573,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
 							"type": "script",
 							"script": "setScenarioVariables();\nsetScenarioSize(runtime);"
 						}
@@ -673,7 +726,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 502191063160768,
+									"sid": 339742569329121,
 									"parameters": {
 										"variable": "layoutSize",
 										"comparison": 0,
@@ -685,13 +738,13 @@
 								{
 									"id": "go-to-layout",
 									"objectClass": "System",
-									"sid": 686797412368360,
+									"sid": 401482512284303,
 									"parameters": {
 										"layout": "SmallMapLayout"
 									}
 								}
 							],
-							"sid": 886669113770328
+							"sid": 898861008576333
 						},
 						{
 							"eventType": "block",
@@ -699,7 +752,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 823735825663192,
+									"sid": 394042534859863,
 									"parameters": {
 										"variable": "layoutSize",
 										"comparison": 0,
@@ -711,13 +764,13 @@
 								{
 									"id": "go-to-layout",
 									"objectClass": "System",
-									"sid": 134069461151470,
+									"sid": 250474527232486,
 									"parameters": {
 										"layout": "MediumMapLayout"
 									}
 								}
 							],
-							"sid": 668500452912506
+							"sid": 472504199135410
 						},
 						{
 							"eventType": "block",
@@ -725,7 +778,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 978835205014192,
+									"sid": 534947248234518,
 									"parameters": {
 										"variable": "layoutSize",
 										"comparison": 0,
@@ -737,13 +790,13 @@
 								{
 									"id": "go-to-layout",
 									"objectClass": "System",
-									"sid": 163378563396456,
+									"sid": 491016758261523,
 									"parameters": {
 										"layout": "LargeMapLayout"
 									}
 								}
 							],
-							"sid": 527759957511725
+							"sid": 314560277600147
 						}
 					]
 				}

@@ -2172,6 +2172,59 @@
 									}
 								},
 								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 765146153007222,
+									"parameters": {
+										"layer": "\"Loading\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 191092146711656,
+									"parameters": {
+										"layer": "\"CreateCrisis\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 648900559043715,
+									"parameters": {
+										"layer": "\"CreateCrisis\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 455494919411667,
+									"parameters": {
+										"layer": "\"Main\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 495203287430995,
+									"parameters": {
+										"layer": "\"Main\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 757203983231693,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
 									"type": "script",
 									"script": "setInitialCrisisVariables();"
 								}
