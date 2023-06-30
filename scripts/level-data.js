@@ -402,22 +402,22 @@ export function setupSituationGovernment(governmentType) {
             levelVariables.crisis['media_bias'] = 12;
             break;
         case "semi_democratic":
-            policyMultiplier['implementationDelay'] = 1;
-            levelVariables.status['governance'] = 83;
-            levelVariables.status['media_neutrality'] = 78;
-            levelVariables.crisis['media_bias'] = 12;
+            policyMultiplier['implementationDelay'] = 1.2;
+            levelVariables.status['governance'] = 80;
+            levelVariables.status['media_neutrality'] = 73;
+            levelVariables.crisis['media_bias'] = 16;
             break;
         case "semi_autocratic":
-            policyMultiplier['implementationDelay'] = 1;
-            levelVariables.status['governance'] = 83;
-            levelVariables.status['media_neutrality'] = 78;
-            levelVariables.crisis['media_bias'] = 12;
+            policyMultiplier['implementationDelay'] = 1.5;
+            levelVariables.status['governance'] = 75;
+            levelVariables.status['media_neutrality'] = 63;
+            levelVariables.crisis['media_bias'] = 31;
             break;        
         case "autocratic":
-            policyMultiplier['implementationDelay'] = 1;
-            levelVariables.status['governance'] = 83;
-            levelVariables.status['media_neutrality'] = 78;
-            levelVariables.crisis['media_bias'] = 12;
+            policyMultiplier['implementationDelay'] = 2;
+            levelVariables.status['governance'] = 65;
+            levelVariables.status['media_neutrality'] = 56;
+            levelVariables.crisis['media_bias'] = 41;
             break;
     }
 

@@ -65,8 +65,8 @@
 						}
 					},
 					"world": {
-						"x": 1689,
-						"y": 992,
+						"x": 1711,
+						"y": 988,
 						"width": 271,
 						"height": 68,
 						"originX": 0.5,
@@ -111,8 +111,8 @@
 						}
 					},
 					"world": {
-						"x": 196,
-						"y": 986,
+						"x": 190.5,
+						"y": 988,
 						"width": 271,
 						"height": 68,
 						"originX": 0.5,
@@ -948,6 +948,59 @@
 								"angle": 0,
 								"zElevation": 0
 							}
+						},
+						{
+							"type": "UIPanelBlur",
+							"properties": {
+								"left-margin": 24,
+								"right-margin": 24,
+								"top-margin": 24,
+								"bottom-margin": 24,
+								"edges": "stretch",
+								"fill": "stretch",
+								"initially-visible": true,
+								"origin": "top-left",
+								"seams": "overlap"
+							},
+							"uid": 367,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"effects": {
+								"Screen": {
+									"isEnabled": true,
+									"parameters": {}
+								},
+								"BlurHorizontal": {
+									"isEnabled": true,
+									"parameters": {
+										"intensity": 1
+									}
+								},
+								"BlurVertical": {
+									"isEnabled": true,
+									"parameters": {
+										"intensity": 1
+									}
+								}
+							},
+							"world": {
+								"x": 55,
+								"y": 75,
+								"width": 376,
+								"height": 837,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
 						}
 					],
 					"sid": 797224415856348,
@@ -1125,6 +1178,966 @@
 					"blendMode": "normal",
 					"zElevation": 0,
 					"global": false
+				},
+				{
+					"name": "ScenarioFG",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "UIPanelOutline",
+							"properties": {
+								"left-margin": 24,
+								"right-margin": 24,
+								"top-margin": 24,
+								"bottom-margin": 24,
+								"edges": "stretch",
+								"fill": "stretch",
+								"initially-visible": true,
+								"origin": "top-left",
+								"seams": "exact"
+							},
+							"uid": 368,
+							"instanceVariables": {
+								"id": "scenario_information"
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": null,
+								"uid": 368,
+								"children": [
+									{
+										"uid": 330,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									}
+								],
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 55,
+								"y": 75,
+								"width": 376,
+								"height": 837,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									0.6
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "ScrollablePanel",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 330,
+							"instanceVariables": {
+								"min": -474,
+								"max": 75,
+								"initialLength": 0,
+								"id": "scenario_information",
+								"direction": "vertical",
+								"initialMin": 0,
+								"initialMax": 0,
+								"initialX": 55,
+								"initialY": 75
+							},
+							"behaviors": {
+								"DragDrop": {
+									"properties": {
+										"axes": "both",
+										"enabled": false
+									}
+								},
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
+							"sceneGraphData": {
+								"parent-uid": 368,
+								"uid": 330,
+								"children": [
+									{
+										"uid": 369,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 333,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 331,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 334,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 332,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 337,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 335,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 339,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 336,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									}
+								],
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 55,
+								"y": 75,
+								"width": 376,
+								"height": 1386,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Choose your scenarios or create your own!",
+								"enable-bbcode": true,
+								"character-width": 75,
+								"character-height": 82,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+								"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+								"scale": 0.4,
+								"character-spacing": 1,
+								"line-height": -3,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 369,
+							"instanceVariables": {
+								"id": "scenario_information"
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 330,
+								"uid": 369,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 86,
+								"y": 102,
+								"width": 311,
+								"height": 158,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "The bigger the size of your country, the harder it is to implement a policy. Country's size could affect implementation and effect delay of a policy.",
+								"enable-bbcode": true,
+								"character-width": 75,
+								"character-height": 82,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+								"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+								"scale": 0.4,
+								"character-spacing": 1,
+								"line-height": -3,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 331,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 330,
+								"uid": 331,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 86,
+								"y": 245,
+								"width": 311,
+								"height": 242,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Land and water dictates resources of your country. More water means your country will have large fisheries industries. More land on the other hand, could mean your country have large agriculture industries instead.",
+								"enable-bbcode": true,
+								"character-width": 75,
+								"character-height": 82,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+								"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+								"scale": 0.4,
+								"character-spacing": 1,
+								"line-height": -3,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 332,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 330,
+								"uid": 332,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 86,
+								"y": 537,
+								"width": 311,
+								"height": 335,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "UITextBold",
+							"properties": {
+								"text": "Size",
+								"enable-bbcode": true,
+								"character-width": 77,
+								"character-height": 82,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+								"spacing-data": "[[12,\" \"],[11,\"'\"],[12,\"Iil|\"],[13,\".:!\"],[14,\",;\"],[19,\"`\"],[21,\"j\"],[22,\"[]\"],[23,\"1()\"],[24,\"J\\\"\"],[25,\"r\"],[27,\"°\"],[28,\"ft\"],[31,\"*\"],[33,\"-\"],[35,\"Lsz=\"],[36,\"?<>^\"],[37,\"\\/\"],[38,\"EFahnu7_~\"],[39,\"k2+\"],[40,\"569\"],[41,\"PT38\"],[42,\"Zcevx\"],[43,\"Sg$\"],[44,\"BRbdpqy\"],[45,\"Ho04\"],[46,\"KNU£\"],[48,\"DX\"],[49,\"Y\"],[50,\"&\"],[52,\"CV\"],[53,\"A\"],[54,\"€\"],[55,\"G\"],[57,\"M\"],[59,\"OQ\"],[60,\"#\"],[61,\"m\"],[64,\"@\"],[65,\"w\"],[68,\"%\"],[75,\"W\"]]",
+								"scale": 0.45,
+								"character-spacing": 1,
+								"line-height": 0,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 333,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 330,
+								"uid": 333,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 86,
+								"y": 208,
+								"width": 289,
+								"height": 38,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "UITextBold",
+							"properties": {
+								"text": "Land and water",
+								"enable-bbcode": true,
+								"character-width": 77,
+								"character-height": 82,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+								"spacing-data": "[[12,\" \"],[11,\"'\"],[12,\"Iil|\"],[13,\".:!\"],[14,\",;\"],[19,\"`\"],[21,\"j\"],[22,\"[]\"],[23,\"1()\"],[24,\"J\\\"\"],[25,\"r\"],[27,\"°\"],[28,\"ft\"],[31,\"*\"],[33,\"-\"],[35,\"Lsz=\"],[36,\"?<>^\"],[37,\"\\/\"],[38,\"EFahnu7_~\"],[39,\"k2+\"],[40,\"569\"],[41,\"PT38\"],[42,\"Zcevx\"],[43,\"Sg$\"],[44,\"BRbdpqy\"],[45,\"Ho04\"],[46,\"KNU£\"],[48,\"DX\"],[49,\"Y\"],[50,\"&\"],[52,\"CV\"],[53,\"A\"],[54,\"€\"],[55,\"G\"],[57,\"M\"],[59,\"OQ\"],[60,\"#\"],[61,\"m\"],[64,\"@\"],[65,\"w\"],[68,\"%\"],[75,\"W\"]]",
+								"scale": 0.45,
+								"character-spacing": 1,
+								"line-height": 0,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 334,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 330,
+								"uid": 334,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 86,
+								"y": 502,
+								"width": 289,
+								"height": 33,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Democratic country would find it more hard to implement a policy while an autocratic country won't. Democratic country will also has higher media neutrality than autocratic.",
+								"enable-bbcode": true,
+								"character-width": 75,
+								"character-height": 82,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+								"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+								"scale": 0.4,
+								"character-spacing": 1,
+								"line-height": -3,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 335,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 330,
+								"uid": 335,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 86,
+								"y": 925,
+								"width": 311,
+								"height": 276,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Countries with developed economy has better education, healthcare, and industries than the developing ones.",
+								"enable-bbcode": true,
+								"character-width": 75,
+								"character-height": 82,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+								"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+								"scale": 0.4,
+								"character-spacing": 1,
+								"line-height": -3,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 336,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 330,
+								"uid": 336,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 86,
+								"y": 1255,
+								"width": 311,
+								"height": 183,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "UITextBold",
+							"properties": {
+								"text": "Government",
+								"enable-bbcode": true,
+								"character-width": 77,
+								"character-height": 82,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+								"spacing-data": "[[12,\" \"],[11,\"'\"],[12,\"Iil|\"],[13,\".:!\"],[14,\",;\"],[19,\"`\"],[21,\"j\"],[22,\"[]\"],[23,\"1()\"],[24,\"J\\\"\"],[25,\"r\"],[27,\"°\"],[28,\"ft\"],[31,\"*\"],[33,\"-\"],[35,\"Lsz=\"],[36,\"?<>^\"],[37,\"\\/\"],[38,\"EFahnu7_~\"],[39,\"k2+\"],[40,\"569\"],[41,\"PT38\"],[42,\"Zcevx\"],[43,\"Sg$\"],[44,\"BRbdpqy\"],[45,\"Ho04\"],[46,\"KNU£\"],[48,\"DX\"],[49,\"Y\"],[50,\"&\"],[52,\"CV\"],[53,\"A\"],[54,\"€\"],[55,\"G\"],[57,\"M\"],[59,\"OQ\"],[60,\"#\"],[61,\"m\"],[64,\"@\"],[65,\"w\"],[68,\"%\"],[75,\"W\"]]",
+								"scale": 0.45,
+								"character-spacing": 1,
+								"line-height": 0,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 337,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 330,
+								"uid": 337,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 86,
+								"y": 888,
+								"width": 289,
+								"height": 38,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "UITextBold",
+							"properties": {
+								"text": "Economy",
+								"enable-bbcode": true,
+								"character-width": 77,
+								"character-height": 82,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+								"spacing-data": "[[12,\" \"],[11,\"'\"],[12,\"Iil|\"],[13,\".:!\"],[14,\",;\"],[19,\"`\"],[21,\"j\"],[22,\"[]\"],[23,\"1()\"],[24,\"J\\\"\"],[25,\"r\"],[27,\"°\"],[28,\"ft\"],[31,\"*\"],[33,\"-\"],[35,\"Lsz=\"],[36,\"?<>^\"],[37,\"\\/\"],[38,\"EFahnu7_~\"],[39,\"k2+\"],[40,\"569\"],[41,\"PT38\"],[42,\"Zcevx\"],[43,\"Sg$\"],[44,\"BRbdpqy\"],[45,\"Ho04\"],[46,\"KNU£\"],[48,\"DX\"],[49,\"Y\"],[50,\"&\"],[52,\"CV\"],[53,\"A\"],[54,\"€\"],[55,\"G\"],[57,\"M\"],[59,\"OQ\"],[60,\"#\"],[61,\"m\"],[64,\"@\"],[65,\"w\"],[68,\"%\"],[75,\"W\"]]",
+								"scale": 0.45,
+								"character-spacing": 1,
+								"line-height": 0,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 339,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 330,
+								"uid": 339,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 86,
+								"y": 1215,
+								"width": 289,
+								"height": 33,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						}
+					],
+					"sid": 825872614487776,
+					"effectTypes": [],
+					"isInitiallyVisible": true,
+					"isInitiallyInteractive": true,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": true,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
 				}
 			],
 			"instances": [
@@ -1198,135 +2211,6 @@
 							0.9137254901960784,
 							0.9176470588235294,
 							0.7215686274509804,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UIPanelBlur",
-					"properties": {
-						"left-margin": 24,
-						"right-margin": 24,
-						"top-margin": 24,
-						"bottom-margin": 24,
-						"edges": "stretch",
-						"fill": "stretch",
-						"initially-visible": true,
-						"origin": "top-left",
-						"seams": "overlap"
-					},
-					"uid": 367,
-					"instanceVariables": {
-						"id": ""
-					},
-					"behaviors": {},
-					"effects": {
-						"Screen": {
-							"isEnabled": true,
-							"parameters": {}
-						},
-						"BlurHorizontal": {
-							"isEnabled": true,
-							"parameters": {
-								"intensity": 1
-							}
-						},
-						"BlurVertical": {
-							"isEnabled": true,
-							"parameters": {
-								"intensity": 1
-							}
-						}
-					},
-					"world": {
-						"x": 55,
-						"y": 75,
-						"width": 376,
-						"height": 837,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UIPanelOutline",
-					"properties": {
-						"left-margin": 24,
-						"right-margin": 24,
-						"top-margin": 24,
-						"bottom-margin": 24,
-						"edges": "stretch",
-						"fill": "stretch",
-						"initially-visible": true,
-						"origin": "top-left",
-						"seams": "exact"
-					},
-					"uid": 368,
-					"instanceVariables": {
-						"id": ""
-					},
-					"behaviors": {},
-					"world": {
-						"x": 55,
-						"y": 75,
-						"width": 376,
-						"height": 837,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							0.6
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UIText",
-					"properties": {
-						"text": "Choose your scenarios or create your own!",
-						"enable-bbcode": true,
-						"character-width": 75,
-						"character-height": 82,
-						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
-						"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
-						"scale": 0.4,
-						"character-spacing": 1,
-						"line-height": -3,
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 369,
-					"instanceVariables": {
-						"id": "scenario_information"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 86,
-						"y": 102,
-						"width": 311,
-						"height": 158,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
 							1
 						],
 						"angle": 0,

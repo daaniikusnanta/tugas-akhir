@@ -41,6 +41,7 @@ import {
   spawnIncomeBubble,
   setupSpawnIncomeBubble,
   incomes,
+  addBalance,
 } from "./fiscal-data.js";
 import {
   setLevelVariables,

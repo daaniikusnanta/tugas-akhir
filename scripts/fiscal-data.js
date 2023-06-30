@@ -14,7 +14,7 @@ let collectibleIncomes = {};
 let spendings = {};
 
 export const fiscalMultiplier = {
-  "collectibleIncomeMultiplier": 0.1,
+  "collectibleIncomeMultiplier": 0.2,
 }
 
 const incomeBubbleTileIndexes = []
@@ -55,16 +55,23 @@ export function spawnIncomeBubble(runtime) {
 
   const incomeBubble = runtime.objects.IncomeBubble.createInstance("Game", instanceX, instanceY);
   incomeBubble.instVars['id'] = spawnedIncomeName;
-  incomeBubble.instVars['value'] = incomes[spawnedIncomeBubble] * fiscalMultiplier['collectibleIncomeMultiplier'];
+  incomeBubble.instVars['incomeValue'] = incomes[spawnedIncomeName] * fiscalMultiplier['collectibleIncomeMultiplier'];
   incomeBubble.instVars['duration'] = 3;
   incomeBubble.instVars['currentDuration'] = 0;
-  console.log("spawn bubble ", incomeBubble);
+  console.log("spawn bubble ", incomes, incomes[spawnedIncomeName], incomeBubble);
 }
 
 export function updateBalance() {
-  balance = dailyIncome - dailySpending;
+  balance += dailyIncome - dailySpending;
 
   const balanceText = getTextById("balance");
+  balanceText.text = balance.toFixed(2);
+}
+
+export function addBalance(value) {
+	balance += value;
+	
+	const balanceText = getTextById("balance");
   balanceText.text = balance.toFixed(2);
 }
 

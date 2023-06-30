@@ -98,7 +98,7 @@
 						},
 						{
 							"type": "script",
-							"script": "setupPolicyMultiplier();\ninitializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\ninitializeFiscalData(runtime);\nupdateFSM();"
+							"script": "setupPolicyMultiplier();\ninitializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\ninitializeFiscalData(runtime);\nupdateFiscalViews(runtime);\nupdateFSM();"
 						},
 						{
 							"callFunction": "SetupClickablePanels",
@@ -305,6 +305,31 @@
 							"sid": 384885400030191
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 494113314069778,
+							"parameters": {
+								"object": "IncomeBubble"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const bubble = runtime.objects.IncomeBubble.getPickedInstances()[0];\nconsole.log(\"tap \", bubble);\n\naddBalance(bubble.instVars['incomeValue']);"
+						},
+						{
+							"id": "destroy",
+							"objectClass": "IncomeBubble",
+							"sid": 964599582514506
+						}
+					],
+					"sid": 277497560437552
 				},
 				{
 					"functionName": "updateIncomeBubbles",
@@ -4091,398 +4116,6 @@
 				}
 			],
 			"sid": 965283414062118
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Scroll",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "variable",
-					"name": "SCROLL_SPEED",
-					"type": "number",
-					"initialValue": "1500",
-					"comment": "",
-					"isStatic": true,
-					"isConstant": true,
-					"sid": 664739944172478
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 110489392937047
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 820671897745318,
-							"parameters": {
-								"object": "ScrollablePanel"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "SetupScrollable",
-							"sid": 357983563311659
-						}
-					],
-					"sid": 224936490578978
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-mouse-wheel",
-							"objectClass": "Mouse",
-							"sid": 854824964724389,
-							"parameters": {
-								"direction": "up"
-							}
-						},
-						{
-							"id": "cursor-is-over-object",
-							"objectClass": "Mouse",
-							"sid": 219252920828086,
-							"parameters": {
-								"object": "Panel"
-							}
-						},
-						{
-							"id": "pick-children",
-							"objectClass": "Panel",
-							"sid": 300574877718220,
-							"parameters": {
-								"child": "ScrollablePanel",
-								"which": "own"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 513317575899587,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "ScrollablePanel",
-									"sid": 400304947470428,
-									"parameters": {
-										"instance-variable": "direction",
-										"comparison": 0,
-										"value": "\"vertical\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "ScrollablePanel",
-									"sid": 649781832719090,
-									"parameters": {
-										"y": "Self.Y+ SCROLL_SPEED  * dt"
-									}
-								},
-								{
-									"type": "script",
-									"script": "console.log(\"scroll\");"
-								},
-								{
-									"callFunction": "clampScrollable",
-									"sid": 266911924427154
-								}
-							],
-							"sid": 459602447136733
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "ScrollablePanel",
-									"sid": 276556933776019,
-									"parameters": {
-										"instance-variable": "direction",
-										"comparison": 0,
-										"value": "\"horizontal\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-x",
-									"objectClass": "ScrollablePanel",
-									"sid": 658701802004149,
-									"parameters": {
-										"x": "Self.X + SCROLL_SPEED * dt"
-									}
-								},
-								{
-									"callFunction": "clampScrollable",
-									"sid": 425598458467547
-								}
-							],
-							"sid": 688314662709570
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-mouse-wheel",
-							"objectClass": "Mouse",
-							"sid": 246173421665977,
-							"parameters": {
-								"direction": "down"
-							}
-						},
-						{
-							"id": "cursor-is-over-object",
-							"objectClass": "Mouse",
-							"sid": 164279299549405,
-							"parameters": {
-								"object": "Panel"
-							}
-						},
-						{
-							"id": "pick-children",
-							"objectClass": "Panel",
-							"sid": 207488091696333,
-							"parameters": {
-								"child": "ScrollablePanel",
-								"which": "own"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 841338009965280,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "ScrollablePanel",
-									"sid": 594850749044773,
-									"parameters": {
-										"instance-variable": "direction",
-										"comparison": 0,
-										"value": "\"vertical\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "ScrollablePanel",
-									"sid": 214154566782213,
-									"parameters": {
-										"y": "Self.Y - SCROLL_SPEED  * dt"
-									}
-								},
-								{
-									"callFunction": "clampScrollable",
-									"sid": 897966578913476
-								}
-							],
-							"sid": 228885932290327
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "ScrollablePanel",
-									"sid": 370082529785722,
-									"parameters": {
-										"instance-variable": "direction",
-										"comparison": 0,
-										"value": "\"horizontal\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-x",
-									"objectClass": "ScrollablePanel",
-									"sid": 344757817864239,
-									"parameters": {
-										"x": "Self.X - SCROLL_SPEED * dt"
-									}
-								},
-								{
-									"callFunction": "clampScrollable",
-									"sid": 359069290605925
-								}
-							],
-							"sid": 363830675837787
-						}
-					]
-				},
-				{
-					"functionName": "SetupScrollable",
-					"functionDescription": "",
-					"functionCategory": "Scrollable",
-					"functionReturnType": "none",
-					"functionCopyPicked": true,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "ScrollablePanel",
-							"sid": 225506505316855,
-							"parameters": {
-								"instance-variable": "initialMin",
-								"value": "Self.min"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "ScrollablePanel",
-							"sid": 388595851872140,
-							"parameters": {
-								"instance-variable": "initialMax",
-								"value": "Self.max"
-							}
-						}
-					],
-					"sid": 327972686658604,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "ScrollablePanel",
-									"sid": 865839735050746,
-									"parameters": {
-										"instance-variable": "direction",
-										"comparison": 0,
-										"value": "\"horizontal\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "ScrollablePanel",
-									"sid": 350297472419875,
-									"parameters": {
-										"instance-variable": "initialLength",
-										"value": "Self.Width"
-									}
-								}
-							],
-							"sid": 875430578416390
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "ScrollablePanel",
-									"sid": 587430569710187,
-									"parameters": {
-										"instance-variable": "direction",
-										"comparison": 0,
-										"value": "\"vertical\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "ScrollablePanel",
-									"sid": 352264068685235,
-									"parameters": {
-										"instance-variable": "initialLength",
-										"value": "Self.Height"
-									}
-								}
-							],
-							"sid": 745748974325872
-						}
-					]
-				},
-				{
-					"functionName": "clampScrollable",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": true,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 732414777973229,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "ScrollablePanel",
-									"sid": 345555121795323,
-									"parameters": {
-										"instance-variable": "direction",
-										"comparison": 0,
-										"value": "\"horizontal\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-x",
-									"objectClass": "ScrollablePanel",
-									"sid": 137402850428345,
-									"parameters": {
-										"x": "clamp(Self.X, Self.min, Self.max)"
-									}
-								}
-							],
-							"sid": 560994017900879
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "ScrollablePanel",
-									"sid": 620374237141984,
-									"parameters": {
-										"instance-variable": "direction",
-										"comparison": 0,
-										"value": "\"vertical\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "ScrollablePanel",
-									"sid": 819627305029779,
-									"parameters": {
-										"y": "clamp(Self.Y, Self.min, Self.max)"
-									}
-								}
-							],
-							"sid": 449252586401962
-						}
-					]
-				}
-			],
-			"sid": 959501323994010
 		},
 		{
 			"eventType": "group",

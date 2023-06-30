@@ -65,8 +65,8 @@
 						}
 					},
 					"world": {
-						"x": 1689,
-						"y": 992,
+						"x": 1711,
+						"y": 988,
 						"width": 271,
 						"height": 68,
 						"originX": 0.5,
@@ -111,8 +111,8 @@
 						}
 					},
 					"world": {
-						"x": 196,
-						"y": 986,
+						"x": 190.5,
+						"y": 988,
 						"width": 271,
 						"height": 68,
 						"originX": 0.5,
@@ -1361,7 +1361,7 @@
 				{
 					"type": "UIText",
 					"properties": {
-						"text": "Geography could affects the policy and resources of a country.",
+						"text": "Geography affects policy and resources of a country.",
 						"enable-bbcode": true,
 						"character-width": 75,
 						"character-height": 82,
@@ -1386,7 +1386,7 @@
 						"x": 86,
 						"y": 102,
 						"width": 311,
-						"height": 96,
+						"height": 158,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1402,7 +1402,7 @@
 				{
 					"type": "UIText",
 					"properties": {
-						"text": "The bigger the size of your country, the harder it is to implement a policy. Country's size could affect the implementation and effect delay of a policy.",
+						"text": "The bigger the size of your country, the harder it is to implement a policy. Country's size could affect implementation and effect delay of a policy.",
 						"enable-bbcode": true,
 						"character-width": 75,
 						"character-height": 82,
@@ -1427,7 +1427,7 @@
 						"x": 86,
 						"y": 245,
 						"width": 311,
-						"height": 242,
+						"height": 277,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1443,7 +1443,7 @@
 				{
 					"type": "UIText",
 					"properties": {
-						"text": "Land and water dictates the resources of your country. More water area could mean your country will have a large fisheries industries. More land on the other hand, could mean your country will have large agriculture industries instead.",
+						"text": "Land and water dictates resources of your country. More water means your country will have large fisheries industries. More land on the other hand, could mean your country have large agriculture industries instead.",
 						"enable-bbcode": true,
 						"character-width": 75,
 						"character-height": 82,
@@ -2075,7 +2075,7 @@
 				{
 					"type": "UIText",
 					"properties": {
-						"text": "Geography could affects the policy and resources of a country.",
+						"text": "Situation affects the policy implementation of a country.",
 						"enable-bbcode": true,
 						"character-width": 75,
 						"character-height": 82,
@@ -2100,7 +2100,7 @@
 						"x": 86,
 						"y": 102,
 						"width": 311,
-						"height": 616,
+						"height": 100,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -2116,7 +2116,7 @@
 				{
 					"type": "UIText",
 					"properties": {
-						"text": "The bigger the size of your country, the harder it is to implement a policy. Country's size could affect the implementation and effect delay of a policy.",
+						"text": "Democratic country would find it more hard to implement a policy while an autocratic country won't. Democratic country will also has higher media neutrality than autocratic.",
 						"enable-bbcode": true,
 						"character-width": 75,
 						"character-height": 82,
@@ -2141,7 +2141,7 @@
 						"x": 86,
 						"y": 245,
 						"width": 311,
-						"height": 242,
+						"height": 276,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -2157,7 +2157,7 @@
 				{
 					"type": "UIText",
 					"properties": {
-						"text": "Land and water dictates the resources of your country. More water area could mean your country will have a large fisheries industries. More land on the other hand, could mean your country will have large agriculture industries instead.",
+						"text": "Countries with developed economy has better education, healthcare, and industries than the developing ones.",
 						"enable-bbcode": true,
 						"character-width": 75,
 						"character-height": 82,
@@ -2180,9 +2180,9 @@
 					"behaviors": {},
 					"world": {
 						"x": 86,
-						"y": 537,
+						"y": 575,
 						"width": 311,
-						"height": 335,
+						"height": 299,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -2198,7 +2198,7 @@
 				{
 					"type": "UITextBold",
 					"properties": {
-						"text": "Size",
+						"text": "Government",
 						"enable-bbcode": true,
 						"character-width": 77,
 						"character-height": 82,
@@ -2239,7 +2239,7 @@
 				{
 					"type": "UITextBold",
 					"properties": {
-						"text": "Land and water",
+						"text": "Economy",
 						"enable-bbcode": true,
 						"character-width": 77,
 						"character-height": 82,
@@ -2262,7 +2262,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 86,
-						"y": 502,
+						"y": 535,
 						"width": 289,
 						"height": 33,
 						"originX": 0,
