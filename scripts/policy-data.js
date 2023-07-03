@@ -12,8 +12,6 @@ export const policyMultiplier = {
 
 /**
  * @typedef {{
-*     name: string,
-*     type: string,
 *     effectDelay: number,
 *     valueType: string,
 *     value: number,
@@ -28,6 +26,7 @@ export const policyMultiplier = {
  *   [key: string]: {
  *      name: string,
  *      description: string,
+ *      isImplemented: boolean,
  *      type: string,
  *      value: number,
  *      finalValue: number,
@@ -43,106 +42,995 @@ export const policyMultiplier = {
  */
 export let policy = {
     "income_tax": {
-        name: "Income Tax",
+        name: "Income Tax", isImplemented: false,
         description: "A cut on personal income.",
-        type: "finance",
-        value: 10,
-        finalValue: 10,
-        implementationCost: 0,
-        implementationDelay: 0,
-        implementationDuration: 0,
-        valueDelta: 0,
-        minCost: 0,
-        maxCost: 0,
-        minRevenue: 2,
-        maxRevenue: 100,
+        type: "finance", value: 10, finalValue: 10, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
         effects: {
             "taxes": {
-                name: "Taxes",
-                type: "status",
-                effectDelay: 5,
-                valueType: "positive",
-                value: 0,
-                valueDelta: 0,
-                effectDuration: 0,
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
             "wage_income": {
-                name: "Wage & Income",
-                type: "status",
-                effectDelay: 2,
-                valueType: "negative",
-                value: 0,
-                valueDelta: 0,
-                effectDuration: 0,
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 - 0.1 * policyValue}
             }
         }
     },
-    "corporate_tax": {
-        name: "Corporate Tax",
+    "corporation_tax": {
+        name: "Corporation Tax", isImplemented: false,
         description: "A tax on corporate's revenue.",
-        type: "finance",
-        value: 50,
-        finalValue: 50,
-        implementationCost: 0,
-        implementationDelay: 0,
-        implementationDuration: 0,
-        valueDelta: 0,
-        minCost: 0,
-        maxCost: 0,
-        minRevenue: 2,
-        maxRevenue: 100,
+        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
         effects: {
             "taxes": {
-                name: "Taxes",
-                type: "status",
-                effectDelay: 5,
-                valueType: "positive",
-                value: 0,
-                valueDelta: 0,
-                effectDuration: 0,
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
             "investment": {
-                name: "Investment",
-                type: "status",
-                effectDelay: 3,
-                valueType: "negative",
-                value: 0,
-                valueDelta: 0,
-                effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 - 0.2 * policyValue},
             },
         }
     },
-    "research_grants": {
-        name: "Research Grants",
-        description: "A grant to fund research.",
-        type: "education",
-        value: 50,
-        finalValue: 50,
-        implementationCost: 0,
-        implementationDelay: 0,
-        implementationDuration: 0,
-        valueDelta: 0,
-        minCost: 0,
-        maxCost: 100,
-        minRevenue: 0,
-        maxRevenue: 0,
+    "tobacco_tax": {
+        name: "Tobacco Tax", isImplemented: false,
+        description: "A tax on tobacco products.",
+        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
         effects: {
-            "research": {
-                name: "Research",
-                type: "status",
-                effectDelay: 0,
-                valueType: "positive",
-                value: 0,
-                valueDelta: 0,
-                effectDuration: 0,
+            "taxes": {
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
+            },
+            "chronic_disease": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+            "mental_health_crisis": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
             }
         }
-    }
+    },
+    "alcohol_tax": {
+        name: "Alcohol Tax", isImplemented: false,
+        description: "A tax on alcohol products.",
+        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        effects: {
+            "taxes": {
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+            },
+            "chronic_disease": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+            "mental_health_crisis": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+            "crime_violence": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "fuel_tax": {
+        name: "Fuel Tax", isImplemented: false,
+        description: "Tax on fuel.",
+        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        effects: {
+            "taxes": {
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+            },
+            "pollution_control": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+            "transportation": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "property_tax": {
+        name: "Property Tax", isImplemented: false,
+        description: "Tax on property.",
+        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        effects: {
+            "taxes": {
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+            },
+            "urban_housing": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+        }
+    },
+    "vehicle_tax": {
+        name: "Vehicle Tax", isImplemented: false,
+        description: "Tax on vehicles.",
+        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        effects: {
+            "taxes": {
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+            },
+            "pollution_control": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+        }
+    },
+    "value_added_tax": {
+        name: "Value Added Tax", isImplemented: false,
+        description: "Tax on value added to a product.",
+        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        effects: {
+            "taxes": {
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+            },
+            "investment": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+            "manufacturing": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "customs_duty": {
+        name: "Customs Duty", isImplemented: false,
+        description: "Tax on imported goods.",
+        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        effects: {
+            "taxes": {
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+            },
+            "investment": {
+                 effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "tax_amnesty": {
+        name: "Tax Amnesty", isImplemented: false,
+        description: "Tax amnesty for tax evaders.",
+        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        effects: {
+            "taxes": {
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+            },
+            "investment": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+
+    // HEALTH
+    "mandatory_face_masks": {
+        name: "Mandatory Face Masks", isImplemented: false,
+        description: "Mandatory face masks in public places.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "disease_control": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+        }
+    },
+    "lockdown": {
+        name: "Lockdown & Quarantine", isImplemented: false,
+        description: "Lockdown and quarantine measures.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "disease_control": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+        }
+    },
+    "mandatory_vaccination": {
+        name: "Mandatory Vaccination", isImplemented: false,
+        description: "Mandatory vaccination of the population.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "disease_control": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+        }
+    },
+    "travel_ban": {
+        name: "Travel Ban", isImplemented: false,
+        description: "Ban on international and domestic travel.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "disease_control": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+            "investment": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+            "tourism_creative":{
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "state_healthcare": {
+        name: "State Healthcare", isImplemented: false,
+        description: "State healthcare system.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "healthcare_system": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "health_insurance": {
+        name: "Health Insurance", isImplemented: false,
+        description: "State health insurance.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "healthcare_system": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "food_drug_regulations": {
+        name: "Food & Drug Regulations", isImplemented: false,
+        description: "Food and drug regulations.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "public_health": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},                
+            }
+        }
+    },
+    "public_health_campaign": {
+        name: "Public Health Campaign", isImplemented: false,
+        description: "Public health campaign.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "public_health": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            }
+        }
+    },
+    "blood_organ_donation": {
+        name: "Blood & Organ Donation", isImplemented: false,
+        description: "Blood and organ donation.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "public_health": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            }
+        }
+    },
+    "school_meals": {
+        name: "School Meals", isImplemented: false,
+        description: "School meals.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "public_health": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            }
+        }
+    },
+
+    // Education
+    "scholarships": {
+        name: "Scholarships", isImplemented: false,
+        description: "Scholarships.",
+        type: "education", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "dropout_crisis": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            }
+        }
+    },
+    "state_schools": {
+        name: "State Schools", isImplemented: false,
+        description: "State schools.",
+        type: "education", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "education_system": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "standardized_testing": {
+        name: "Standardized Testing", isImplemented: false,
+        description: "Standardized testing.",
+        type: "education", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "education_system": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            }
+        }
+    },
+    "vocational_education": {
+        name: "Vocational Education", isImplemented: false,
+        description: "Vocational education.",
+        type: "education", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "education_system": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+            "productive_workers": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "curriculum_development": {
+        name: "Curriculum Development", isImplemented: false,
+        description: "Curriculum development.",
+        type: "education", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "education_system": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "teacher_education": {
+        name: "Teacher Education", isImplemented: false,
+        description: "Teacher education.",
+        type: "education", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "teachers": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "competency_assessment": {
+        name: "Competency Assessment", isImplemented: false,
+        description: "Competency assessment.",
+        type: "education", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "teachers": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            }
+        }
+    },
+    "research_grants": {
+        name: "Research Grants", isImplemented: false,
+        description: "Research grants.",
+        type: "education", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "research": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            }
+        }
+    },
+    "university_grants": {
+        name: "University Grants", isImplemented: false,
+        description: "University grants.",
+        type: "education", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "research": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+            "education_system": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+            "productive_workers": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "technology_colleges": {
+        name: "Technology Colleges", isImplemented: false,
+        description: "Technology colleges.",
+        type: "education", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "education_system": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+            "research": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+            "productive_workers": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+        }
+    },
+
+    // Social
+    "child_benefit": {
+        name: "Child Benefit", isImplemented: false,
+        description: "Benefits for children.",
+        type: "social", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "social_security": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+            "population_control": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+        }
+    },
+    "disablity_benefit": {
+        name: "Disability Benefit", isImplemented: false,
+        description: "Benefits for disabled people.",
+        type: "social", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "social_security": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+            "discrimination": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+        }
+    },
+    "elderly_benefit": {
+        name: "Elderly Benefit", isImplemented: false,
+        description: "Benefits for elderly people.",
+        type: "social", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "social_security": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+            "empowerment": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "unemployment_benefit": {
+        name: "Unemployment Benefit", isImplemented: false,
+        description: "Benefits for unemployed people.",
+        type: "social", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "social_security": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+            "unemployment": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "family_planning": {
+        name: "Family Planning", isImplemented: false,
+        description: "Family planning.",
+        type: "social", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "population_control": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+
+    // Environment
+    "carbon_tax": {
+        name: "Carbon Tax", isImplemented: false,
+        description: "Tax on carbon emissions.",
+        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "pollution_control": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+        }
+    },
+    "recycling_plant": {
+        name: "Recycling Plant", isImplemented: false,
+        description: "Recycling plant.",
+        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "pollution_control": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+        }
+    },
+    "reforestation": {
+        name: "Reforestation", isImplemented: false,
+        description: "Reforestation.",
+        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "forest": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "ocean_cleanup": {
+        name: "Ocean Cleanup", isImplemented: false,
+        description: "Ocean cleanup.",
+        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "marine": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+
+    // Nature
+    "desalination_plant": {
+        name: "Desalination Plant", isImplemented: false,
+        description: "Desalination plant.",
+        type: "nature", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "water_land": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "state_water_company": {
+        name: "State Water Company", isImplemented: false,
+        description: "State water company.",
+        type: "nature", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "water_land": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "food_import": {
+        name: "Food Import", isImplemented: false,
+        description: "Food import.",
+        type: "nature", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "food_sources": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+
+    // Infrastructure
+    "road_construction": {
+        name: "Road Construction", isImplemented: false,
+        description: "Road construction.",
+        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "transportation": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "rail_construction": {
+        name: "Rail Construction", isImplemented: false,
+        description: "Rail construction.",
+        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "transportation": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue}, 
+            },
+        }
+    },
+    "public_transport": {
+        name: "Public Transport", isImplemented: false,
+        description: "Public transport.",
+        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "transportation": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    
+    // Labor
+    "maternity_leave": {
+        name: "Maternity Leave", isImplemented: false,
+        description: "Maternity leave.",
+        type: "labor", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "workplace_environment": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "work_safety_inspection": {
+        name: "Work Safety Inspection", isImplemented: false,
+        description: "Work safety inspection.",
+        type: "labor", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "workplace_environment": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+
+    // Defense
+    "diplomatic_service": {
+        name: "Diplomatic Service", isImplemented: false,
+        description: "Diplomatic service.",
+        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "foreign_relations": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "foreign_aid": {
+        name: "Foreign Aid", isImplemented: false,
+        description: "Foreign aid.",
+        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "foreign_relations": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "military_training": {
+        name: "Military Training", isImplemented: false,
+        description: "Military training.",
+        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "defense_force": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "intelligence_agency": {
+        name: "Intelligence Agency", isImplemented: false,
+        description: "Intelligence agency.",
+        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "defense_infrastructure": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "border_control": {
+        name: "Border Control", isImplemented: false,
+        description: "Border control.",
+        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "defense_infrastructure": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+
+    // Stability
+    "legal_aid": {
+        name: "Legal Aid", isImplemented: false,
+        description: "Legal aid.",
+        type: "stability", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "justice_system": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "death_penalty": {
+        name: "Death Penalty", isImplemented: false,
+        description: "Death penalty.",
+        type: "stability", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "justice_system": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+        }
+    },
+    "anti_corruption_agency": {
+        name: "Anti-Corruption Agency", isImplemented: false,
+        description: "Anti-corruption agency.",
+        type: "stability", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "governance": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "internet_censorship": {
+        name: "Internet Censorship", isImplemented: false,
+        description: "Internet censorship.",
+        type: "stability", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "media_neutrality": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+        }
+    },
+    "police_force": {
+        name: "Police Force", isImplemented: false,
+        description: "Police force.",
+        type: "stability", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "security": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+
+    // Industry
+    "small_business_grants": {
+        name: "Small Business Grants", isImplemented: false,
+        description: "Small business grants.",
+        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "economy": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "agricultural_subsidies": {
+        name: "Agricultural Subsidies", isImplemented: false,
+        description: "Agricultural subsidies.",
+        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "agriculture": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
+    "tourism_campaign": {
+        name: "Tourism Campaign", isImplemented: false,
+        description: "Tourism campaign.",
+        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "tourism_creative": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+            },
+        }
+    },
 }
 
 export function applyPolicyChange(policyName, newValue) {
@@ -272,9 +1160,10 @@ export function createPolicyEffectViews(runtime) {
 
             const effectData = policyData.effects[effect];
             effectData.value = effectData.formula(policyData.value);
+            const effectVariableData = status[effect] ?? crisis[effect];
     
             const effectName = runtime.objects.UIText.createInstance("PolicyPopUpMG", instanceX, instanceY, true, "policy_effect_view");
-            effectName.text = effectData.name + " (" + effectData.effectDelay + " Delay)";
+            effectName.text = effectVariableData.name + " (" + effectData.effectDelay + " Delay)";
             effectName.instVars['id'] = effect + "_" + policyName + "_effects_name";
             addTextToCache(effectName);
         
