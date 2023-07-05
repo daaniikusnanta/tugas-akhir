@@ -160,6 +160,7 @@ export function showFiscalPopUp(runtime) {
   debtText.text = "Total Debt: " + debt.toFixed(2);
 
   showIncomeList(runtime);
+  showSpendingList(runtime);
 }
 
 let incomeViews = [];
@@ -192,7 +193,7 @@ function showIncomeList(runtime) {
     incomeProgress.width = incomeValue / highestIncome * incomeProgressBG.width;
 
     const incomeValueText = incomeText.getChildAt(2);
-    const incomePercent = (incomeValue / highestIncome * 100).toFixed(2)
+    const incomePercent = (incomeValue / dailyIncome * 100).toFixed(2)
     incomeValueText.text = incomeValue.toFixed(2) + " (" + incomePercent + "%)";
 
 
@@ -212,4 +213,47 @@ function destroyIncomeList() {
   incomeViews = [];
 }
 
-function showSpendingList(runtime) {}
+let spendingViews = [];
+
+function showSpendingList(runtime) {
+  destroySpendingList();
+
+  const spendingScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "fiscal_spendings");
+  const sortedSpendings = Object.keys(spendings).sort((a, b) => {
+    return spendings[b] - spendings[a];
+  });
+  const highestSpending = spendings[sortedSpendings[0]];
+
+  for (const spending of sortedSpendings) {
+    const spendingValue = spendings[spending];
+    const spendingName = policy[spending]?.name ?? "Other Spending";
+
+    const instanceX = spendingScrollable.x + 30;
+    const instanceY = spendingScrollable.y + sortedSpendings.indexOf(spending) * 96;
+
+    const spendingText = runtime.objects.UIText.createInstance("FiscalPopUpMG", instanceX, instanceY, true, "fiscal_view");
+    spendingText.text = spendingName;
+
+    const spendingProgressBG = spendingText.getChildAt(0);
+    const spendingProgress = spendingText.getChildAt(1);
+    spendingProgress.width = spendingValue / highestSpending * spendingProgressBG.width;
+
+    const spendingValueText = spendingText.getChildAt(2);
+    const spendingPercent = (spendingValue / dailySpending * 100).toFixed(2)
+    spendingValueText.text = spendingValue.toFixed(2) + " (" + spendingPercent + "%)";
+
+    spendingViews.push(spendingText);
+    spendingScrollable.addChild(spendingText, { transformX: true, transformY: true });
+  }
+
+  resetScrollablePosition(spendingScrollable);
+  setScrollableHeight(runtime, spendingScrollable, sortedSpendings.length, 96, 0, "income_spending_fiscal_pop_up");
+}
+
+function destroySpendingList() {
+  for (let i = 0; i < spendingViews.length; i++) {
+    spendingViews[i].destroy();
+  }
+
+  spendingViews = [];
+}

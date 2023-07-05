@@ -357,7 +357,7 @@ export let policy = {
         description: "Food and drug regulations.",
         type: "health", value: 50, finalValue: 50, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        minCost: 0, maxCost: 200, minRevenue: 0, maxRevenue: 0,
         effects: {
             "public_health": {
                 effectDelay: 2, effectDuration: 0,
@@ -371,7 +371,7 @@ export let policy = {
         description: "Public health campaign.",
         type: "health", value: 50, finalValue: 50, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        minCost: 0, maxCost: 200, minRevenue: 0, maxRevenue: 0,
         effects: {
             "public_health": {
                 effectDelay: 2, effectDuration: 0,
