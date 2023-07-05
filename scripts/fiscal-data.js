@@ -52,7 +52,7 @@ export function spawnIncomeBubble(runtime) {
   }
 
   const tileData = filledTiles[tileIndex];
-  const instanceX = tileData.x * 64 + 32;
+  const instanceX = (tileData.x) * 64 + 32;
   const instanceY = (tileData.y - 1) * 64 + 32;
 
   const incomeBubble = runtime.objects.IncomeBubble.createInstance("Game", instanceX, instanceY);
@@ -60,10 +60,18 @@ export function spawnIncomeBubble(runtime) {
   incomeBubble.instVars['incomeValue'] = incomes[incomeName] * fiscalMultiplier['collectibleIncomeMultiplier'];
   incomeBubble.instVars['duration'] = 3;
   incomeBubble.instVars['currentDuration'] = 0;
+  incomeBubble.instVars['tileIndex'] = tileIndex;
   incomeBubble.animationFrame = getIncomeBubbleFrameIndex(incomeName);
   console.log("spawn bubble ", incomes, incomes[incomeName], incomeBubble);
 
-  
+  const bottomSpawnedBubble = runtime.objects.IncomeBubble.getAllInstances().find(bubble => {
+    const tileIndex = bubble.instVars.tileIndex;
+    const tile = filledTiles[tileIndex];
+    return tile.y - tileData.y === 1 && tile.x === tileData.x;
+  });
+  if (bottomSpawnedBubble) {
+    incomeBubble.moveAdjacentToInstance(bottomSpawnedBubble, false);
+  }
 }
 
 export function updateBalance() {
@@ -284,6 +292,6 @@ function getIncomeBubbleFrameIndex(incomeName) {
     case "tourism_creative":
       return 5;
     default:
-      return 6;
+      return 0;
   }
 }

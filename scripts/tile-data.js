@@ -53,10 +53,10 @@ export function initializeTileBiome(runtime) {
                     crisis: [],
                 };
                 
-                // const tileText = runtime.objects.UIText.createInstance("tilemap", (x+1) * 64 - 32 - 16, (y+1) * 64 - 32 - 16);
-                // tileText.text = mapTileCount.toString();
-                // tileText.scale = 0.2;
-                // tileText.colorRgb = [0.1, 0.1, 0.1];
+                const tileText = runtime.objects.UIText.createInstance("tilemap", (x+1) * 64 - 32 - 16, (y+1) * 64 - 32 - 16);
+                tileText.text = (mapTileCount - 1).toString();
+                tileText.scale = 0.2;
+                tileText.colorRgb = [0.1, 0.1, 0.1];
                 row.push(tileInfo); 
                 filledTiles.push(tileInfo);
             } else {
