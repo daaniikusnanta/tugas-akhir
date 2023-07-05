@@ -137,7 +137,7 @@
 						},
 						{
 							"type": "script",
-							"script": "const gameManager = runtime.objects.GameManager.getAllInstances()[0];\nconst timer = gameManager.behaviors.Timer;\nruntime.globalVars.incomeBubbleInterval = timer.getDuration(\"Tick\") / Object.keys(incomes).length;"
+							"script": "const gameManager = runtime.objects.GameManager.getAllInstances()[0];\nconst timer = gameManager.behaviors.Timer;\nconsole.log(\"incomes \", incomes);\nruntime.globalVars.incomeBubbleInterval = timer.getDuration(\"Tick\") / Object.keys(incomes).length;"
 						},
 						{
 							"id": "start-timer",
@@ -459,6 +459,14 @@
 							"parameters": {
 								"tag": "\"Tick\""
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 633931395600657,
+							"parameters": {
+								"variable": "isRunning"
+							}
 						}
 					],
 					"actions": [
@@ -565,6 +573,14 @@
 							"parameters": {
 								"tag": "\"IncomeBubble\""
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 241508110419819,
+							"parameters": {
+								"variable": "isRunning"
+							}
 						}
 					],
 					"actions": [
@@ -650,6 +666,14 @@
 							"behaviorType": "Timer",
 							"parameters": {
 								"tag": "\"Tick\""
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 810764528947928,
+							"parameters": {
+								"variable": "isRunning"
 							}
 						}
 					],

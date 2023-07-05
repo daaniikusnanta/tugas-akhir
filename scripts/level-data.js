@@ -1,8 +1,16 @@
-import { initializeCrisis, isCrisisMaximized, isExtremeCrisisEmpty, crisis } from "./crisis-data.js";
+import { initializeCrisis, isCrisisMaximized, isExtremeCrisisEmpty, crisis, startingCrisis, experiencedCrisis } from "./crisis-data.js";
 import { initializeStatus, status } from "./status-data.js";
 import { updateCrisisView, updateStatusView, setupCrisisViews } from "./game.js";
 import { addTextToCache, getClickablePanelById, getObjectbyId, getTextById, setScrollableHeight, toTitleCase } from "./utils.js";
 import { policyMultiplier } from "./policy-data.js";
+import { balance, totalSpending } from "./fiscal-data.js";
+
+const levelData = {
+    size: "Large",
+    landWater: "More Land",
+    governmentType: "Democracy",
+    economyType: "Developed",
+};
 
 /**
  * @type {{[level: number]: {[variable: string]: number}}}
@@ -303,7 +311,6 @@ export function createScenarioView(runtime) {
     setScrollableHeight(runtime, scenarioScrollable, Object.keys(scenarios).length, itemHeight + margin*2, margin);
 }
 
-
 /**
  * Sets the level variables to the given level.
  * @param {number} level The level to set the variables to.
@@ -315,39 +322,6 @@ export function setLevelVariables(level, runtime) {
     setupCrisisViews(runtime);
     updateStatusView(runtime);
     updateCrisisView(runtime);
-}
-
-/**
- * 
- * @param {IRuntime} runtime 
- */
-export function checkGameOverCondition(runtime) {
-    console.log("Checking game over condition");
-    // Win
-    if (isExtremeCrisisEmpty()) {
-        console.log("Win");
-        stopGame(runtime);
-        runtime.layout.getLayer("UI").isVisible = false;
-        runtime.layout.getLayer("Win").isVisible = true;
-    }
-
-    // Lose
-    if (isCrisisMaximized()) {
-        console.log("Lose");
-        stopGame(runtime);
-        runtime.layout.getLayer("UI").isVisible = false;
-        runtime.layout.getLayer("Lose").isVisible = true;
-    }
-}
-
-/**
- * 
- * @param {IRuntime} runtime 
- */
-function stopGame(runtime) {
-    const gameManager = runtime.objects.GameManager.getAllInstances()[0];
-    gameManager.behaviors.Timer.stopTimer("Tick");
-    runtime.globalVars['isRunning'] = false;
 }
 
 export function setupGeographySize(size) {
@@ -371,6 +345,7 @@ export function setupGeographySize(size) {
 
     const sizeInformation = getTextById("geography_size_information");
     sizeInformation.text = toTitleCase(size);
+    levelData.size = toTitleCase(size);
 
     // console.log(policyMultiplier);
 }
@@ -388,6 +363,8 @@ export function setupGeographyLandWater(landWaterValue) {
     if (landWaterValue < 40) landWaterValueInformation.text = "More Water";
     else if (landWaterValue < 60) landWaterValueInformation.text = "Balanced";
     else landWaterValueInformation.text = "More Land";
+
+    levelData.landWater = landWaterValueInformation.text;
 
     // console.log("Agriculture: " + levelVariables.status['agriculture']);
     // console.log("Fisheries: " + levelVariables.status['fisheries']);
@@ -423,6 +400,7 @@ export function setupSituationGovernment(governmentType) {
 
     const governmentInformation = getTextById("situation_government_information");
     governmentInformation.text = toTitleCase(governmentType.replace("_", " "));
+    levelData.governmentType = toTitleCase(governmentType.replace("_", " "));
 
     // console.log(governmentType);
 }
@@ -475,6 +453,122 @@ export function setupSituationEconomy(economyType) {
 
     const economyInformation = getTextById("situation_economy_information");
     economyInformation.text = toTitleCase(economyType.replace("_", " "));
+    levelData.economyType = toTitleCase(economyType.replace("_", " "));
 
     // console.log(economyType);
+}
+
+/**
+ * 
+ * @param {IRuntime} runtime 
+ */
+export function checkGameOverCondition(runtime) {
+    console.log("Checking game over condition");
+    const winState = isExtremeCrisisEmpty();
+    const loseState = isCrisisMaximized();
+    const isGameOver = winState || loseState;
+
+    if (isGameOver) {
+        stopGame(runtime);
+        runtime.layout.getLayer("UI").isVisible = false;
+        runtime.layout.getLayer("UI").isInteractive = false;
+        runtime.layout.getLayer("Game").isInteractive = false;
+        runtime.layout.getLayer("GameOver").isVisible = true;
+        runtime.layout.getLayer("GameOver").isInteractive = true;
+        runtime.layout.getLayer("Background").isInteractive = false;
+
+        const timeText = getTextById("game_over_time");
+        timeText.text = runtime.globalVars['day'] + " Days";
+        const totalSpendingText = getTextById("game_over_total_spending");
+        totalSpendingText.text = "$" + totalSpending;
+        const cashBalanceText = getTextById("game_over_cash_balance");
+        cashBalanceText.text = "$" + balance;
+
+        const sizeText = getTextById("game_over_size");
+        sizeText.text = levelData.size;
+        const landWaterText = getTextById("game_over_land_water");
+        landWaterText.text = levelData.landWater;
+        const governmentText = getTextById("game_over_government");
+        governmentText.text = levelData.governmentType;
+        const economyText = getTextById("game_over_economy");
+        economyText.text = levelData.economyType;
+
+        const title = getTextById("game_over_title");
+        const subtitle = getTextById("game_over_subtitle");
+        const overlay = getObjectbyId(runtime.objects.PopUpOverlay, "game_over");
+        const retryButton = getObjectbyId(runtime.objects.Button, "retry");
+        const exitButton = getObjectbyId(runtime.objects.Button, "exit");
+
+        if (winState) {
+            title.text = "You Win!";
+            subtitle.text = "You have successfully managed the crisis.";
+            overlay.colorRgb = [0, 255/255, 0];
+            retryButton.isVisible = false;
+            exitButton.x = 1920/2;
+        }
+
+        if (loseState) {
+            title.text = "You Lose!";
+            subtitle.text = "You have failed to manage the crisis.";
+            overlay.colorRgb = [255/255, 0, 0];
+            retryButton.isVisible = true;
+            exitButton.x = 1920/2 + 20 + exitButton.width/2;
+        }
+
+        showInitialCrisis(runtime);
+        showExperiencedCrisis(runtime);
+    }
+}
+
+function showInitialCrisis(runtime) {
+    const initialCrisisScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "game_over_initial_crisis");
+    
+    for (const crisisName of startingCrisis) {
+        const crisisData = crisis[crisisName];
+
+        const instanceX = initialCrisisScrollable.x + 30;
+        const instanceY = initialCrisisScrollable.y + 40 * startingCrisis.indexOf(crisisName);
+
+        const crisisText = runtime.objects.UIText.createInstance("GameOverMG", instanceX, instanceY, true, "game_over_crisis");
+        crisisText.text = crisisData.name;
+
+        initialCrisisScrollable.addChild(crisisText, { transformX: true, transformY: true});
+    }
+
+    setScrollableHeight(runtime, initialCrisisScrollable, startingCrisis.length, 40, 0);
+}
+
+function showExperiencedCrisis(runtime) {
+    const experiencedCrisisScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "game_over_other_crisis");
+    const experiencedCrisisArr = Array.from(experiencedCrisis).filter(crisisName => !startingCrisis.includes(crisisName));
+
+    if (experiencedCrisisArr.length == 0) {
+        const noCrisisText = getTextById("game_over_no_other_crisis");
+        noCrisisText.isVisible = true;
+        return;
+    }
+
+    for (const crisisName of experiencedCrisisArr) {
+        const crisisData = crisis[crisisName];
+        
+        const instanceX = experiencedCrisisScrollable.x + 30;
+        const instanceY = experiencedCrisisScrollable.y + 40 * experiencedCrisisArr.indexOf(crisisName);
+
+        const crisisText = runtime.objects.UIText.createInstance("GameOverMG2", instanceX, instanceY, true, "game_over_crisis");
+        crisisText.text = crisisData.name;
+
+        experiencedCrisisScrollable.addChild(crisisText, { transformX: true, transformY: true});
+    }
+
+    setScrollableHeight(runtime, experiencedCrisisScrollable, experiencedCrisisArr.length, 40, 0);
+}
+
+/**
+ * 
+ * @param {IRuntime} runtime 
+ */
+function stopGame(runtime) {
+    const gameManager = runtime.objects.GameManager.getAllInstances()[0];
+    gameManager.behaviors.Timer.stopTimer("Tick");
+    runtime.globalVars['isRunning'] = false;
 }

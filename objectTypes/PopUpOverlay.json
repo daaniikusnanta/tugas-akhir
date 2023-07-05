@@ -3,7 +3,15 @@
 	"plugin-id": "TiledBg",
 	"sid": 146020011742506,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 582945170938571
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"image": {

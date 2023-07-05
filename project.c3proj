@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 34700,
+	"savedWithRelease": 34800,
 	"name": "tugas akhir",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -549,7 +549,8 @@
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",
 		"autoReloadScriptsOnPreview": false,
-		"exportFileStructure": "folders"
+		"exportFileStructure": "folders",
+		"uidAllocationMode": "increment"
 	},
 	"viewportWidth": 1920,
 	"viewportHeight": 1080,

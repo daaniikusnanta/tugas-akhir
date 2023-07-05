@@ -1180,7 +1180,9 @@
 								"blend-margin-y": 0.1
 							},
 							"uid": 338,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"id": ""
+							},
 							"behaviors": {},
 							"world": {
 								"x": -12,
@@ -1259,44 +1261,11 @@
 			"global": false
 		},
 		{
-			"name": "Lose",
+			"name": "GameOver",
 			"overriden": 1,
 			"subLayers": [],
 			"instances": [],
 			"sid": 607771150815210,
-			"effectTypes": [],
-			"isInitiallyVisible": false,
-			"isInitiallyInteractive": false,
-			"color": [
-				1,
-				1,
-				1,
-				1
-			],
-			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
-				1
-			],
-			"isTransparent": true,
-			"parallaxX": 0,
-			"parallaxY": 0,
-			"scaleRate": 1,
-			"forceOwnTexture": false,
-			"renderingMode": "3d",
-			"drawOrder": "z-order",
-			"useRenderCells": false,
-			"blendMode": "normal",
-			"zElevation": 0,
-			"global": false
-		},
-		{
-			"name": "Win",
-			"overriden": 1,
-			"subLayers": [],
-			"instances": [],
-			"sid": 102883266229049,
 			"effectTypes": [],
 			"isInitiallyVisible": false,
 			"isInitiallyInteractive": false,

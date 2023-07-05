@@ -2221,7 +2221,12 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "console.log(\"scroll\");"
+						}
+					],
 					"sid": 513317575899587,
 					"children": [
 						{
@@ -2246,10 +2251,6 @@
 									"parameters": {
 										"y": "Self.Y+ SCROLL_SPEED  * dt"
 									}
-								},
-								{
-									"type": "script",
-									"script": "console.log(\"scroll\");"
 								},
 								{
 									"callFunction": "clampScrollable",
@@ -2319,7 +2320,12 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "console.log(\"scroll\");"
+						}
+					],
 					"sid": 841338009965280,
 					"children": [
 						{

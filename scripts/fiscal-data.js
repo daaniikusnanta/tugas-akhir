@@ -5,13 +5,14 @@ import { getObjectbyId, getTextById } from "./utils.js";
 let spending = 0;
 let income = 0;
 let debt = 0;
-let balance = 0;
+export let balance = 0;
 let dailySpending = 0;
 let dailyIncome = 0;
 
 export let incomes = {};
 let collectibleIncomes = {};
 let spendings = {};
+export let totalSpending = 0;
 
 export const fiscalMultiplier = {
   "collectibleIncomeMultiplier": 0.2,
@@ -66,6 +67,8 @@ export function updateBalance() {
 
   const balanceText = getTextById("balance");
   balanceText.text = balance.toFixed(2);
+
+  totalSpending += dailySpending;
 }
 
 export function addBalance(value) {
@@ -100,8 +103,10 @@ export function updateIncomeFromPolicy(policyName) {
     policyData.minRevenue +
     ((policyData.maxRevenue - policyData.minRevenue) * policyData.finalValue) / 100;
   
-  incomes[policyName] = incomeValue;
-  updateDailyIncome();
+  if (incomeValue > 0) {
+    incomes[policyName] = incomeValue;
+    updateDailyIncome();
+  }
 }
 
 export function updateSpendingFromPolicy(policyName) {
@@ -116,8 +121,10 @@ export function updateSpendingFromPolicy(policyName) {
   //   value: spendingValue,
   // };
 
-  spendings[policyName] = spendingValue;
-  updateDailySpending();
+  if (spendingValue > 0) {
+    spendings[policyName] = spendingValue;
+    updateDailySpending();
+  }
 }
 
 export function updateIncomeFromStatus(status) {

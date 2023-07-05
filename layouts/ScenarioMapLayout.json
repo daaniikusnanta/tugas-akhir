@@ -1180,7 +1180,9 @@
 								"blend-margin-y": 0.1
 							},
 							"uid": 278,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"id": ""
+							},
 							"behaviors": {},
 							"world": {
 								"x": -12,
@@ -1260,7 +1262,7 @@
 		},
 		{
 			"name": "Lose",
-			"overriden": 1,
+			"overriden": 0,
 			"subLayers": [],
 			"instances": [],
 			"sid": 398241031912824,
@@ -1293,7 +1295,7 @@
 		},
 		{
 			"name": "Win",
-			"overriden": 1,
+			"overriden": 0,
 			"subLayers": [],
 			"instances": [],
 			"sid": 932397316896657,

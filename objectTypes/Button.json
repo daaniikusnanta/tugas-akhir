@@ -537,6 +537,54 @@
 						},
 						"useCollisionPoly": true,
 						"duration": 1
+					},
+					{
+						"width": 271,
+						"height": 68,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2035355,
+						"collisionPoly": {
+							"points": [
+								0.014760147601476014,
+								0,
+								1,
+								0.058823529411764705,
+								0.985239852398524,
+								1,
+								0,
+								0.9411764705882353
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 271,
+						"height": 68,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5364552,
+						"collisionPoly": {
+							"points": [
+								0.014760147601476014,
+								0,
+								1,
+								0.058823529411764705,
+								0.985239852398524,
+								1,
+								0,
+								0.9411764705882353
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
 					}
 				],
 				"sid": 296596571965793,

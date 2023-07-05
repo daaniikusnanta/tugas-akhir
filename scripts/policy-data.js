@@ -822,7 +822,7 @@ export let policy = {
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
         minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
         effects: {
-            "workplace_environment": {
+            "work_environment": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
@@ -836,7 +836,7 @@ export let policy = {
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
         minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
         effects: {
-            "workplace_environment": {
+            "work_environment": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
@@ -1160,6 +1160,7 @@ export function createPolicyEffectViews(runtime) {
 
             const effectData = policyData.effects[effect];
             effectData.value = effectData.formula(policyData.value);
+            console.log("create effect", policyName, effect, effectData);
             const effectVariableData = status[effect] ?? crisis[effect];
     
             const effectName = runtime.objects.UIText.createInstance("PolicyPopUpMG", instanceX, instanceY, true, "policy_effect_view");
