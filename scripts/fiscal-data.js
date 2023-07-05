@@ -39,11 +39,11 @@ export function setupSpawnIncomeBubble(gameManager) {
 }
 
 export function spawnIncomeBubble(runtime) {
-  let spawnedIncomeName = Object.keys(incomes)[Math.floor(Math.random() * Object.keys(incomes).length)];
-  let spawnedIncomeBubble = getObjectbyId(runtime.objects.IncomeBubble, spawnedIncomeName, true);
+  let incomeName = Object.keys(incomes)[Math.floor(Math.random() * Object.keys(incomes).length)];
+  let spawnedIncomeBubble = getObjectbyId(runtime.objects.IncomeBubble, incomeName, true);
   while (spawnedIncomeBubble && spawnedIncomeBubble.instVars['currentDuration'] < 1) {
-    spawnedIncomeName = Object.keys(incomes)[Math.floor(Math.random() * Object.keys(incomes).length)];
-    spawnedIncomeBubble = getObjectbyId(runtime.objects.IncomeBubble, spawnedIncomeName, true);
+    incomeName = Object.keys(incomes)[Math.floor(Math.random() * Object.keys(incomes).length)];
+    spawnedIncomeBubble = getObjectbyId(runtime.objects.IncomeBubble, incomeName, true);
   }
 
   let tileIndex = Math.floor(Math.random() * filledTiles.length);
@@ -53,14 +53,17 @@ export function spawnIncomeBubble(runtime) {
 
   const tileData = filledTiles[tileIndex];
   const instanceX = tileData.x * 64 + 32;
-  const instanceY = tileData.y * 64 + 32;
+  const instanceY = (tileData.y - 1) * 64 + 32;
 
   const incomeBubble = runtime.objects.IncomeBubble.createInstance("Game", instanceX, instanceY);
-  incomeBubble.instVars['id'] = spawnedIncomeName;
-  incomeBubble.instVars['incomeValue'] = incomes[spawnedIncomeName] * fiscalMultiplier['collectibleIncomeMultiplier'];
+  incomeBubble.instVars['id'] = incomeName;
+  incomeBubble.instVars['incomeValue'] = incomes[incomeName] * fiscalMultiplier['collectibleIncomeMultiplier'];
   incomeBubble.instVars['duration'] = 3;
   incomeBubble.instVars['currentDuration'] = 0;
-  console.log("spawn bubble ", incomes, incomes[spawnedIncomeName], incomeBubble);
+  incomeBubble.animationFrame = getIncomeBubbleFrameIndex(incomeName);
+  console.log("spawn bubble ", incomes, incomes[incomeName], incomeBubble);
+
+  
 }
 
 export function updateBalance() {
@@ -256,4 +259,31 @@ function destroySpendingList() {
   }
 
   spendingViews = [];
+}
+
+/**
+ * Get the index of the bubble frame for income based on the income name
+ * @param {string} incomeName 
+ * @returns {number}
+ */
+function getIncomeBubbleFrameIndex(incomeName) {
+  const taxRegex = /tax/i;
+  if (taxRegex.test(incomeName)) {
+    return 0;
+  }
+
+  switch (incomeName) {
+    case "mineral_oil_industry":
+      return 1;
+    case "manufacturing":
+      return 2;
+    case "agriculture":
+      return 3;
+    case "fisheries":
+      return 4;
+    case "tourism_creative":
+      return 5;
+    default:
+      return 6;
+  }
 }
