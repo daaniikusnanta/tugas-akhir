@@ -3,7 +3,7 @@ import { initializeStatus, status } from "./status-data.js";
 import { updateCrisisView, updateStatusView, setupCrisisViews } from "./game.js";
 import { addTextToCache, getClickablePanelById, getObjectbyId, getTextById, setScrollableHeight, toTitleCase } from "./utils.js";
 import { policyMultiplier } from "./policy-data.js";
-import { balance, totalSpending } from "./fiscal-data.js";
+import { balance, fiscalMultiplier, totalSpending } from "./fiscal-data.js";
 
 const levelData = {
     size: "Large",
@@ -330,16 +330,19 @@ export function setupGeographySize(size) {
             policyMultiplier['effectDelay'] = 0.5;
             policyMultiplier['cost'] = 0.5;
             policyMultiplier['revenue'] = 0.5;
+            fiscalMultiplier['industryIncomeMultiplier'] = 1000;
             break;
         case "medium":
             policyMultiplier['effectDelay'] = 1;
             policyMultiplier['cost'] = 1;
             policyMultiplier['revenue'] = 1;
+            fiscalMultiplier['industryIncomeMultiplier'] = 2000;
             break;
         case "large":
             policyMultiplier['effectDelay'] = 1.7;
             policyMultiplier['cost'] = 1.7;
             policyMultiplier['revenue'] = 1.7;
+            fiscalMultiplier['industryIncomeMultiplier'] = 4000;
             break;
     }
 

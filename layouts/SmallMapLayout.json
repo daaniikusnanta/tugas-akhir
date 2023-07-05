@@ -3829,8 +3829,8 @@
 								1
 							],
 							"isTransparent": true,
-							"parallaxX": 1,
-							"parallaxY": 1,
+							"parallaxX": 0,
+							"parallaxY": 0,
 							"scaleRate": 1,
 							"forceOwnTexture": false,
 							"renderingMode": "3d",
@@ -7996,7 +7996,7 @@
 						"clickable": true,
 						"isDisabled": false,
 						"panelId": "ui",
-						"selectable": true,
+						"selectable": false,
 						"isSelected": false,
 						"hasGroup": false,
 						"groupId": ""
@@ -12403,8 +12403,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -12434,7 +12434,7 @@
 							},
 							"uid": 44,
 							"instanceVariables": {
-								"id": "cause_effect_status_pop_up"
+								"id": "income_spending_fiscal_pop_up"
 							},
 							"behaviors": {},
 							"sceneGraphData": {
@@ -12528,7 +12528,7 @@
 								"min": 0,
 								"max": 379,
 								"initialLength": 0,
-								"id": "fiscal_revenues",
+								"id": "fiscal_incomes",
 								"direction": "vertical",
 								"initialMin": 0,
 								"initialMax": 0,
@@ -12710,8 +12710,8 @@
 							"world": {
 								"x": 452,
 								"y": -330.4447722823225,
-								"width": 363,
-								"height": 58.72488607252512,
+								"width": 502.5,
+								"height": 65.99284711931591,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -12765,9 +12765,9 @@
 								}
 							},
 							"world": {
-								"x": 612,
-								"y": -284,
-								"width": 320,
+								"x": 703.25,
+								"y": -280,
+								"width": 502.5,
 								"height": 28,
 								"originX": 0.5,
 								"originY": 0.5,
@@ -12791,7 +12791,7 @@
 								"character-height": 82,
 								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
 								"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
-								"scale": 0.25,
+								"scale": 0.35,
 								"character-spacing": 0,
 								"line-height": 0,
 								"horizontal-alignment": "left",
@@ -13027,7 +13027,7 @@
 										}
 									},
 									{
-										"uid": 451,
+										"uid": 343,
 										"flags": {
 											"x": true,
 											"y": true,
@@ -13070,79 +13070,9 @@
 							"world": {
 								"x": 452,
 								"y": -330,
-								"width": 296.56272049518907,
+								"width": 355.48743666335315,
 								"height": 30,
 								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0,
-								"blendMode": "source-atop"
-							}
-						},
-						{
-							"type": "UIText",
-							"properties": {
-								"text": "99%",
-								"enable-bbcode": true,
-								"character-width": 75,
-								"character-height": 82,
-								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
-								"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
-								"scale": 0.2,
-								"character-spacing": 2,
-								"line-height": 0,
-								"horizontal-alignment": "right",
-								"vertical-alignment": "center",
-								"wrapping": "word",
-								"initially-visible": false,
-								"origin": "top-right",
-								"read-aloud": false
-							},
-							"uid": 451,
-							"instanceVariables": {
-								"id": ""
-							},
-							"behaviors": {},
-							"sceneGraphData": {
-								"parent-uid": 448,
-								"uid": 451,
-								"flags": {
-									"x": true,
-									"y": true,
-									"z": true,
-									"w": true,
-									"h": true,
-									"a": true,
-									"o": false,
-									"v": false,
-									"d": true,
-									"sm": "normal"
-								},
-								"preview": {
-									"transformX": 0,
-									"transformY": 0,
-									"transformZElevation": 0,
-									"transformW": 0,
-									"transformH": 0,
-									"transformA": 0,
-									"transformSX": 0,
-									"transformSY": 0,
-									"transformO": 0,
-									"previewSceneGraph": false
-								}
-							},
-							"world": {
-								"x": 815,
-								"y": -299.43901131324685,
-								"width": 43.8372079312594,
-								"height": 30,
-								"originX": 1,
 								"originY": 0,
 								"color": [
 									1,
@@ -13224,7 +13154,7 @@
 							},
 							"world": {
 								"x": 452,
-								"y": -298,
+								"y": -294,
 								"width": 24,
 								"height": 28,
 								"originX": 0,
@@ -13236,7 +13166,78 @@
 									1
 								],
 								"angle": 0,
-								"zElevation": 0
+								"zElevation": 0,
+								"blendMode": "source-atop"
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "1.123.000 (100.00%)",
+								"enable-bbcode": true,
+								"character-width": 75,
+								"character-height": 82,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+								"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+								"scale": 0.3,
+								"character-spacing": 0,
+								"line-height": 0,
+								"horizontal-alignment": "right",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-right",
+								"read-aloud": false
+							},
+							"uid": 343,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 448,
+								"uid": 343,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"world": {
+								"x": 954.5,
+								"y": -330,
+								"width": 159.25218594426198,
+								"height": 30,
+								"originX": 1,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0,
+								"blendMode": "source-atop"
 							}
 						}
 					],
@@ -13257,10 +13258,10 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
-					"forceOwnTexture": false,
+					"forceOwnTexture": true,
 					"renderingMode": "3d",
 					"drawOrder": "z-order",
 					"useRenderCells": false,
@@ -13370,7 +13371,7 @@
 							},
 							"uid": 436,
 							"instanceVariables": {
-								"id": "fiscal_pop_up_description"
+								"id": "fiscal_pop_up_daily_income"
 							},
 							"behaviors": {},
 							"world": {
@@ -13539,7 +13540,7 @@
 							},
 							"uid": 444,
 							"instanceVariables": {
-								"id": "fiscal_pop_up_daily_debt"
+								"id": "fiscal_pop_up_total_debt"
 							},
 							"behaviors": {},
 							"world": {
@@ -13562,7 +13563,7 @@
 						{
 							"type": "UIText",
 							"properties": {
-								"text": "Revenues",
+								"text": "Incomes",
 								"enable-bbcode": true,
 								"character-width": 75,
 								"character-height": 82,
@@ -13659,8 +13660,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -13689,8 +13690,8 @@
 				1
 			],
 			"isTransparent": true,
-			"parallaxX": 1,
-			"parallaxY": 1,
+			"parallaxX": 0,
+			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",

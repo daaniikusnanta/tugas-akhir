@@ -2009,6 +2009,15 @@
 										"layer": "\"PanelPolicy\"",
 										"visibility": "visible"
 									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 396202144256239,
+									"parameters": {
+										"layer": "\"PanelPolicy\"",
+										"interactive": true
+									}
 								}
 							],
 							"sid": 106018960529653
@@ -2034,6 +2043,15 @@
 									"parameters": {
 										"layer": "\"PanelPolicy\"",
 										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 597123264674596,
+									"parameters": {
+										"layer": "\"PanelPolicy\"",
+										"interactive": false
 									}
 								}
 							],
@@ -2431,7 +2449,7 @@
 								},
 								{
 									"type": "script",
-									"script": "console.log(\"crisis pop up \", localVars.crisisName);\nsetupCrisisPopUp(localVars.crisisName, runtime)"
+									"script": "showFiscalPopUp(runtime);"
 								},
 								{
 									"id": "set-layer-visible",

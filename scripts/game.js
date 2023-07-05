@@ -1,12 +1,8 @@
-import { 
-  status, 
-  updateStatus,
-  setupStatusPopUp 
-} from "./status-data.js";
-import { 
-  crisis, 
-  crisisFsms, 
-  updateCrisis ,
+import { status, updateStatus, setupStatusPopUp } from "./status-data.js";
+import {
+  crisis,
+  crisisFsms,
+  updateCrisis,
   setupCrisisPopUp,
 } from "./crisis-data.js";
 import {
@@ -19,10 +15,7 @@ import {
   getObjectbyId,
   setScrollableHeight,
 } from "./utils.js";
-import { 
-  expandCrisisTiles, 
-  initializeTileBiome 
-} from "./tile-data.js";
+import { expandCrisisTiles, initializeTileBiome } from "./tile-data.js";
 import {
   policy,
   createPolicyEffectViews,
@@ -33,15 +26,17 @@ import {
   updatePolicy,
   setupPolicyMultiplier,
 } from "./policy-data.js";
-import { 
+import {
   updateBalance,
-  updateIncomeFromPolicy, 
-  updateSpendingFromPolicy, 
+  updateIncomeFromPolicy,
+  updateSpendingFromPolicy,
   removeIncomeBubbleTileIndex,
   spawnIncomeBubble,
   setupSpawnIncomeBubble,
   incomes,
   addBalance,
+  showFiscalPopUp,
+  updateIncomeFromIndustry,
 } from "./fiscal-data.js";
 import {
   setLevelVariables,
@@ -87,12 +82,27 @@ function initializeFiscalData(runtime) {
     updateIncomeFromPolicy(policyName);
     updateSpendingFromPolicy(policyName);
   }
+
+  for (const statusName in status) {
+    if (status[statusName].affectsIncome) {
+      updateIncomeFromIndustry(statusName);
+    }
+  }
 }
 
 export function setupCrisisViews(runtime) {
   const margin = 40;
-  const crisisScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "crisis");
-  setScrollableHeight(runtime, crisisScrollable, Object.keys(crisis).length, 105, 20);
+  const crisisScrollable = getObjectbyId(
+    runtime.objects.ScrollablePanel,
+    "crisis"
+  );
+  setScrollableHeight(
+    runtime,
+    crisisScrollable,
+    Object.keys(crisis).length,
+    105,
+    20
+  );
 
   let initialY = crisisScrollable.y + 5;
 
@@ -102,11 +112,20 @@ export function setupCrisisViews(runtime) {
     const instanceX = crisisScrollable.x + 40;
     const instanceY = initialY + Object.keys(crisis).indexOf(crisisName) * 105;
 
-    const crisisView = runtime.objects.UIText.createInstance("panelCrisisBackground", instanceX, instanceY, true, "crisis_view");
+    const crisisView = runtime.objects.UIText.createInstance(
+      "panelCrisisBackground",
+      instanceX,
+      instanceY,
+      true,
+      "crisis_view"
+    );
     crisisView.instVars["id"] = crisisName + "_crisis_name";
     crisisView.text = crisisData.name;
     addTextToCache(crisisView);
-    crisisScrollable.addChild(crisisView, { transformX: true, transformY: true });
+    crisisScrollable.addChild(crisisView, {
+      transformX: true,
+      transformY: true,
+    });
 
     const crisisState = crisisView.getChildAt(0);
     const crisisValue = crisisView.getChildAt(1);
@@ -115,11 +134,12 @@ export function setupCrisisViews(runtime) {
     const crisisSliderBG = crisisView.getChildAt(3);
     const crisisSlider = crisisView.getChildAt(2);
     crisisSlider.instVars["id"] = crisisName + "_crisis_slider";
-    crisisSlider.instVars["minX"] = crisisSliderBG.x - (crisisSliderBG.width / 2);
-    crisisSlider.instVars["maxX"] = crisisSliderBG.x + (crisisSliderBG.width / 2);
+    crisisSlider.instVars["minX"] = crisisSliderBG.x - crisisSliderBG.width / 2;
+    crisisSlider.instVars["maxX"] = crisisSliderBG.x + crisisSliderBG.width / 2;
 
     const crisisClickablePanel = crisisView.getChildAt(4);
-    crisisClickablePanel.instVars["id"] = crisisName + "_clickable_panel_crisis";
+    crisisClickablePanel.instVars["id"] =
+      crisisName + "_clickable_panel_crisis";
     crisisClickablePanel.instVars["panelId"] = "crisis";
     crisisClickablePanel.instVars["clickable"] = true;
     addClickablePanelToCache(crisisClickablePanel);
@@ -232,7 +252,8 @@ export function updateStatusView(runtime) {
     const value = status[id].value;
 
     const statusText = getTextById(id + "_status_text");
-    const totalLastUpdate = status[id].lastUpdateCause + status[id].lastUpdatePolicy;
+    const totalLastUpdate =
+      status[id].lastUpdateCause + status[id].lastUpdatePolicy;
     const update =
       totalLastUpdate >= 0
         ? "+" + totalLastUpdate.toFixed(2)
@@ -253,11 +274,17 @@ export function updateCrisisView(runtime) {
 
     const crisisValue = crisisView.getChildAt(1);
     const crisisSlider = crisisView.getChildAt(2);
-    setSliderValue(crisisSlider, crisisValue, crisisData.value, crisisData.value.toFixed(2));
+    setSliderValue(
+      crisisSlider,
+      crisisValue,
+      crisisData.value,
+      crisisData.value.toFixed(2)
+    );
 
     if (
       crisisFsms[crisisName].value === crisisData.states[2] ||
-      (crisisFsms[crisisName].value === crisisData.states[3] && !crisisData.isGlobal)
+      (crisisFsms[crisisName].value === crisisData.states[3] &&
+        !crisisData.isGlobal)
     ) {
       console.log("Expanding", crisisName);
       expandCrisisTiles(runtime, crisisName);
@@ -281,7 +308,7 @@ export function updateCrisisView(runtime) {
   //   const text = value.toFixed(2).toString() + " (" + update + ")";
   //   setSliderValue(crisisSlider, crisisText, value, text);
 
-  //   
+  //
   // }
 }
 
@@ -310,9 +337,12 @@ export function setStatusValue(statusVariable, value) {
 function initializePolicyViews(runtime) {
   let policyViewData = {};
 
-  const policiesScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "policy");
+  const policiesScrollable = getObjectbyId(
+    runtime.objects.ScrollablePanel,
+    "policy"
+  );
   const initialY = policiesScrollable.y + 40;
-  const initialX = ((policiesScrollable.width - 320 * 2) / 4);
+  const initialX = (policiesScrollable.width - 320 * 2) / 4;
 
   console.log("Policy", policy);
 
@@ -329,11 +359,22 @@ function initializePolicyViews(runtime) {
     const policyViewDataType = policyViewData[policyData.type];
     policyViewDataType.policies.push(policyName);
     // console.log("Policy view data type", policyViewDataType, policyViewDataType.policies.indexOf(policyName));
-    const columnX = policyViewDataType.policies.indexOf(policyName) % 2 == 0 ? initialX : initialX * 3 + 320;
+    const columnX =
+      policyViewDataType.policies.indexOf(policyName) % 2 == 0
+        ? initialX
+        : initialX * 3 + 320;
     const instanceX = policiesScrollable.x + 10 + columnX;
-    const instanceY = initialY + Math.floor((policyViewDataType.policies.indexOf(policyName)) / 2) * 84;
+    const instanceY =
+      initialY +
+      Math.floor(policyViewDataType.policies.indexOf(policyName) / 2) * 84;
 
-    const policyView = runtime.objects.UIText.createInstance("PanelPolicyMG", instanceX, instanceY, true, "policy_view");
+    const policyView = runtime.objects.UIText.createInstance(
+      "PanelPolicyMG",
+      instanceX,
+      instanceY,
+      true,
+      "policy_view"
+    );
     policyView.instVars["id"] = policyName + "_policy_view";
     policyView.isVisible = false;
     policyView.text = policyData.name;
@@ -433,7 +474,7 @@ function showPolicyPanel(policyType, runtime) {
 
   if (policyScrollableData[policyType]) {
     // console.log("Setting height", policyType, policyScrollableData[policyType]);
-    
+
     // const scrollableHeight = policyScrollableData[policyType].height;
     // policiesScrollable.height = scrollableHeight;
     // policiesScrollable.instVars["min"] =
@@ -458,10 +499,19 @@ function showPolicyPanel(policyType, runtime) {
       // clickablePanel.instVars["isDisabled"] = false;
     }
 
-    const policiesScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "policy");
+    const policiesScrollable = getObjectbyId(
+      runtime.objects.ScrollablePanel,
+      "policy"
+    );
     // const policyPanel = getObjectbyId(runtime.objects.Panel, "policy");
-    setScrollableHeight(runtime, policiesScrollable, Math.ceil(policyScrollableData[policyType].policies.length / 2), 84, 20);
-  } 
+    setScrollableHeight(
+      runtime,
+      policiesScrollable,
+      Math.ceil(policyScrollableData[policyType].policies.length / 2),
+      84,
+      20
+    );
+  }
   // else {
   //   policiesScrollable.height = 0;
   //   policiesScrollable.instVars["min"] =
@@ -473,7 +523,10 @@ function showPolicyPanel(policyType, runtime) {
 function initializeStatusViews(runtime) {
   let statusData = {};
   const panelStatus = getObjectbyId(runtime.objects.Panel, "status_panel");
-  const panelStatusBlur = getObjectbyId(runtime.objects.UIPanelBlur, "status_panel");
+  const panelStatusBlur = getObjectbyId(
+    runtime.objects.UIPanelBlur,
+    "status_panel"
+  );
   let initialY = panelStatus.y + 20;
   let initialX = panelStatus.x + panelStatus.width / 6;
 
@@ -496,7 +549,13 @@ function initializeStatusViews(runtime) {
 
     // console.log("Status name", statusName, initialY, row, instanceY, instanceX);
 
-    let statusNameText = runtime.objects.UIText.createInstance("PanelStatus", instanceX, instanceY, true, "status_name");
+    let statusNameText = runtime.objects.UIText.createInstance(
+      "PanelStatus",
+      instanceX,
+      instanceY,
+      true,
+      "status_name"
+    );
     statusNameText.instVars["id"] = variable + "_status_title";
     statusNameText.text = statusName.name;
     statusNameText.isVisible = false;
@@ -557,7 +616,10 @@ let statusViewData = {};
 function showStatusPanel(statusType, runtime) {
   console.log("Status type ", statusType);
   const statusPanel = getObjectbyId(runtime.objects.Panel, "status_panel");
-  const statusPanelBlur = getObjectbyId(runtime.objects.UIPanelBlur, "status_panel");
+  const statusPanelBlur = getObjectbyId(
+    runtime.objects.UIPanelBlur,
+    "status_panel"
+  );
 
   for (const statusName in status) {
     console.log("Status name invisible", statusName);

@@ -1,24 +1,32 @@
 import { crisis } from "./crisis-data.js";
+import { updateIncomeFromIndustry } from "./fiscal-data.js";
 import { policy } from "./policy-data.js";
 import { getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeight } from "./utils.js";
 
 /**
- * @typedef {
+ * @typedef {{
 *     cause: string,
 *     yIntercept: number,
 *     inertia: number,
 *     factor: number,
 *     formula: function(),
-* } Cause
+* }} Cause
 */
 
 /**
- * @type {
- * string: {
+ * @type {{
+ * [key: string]: {
+ *      name: string,
+ *      description: string,
  *      value: number,
- *     lastUpdate: number,
+ *      causeValue: number,
+ *      policyValue: number,
+ *      lastUpdateCause: number,
+ *      lastUpdatePolicy: number,
+ *      type: string,
+ *      affectsIncome: boolean,
  *      causes: Cause[],
- * }}
+ * }}}
  */
 export let status = {
     "taxes": {
@@ -30,6 +38,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "finance",
+        affectsIncome: false,
         causes: [],
     },
     "debt": {
@@ -41,6 +50,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "finance",
+        affectsIncome: false,
         causes: [],
     },
     "economy": {
@@ -52,6 +62,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "finance",
+        affectsIncome: false,
         causes: [
             {
                 cause: "wage_income", yIntercept: -0.1, factor: 0.25, inertia: 0,
@@ -76,6 +87,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "health",
+        affectsIncome: false,
         causes: [],
     },
     "health_workers": {
@@ -87,6 +99,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "health",
+        affectsIncome: false,
         causes: [
             {
                 cause: "infectious_disease", yIntercept: -0.05, factor: -0.2, inertia: 0,
@@ -103,6 +116,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "health",
+        affectsIncome: false,
         causes: [],
     },
     "healthcare_system": {
@@ -114,6 +128,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "health",
+        affectsIncome: false,
         causes: [
             {
                 cause: "health_worker_shortage", yIntercept: 0.1, factor: -0.3, inertia: 0,
@@ -130,6 +145,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "education",
+        affectsIncome: false,
         causes: [
             {
                 cause: "teacher_shortage", yIntercept: -0.1, factor: 0.2, inertia: 0,
@@ -146,6 +162,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "education",
+        affectsIncome: false,
         causes: [],
     },
     "research": {
@@ -157,6 +174,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "education",
+        affectsIncome: false,
         causes: [
             {
                 cause: "low_education", yIntercept: -0.05, factor: 0.3, inertia: 0,
@@ -173,6 +191,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "social",
+        affectsIncome: false,
         causes: [],
     },
     "empowerment": {
@@ -184,6 +203,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "social",
+        affectsIncome: false,
         causes: [],
     },
     "population_control": {
@@ -195,6 +215,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "social",
+        affectsIncome: false,
         causes: [
             {
                 cause: "infectious_disease", yIntercept: 0.05, factor: -0.25, inertia: 0,
@@ -215,6 +236,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "labor",
+        affectsIncome: false,
         causes: [],
     },
     "work_environment": {
@@ -226,6 +248,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "labor",
+        affectsIncome: false,
         causes: [
             {
                 cause: "discrimination", yIntercept: 0.05, factor: -0.2, inertia: 0,
@@ -242,6 +265,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "labor",
+        affectsIncome: false,
         causes: [
             {
                 cause: "dropout_crisis", yIntercept: 0.1, factor: -0.25, inertia: 0,
@@ -266,6 +290,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "labor",
+        affectsIncome: false,
         causes: [
             {
                 cause: "healthcare_collapse", yIntercept: 0.05, factor: -0.1, inertia: 0,
@@ -286,6 +311,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "stability",
+        affectsIncome: false,
         causes: [],
     },
     "governance": {
@@ -297,6 +323,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "stability",
+        affectsIncome: false,
         causes: [],
     },
     "media_neutrality": {
@@ -308,6 +335,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "stability",
+        affectsIncome: false,
         causes: [
             {
                 cause: "discrimination", yIntercept: 0.1, factor: -0.25, inertia: 0,
@@ -324,6 +352,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "stability",
+        affectsIncome: false,
         causes: [
             {
                 cause: "cyber_attack", yIntercept: 0.05, factor: -0.1, inertia: 0,
@@ -364,6 +393,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "infrastructure",
+        affectsIncome: false,
         causes: [
             {
                 cause: "power_energy", yIntercept: -0.1, factor: 0.2, inertia: 0,
@@ -380,6 +410,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "infrastructure",
+        affectsIncome: false,
         causes: [
             {
                 cause: "technology_lag", yIntercept: 0.05, factor: -0.2, inertia: 0,
@@ -400,6 +431,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "infrastructure",
+        affectsIncome: false,
         causes: [
             {
                 cause: "technology_lag", yIntercept: 0.05, factor: -0.15, inertia: 0,
@@ -420,6 +452,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "infrastructure",
+        affectsIncome: false,
         causes: [
             {
                 cause: "overpopulation", yIntercept: 0.05, factor: -0.2, inertia: 0,
@@ -440,6 +473,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "environment",
+        affectsIncome: false,
         causes: [],
     },
     "forest": {
@@ -451,6 +485,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "environment",
+        affectsIncome: false,
         causes: [],
     },
     "biodiversity": {
@@ -462,6 +497,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "environment",
+        affectsIncome: false,
         causes: [
             {
                 cause: "pollution", yIntercept: 0.1, factor: -0.2, inertia: 0,
@@ -486,6 +522,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "environment",
+        affectsIncome: false,
         causes: [
             {
                 cause: "overfishing", yIntercept: 0.1, factor: -0.3, inertia: 0,
@@ -502,6 +539,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "industry",
+        affectsIncome: false,
         causes: [
             {
                 cause: "inflation", yIntercept: 0.1, factor: -0.2, inertia: 0,
@@ -547,6 +585,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "industry",
+        affectsIncome: true,
         causes: [
             {
                 cause: "low_investment", yIntercept: 0.1, factor: -0.2, inertia: 0,
@@ -564,6 +603,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "industry",
+        affectsIncome: true,
         causes: [
             {
                 cause: "low_investment", yIntercept: 0.1, factor: -0.2, inertia: 0,
@@ -581,6 +621,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "industry",
+        affectsIncome: true,
         causes: [
             {
                 cause: "water_land", yIntercept: -0.1, factor: -0.2, inertia: 0,
@@ -602,6 +643,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "industry",
+        affectsIncome: true,
         causes: [
             {
                 cause: "water_land", yIntercept: -0.15, factor: 0.25, inertia: 0,
@@ -627,6 +669,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "industry",
+        affectsIncome: true,
         causes: [
             {
                 cause: "security", yIntercept: -0.1, factor: -0.25, inertia: 0,
@@ -663,6 +706,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "industry",
+        affectsIncome: false,
         causes: [
             {
                 cause: "research", yIntercept: 0.05, factor: 0.35, inertia: 0,
@@ -679,6 +723,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "defense",
+        affectsIncome: false,
         causes: [
             {
                 cause: "political_instability", yIntercept: 0.1, factor: -0.2, inertia: 0,
@@ -695,6 +740,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "defense",
+        affectsIncome: false,
         causes: [],
     },
     "defense_infrastructure": {
@@ -706,6 +752,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "defense",
+        affectsIncome: false,
         causes: [
             {
                 cause: "technology_lag", yIntercept: 0.1, factor: -0.3, inertia: 0,
@@ -722,6 +769,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "nature",
+        affectsIncome: false,
         causes: [
             {
                 cause: "mineral_oil_industry", yIntercept: 0.05, factor: -0.2, inertia: 0,
@@ -742,6 +790,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "nature",
+        affectsIncome: false,
         causes: [
             {
                 cause: "biodiversity", yIntercept: -0.1, factor: 0.2, inertia: 0,
@@ -762,6 +811,7 @@ export let status = {
         lastUpdateCause: 0,
         lastUpdatePolicy: 0,
         type: "nature",
+        affectsIncome: false,
         causes: [
             {
                 cause: "forest", yIntercept: -0.1, factor: 0.25, inertia: 0,
@@ -799,13 +849,19 @@ export function initializeStatus(levelVariables) {
  * @param {string} variable The variable.
  */
 export function updateStatus(variable) {
+    const statusData = status[variable];
+
     let totalUpdate = 0;
-    for (const cause of status[variable].causes) {
+    for (const cause of statusData.causes) {
         const update = cause.formula();
-        status[variable].causeValue += update;
+        statusData.causeValue += update;
         totalUpdate += update;
     }
-    status[variable].lastUpdateCause = totalUpdate;
+    statusData.lastUpdateCause = totalUpdate;
+
+    if (statusData.affectsIncome) {
+        updateIncomeFromIndustry(variable);
+    }
 }
 
 export function setupStatusPopUp(statusName, runtime) {

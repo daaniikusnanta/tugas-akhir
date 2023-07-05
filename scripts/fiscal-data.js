@@ -1,21 +1,22 @@
 import { policy } from "./policy-data.js";
 import { filledTiles, } from "./tile-data.js";
-import { getObjectbyId, getTextById } from "./utils.js";
+import { getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeight } from "./utils.js";
+import { status } from "./status-data.js";
 
-let spending = 0;
-let income = 0;
 let debt = 0;
 export let balance = 0;
 let dailySpending = 0;
 let dailyIncome = 0;
+export let dailyCollectibleIncome = 0;
 
 export let incomes = {};
-let collectibleIncomes = {};
+let dailyDebt = 0;
 let spendings = {};
 export let totalSpending = 0;
 
 export const fiscalMultiplier = {
   "collectibleIncomeMultiplier": 0.2,
+  "industryIncomeMultiplier": 2000,
 }
 
 const incomeBubbleTileIndexes = []
@@ -69,6 +70,14 @@ export function updateBalance() {
   balanceText.text = balance.toFixed(2);
 
   totalSpending += dailySpending;
+
+  if (dailyCollectibleIncome + dailyIncome < dailySpending) {
+    const currentDebt = dailyCollectibleIncome + dailyIncome - dailySpending;
+    debt += currentDebt;
+    dailyDebt = currentDebt;
+  }
+
+  dailyCollectibleIncome = 0;
 }
 
 export function addBalance(value) {
@@ -76,6 +85,8 @@ export function addBalance(value) {
 	
 	const balanceText = getTextById("balance");
   balanceText.text = balance.toFixed(2);
+
+  dailyCollectibleIncome += value;
 }
 
 export function updateDailySpending() {
@@ -127,18 +138,78 @@ export function updateSpendingFromPolicy(policyName) {
   }
 }
 
-export function updateIncomeFromStatus(status) {
-  const incomeValue =
-    status.minRevenue +
-    ((status.maxRevenue - status.minRevenue) * status.value) / 100;
-  let incomeFromStatus = {
-    name: status.name,
-    value: incomeValue,
-  };
-  incomes[status.name] = incomeFromStatus;
-  updateIncome();
+export function updateIncomeFromIndustry(industryName) {
+  const industryData = status[industryName];
+
+  const incomeValue = industryData.value * fiscalMultiplier['industryIncomeMultiplier'];
+
+  if (incomeValue > 0) {
+    incomes[industryName] = incomeValue;
+    updateDailyIncome();
+  }
 }
 
 export function showFiscalPopUp(runtime) {
-  
+  const dailyIncomeText = getTextById("fiscal_pop_up_daily_income");
+  dailyIncomeText.text = "Daily Income: " + dailyIncome.toFixed(2);
+  const dailySpendingText = getTextById("fiscal_pop_up_daily_spending");
+  dailySpendingText.text = "Daily Spending: " + dailySpending.toFixed(2);
+  const balanceText = getTextById("fiscal_pop_up_balance");
+  balanceText.text = "Balance: " + balance.toFixed(2);
+  const debtText = getTextById("fiscal_pop_up_total_debt");
+  debtText.text = "Total Debt: " + debt.toFixed(2);
+
+  showIncomeList(runtime);
 }
+
+let incomeViews = [];
+
+function showIncomeList(runtime) {
+  destroyIncomeList();
+
+  const incomeScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "fiscal_incomes");
+  let newIncomes = Object.assign({}, incomes);
+  if (dailyDebt > 0) {
+    newIncomes = Object.assign({}, newIncomes, { "borrowing": dailyDebt });
+  }
+  const sortedIncomes = Object.keys(newIncomes).sort((a, b) => {
+    return newIncomes[b] - newIncomes[a];
+  });
+  const highestIncome = newIncomes[sortedIncomes[0]];
+
+  for (const income of sortedIncomes) {
+    const incomeValue = newIncomes[income];
+    const incomeName = policy[income]?.name ?? status[income]?.name ?? "Government Borrowing";
+
+    const instanceX = incomeScrollable.x + 30;
+    const instanceY = incomeScrollable.y + sortedIncomes.indexOf(income) * 96;
+
+    const incomeText = runtime.objects.UIText.createInstance("FiscalPopUpMG", instanceX, instanceY, true, "fiscal_view");
+    incomeText.text = incomeName;
+
+    const incomeProgressBG = incomeText.getChildAt(0);
+    const incomeProgress = incomeText.getChildAt(1);
+    incomeProgress.width = incomeValue / highestIncome * incomeProgressBG.width;
+
+    const incomeValueText = incomeText.getChildAt(2);
+    const incomePercent = (incomeValue / highestIncome * 100).toFixed(2)
+    incomeValueText.text = incomeValue.toFixed(2) + " (" + incomePercent + "%)";
+
+
+    incomeViews.push(incomeText);
+    incomeScrollable.addChild(incomeText, { transformX: true, transformY: true });
+  }
+
+  resetScrollablePosition(incomeScrollable);
+  setScrollableHeight(runtime, incomeScrollable, sortedIncomes.length, 96, 0, "income_spending_fiscal_pop_up");
+}
+
+function destroyIncomeList() {
+  for (let i = 0; i < incomeViews.length; i++) {
+    incomeViews[i].destroy();
+  }
+
+  incomeViews = [];
+}
+
+function showSpendingList(runtime) {}
