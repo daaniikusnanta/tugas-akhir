@@ -138,3 +138,7 @@ export function updateIncomeFromStatus(status) {
   incomes[status.name] = incomeFromStatus;
   updateIncome();
 }
+
+export function showFiscalPopUp(runtime) {
+  
+}

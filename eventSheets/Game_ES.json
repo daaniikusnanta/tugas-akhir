@@ -1390,6 +1390,53 @@
 								}
 							],
 							"sid": 304519710343957
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 222673508393963,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"fiscal_pop_up_close\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 579622131400555,
+									"parameters": {
+										"layer": "\"UI\"",
+										"interactive": true
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 660631103355540,
+									"parameters": {
+										"layer": "\"Background\"",
+										"interactive": true
+									}
+								},
+								{
+									"callFunction": "resumeGame",
+									"sid": 417816424442732
+								},
+								{
+									"callFunction": "showFiscalPopUp",
+									"sid": 784714530911470,
+									"parameters": [
+										false
+									]
+								}
+							],
+							"sid": 660920370769553
 						}
 					]
 				},
@@ -1589,6 +1636,53 @@
 								}
 							],
 							"sid": 309379442599604
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ClickablePanel",
+									"sid": 537993309463283,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"fiscal\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 511435879808303,
+									"parameters": {
+										"layer": "\"UI\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 929309689817420,
+									"parameters": {
+										"layer": "\"Background\"",
+										"interactive": false
+									}
+								},
+								{
+									"callFunction": "pauseGame",
+									"sid": 252428618016662
+								},
+								{
+									"callFunction": "showFiscalPopUp",
+									"sid": 664687043544134,
+									"parameters": [
+										true
+									]
+								}
+							],
+							"sid": 804627258835099
 						}
 					]
 				},
@@ -2294,6 +2388,106 @@
 								}
 							],
 							"sid": 964080059212312
+						}
+					]
+				},
+				{
+					"functionName": "showFiscalPopUp",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "show",
+							"type": "boolean",
+							"initialValue": "true",
+							"comment": "",
+							"sid": 287262756514396
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 147456789157054,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 787669852746139,
+									"parameters": {
+										"variable": "show"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "console.log(\"popup true\");"
+								},
+								{
+									"type": "script",
+									"script": "console.log(\"crisis pop up \", localVars.crisisName);\nsetupCrisisPopUp(localVars.crisisName, runtime)"
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 530349026953683,
+									"parameters": {
+										"layer": "\"FiscalPopUp\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 138032936870714,
+									"parameters": {
+										"layer": "\"FiscalPopUp\"",
+										"interactive": true
+									}
+								}
+							],
+							"sid": 778351720475665
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 244220830756638
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "console.log(\"popup false\");"
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 786556602932549,
+									"parameters": {
+										"layer": "\"FiscalPopUp\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 545774493643812,
+									"parameters": {
+										"layer": "\"FiscalPopUp\"",
+										"interactive": false
+									}
+								}
+							],
+							"sid": 792384865600229
 						}
 					]
 				},

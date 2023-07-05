@@ -2859,7 +2859,7 @@ function createExtremeCrisisViews(runtime) {
 
   for (const variable in crisis) {
     const crisisText = runtime.objects.UIText.createInstance(
-      "PanelExtremeCrisis",
+      "PanelExtremeCrisisBG",
       crisisExtremeScrollable.x + 35,
       0,
       true,
