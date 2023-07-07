@@ -137,6 +137,10 @@ export function updateDailyIncome() {
 export function updateIncomeFromPolicy(policyName) {
   const policyData = policy[policyName];
 
+  if (!policyData.isImplemented) {
+    return;
+  }
+
   const incomeValue =
     policyData.minRevenue +
     ((policyData.maxRevenue - policyData.minRevenue) * policyData.finalValue) / 100;
@@ -147,22 +151,31 @@ export function updateIncomeFromPolicy(policyName) {
   }
 }
 
+export function removeIncomeFromPolicy(policyName) {
+  delete incomes[policyName];
+  updateDailyIncome();
+}
+
 export function updateSpendingFromPolicy(policyName) {
   const policyData = policy[policyName];
+
+  if (!policyData.isImplemented) {
+    return;
+  }
 
   const spendingValue =
     policyData.minCost +
     ((policyData.maxCost - policyData.minCost) * policyData.finalValue) / 100;
 
-  // let spendingFromPolicy = {
-  //   name: policy.name,
-  //   value: spendingValue,
-  // };
-
   if (spendingValue > 0) {
     spendings[policyName] = spendingValue;
     updateDailySpending();
   }
+}
+
+export function removeSpendingFromPolicy(policyName) {
+  delete spendings[policyName];
+  updateDailySpending();
 }
 
 export function updateIncomeFromIndustry(industryName) {

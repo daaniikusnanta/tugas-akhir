@@ -1,4 +1,4 @@
-import { updateIncomeFromPolicy, updateSpendingFromPolicy } from "./fiscal-data.js";
+import { removeIncomeFromPolicy, removeSpendingFromPolicy, updateIncomeFromPolicy, updateSpendingFromPolicy } from "./fiscal-data.js";
 import { status } from "./status-data.js";
 import { crisis } from "./crisis-data.js";
 import { addTextToCache, clamp, getObjectbyId, getTextById, resetScrollablePosition, setDeltaSliderZOrder, setScrollableHeight, setSliderValue } from "./utils.js";
@@ -42,7 +42,7 @@ export const policyMultiplier = {
  */
 export let policy = {
     "income_tax": {
-        name: "Income Tax", isImplemented: false,
+        name: "Income Tax", isImplemented: true,
         description: "A cut on personal income.",
         type: "finance", value: 10, finalValue: 10, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
@@ -1073,6 +1073,10 @@ export function updatePolicyEffects(policyName) {
     if (!policyData) {
         throw new Error("Policy does not exist: " + policyName);
     }
+
+    if (!policyData.isImplemented) {
+        return;
+    }
     
     for (const effect in policyData.effects) {
         const policyEffectData = policyData.effects[effect];
@@ -1145,6 +1149,38 @@ export function setupPolicyPopUp(policyName, runtime) {
     const revenueText = getTextById("policy_pop_up_revenue_slider");
     const revenue = policyData.minRevenue + (policyData.value / 100 * (policyData.maxRevenue - policyData.minRevenue));
     setSliderValue(slider, revenueText, policyData.value, revenue.toString());
+
+    const stateText = getTextById("policy_pop_up_state");
+    stateText.text = policyData.isImplemented ? "Active" : "Inactive";
+
+    const activateButton = getObjectbyId(runtime.objects.Button, "policy_pop_up_activate");
+    activateButton.animationFrame = policyData.isImplemented ? 3 : 2;
+
+    const applyButton = getObjectbyId(runtime.objects.Button, "policy_pop_up_apply");
+    applyButton.instVars['isDisabled'] = !policyData.isImplemented;
+}
+
+export function togglePolicyActive(policyName, runtime) {
+    const policyData = policy[policyName];
+    policyData.isImplemented = !policyData.isImplemented;
+
+    const stateText = getTextById("policy_pop_up_state");
+    stateText.text = policyData.isImplemented ? "Active" : "Inactive";
+
+    const activateButton = getObjectbyId(runtime.objects.Button, "policy_pop_up_activate");
+    activateButton.animationFrame = policyData.isImplemented ? 3 : 2;
+
+    const applyButton = getObjectbyId(runtime.objects.Button, "policy_pop_up_apply");
+    applyButton.instVars['isDisabled'] = !policyData.isImplemented;
+    console.log("toggle ", policyData.value == policyData.finalValue || !policyData.isImplemented, policyData.isImplemented);
+
+    if (policyData.isImplemented) {
+        updateIncomeFromPolicy(policyName);
+        updateSpendingFromPolicy(policyName);
+    } else {
+        removeIncomeFromPolicy(policyName);
+        removeSpendingFromPolicy(policyName);
+    }
 }
 
 export function createPolicyEffectViews(runtime) {

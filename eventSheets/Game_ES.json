@@ -1285,6 +1285,28 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Button",
+									"sid": 473736481221535,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"policy_pop_up_activate\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "togglePolicyActive(runtime.globalVars.policyToSet, runtime);"
+								}
+							],
+							"sid": 989542470949533
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
 									"sid": 799799022137702,
 									"parameters": {
 										"instance-variable": "id",

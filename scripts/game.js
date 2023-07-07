@@ -26,6 +26,7 @@ import {
   setupPolicyPopUp,
   updatePolicy,
   setupPolicyMultiplier,
+  togglePolicyActive,
 } from "./policy-data.js";
 import {
   updateBalance,
@@ -444,6 +445,12 @@ function showPolicyPanel(policyType, runtime) {
 
       const policyClickable = policyView.getChildAt(3);
       policyClickable.instVars["isDisabled"] = false;
+
+      const policyStateText = policyView.getChildAt(4);
+      policyStateText.text = policyData.isImplemented ? "Active" : "Inactive";
+
+      const policySliderBG = policyView.getChildAt(0);
+      policySliderBG.effects[0].isActive = !policyData.isImplemented;
     }
 
     const policiesScrollable = getObjectbyId(

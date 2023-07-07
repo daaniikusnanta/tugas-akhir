@@ -13,7 +13,16 @@
 		}
 	],
 	"behaviorTypes": [],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "grayscale",
+			"name": "Grayscale"
+		},
+		{
+			"effectId": "contrast",
+			"name": "Contrast"
+		}
+	],
 	"animations": {
 		"items": [
 			{
