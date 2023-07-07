@@ -29,7 +29,7 @@
 			"eventType": "variable",
 			"name": "tickRate",
 			"type": "number",
-			"initialValue": "24",
+			"initialValue": "1",
 			"comment": "The tick",
 			"isStatic": false,
 			"isConstant": false,
@@ -4382,7 +4382,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const slider = runtime.objects.Slider.getPickedInstances()[0];\nconst policyName = runtime.globalVars.policyToSet;\nconsole.log(policyName);\nconst policyData = policy[policyName];\n\nconst costText = getTextById(\"policy_pop_up_cost_slider\");\nconst cost = policyData.minCost + (slider.instVars['value'] / 100 * (policyData.maxCost - policyData.minCost));\nsetSliderValue(slider, costText, slider.instVars['value'], cost.toFixed(2).toString());\n\nconst revenueText = getTextById(\"policy_pop_up_revenue_slider\");\nconst revenue = policyData.minRevenue + (slider.instVars['value'] / 100 * (policyData.maxRevenue - policyData.minRevenue));\nsetSliderValue(slider, revenueText, slider.instVars['value'], revenue.toFixed(2).toString());\n\nupdatePolicyEffectViews(policyName, slider.instVars['value']);"
+									"script": "const slider = runtime.objects.Slider.getPickedInstances()[0];\nconst policyName = runtime.globalVars.policyToSet;\n\nupdatePolicyFiscalView(policyName, slider);\nupdatePolicyEffectViews(policyName, slider.instVars['value']);"
 								}
 							],
 							"sid": 215795582291721

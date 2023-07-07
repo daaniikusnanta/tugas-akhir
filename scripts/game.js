@@ -16,6 +16,8 @@ import {
   setScrollableHeight,
   toTitleCase,
   resetScrollablePosition,
+  toDeltaFormat,
+  toPercentageFormat,
 } from "./utils.js";
 import { expandCrisisTiles, initializeTileBiome } from "./tile-data.js";
 import {
@@ -28,6 +30,7 @@ import {
   updatePolicy,
   setupPolicyMultiplier,
   togglePolicyActive,
+  updatePolicyFiscalView,
 } from "./policy-data.js";
 import {
   updateBalance,
@@ -258,15 +261,12 @@ export function updateStatusView(runtime) {
   for (const statusSlider of statusSliders) {
     const id = statusSlider.instVars["id"].replace("_status_slider", "");
     const value = status[id].value;
+    console.log("/updateStatusViewid", status[id].name, value);
 
     const statusText = getTextById(id + "_status_text");
     const totalLastUpdate =
       status[id].lastUpdateCause + status[id].lastUpdatePolicy;
-    const update =
-      totalLastUpdate >= 0
-        ? "+" + totalLastUpdate.toFixed(2)
-        : totalLastUpdate.toFixed(2);
-    const text = value.toFixed(2).toString() + " (" + update + ")";
+    const text = toPercentageFormat(value) + " (" + toDeltaFormat(totalLastUpdate) + ")";
     setSliderValue(statusSlider, statusText, value, text);
   }
 }
@@ -282,12 +282,19 @@ export function updateCrisisView(runtime) {
 
     const crisisValue = crisisView.getChildAt(1);
     const crisisSlider = crisisView.getChildAt(2);
+    const totalLastUpdate =
+      crisisData.lastUpdateCause + crisisData.lastUpdatePolicy;
+    const text = toPercentageFormat(crisisData.value) + " (" + toDeltaFormat(totalLastUpdate) + ")";
     setSliderValue(
       crisisSlider,
       crisisValue,
       crisisData.value,
-      crisisData.value.toFixed(2)
+      text
     );
+
+    const crisisExtremeValue = getTextById(crisisName + "_crisis_extreme").getChildAt(1);
+    crisisExtremeValue.text = toPercentageFormat(crisisData.value);
+    
 
     if (
       crisisFsms[crisisName].value === crisisData.states[2] ||
@@ -421,7 +428,7 @@ function showPolicyPanel(policyType, runtime) {
       const policySlider = policyView.getChildAt(1);
       const policyValueText = policyView.getChildAt(2);
       console.log("slider ", policySlider);
-      setSliderValue(policySlider, policyValueText, policyData.value, policyData.value.toFixed(2).toString() + "%");
+      setSliderValue(policySlider, policyValueText, policyData.value, toPercentageFormat(policyData.value));
 
       const policyClickable = policyView.getChildAt(3);
       policyClickable.instVars["isDisabled"] = false;
@@ -591,7 +598,7 @@ function showStatusPanel(statusType, runtime) {
       );
       clickablePanel.instVars["isDisabled"] = false;
 
-      // setSliderValue(sliderBar, statusValueText, status[statusName].value, status[statusName].value.toString());
+      // setSliderValue(sliderBar, statusValueText, status[statusName].value, to(status[statusName].value).toString());
     }
 
     statusPanel.height =

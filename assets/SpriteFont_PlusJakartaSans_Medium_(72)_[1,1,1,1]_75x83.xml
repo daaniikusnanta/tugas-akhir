@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PersistableFontDetails xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Letterset>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#"'&amp;()[]|`\/@°+=*$£€&lt;&gt;%^ƒ</Letterset>
+  <Letterset>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#"'&amp;()[]|`\/@°+=*$£€&lt;&gt;%^⨍ƒ</Letterset>
   <AdjustHeight>1</AdjustHeight>
   <AdjustWidth>1</AdjustWidth>
-  <SampleText>ƒ^The quick brown fox jumped over the lazy dog.</SampleText>
+  <SampleText>⨍ƒ^The quick brown fox jumped over the lazy dog.</SampleText>
   <ShiftHorz>1</ShiftHorz>
   <ShiftVert>1</ShiftVert>
   <ShowGrid>true</ShowGrid>
@@ -21,7 +21,7 @@
   <ShadowOffsetX>4</ShadowOffsetX>
   <ShadowOffsetY>4</ShadowOffsetY>
   <FontStyleDisplayName>Medium</FontStyleDisplayName>
-  <Height>82</Height>
+  <Height>83</Height>
   <Width>75</Width>
   <FontFamilyName>Plus Jakarta Sans</FontFamilyName>
   <FontStyleName>Normal</FontStyleName>

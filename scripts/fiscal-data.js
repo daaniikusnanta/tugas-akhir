@@ -1,6 +1,6 @@
 import { policy } from "./policy-data.js";
 import { filledTiles, } from "./tile-data.js";
-import { getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeight } from "./utils.js";
+import { getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeight, toCurrencyFormat } from "./utils.js";
 import { status } from "./status-data.js";
 import { updateStatusView } from "./game.js";
 
@@ -81,7 +81,7 @@ export function updateBalance() {
   balance += dailyIncome - dailySpending;
 
   const balanceText = getTextById("balance");
-  balanceText.text = balance.toFixed(2);
+  balanceText.text = toCurrencyFormat(balance);
 
   totalSpending += dailySpending;
 }
@@ -120,7 +120,7 @@ export function addBalance(value) {
 	balance += value;
 	
 	const balanceText = getTextById("balance");
-  balanceText.text = balance.toFixed(2);
+  balanceText.text = toCurrencyFormat(balance);
 
   dailyCollectibleIncome += value;
 }
@@ -131,7 +131,7 @@ export function updateDailySpending() {
     dailySpending += spendings[spendingName];
   }
   const spendingText = getTextById("daily_spending");
-  spendingText.text = dailySpending.toFixed(2);
+  spendingText.text = toCurrencyFormat(dailySpending);
 }
 
 export function updateDailyIncome() {
@@ -140,7 +140,7 @@ export function updateDailyIncome() {
     dailyIncome += incomes[incomeName] * (1 - fiscalMultiplier['collectibleIncomeMultiplier']);
   }
   const incomeText = getTextById("daily_income");
-  incomeText.text = dailyIncome.toFixed(2);
+  incomeText.text = toCurrencyFormat(dailyIncome);
 }
 
 export function updateIncomeFromPolicy(policyName) {
@@ -200,13 +200,13 @@ export function updateIncomeFromIndustry(industryName) {
 
 export function showFiscalPopUp(runtime) {
   const dailyIncomeText = getTextById("fiscal_pop_up_daily_income");
-  dailyIncomeText.text = "Daily Income: " + dailyIncome.toFixed(2);
+  dailyIncomeText.text = "Daily Income: " + toCurrencyFormat(dailyIncome);
   const dailySpendingText = getTextById("fiscal_pop_up_daily_spending");
-  dailySpendingText.text = "Daily Spending: " + dailySpending.toFixed(2);
+  dailySpendingText.text = "Daily Spending: " + toCurrencyFormat(dailySpending);
   const balanceText = getTextById("fiscal_pop_up_balance");
-  balanceText.text = "Balance: " + balance.toFixed(2);
+  balanceText.text = "Balance: " + toCurrencyFormat(balance);
   const debtText = getTextById("fiscal_pop_up_total_debt");
-  debtText.text = "Total Debt: " + debt.toFixed(2);
+  debtText.text = "Total Debt: " + toCurrencyFormat(debt);
 
   showIncomeList(runtime);
   showSpendingList(runtime);
@@ -243,7 +243,7 @@ function showIncomeList(runtime) {
 
     const incomeValueText = incomeText.getChildAt(2);
     const incomePercent = (incomeValue / dailyIncome * 100).toFixed(2)
-    incomeValueText.text = incomeValue.toFixed(2) + " (" + incomePercent + "%)";
+    incomeValueText.text = toCurrencyFormat(incomeValue) + " (" + incomePercent + "%)";
 
 
     incomeViews.push(incomeText);
@@ -289,7 +289,7 @@ function showSpendingList(runtime) {
 
     const spendingValueText = spendingText.getChildAt(2);
     const spendingPercent = (spendingValue / dailySpending * 100).toFixed(2)
-    spendingValueText.text = spendingValue.toFixed(2) + " (" + spendingPercent + "%)";
+    spendingValueText.text = toCurrencyFormat(spendingValue) + " (" + spendingPercent + "%)";
 
     spendingViews.push(spendingText);
     spendingScrollable.addChild(spendingText, { transformX: true, transformY: true });

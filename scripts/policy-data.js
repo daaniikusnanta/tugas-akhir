@@ -1,7 +1,7 @@
 import { removeIncomeFromPolicy, removeSpendingFromPolicy, updateIncomeFromPolicy, updateSpendingFromPolicy } from "./fiscal-data.js";
 import { status } from "./status-data.js";
 import { crisis } from "./crisis-data.js";
-import { addTextToCache, clamp, getObjectbyId, getTextById, resetScrollablePosition, setDeltaSliderZOrder, setScrollableHeight, setSliderValue } from "./utils.js";
+import { addTextToCache, clamp, getObjectbyId, getTextById, resetScrollablePosition, setDeltaSliderZOrder, setScrollableHeight, setSliderValue, toCurrencyFormat, toDeltaFormat } from "./utils.js";
 
 export const policyMultiplier = {
     "cost": 0.5,
@@ -1450,11 +1450,11 @@ export function setupPolicyPopUp(policyName, runtime) {
 
     const costText = getTextById("policy_pop_up_cost_slider");
     const cost = policyData.minCost + (policyData.value / 100 * (policyData.maxCost - policyData.minCost));
-    setSliderValue(slider, costText, policyData.value, cost.toString());
+    setSliderValue(slider, costText, policyData.value, toCurrencyFormat(cost));
 
     const revenueText = getTextById("policy_pop_up_revenue_slider");
     const revenue = policyData.minRevenue + (policyData.value / 100 * (policyData.maxRevenue - policyData.minRevenue));
-    setSliderValue(slider, revenueText, policyData.value, revenue.toString());
+    setSliderValue(slider, revenueText, policyData.value, toCurrencyFormat(revenue));
 
     const stateText = getTextById("policy_pop_up_state");
     stateText.text = policyData.isImplemented ? "Active" : "Inactive";
@@ -1511,7 +1511,7 @@ export function createPolicyEffectViews(runtime) {
             addTextToCache(effectName);
         
             const effectValue = effectName.getChildAt(0);
-            effectValue.text = effectData.value.toFixed(2).toString();
+            effectValue.text = toDeltaFormat(effectData.value);
         
             const effectSliderPositive = effectName.getChildAt(2);
             const effectSliderNegative = effectName.getChildAt(3);
@@ -1540,7 +1540,7 @@ export function showPolicyEffectViews(policyName, runtime) {
         effectName.isVisible = true;
 
         const effectValue = effectName.getChildAt(0);
-        effectValue.text = effectData.value.toString();
+        effectValue.text = toDeltaFormat(effectData.value);
 
         const effectSliderPositive = effectName.getChildAt(2);
         const effectSliderNegative = effectName.getChildAt(3);
@@ -1565,6 +1565,18 @@ export function showPolicyEffectViews(policyName, runtime) {
     setScrollableHeight(runtime, scrollableEffects, Object.keys(policyData.effects).length, 100, 0);
 }
 
+export function updatePolicyFiscalView(policyName, slider) {
+    const policyData = policy[policyName];
+
+    const costText = getTextById("policy_pop_up_cost_slider");
+    const cost = policyData.minCost + (slider.instVars['value'] / 100 * (policyData.maxCost - policyData.minCost));
+    setSliderValue(slider, costText, slider.instVars['value'], toCurrencyFormat(cost));
+
+    const revenueText = getTextById("policy_pop_up_revenue_slider");
+    const revenue = policyData.minRevenue + (slider.instVars['value'] / 100 * (policyData.maxRevenue - policyData.minRevenue));
+    setSliderValue(slider, revenueText, slider.instVars['value'], toCurrencyFormat(revenue));
+}
+
 export function updatePolicyEffectViews(policyName, newPolicyValue) {
     const policyData = policy[policyName];
 
@@ -1576,7 +1588,7 @@ export function updatePolicyEffectViews(policyName, newPolicyValue) {
         const newValue = effectData.formula(newPolicyValue);
 
         const effectValue = effectName.getChildAt(0);
-        effectValue.text = newValue.toFixed(2).toString();
+        effectValue.text = toDeltaFormat(newValue);
 
         const effectSliderPositive = effectName.getChildAt(2);
         const effectSliderNegative = effectName.getChildAt(3);

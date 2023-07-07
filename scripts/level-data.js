@@ -1,7 +1,7 @@
 import { initializeCrisis, isCrisisMaximized, isExtremeCrisisEmpty, crisis, startingCrisis, experiencedCrisis } from "./crisis-data.js";
 import { initializeStatus, status } from "./status-data.js";
 import { updateCrisisView, updateStatusView, setupCrisisViews } from "./game.js";
-import { addTextToCache, getClickablePanelById, getObjectbyId, getTextById, setScrollableHeight, toTitleCase } from "./utils.js";
+import { addTextToCache, getClickablePanelById, getObjectbyId, getTextById, setScrollableHeight, toCurrencyFormat, toTitleCase } from "./utils.js";
 import { policyMultiplier } from "./policy-data.js";
 import { balance, fiscalMultiplier, totalSpending } from "./fiscal-data.js";
 
@@ -496,9 +496,9 @@ export function checkGameOverCondition(runtime) {
         const timeText = getTextById("game_over_time");
         timeText.text = runtime.globalVars['day'] + " Days";
         const totalSpendingText = getTextById("game_over_total_spending");
-        totalSpendingText.text = "$" + totalSpending;
+        totalSpendingText.text = toCurrencyFormat(totalSpending);
         const cashBalanceText = getTextById("game_over_cash_balance");
-        cashBalanceText.text = "$" + balance;
+        cashBalanceText.text = toCurrencyFormat(balance);
 
         const sizeText = getTextById("game_over_size");
         sizeText.text = levelData.size;

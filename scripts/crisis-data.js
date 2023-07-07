@@ -6,6 +6,8 @@ import {
   getTextById,
   resetScrollablePosition,
   setScrollableHeight,
+  toDeltaFormat,
+  toPercentageFormat,
   toTitleCase,
 } from "./utils.js";
 import { policy } from "./policy-data.js";
@@ -2786,7 +2788,6 @@ function createCrisisMachine(runtime, crisisName) {
       initial = state;
     }
     const index = crisisData.states.indexOf(state);
-
     const transitions = [];
 
     // Add transition to previous state.
@@ -2816,15 +2817,6 @@ function createCrisisMachine(runtime, crisisName) {
         },
       });
     }
-
-    // state.transitions.forEach((transition) => {
-    //   transitions.push({
-    //     target: transition.target,
-    //     condition: {
-    //       evaluate: transition.evaluation,
-    //     },
-    //   });
-    // });
 
     const stateCondition = {
       actions: {
@@ -2945,6 +2937,7 @@ function updateExtremeCrisis(runtime, variable, state, crisisWarningText) {
   crisisWarningText.isVisible = true;
 
   crisisWarningText.getChildAt(0).text = toTitleCase(state);
+  crisisWarningText.getChildAt(1).text = toPercentageFormat(crisis[variable].value);
   
   experiencedCrisis.add(variable);
 }
@@ -3066,11 +3059,8 @@ export function setupCrisisCauses(runtime, crisisName) {
     causeName.instVars["id"] = causeObj.cause + "_cause";
 
     const causeValue = causeName.getChildAt(0);
-    const value =
-      causeObj.formula() >= 0
-        ? "+" + causeObj.formula().toFixed(2)
-        : causeObj.formula().toFixed(2);
-    causeValue.text = value + " per day";
+    const value = causeObj.formula();
+    causeValue.text = toDeltaFormat(value) + " per day";
 
     causeScrollable.addChild(causeName, { transformX: true, transformY: true });
   }
@@ -3100,11 +3090,8 @@ export function setupCrisisCauses(runtime, crisisName) {
         causeName.instVars["id"] = policyData.name + "_cause";
 
         const causeValue = causeName.getChildAt(0);
-        const value =
-          effectData.formula(policyData.value) >= 0
-            ? "+" + effectData.formula(policyData.value).toFixed(2)
-            : effectData.formula(policyData.value).toFixed(2);
-        causeValue.text = value;
+        const value = effectData.formula(policyData.value)
+        causeValue.text = toDeltaFormat(value);
 
         causeScrollable.addChild(causeName, {
           transformX: true,
@@ -3163,11 +3150,8 @@ export function setupCrisisEffects(runtime, crisisName) {
         effectName.instVars["id"] = otherStatusData.name + "_effect";
 
         const effectValue = effectName.getChildAt(0);
-        const value =
-          causeObj.formula() >= 0
-            ? "+" + causeObj.formula().toFixed(2)
-            : causeObj.formula().toFixed(2);
-        effectValue.text = value + " per day";
+        const value = causeObj.formula();
+        effectValue.text = toDeltaFormat(value) + " per day";
 
         effectScrollable.addChild(effectName, {
           transformX: true,
@@ -3197,11 +3181,8 @@ export function setupCrisisEffects(runtime, crisisName) {
         effectName.instVars["id"] = otherCrisisData.name + "_effect";
 
         const effectValue = effectName.getChildAt(0);
-        const value =
-          causeObj.formula() >= 0
-            ? "+" + causeObj.formula().toFixed(2)
-            : causeObj.formula().toFixed(2);
-        effectValue.text = value + " per day";
+        const value = causeObj.formula();
+        effectValue.text = toDeltaFormat(value) + " per day";
 
         effectScrollable.addChild(effectName, {
           transformX: true,

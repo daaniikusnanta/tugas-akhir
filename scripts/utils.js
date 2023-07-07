@@ -250,3 +250,21 @@ export function toTitleCase(str) {
     if (!str) return str;
     return str.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
+
+export function toCurrencyFormat(number) {
+	if (number < 0) {
+		return "-ƒ" + Math.abs(number).toLocaleString('id-ID', { useGrouping: true, minimumFractionDigits: 2, maximumFractionDigits: 2 });
+	}
+	return "ƒ" + number.toLocaleString('id-ID', { useGrouping: true, minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+export function toPercentageFormat(number) {
+	return number.toLocaleString('id-ID', { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 2 }) + "%";
+}
+
+export function toDeltaFormat(number) {
+	if (number < 0) {
+		return "-" + Math.abs(number).toLocaleString('id-ID', { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 2 });
+	}
+	return "+" + number.toLocaleString('id-ID', { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}

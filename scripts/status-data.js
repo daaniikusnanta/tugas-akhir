@@ -1,7 +1,7 @@
 import { crisis } from "./crisis-data.js";
 import { updateIncomeFromIndustry } from "./fiscal-data.js";
 import { policy } from "./policy-data.js";
-import { getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeight } from "./utils.js";
+import { getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeight, toDeltaFormat } from "./utils.js";
 
 /**
  * @typedef {{
@@ -855,6 +855,7 @@ export function updateStatus(variable) {
     for (const cause of statusData.causes) {
         const update = cause.formula();
         statusData.causeValue += update;
+        statusData.value += update;
         totalUpdate += update;
     }
     statusData.lastUpdateCause = totalUpdate;
@@ -903,8 +904,8 @@ export function setupStatusCauses(runtime, statusName) {
         causeName.instVars['id'] = causeObj.cause + "_cause";
 
         const causeValue = causeName.getChildAt(0);
-        const value = causeObj.formula() >= 0 ? "+" + causeObj.formula().toFixed(2) : causeObj.formula().toFixed(2);
-        causeValue.text = value + " per day";
+        const value = causeObj.formula();
+        causeValue.text = toDeltaFormat(value) + " per day";
 
         causeScrollable.addChild(causeName, { transformX: true, transformY: true });
     }
@@ -928,8 +929,8 @@ export function setupStatusCauses(runtime, statusName) {
                 causeName.instVars['id'] = policyData.name + "_cause";
 
                 const causeValue = causeName.getChildAt(0);
-                const value = effectData.formula(policyData.value) >= 0 ? "+" + effectData.formula(policyData.value).toFixed(2) : effectData.formula(policyData.value).toFixed(2);
-                causeValue.text = value;
+                const value = effectData.formula(policyData.value);
+                causeValue.text = toDeltaFormat(value);
 
                 causeScrollable.addChild(causeName, { transformX: true, transformY: true });
 
@@ -969,8 +970,8 @@ export function setupStatusEffects(runtime, statusName) {
                 effectName.instVars['id'] = otherStatusData.name + "_effect";
 
                 const effectValue = effectName.getChildAt(0);
-                const value = causeObj.formula() >= 0 ? "+" + causeObj.formula().toFixed(2) : causeObj.formula().toFixed(2);
-                effectValue.text = value + " per day";
+                const value = causeObj.formula();
+                effectValue.text = toDeltaFormat(value) + " per day";
 
                 effectScrollable.addChild(effectName, { transformX: true, transformY: true });
             }
@@ -991,8 +992,8 @@ export function setupStatusEffects(runtime, statusName) {
                 effectName.instVars['id'] = otherCrisisData.name + "_effect";
 
                 const effectValue = effectName.getChildAt(0);
-                const value = causeObj.formula() >= 0 ? "+" + causeObj.formula().toFixed(2) : causeObj.formula().toFixed(2);
-                effectValue.text = value + " per day";
+                const value = causeObj.formula();
+                effectValue.text = toDeltaFormat(value) + " per day";
 
                 effectScrollable.addChild(effectName, { transformX: true, transformY: true });
             }
