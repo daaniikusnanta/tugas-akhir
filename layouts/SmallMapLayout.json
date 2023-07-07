@@ -11360,172 +11360,7 @@
 					"global": false
 				}
 			],
-			"instances": [
-				{
-					"type": "UIText",
-					"properties": {
-						"text": "Daily Income: 1.230.000",
-						"enable-bbcode": true,
-						"character-width": 75,
-						"character-height": 82,
-						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
-						"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
-						"scale": 0.4,
-						"character-spacing": 0,
-						"line-height": 0,
-						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 438,
-					"instanceVariables": {
-						"id": "fiscal_pop_up_description"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 424,
-						"y": 273,
-						"width": 380,
-						"height": 36,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UIText",
-					"properties": {
-						"text": "Daily Spending: 1.230.000",
-						"enable-bbcode": true,
-						"character-width": 75,
-						"character-height": 82,
-						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
-						"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
-						"scale": 0.4,
-						"character-spacing": 0,
-						"line-height": 0,
-						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 440,
-					"instanceVariables": {
-						"id": "fiscal_pop_up_daily_spending"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 424,
-						"y": 314,
-						"width": 467,
-						"height": 36,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UIText",
-					"properties": {
-						"text": "Daily Income: 1.230.000",
-						"enable-bbcode": true,
-						"character-width": 75,
-						"character-height": 82,
-						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
-						"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
-						"scale": 0.4,
-						"character-spacing": 0,
-						"line-height": 0,
-						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 441,
-					"instanceVariables": {
-						"id": "fiscal_pop_up_description"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 424,
-						"y": 273,
-						"width": 380,
-						"height": 36,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UIText",
-					"properties": {
-						"text": "Daily Spending: 1.230.000",
-						"enable-bbcode": true,
-						"character-width": 75,
-						"character-height": 82,
-						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
-						"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
-						"scale": 0.4,
-						"character-spacing": 0,
-						"line-height": 0,
-						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 442,
-					"instanceVariables": {
-						"id": "fiscal_pop_up_daily_spending"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 424,
-						"y": 314,
-						"width": 467,
-						"height": 36,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				}
-			],
+			"instances": [],
 			"sid": 892507338689444,
 			"effectTypes": [],
 			"isInitiallyVisible": false,
@@ -15140,7 +14975,7 @@
 							"world": {
 								"x": 378,
 								"y": 450,
-								"width": 134,
+								"width": 223,
 								"height": 37,
 								"originX": 0,
 								"originY": 0,
@@ -15181,7 +15016,7 @@
 							"world": {
 								"x": 378,
 								"y": 570,
-								"width": 134,
+								"width": 268,
 								"height": 37,
 								"originX": 0,
 								"originY": 0,
@@ -15222,7 +15057,7 @@
 							"world": {
 								"x": 378,
 								"y": 690,
-								"width": 134,
+								"width": 268,
 								"height": 37,
 								"originX": 0,
 								"originY": 0,

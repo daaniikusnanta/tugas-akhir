@@ -349,8 +349,6 @@ export function setupGeographySize(size) {
     const sizeInformation = getTextById("geography_size_information");
     sizeInformation.text = toTitleCase(size);
     levelData.size = toTitleCase(size);
-
-    // console.log(policyMultiplier);
 }
 
 export function setupGeographyLandWater(landWaterValue) {
@@ -368,9 +366,6 @@ export function setupGeographyLandWater(landWaterValue) {
     else landWaterValueInformation.text = "More Land";
 
     levelData.landWater = landWaterValueInformation.text;
-
-    // console.log("Agriculture: " + levelVariables.status['agriculture']);
-    // console.log("Fisheries: " + levelVariables.status['fisheries']);
 }
 
 export function setupSituationGovernment(governmentType) {
@@ -404,8 +399,6 @@ export function setupSituationGovernment(governmentType) {
     const governmentInformation = getTextById("situation_government_information");
     governmentInformation.text = toTitleCase(governmentType.replace("_", " "));
     levelData.governmentType = toTitleCase(governmentType.replace("_", " "));
-
-    // console.log(governmentType);
 }
 
 export function setupSituationEconomy(economyType) {
@@ -457,8 +450,6 @@ export function setupSituationEconomy(economyType) {
     const economyInformation = getTextById("situation_economy_information");
     economyInformation.text = toTitleCase(economyType.replace("_", " "));
     levelData.economyType = toTitleCase(economyType.replace("_", " "));
-
-    // console.log(economyType);
 }
 
 /**
@@ -466,7 +457,6 @@ export function setupSituationEconomy(economyType) {
  * @param {IRuntime} runtime 
  */
 export function checkGameOverCondition(runtime) {
-    console.log("Checking game over condition");
     const winState = isExtremeCrisisEmpty();
     const loseState = isCrisisMaximized();
     const isGameOver = winState || loseState;
@@ -496,31 +486,45 @@ export function checkGameOverCondition(runtime) {
         const economyText = getTextById("game_over_economy");
         economyText.text = levelData.economyType;
 
-        const title = getTextById("game_over_title");
-        const subtitle = getTextById("game_over_subtitle");
-        const overlay = getObjectbyId(runtime.objects.PopUpOverlay, "game_over");
-        const retryButton = getObjectbyId(runtime.objects.Button, "retry");
-        const exitButton = getObjectbyId(runtime.objects.Button, "exit");
-
         if (winState) {
-            title.text = "You Win!";
-            subtitle.text = "You have successfully managed the crisis.";
-            overlay.colorRgb = [0, 255/255, 0];
-            retryButton.isVisible = false;
-            exitButton.x = 1920/2;
+            showWinScreen(runtime);
         }
 
         if (loseState) {
-            title.text = "You Lose!";
-            subtitle.text = "You have failed to manage the crisis.";
-            overlay.colorRgb = [255/255, 0, 0];
-            retryButton.isVisible = true;
-            exitButton.x = 1920/2 + 20 + exitButton.width/2;
+            showLoseScreen(runtime);
         }
 
         showInitialCrisis(runtime);
         showExperiencedCrisis(runtime);
     }
+}
+
+function showWinScreen(runtime) {
+    const title = getTextById("game_over_title");
+    const subtitle = getTextById("game_over_subtitle");
+    const overlay = getObjectbyId(runtime.objects.PopUpOverlay, "game_over");
+    const retryButton = getObjectbyId(runtime.objects.Button, "retry");
+    const exitButton = getObjectbyId(runtime.objects.Button, "exit");
+
+    title.text = "You Win!";
+    subtitle.text = "You have successfully managed the crisis.";
+    overlay.colorRgb = [0, 255/255, 0];
+    retryButton.isVisible = false;
+    exitButton.x = 1920/2;
+}
+
+function showLoseScreen(runtime) {
+    const title = getTextById("game_over_title");
+    const subtitle = getTextById("game_over_subtitle");
+    const overlay = getObjectbyId(runtime.objects.PopUpOverlay, "game_over");
+    const retryButton = getObjectbyId(runtime.objects.Button, "retry");
+    const exitButton = getObjectbyId(runtime.objects.Button, "exit");
+
+    title.text = "You Lose!";
+    subtitle.text = "You have failed to manage the crisis.";
+    overlay.colorRgb = [255/255, 0, 0];
+    retryButton.isVisible = true;
+    exitButton.x = 1920/2 + 20 + exitButton.width/2;
 }
 
 function showInitialCrisis(runtime) {

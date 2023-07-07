@@ -28,6 +28,7 @@ import {
 } from "./policy-data.js";
 import {
   updateBalance,
+  updateDebt,
   updateIncomeFromPolicy,
   updateSpendingFromPolicy,
   removeIncomeBubbleTileIndex,
@@ -37,6 +38,7 @@ import {
   addBalance,
   showFiscalPopUp,
   updateIncomeFromIndustry,
+  resetDailyCollectibleIncome,
 } from "./fiscal-data.js";
 import {
   setLevelVariables,
@@ -73,8 +75,11 @@ function updateAllPolicies() {
   }
 }
 
-function updateFiscalViews(runtime) {
-  updateBalance(runtime);
+function updateFiscal(runtime) {
+  updateBalance();
+  updateDebt();
+  
+  resetDailyCollectibleIncome();
 }
 
 function initializeFiscalData(runtime) {

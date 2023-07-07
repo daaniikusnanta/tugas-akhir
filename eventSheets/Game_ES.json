@@ -98,7 +98,7 @@
 						},
 						{
 							"type": "script",
-							"script": "setupPolicyMultiplier();\ninitializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\ninitializeFiscalData(runtime);\nupdateFiscalViews(runtime);\nupdateFSM();"
+							"script": "setupPolicyMultiplier();\ninitializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\ninitializeFiscalData(runtime);\nupdateFiscal(runtime);\nupdateStatusView(runtime);\nupdateFSM();"
 						},
 						{
 							"callFunction": "SetupClickablePanels",
@@ -481,7 +481,7 @@
 						},
 						{
 							"type": "script",
-							"script": "updateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateAllPolicies(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);\nupdateFiscalViews(runtime);\ncheckGameOverCondition(runtime);"
+							"script": "updateFiscal(runtime);\nupdateAllStatus(runtime);\nupdateAllCrisis(runtime);\nupdateAllPolicies(runtime);\nupdateFSM();\nupdateStatusView(runtime);\nupdateCrisisView(runtime);\ncheckGameOverCondition(runtime);"
 						},
 						{
 							"type": "script",

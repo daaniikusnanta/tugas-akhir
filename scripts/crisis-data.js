@@ -57,7 +57,7 @@ export let crisis = {
     type: "finance",
     isGlobal: true,
     thresholds: [30, 50, 70],
-    states: ["low", "medium", "high", "extreme"],
+    states: ["low", "medium", "high", "hyperinflation"],
     transitions: {
       low: () => true,
       medium: () => true,
@@ -139,8 +139,8 @@ export let crisis = {
     transitions: {
       low: () => true,
       medium: () => true,
-      high: () => true,
-      extreme: () => true,
+      recession: () => true,
+      depression: () => true,
     },
     causes: [
       {
@@ -2768,83 +2768,155 @@ export function initializeCrisis(levelVariables, runtime) {
   }
 
   for (const variable in crisis) {
-    let states = {};
-    let initial = null;
-    const crisisObj = crisis[variable];
+    const crisisData = crisis[variable];
 
     createExtremeCrisisViews(runtime);
 
-    crisisObj.states.forEach((state) => {
-      if (!initial) {
-        initial = state;
-      }
-      const index = crisisObj.states.indexOf(state);
+    // crisisData.states.forEach((state) => {
+    //   if (!initial) {
+    //     initial = state;
+    //   }
+    //   const index = crisisData.states.indexOf(state);
 
-      const transitions = [];
+    //   const transitions = [];
 
-      // Add transition to previous state.
-      if (index > 0) {
-        const target = crisisObj.states[index - 1];
+    //   // Add transition to previous state.
+    //   if (index > 0) {
+    //     const target = crisisData.states[index - 1];
 
-        transitions.push({
-          target: target,
-          condition: {
-            evaluate: () =>
-              crisisObj.transitions[target] &&
-              crisisObj.value < crisisObj.thresholds[index - 1],
-          },
-        });
-      }
+    //     transitions.push({
+    //       target: target,
+    //       condition: {
+    //         evaluate: () =>
+    //           crisisData.transitions[target] &&
+    //           crisisData.value < crisisData.thresholds[index - 1],
+    //       },
+    //     });
+    //   }
 
-      // Add transition to next state.
-      if (index < crisisObj.states.length - 1) {
-        const target = crisisObj.states[index + 1];
+    //   // Add transition to next state.
+    //   if (index < crisisData.states.length - 1) {
+    //     const target = crisisData.states[index + 1];
 
-        transitions.push({
-          target: target,
-          condition: {
-            evaluate: () =>
-              crisisObj.transitions[target] &&
-              crisisObj.value >= crisisObj.thresholds[index],
-          },
-        });
-      }
+    //     transitions.push({
+    //       target: target,
+    //       condition: {
+    //         evaluate: () =>
+    //           crisisData.transitions[target] &&
+    //           crisisData.value >= crisisData.thresholds[index],
+    //       },
+    //     });
+    //   }
 
-      // state.transitions.forEach((transition) => {
-      //   transitions.push({
-      //     target: transition.target,
-      //     condition: {
-      //       evaluate: transition.evaluation,
-      //     },
-      //   });
-      // });
+    //   // state.transitions.forEach((transition) => {
+    //   //   transitions.push({
+    //   //     target: transition.target,
+    //   //     condition: {
+    //   //       evaluate: transition.evaluation,
+    //   //     },
+    //   //   });
+    //   // });
 
-      const stateCondition = {
-        actions: {
-          onEnter: () => {
-            console.log(`Crisis ${variable} entering: ${state}`);
+    //   const stateCondition = {
+    //     actions: {
+    //       onEnter: () => {
+    //         console.log(`Crisis ${variable} entering: ${state}`);
 
-            const crisisWarningText = getTextById(variable + "_crisis_extreme");
+    //         const crisisWarningText = getTextById(variable + "_crisis_extreme");
 
-            if (crisis[variable].states.indexOf(state) > 1) {
-              updateExtremeCrisis(runtime, variable, state, crisisWarningText);
-            } else {
-              removeExtremeCrisis(runtime, variable, crisisWarningText);
-            }
-          },
-        },
-        transitions: transitions,
-      };
-      states[state] = stateCondition;
-    });
+    //         if (crisis[variable].states.indexOf(state) > 1) {
+    //           updateExtremeCrisis(runtime, variable, state, crisisWarningText);
+    //         } else {
+    //           removeExtremeCrisis(runtime, variable, crisisWarningText);
+    //         }
+    //       },
+    //     },
+    //     transitions: transitions,
+    //   };
+    //   states[state] = stateCondition;
+    // });
 
-    const fsm = createMachine({
-      initialState: initial,
-      states: states,
-    });
+    const crisisMachine = createCrisisMachine(runtime, variable);
 
-    crisisFsms[variable] = fsm;
+    crisisFsms[variable] = crisisMachine;
   }
+}
+
+function createCrisisMachine(runtime, crisisName) {
+  let states = {};
+  let initial = null;
+  const crisisData = crisis[crisisName];
+
+  crisisData.states.forEach((state) => {
+    if (!initial) {
+      initial = state;
+    }
+    const index = crisisData.states.indexOf(state);
+
+    const transitions = [];
+
+    // Add transition to previous state.
+    if (index > 0) {
+      const target = crisisData.states[index - 1];
+
+      transitions.push({
+        target: target,
+        condition: {
+          evaluate: () =>
+            crisisData.transitions[target] &&
+            crisisData.value < crisisData.thresholds[index - 1],
+        },
+      });
+    }
+
+    // Add transition to next state.
+    if (index < crisisData.states.length - 1) {
+      const target = crisisData.states[index + 1];
+
+      transitions.push({
+        target: target,
+        condition: {
+          evaluate: () =>
+            crisisData.transitions[target] &&
+            crisisData.value >= crisisData.thresholds[index],
+        },
+      });
+    }
+
+    // state.transitions.forEach((transition) => {
+    //   transitions.push({
+    //     target: transition.target,
+    //     condition: {
+    //       evaluate: transition.evaluation,
+    //     },
+    //   });
+    // });
+
+    const stateCondition = {
+      actions: {
+        onEnter: () => {
+          console.log(`Crisis ${crisisName} entering: ${state}`);
+
+          const crisisWarningText = getTextById(crisisName + "_crisis_extreme");
+
+          if (crisis[crisisName].states.indexOf(state) > 1) {
+            updateExtremeCrisis(runtime, crisisName, state, crisisWarningText);
+          } else {
+            removeExtremeCrisis(runtime, crisisName, crisisWarningText);
+          }
+        },
+      },
+      transitions: transitions,
+    };
+    states[state] = stateCondition;
+  });
+
+  const crisisMachine = createMachine({
+    initialState: initial,
+    states: states,
+  });
+
+  return crisisMachine;
 }
 
 /**
@@ -2861,7 +2933,7 @@ function createExtremeCrisisViews(runtime) {
     const crisisText = runtime.objects.UIText.createInstance(
       "PanelExtremeCrisisBG",
       crisisExtremeScrollable.x + 35,
-      0,
+      crisisExtremeScrollable.y,
       true,
       "extreme_crisis_view"
     );

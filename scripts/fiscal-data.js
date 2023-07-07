@@ -2,21 +2,24 @@ import { policy } from "./policy-data.js";
 import { filledTiles, } from "./tile-data.js";
 import { getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeight } from "./utils.js";
 import { status } from "./status-data.js";
+import { updateStatusView } from "./game.js";
 
 let debt = 0;
 export let balance = 0;
+
 let dailySpending = 0;
 let dailyIncome = 0;
+let dailyDebt = 0;
 export let dailyCollectibleIncome = 0;
 
 export let incomes = {};
-let dailyDebt = 0;
 let spendings = {};
 export let totalSpending = 0;
 
 export const fiscalMultiplier = {
   "collectibleIncomeMultiplier": 0.2,
   "industryIncomeMultiplier": 2000,
+  "debtDeadline": 200,
 }
 
 const incomeBubbleTileIndexes = []
@@ -81,13 +84,26 @@ export function updateBalance() {
   balanceText.text = balance.toFixed(2);
 
   totalSpending += dailySpending;
+}
 
+export function updateDebt() {
   if (dailyCollectibleIncome + dailyIncome < dailySpending) {
     const currentDebt = dailyCollectibleIncome + dailyIncome - dailySpending;
     debt += currentDebt;
     dailyDebt = currentDebt;
   }
+  
+  const debtData = status["debt"];
+  const expectedIncomeGrowth = 13;
+  const totalDailyIncome = dailyIncome / (1 - fiscalMultiplier['collectibleIncomeMultiplier']);
+  const debtExpectedPayOff = debt / totalDailyIncome * expectedIncomeGrowth;
+  
+  const debtDataLastValue = debtData.value;
+  debtData.value = debtExpectedPayOff / (fiscalMultiplier['debtDeadline'] * 2) * 100;
+  debtData.lastUpdateCause = debtData.value - debtDataLastValue;
+}
 
+export function resetDailyCollectibleIncome() {
   dailyCollectibleIncome = 0;
 }
 
