@@ -2041,6 +2041,11 @@
 							"isInverted": true
 						},
 						{
+							"id": "is-visible",
+							"objectClass": "ClickablePanel",
+							"sid": 605116308805938
+						},
+						{
 							"id": "compare-instance-variable",
 							"objectClass": "Panel",
 							"sid": 289678778886420,

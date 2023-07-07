@@ -5308,8 +5308,8 @@
 								1
 							],
 							"isTransparent": true,
-							"parallaxX": 1,
-							"parallaxY": 1,
+							"parallaxX": 0,
+							"parallaxY": 0,
 							"scaleRate": 1,
 							"forceOwnTexture": false,
 							"renderingMode": "3d",
@@ -5492,6 +5492,49 @@
 									}
 								},
 								{
+									"type": "UIPanel",
+									"properties": {
+										"left-margin": 24,
+										"right-margin": 24,
+										"top-margin": 24,
+										"bottom-margin": 24,
+										"edges": "stretch",
+										"fill": "stretch",
+										"initially-visible": true,
+										"origin": "top-left",
+										"seams": "exact"
+									},
+									"uid": 344,
+									"instanceVariables": {
+										"id": ""
+									},
+									"behaviors": {},
+									"effects": {
+										"Exposure": {
+											"isEnabled": true,
+											"parameters": {
+												"exposure": 0
+											}
+										}
+									},
+									"world": {
+										"x": 636.5923728239648,
+										"y": -213.01699415989168,
+										"width": 770,
+										"height": 124,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											1,
+											1,
+											1,
+											0.6
+										],
+										"angle": 0,
+										"zElevation": 0
+									}
+								},
+								{
 									"type": "ClickablePanel",
 									"properties": {
 										"left-margin": 24,
@@ -5506,17 +5549,17 @@
 									},
 									"uid": 241,
 									"instanceVariables": {
-										"id": "tes",
+										"id": "",
 										"isPressed": false,
 										"isHovered": false,
 										"clickable": true,
 										"isDisabled": false,
-										"panelId": "",
+										"panelId": "policy",
 										"selectable": false,
 										"isSelected": false,
 										"hasGroup": false,
 										"groupId": "",
-										"padding": 0
+										"padding": 10
 									},
 									"behaviors": {},
 									"effects": {
@@ -5575,7 +5618,8 @@
 											1
 										],
 										"angle": 0,
-										"zElevation": 0
+										"zElevation": 0,
+										"blendMode": "source-atop"
 									}
 								},
 								{
@@ -5793,7 +5837,7 @@
 										"uid": 237,
 										"children": [
 											{
-												"uid": 239,
+												"uid": 238,
 												"flags": {
 													"x": true,
 													"y": true,
@@ -5808,7 +5852,7 @@
 												}
 											},
 											{
-												"uid": 238,
+												"uid": 239,
 												"flags": {
 													"x": true,
 													"y": true,
@@ -5892,7 +5936,8 @@
 											1
 										],
 										"angle": 0,
-										"zElevation": 0
+										"zElevation": 0,
+										"blendMode": "source-atop"
 									}
 								},
 								{
@@ -6093,7 +6138,8 @@
 											1
 										],
 										"angle": 0,
-										"zElevation": 0
+										"zElevation": 0,
+										"blendMode": "source-atop"
 									}
 								},
 								{
@@ -6111,7 +6157,7 @@
 										"minX": 126,
 										"maxX": 330,
 										"maxValue": 100,
-										"isDraggable": true,
+										"isDraggable": false,
 										"id": ""
 									},
 									"behaviors": {
@@ -6177,7 +6223,7 @@
 															},
 															{
 																"iv": "isDraggable",
-																"state": true
+																"state": false
 															},
 															{
 																"iv": "id",
@@ -6340,7 +6386,8 @@
 											1
 										],
 										"angle": 0,
-										"zElevation": 0
+										"zElevation": 0,
+										"blendMode": "source-atop"
 									}
 								},
 								{
@@ -6398,7 +6445,7 @@
 									"world": {
 										"x": 897.9937253940001,
 										"y": -159.94218514258478,
-										"width": 43.983252319973985,
+										"width": 69.46575447063435,
 										"height": 30,
 										"originX": 0,
 										"originY": 0,
@@ -6409,7 +6456,8 @@
 											1
 										],
 										"angle": 0,
-										"zElevation": 0
+										"zElevation": 0,
+										"blendMode": "source-atop"
 									}
 								}
 							],
@@ -6430,8 +6478,8 @@
 								1
 							],
 							"isTransparent": true,
-							"parallaxX": 1,
-							"parallaxY": 1,
+							"parallaxX": 0,
+							"parallaxY": 0,
 							"scaleRate": 1,
 							"forceOwnTexture": true,
 							"renderingMode": "3d",
@@ -6510,11 +6558,11 @@
 									},
 									"uid": 42,
 									"instanceVariables": {
-										"id": ""
+										"id": "policy_panel_title"
 									},
 									"behaviors": {},
 									"world": {
-										"x": 586,
+										"x": 596,
 										"y": 765,
 										"width": 314,
 										"height": 30,
@@ -6548,8 +6596,8 @@
 								1
 							],
 							"isTransparent": true,
-							"parallaxX": 1,
-							"parallaxY": 1,
+							"parallaxX": 0,
+							"parallaxY": 0,
 							"scaleRate": 1,
 							"forceOwnTexture": false,
 							"renderingMode": "3d",
@@ -8360,115 +8408,6 @@
 			"global": true
 		},
 		{
-			"name": "CrisisWarningPopUp",
-			"overriden": 0,
-			"subLayers": [
-				{
-					"name": "PopUpBG",
-					"overriden": 0,
-					"subLayers": [],
-					"instances": [
-						{
-							"type": "PopUpOverlay",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 1,
-								"image-scale-y": 1,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1,
-								"y-random": 1,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 173,
-							"instanceVariables": {
-								"id": ""
-							},
-							"behaviors": {},
-							"world": {
-								"x": -12,
-								"y": -18,
-								"width": 1960,
-								"height": 1113,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									0.7
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						}
-					],
-					"sid": 889263808261787,
-					"effectTypes": [],
-					"isInitiallyVisible": false,
-					"isInitiallyInteractive": true,
-					"color": [
-						1,
-						1,
-						1,
-						1
-					],
-					"backgroundColor": [
-						0.3686274509803922,
-						0.3686274509803922,
-						0.3686274509803922,
-						1
-					],
-					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
-					"scaleRate": 1,
-					"forceOwnTexture": false,
-					"renderingMode": "3d",
-					"drawOrder": "z-order",
-					"useRenderCells": false,
-					"blendMode": "normal",
-					"zElevation": 0,
-					"global": false
-				}
-			],
-			"instances": [],
-			"sid": 902457160981417,
-			"effectTypes": [],
-			"isInitiallyVisible": false,
-			"isInitiallyInteractive": false,
-			"color": [
-				1,
-				1,
-				1,
-				1
-			],
-			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
-				1
-			],
-			"isTransparent": true,
-			"parallaxX": 1,
-			"parallaxY": 1,
-			"scaleRate": 1,
-			"forceOwnTexture": false,
-			"renderingMode": "3d",
-			"drawOrder": "z-order",
-			"useRenderCells": false,
-			"blendMode": "normal",
-			"zElevation": 0,
-			"global": false
-		},
-		{
 			"name": "PolicyPopUp",
 			"overriden": 0,
 			"subLayers": [
@@ -9478,8 +9417,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": true,
 					"renderingMode": "3d",
@@ -10263,8 +10202,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
