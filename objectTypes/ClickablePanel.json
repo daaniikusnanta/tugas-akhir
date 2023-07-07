@@ -73,6 +73,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 198364361434367
+		},
+		{
+			"name": "padding",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 954689565203565
 		}
 	],
 	"behaviorTypes": [],
@@ -80,6 +87,10 @@
 		{
 			"effectId": "exposure",
 			"name": "Exposure"
+		},
+		{
+			"effectId": "brightness",
+			"name": "Brightness"
 		}
 	],
 	"image": {

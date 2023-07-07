@@ -112,22 +112,47 @@ const initialCrisis = {
         name: "Pandemic",
         description: "A very infectious disease has plagued the world. Focus on your country's condition to prevent more spread.",
         values: {
-            "infectious_disease": 90
+            "infectious_disease": 90,
+            "healthcare_worker_collapse": 32,
+            "healthcare_collapse": 43,
         }
     },
     "extreme_poverty": {
         name: "Extreme Poverty",
         description: "A majority of population in your country lives below the poverty line. Try to improve their wellbeing.",
         values: {
-            "poverty": 70
+            "poverty": 70,
+            "jobs": 23,
+            "urban_overcrowding": 44,
+            "crime_violence": 32,
+            "social_security": 51,
         }
-    }
+    },
+    "civil_war": {
+        name: "Civil War",
+        description: "Civil war between two groups has broken out in your country. Try to improve the condition.",
+        values: {
+            "conflicts": 74,
+            "social_unrest": 23,
+            "security": 43,
+        }
+    },
+    "mass_hunger": {
+        name: "Mass Hunger",
+        description: "Your country is facing a food insecurity crisis. Try to improve the condition.",
+        values: {
+            "food_insecurity": 72,
+            "water_scarcity": 43,
+            "chronic_disease": 42,
+            "food_sources": 31,
+        }
+    },
 };
 
 const scenarios = {
     "sepnovria": {
         name: "Pandemic on Sepnovria",
-        description: "Pandemic",
+        description: "Sepnovria is a newly emerging country known for its beautiful eight-shaped lake. However, a very infectious disease has plagued the world and Sepnovria.",
         parameters: {
             size: "large",
             landWaterValue: 80,
@@ -140,7 +165,7 @@ const scenarios = {
     },
     "situbondo": {
         name: "Extreme Poverty on Situbondo",
-        description: "Extreme Poverty",
+        description: "Situbondo is a small country known for its beautiful beaches. But currently, a majority of population in Situbondo lives below the poverty line.",
         parameters: {
             size: "medium",
             landWaterValue: 50,
@@ -278,7 +303,7 @@ export function createScenarioView(runtime) {
     for (const scenarioVariable in scenarios) {
         const scenarioData = scenarios[scenarioVariable];
 
-        const instanceX = scenarioScrollable.x + 30;
+        const instanceX = scenarioScrollable.x + 35;
         const instanceY = initialY + Object.keys(scenarios).indexOf(scenarioVariable) * (itemHeight + margin*2);
 
         const scenarioName = runtime.objects.UITextBold.createInstance("ScenarioMG", instanceX, instanceY, true, "scenario_view");
@@ -302,8 +327,6 @@ export function createScenarioView(runtime) {
             scenarioClickable.instVars['isSelected'] = true;
             scenarioClickable.opacity = 50;
         }
-
-        console.log(scenarioClickable);
 
         scenarioScrollable.addChild(scenarioName, { transformX: true, transformY: true });
     }
@@ -330,19 +353,19 @@ export function setupGeographySize(size) {
             policyMultiplier['effectDelay'] = 0.5;
             policyMultiplier['cost'] = 0.5;
             policyMultiplier['revenue'] = 0.5;
-            fiscalMultiplier['industryIncomeMultiplier'] = 1000;
+            fiscalMultiplier['industryIncomeMultiplier'] = 100;
             break;
         case "medium":
             policyMultiplier['effectDelay'] = 1;
             policyMultiplier['cost'] = 1;
             policyMultiplier['revenue'] = 1;
-            fiscalMultiplier['industryIncomeMultiplier'] = 2000;
+            fiscalMultiplier['industryIncomeMultiplier'] = 210;
             break;
         case "large":
             policyMultiplier['effectDelay'] = 1.7;
             policyMultiplier['cost'] = 1.7;
             policyMultiplier['revenue'] = 1.7;
-            fiscalMultiplier['industryIncomeMultiplier'] = 4000;
+            fiscalMultiplier['industryIncomeMultiplier'] = 380;
             break;
     }
 
@@ -418,32 +441,32 @@ export function setupSituationEconomy(economyType) {
             levelVariables.crisis['infrastructure_equality'] = 10;
             break;
         case "newly_emerging":
-            levelVariables.status['research'] = 80;
-            levelVariables.status['education_system'] = 87;
-            levelVariables.status['healthcare_system'] = 78;
-            levelVariables.status['manufacturing'] = 78;
-            levelVariables.status['water_land'] = 40;
-            levelVariables.status['defense_infrastructure'] = 80;
-            levelVariables.crisis['mental_health_crisis'] = 50;
-            levelVariables.crisis['discrimination'] = 40;
-            levelVariables.crisis['housing_crisis'] = 40;
-            levelVariables.crisis['pollution'] = 38;
-            levelVariables.crisis['political_instability'] = 42;
-            levelVariables.crisis['infrastructure_equality'] = 10;
+            levelVariables.status['research'] = 70;
+            levelVariables.status['education_system'] = 74;
+            levelVariables.status['healthcare_system'] = 59;
+            levelVariables.status['manufacturing'] = 71;
+            levelVariables.status['water_land'] = 54;
+            levelVariables.status['defense_infrastructure'] = 72;
+            levelVariables.crisis['mental_health_crisis'] = 41;
+            levelVariables.crisis['discrimination'] = 34;
+            levelVariables.crisis['housing_crisis'] = 31;
+            levelVariables.crisis['pollution'] = 26;
+            levelVariables.crisis['political_instability'] = 34;
+            levelVariables.crisis['infrastructure_equality'] = 21;
             break;
         case "developing":
-            levelVariables.status['research'] = 80;
-            levelVariables.status['education_system'] = 87;
-            levelVariables.status['healthcare_system'] = 78;
-            levelVariables.status['manufacturing'] = 78;
-            levelVariables.status['water_land'] = 40;
-            levelVariables.status['defense_infrastructure'] = 80;
-            levelVariables.crisis['mental_health_crisis'] = 50;
-            levelVariables.crisis['discrimination'] = 40;
-            levelVariables.crisis['housing_crisis'] = 40;
-            levelVariables.crisis['pollution'] = 38;
-            levelVariables.crisis['political_instability'] = 42;
-            levelVariables.crisis['infrastructure_equality'] = 10;
+            levelVariables.status['research'] = 65;
+            levelVariables.status['education_system'] = 67;
+            levelVariables.status['healthcare_system'] = 51;
+            levelVariables.status['manufacturing'] = 66;
+            levelVariables.status['water_land'] = 65;
+            levelVariables.status['defense_infrastructure'] = 61;
+            levelVariables.crisis['mental_health_crisis'] = 39;
+            levelVariables.crisis['discrimination'] = 31;
+            levelVariables.crisis['housing_crisis'] = 28;
+            levelVariables.crisis['pollution'] = 20;
+            levelVariables.crisis['political_instability'] = 22;
+            levelVariables.crisis['infrastructure_equality'] = 29;
             break;
     }
 

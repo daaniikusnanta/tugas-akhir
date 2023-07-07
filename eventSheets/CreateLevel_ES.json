@@ -154,6 +154,10 @@
 						"string": "LayoutName",
 						"function": "UIPanelClicked2"
 					}
+				},
+				{
+					"type": "script",
+					"script": "createInitialCrisisViews(runtime);"
 				}
 			],
 			"sid": 960208698320484,
@@ -2332,10 +2336,6 @@
 										"type": "log",
 										"message": "\"in situation\""
 									}
-								},
-								{
-									"type": "script",
-									"script": "createInitialCrisisViews(runtime);"
 								},
 								{
 									"callFunction": "showLayer",

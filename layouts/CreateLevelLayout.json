@@ -2630,6 +2630,51 @@
 								"id": "initial_crisis"
 							},
 							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": null,
+								"uid": 154,
+								"children": [
+									{
+										"uid": 373,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									}
+								],
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
 							"world": {
 								"x": 467,
 								"y": 168,
@@ -2682,7 +2727,7 @@
 								}
 							},
 							"sceneGraphData": {
-								"parent-uid": null,
+								"parent-uid": 154,
 								"uid": 373,
 								"flags": {
 									"x": true,
@@ -3029,7 +3074,8 @@
 						"selectable": true,
 						"isSelected": false,
 						"hasGroup": true,
-						"groupId": "initial_crisis"
+						"groupId": "initial_crisis",
+						"padding": 17
 					},
 					"behaviors": {},
 					"effects": {
@@ -3037,6 +3083,12 @@
 							"isEnabled": false,
 							"parameters": {
 								"exposure": 0.5
+							}
+						},
+						"Brightness": {
+							"isEnabled": true,
+							"parameters": {
+								"brightness": 1
 							}
 						}
 					},
@@ -3356,7 +3408,7 @@
 						}
 					},
 					"world": {
-						"x": 979,
+						"x": 984,
 						"y": -271,
 						"width": 517,
 						"height": 53,
@@ -3369,7 +3421,8 @@
 							1
 						],
 						"angle": 0,
-						"zElevation": 0
+						"zElevation": 0,
+						"blendMode": "source-atop"
 					}
 				},
 				{
@@ -3425,9 +3478,9 @@
 						}
 					},
 					"world": {
-						"x": 979,
+						"x": 984,
 						"y": -230,
-						"width": 517,
+						"width": 508,
 						"height": 94,
 						"originX": 0,
 						"originY": 0,
@@ -3438,7 +3491,8 @@
 							1
 						],
 						"angle": 0,
-						"zElevation": 0
+						"zElevation": 0,
+						"blendMode": "source-atop"
 					}
 				}
 			],

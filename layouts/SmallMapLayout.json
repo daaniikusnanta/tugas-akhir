@@ -1667,7 +1667,7 @@
 							},
 							"uid": 116,
 							"instanceVariables": {
-								"id": "tes",
+								"id": "",
 								"isPressed": false,
 								"isHovered": false,
 								"clickable": true,
@@ -1676,7 +1676,8 @@
 								"selectable": false,
 								"isSelected": false,
 								"hasGroup": false,
-								"groupId": ""
+								"groupId": "",
+								"padding": 0
 							},
 							"behaviors": {},
 							"effects": {
@@ -1684,6 +1685,12 @@
 									"isEnabled": false,
 									"parameters": {
 										"exposure": 0.5
+									}
+								},
+								"Brightness": {
+									"isEnabled": true,
+									"parameters": {
+										"brightness": 0.8
 									}
 								}
 							},
@@ -1729,7 +1736,8 @@
 									0
 								],
 								"angle": 0,
-								"zElevation": 0
+								"zElevation": 0,
+								"blendMode": "source-atop"
 							}
 						},
 						{
@@ -2640,7 +2648,7 @@
 							"world": {
 								"x": 2181,
 								"y": -152,
-								"width": 36,
+								"width": 83.86347249280425,
 								"height": 30,
 								"originX": 1,
 								"originY": 0,
@@ -4108,7 +4116,8 @@
 								"selectable": false,
 								"isSelected": false,
 								"hasGroup": false,
-								"groupId": ""
+								"groupId": "",
+								"padding": 0
 							},
 							"behaviors": {},
 							"effects": {
@@ -4116,6 +4125,12 @@
 									"isEnabled": false,
 									"parameters": {
 										"exposure": 0.5
+									}
+								},
+								"Brightness": {
+									"isEnabled": true,
+									"parameters": {
+										"brightness": 0.8
 									}
 								}
 							},
@@ -5500,7 +5515,8 @@
 										"selectable": false,
 										"isSelected": false,
 										"hasGroup": false,
-										"groupId": ""
+										"groupId": "",
+										"padding": 0
 									},
 									"behaviors": {},
 									"effects": {
@@ -5508,6 +5524,12 @@
 											"isEnabled": false,
 											"parameters": {
 												"exposure": 0.5
+											}
+										},
+										"Brightness": {
+											"isEnabled": true,
+											"parameters": {
+												"brightness": 0.8
 											}
 										}
 									},
@@ -7224,7 +7246,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 21.64222108566753,
+						"x": 1480.6422210856676,
 						"y": 1040.3685083360288,
 						"width": 72,
 						"height": 24,
@@ -7255,8 +7277,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 363.64222108566753,
-						"y": 1002.3685083360288,
+						"x": 1396.8717936000621,
+						"y": 1038.1077479798291,
 						"width": 72,
 						"height": 24,
 						"originX": 0,
@@ -7286,7 +7308,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 112.64222108566753,
+						"x": 1571.6422210856676,
 						"y": 1039.3685083360288,
 						"width": 72,
 						"height": 24,
@@ -7327,9 +7349,9 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 204.64222108566753,
+						"x": 1663.6422210856676,
 						"y": 1041.3685083360288,
-						"width": 118.01641795260866,
+						"width": 155.15711987849704,
 						"height": 26.03306793969523,
 						"originX": 0,
 						"originY": 0,
@@ -7356,7 +7378,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 179.64222108566753,
+						"x": 1550.6422210856676,
 						"y": 1014.3685083360288,
 						"width": 320,
 						"height": 32,
@@ -7412,7 +7434,7 @@
 						}
 					},
 					"world": {
-						"x": 18.64222108566753,
+						"x": 1389.6422210856676,
 						"y": 999.3685083360288,
 						"width": 24,
 						"height": 30.256441568195214,
@@ -7453,7 +7475,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 19.64222108566753,
+						"x": 1390.6422210856676,
 						"y": 999.3685083360288,
 						"width": 314,
 						"height": 30,
@@ -7999,7 +8021,8 @@
 						"selectable": false,
 						"isSelected": false,
 						"hasGroup": false,
-						"groupId": ""
+						"groupId": "",
+						"padding": 0
 					},
 					"behaviors": {},
 					"effects": {
@@ -8007,6 +8030,12 @@
 							"isEnabled": false,
 							"parameters": {
 								"exposure": 0.5
+							}
+						},
+						"Brightness": {
+							"isEnabled": true,
+							"parameters": {
+								"brightness": 0.8
 							}
 						}
 					},
@@ -8039,9 +8068,9 @@
 						}
 					},
 					"world": {
-						"x": 1362,
+						"x": 45,
 						"y": 998,
-						"width": 452.17265748332557,
+						"width": 481.17265748332557,
 						"height": 64,
 						"originX": 0,
 						"originY": 0,
@@ -8049,7 +8078,7 @@
 							1,
 							1,
 							1,
-							1
+							0
 						],
 						"angle": 0,
 						"zElevation": 0
@@ -8080,7 +8109,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1380,
+						"x": 63,
 						"y": 1028,
 						"width": 129.0403937466824,
 						"height": 30,
@@ -8121,7 +8150,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1667.3884134159673,
+						"x": 350.3884134159673,
 						"y": 1026.7325465367048,
 						"width": 159,
 						"height": 30,
@@ -8162,7 +8191,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1381.0555126434006,
+						"x": 64.05551264340056,
 						"y": 1002.3618270029958,
 						"width": 89.32241376235424,
 						"height": 25.31298163590816,
@@ -8203,7 +8232,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1666.4288869014713,
+						"x": 349.4288869014713,
 						"y": 1004.7954825776459,
 						"width": 158.27947213677749,
 						"height": 23.69173809174879,
@@ -8244,7 +8273,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1516.2435565110695,
+						"x": 199.24355651106953,
 						"y": 1027.1262500412035,
 						"width": 159,
 						"height": 30,
@@ -8285,7 +8314,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1515.2840299965735,
+						"x": 198.2840299965735,
 						"y": 1005.1891860821447,
 						"width": 158.27947213677749,
 						"height": 23.69173809174879,
@@ -12531,7 +12560,8 @@
 								"selectable": false,
 								"isSelected": false,
 								"hasGroup": false,
-								"groupId": ""
+								"groupId": "",
+								"padding": 0
 							},
 							"behaviors": {},
 							"effects": {
@@ -12539,6 +12569,12 @@
 									"isEnabled": false,
 									"parameters": {
 										"exposure": 0.5
+									}
+								},
+								"Brightness": {
+									"isEnabled": true,
+									"parameters": {
+										"brightness": 1
 									}
 								}
 							},
@@ -12936,7 +12972,7 @@
 							"uid": 450,
 							"instanceVariables": {
 								"minWidth": 24,
-								"id": "day",
+								"id": "",
 								"maxWidth": 320
 							},
 							"behaviors": {},

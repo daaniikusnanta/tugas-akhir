@@ -9,7 +9,7 @@
 			"eventType": "variable",
 			"name": "maxTickRate",
 			"type": "number",
-			"initialValue": "4",
+			"initialValue": "48",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
@@ -19,7 +19,7 @@
 			"eventType": "variable",
 			"name": "minTickRate",
 			"type": "number",
-			"initialValue": "1",
+			"initialValue": "6",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
@@ -29,7 +29,7 @@
 			"eventType": "variable",
 			"name": "tickRate",
 			"type": "number",
-			"initialValue": "6",
+			"initialValue": "24",
 			"comment": "The tick",
 			"isStatic": false,
 			"isConstant": false,
@@ -153,9 +153,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "TickRate",
-							"sid": 832960829303103,
+							"sid": 992925138789438,
 							"parameters": {
-								"text": "\"Tick rate: \" & tickRate"
+								"text": "\"1x\""
 							}
 						},
 						{
@@ -767,6 +767,108 @@
 					"sid": 359609938174142
 				},
 				{
+					"functionName": "slowTime",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 583138391794107,
+							"parameters": {
+								"first-value": "int(tickRate * 2)",
+								"comparison": 3,
+								"second-value": "maxTickRate"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 689801769405162,
+							"parameters": {
+								"variable": "tickRate",
+								"value": "int(tickRate * 2)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TickRate",
+							"sid": 296988291604289,
+							"parameters": {
+								"text": "24 / tickRate & \"x\""
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 216476528880036,
+							"parameters": {
+								"type": "log",
+								"message": "\"slow \" & tickRate"
+							}
+						}
+					],
+					"sid": 628096607327336
+				},
+				{
+					"functionName": "accelerateTime",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 468250506902629,
+							"parameters": {
+								"first-value": "int(tickRate / 2)",
+								"comparison": 5,
+								"second-value": "minTickRate"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 910927853349236,
+							"parameters": {
+								"variable": "tickRate",
+								"value": "int(tickRate / 2)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TickRate",
+							"sid": 993716331671778,
+							"parameters": {
+								"text": "24 / tickRate & \"x\""
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 543402101577611,
+							"parameters": {
+								"type": "log",
+								"message": "\"acc\" & tickRate"
+							}
+						}
+					],
+					"sid": 569985367823576
+				},
+				{
 					"functionName": "resumeGame",
 					"functionDescription": "",
 					"functionCategory": "",
@@ -892,35 +994,12 @@
 							"id": "on-clicked",
 							"objectClass": "ButtonInrease",
 							"sid": 413147639822475
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 745041179848502,
-							"parameters": {
-								"variable": "tickRate",
-								"comparison": 2,
-								"value": "maxTickRate"
-							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 905369409009966,
-							"parameters": {
-								"variable": "tickRate",
-								"value": "tickRate + 0.5"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "TickRate",
-							"sid": 808628117382173,
-							"parameters": {
-								"text": "\"Tick rate: \" & tickRate"
-							}
+							"callFunction": "accelerateTime",
+							"sid": 488261002300096
 						}
 					],
 					"sid": 524726317425321
@@ -932,35 +1011,12 @@
 							"id": "on-clicked",
 							"objectClass": "ButtonDecrease",
 							"sid": 935178206896065
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 658454054227680,
-							"parameters": {
-								"variable": "tickRate",
-								"comparison": 4,
-								"value": "minTickRate"
-							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 654664371644345,
-							"parameters": {
-								"variable": "tickRate",
-								"value": "tickRate - 0.5"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "TickRate",
-							"sid": 329174776223264,
-							"parameters": {
-								"text": "\"Tick rate: \" & tickRate"
-							}
+							"callFunction": "slowTime",
+							"sid": 580253409650130
 						}
 					],
 					"sid": 879831987466582
