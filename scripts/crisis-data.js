@@ -6,6 +6,7 @@ import {
   getTextById,
   resetScrollablePosition,
   setScrollableHeight,
+  toTitleCase,
 } from "./utils.js";
 import { policy } from "./policy-data.js";
 
@@ -2766,78 +2767,11 @@ export function initializeCrisis(levelVariables, runtime) {
       startingCrisis.push(variable);
     }
   }
+  
+  createExtremeCrisisViews(runtime);
 
   for (const variable in crisis) {
-    const crisisData = crisis[variable];
-
-    createExtremeCrisisViews(runtime);
-
-    // crisisData.states.forEach((state) => {
-    //   if (!initial) {
-    //     initial = state;
-    //   }
-    //   const index = crisisData.states.indexOf(state);
-
-    //   const transitions = [];
-
-    //   // Add transition to previous state.
-    //   if (index > 0) {
-    //     const target = crisisData.states[index - 1];
-
-    //     transitions.push({
-    //       target: target,
-    //       condition: {
-    //         evaluate: () =>
-    //           crisisData.transitions[target] &&
-    //           crisisData.value < crisisData.thresholds[index - 1],
-    //       },
-    //     });
-    //   }
-
-    //   // Add transition to next state.
-    //   if (index < crisisData.states.length - 1) {
-    //     const target = crisisData.states[index + 1];
-
-    //     transitions.push({
-    //       target: target,
-    //       condition: {
-    //         evaluate: () =>
-    //           crisisData.transitions[target] &&
-    //           crisisData.value >= crisisData.thresholds[index],
-    //       },
-    //     });
-    //   }
-
-    //   // state.transitions.forEach((transition) => {
-    //   //   transitions.push({
-    //   //     target: transition.target,
-    //   //     condition: {
-    //   //       evaluate: transition.evaluation,
-    //   //     },
-    //   //   });
-    //   // });
-
-    //   const stateCondition = {
-    //     actions: {
-    //       onEnter: () => {
-    //         console.log(`Crisis ${variable} entering: ${state}`);
-
-    //         const crisisWarningText = getTextById(variable + "_crisis_extreme");
-
-    //         if (crisis[variable].states.indexOf(state) > 1) {
-    //           updateExtremeCrisis(runtime, variable, state, crisisWarningText);
-    //         } else {
-    //           removeExtremeCrisis(runtime, variable, crisisWarningText);
-    //         }
-    //       },
-    //     },
-    //     transitions: transitions,
-    //   };
-    //   states[state] = stateCondition;
-    // });
-
     const crisisMachine = createCrisisMachine(runtime, variable);
-
     crisisFsms[variable] = crisisMachine;
   }
 }
@@ -2981,13 +2915,13 @@ function updateExtremeCrisis(runtime, variable, state, crisisWarningText) {
 
   // Shift all other crisis texts down
   if (!isShownBefore) {
-    crisisWarningText.y = 30;
+    crisisWarningText.y = 50;
 
-    let y = 130;
+    let y = crisisWarningText.y + 70;
     for (const otherCrisis of extremeCrisis) {
       const otherText = getTextById(otherCrisis.variable + "_crisis_extreme");
       otherText.y = y;
-      y += 100;
+      y += 70;
     }
 
     extremeCrisis.push({
@@ -3003,14 +2937,14 @@ function updateExtremeCrisis(runtime, variable, state, crisisWarningText) {
       runtime,
       extremeCrisisScrollable,
       extremeCrisis.length,
-      100,
-      30
+      70,
+      0
     );
     resetScrollablePosition(extremeCrisisScrollable);
   }
   crisisWarningText.isVisible = true;
 
-  crisisWarningText.getChildAt(0).text = state;
+  crisisWarningText.getChildAt(0).text = toTitleCase(state);
   
   experiencedCrisis.add(variable);
 }
@@ -3029,7 +2963,7 @@ function removeExtremeCrisis(runtime, variable, crisisWarningText) {
     extremeCrisis.splice(extremeCrisis.indexOf(element), 1);
   }
 
-  showExtremeCrisis(30);
+  showExtremeCrisis(50);
   crisisWarningText.isVisible = false;
 
   const extremeCrisisScrollable = getObjectbyId(
@@ -3040,8 +2974,8 @@ function removeExtremeCrisis(runtime, variable, crisisWarningText) {
     runtime,
     extremeCrisisScrollable,
     extremeCrisis.length,
-    100,
-    30
+    70,
+    0
   );
   resetScrollablePosition(extremeCrisisScrollable);
 }
@@ -3054,7 +2988,7 @@ function showExtremeCrisis(initialY) {
   for (const crisis of extremeCrisis) {
     const crisisText = getTextById(crisis.variable + "_crisis_extreme");
     crisisText.y = initialY;
-    initialY += 100;
+    initialY += 70;
   }
 }
 

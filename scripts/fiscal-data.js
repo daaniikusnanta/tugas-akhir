@@ -101,6 +101,15 @@ export function updateDebt() {
   const debtDataLastValue = debtData.value;
   debtData.value = debtExpectedPayOff / (fiscalMultiplier['debtDeadline'] * 2) * 100;
   debtData.lastUpdateCause = debtData.value - debtDataLastValue;
+  
+  const debtPaymentPolicyData = policy["debt_payment"];
+  // pay debt
+  const payment = debtPaymentPolicyData.minCost + debtPaymentPolicyData.value / 100 * (debtPaymentPolicyData.maxCost - debtPaymentPolicyData.minCost);
+  debt -= payment;
+
+  // update pay debt policy cost
+  debtPaymentPolicyData.minCost = dailyIncome * 0.1;
+  debtPaymentPolicyData.maxCost = dailyIncome * 0.5;
 }
 
 export function resetDailyCollectibleIncome() {

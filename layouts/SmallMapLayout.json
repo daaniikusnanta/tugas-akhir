@@ -1561,8 +1561,16 @@
 										"id": ""
 									},
 									"behaviors": {},
+									"effects": {
+										"Contrast": {
+											"isEnabled": true,
+											"parameters": {
+												"contrast": 1
+											}
+										}
+									},
 									"world": {
-										"x": 1649.8539387325247,
+										"x": 1660,
 										"y": 329.0841256550115,
 										"width": 200,
 										"height": 30,
@@ -1859,7 +1867,17 @@
 									},
 									{
 										"id": "effect",
-										"component": []
+										"component": [
+											{
+												"key": "Contrast",
+												"state": [
+													[
+														"contrast",
+														true
+													]
+												]
+											}
+										]
 									},
 									{
 										"id": "world-instance",
@@ -1949,6 +1967,14 @@
 									}
 								],
 								"replicasUIDs": null
+							},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
 							},
 							"sceneGraphData": {
 								"parent-uid": null,
@@ -2063,9 +2089,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
+									0.996078431372549,
 									1,
-									1,
-									1,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -2097,6 +2123,14 @@
 								"id": "extreme_crisis_state"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": 111,
 								"uid": 112,
@@ -2650,6 +2684,14 @@
 								"id": "extreme_crisis_state"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": 111,
 								"uid": 115,
@@ -2929,9 +2971,9 @@
 									},
 									"world": {
 										"x": 1603.2815307292021,
-										"y": -205.18544117419705,
+										"y": -189.23096389877938,
 										"width": 294.37913219934467,
-										"height": 122.12187752301628,
+										"height": 56.128356311952246,
 										"originX": 0,
 										"originY": 0,
 										"color": [
@@ -3063,350 +3105,7 @@
 											},
 											{
 												"id": "effect",
-												"component": []
-											},
-											{
-												"id": "world-instance",
 												"component": [
-													{
-														"key": "world-instance",
-														"state": [
-															[
-																"x",
-																false
-															],
-															[
-																"y",
-																false
-															],
-															[
-																"z",
-																true
-															],
-															[
-																"w",
-																true
-															],
-															[
-																"h",
-																true
-															],
-															[
-																"a",
-																true
-															],
-															[
-																"o",
-																true
-															],
-															[
-																"c",
-																true
-															],
-															[
-																"sx",
-																true
-															],
-															[
-																"sy",
-																true
-															],
-															[
-																"bm",
-																true
-															],
-															[
-																"twpx",
-																true
-															],
-															[
-																"twpy",
-																true
-															],
-															[
-																"twpz",
-																true
-															],
-															[
-																"twpw",
-																true
-															],
-															[
-																"twph",
-																true
-															],
-															[
-																"twpa",
-																true
-															],
-															[
-																"dwp",
-																true
-															],
-															[
-																"ssm",
-																true
-															]
-														]
-													}
-												]
-											}
-										],
-										"replicasUIDs": null
-									},
-									"sceneGraphData": {
-										"parent-uid": null,
-										"uid": 77,
-										"children": [
-											{
-												"uid": 78,
-												"flags": {
-													"x": true,
-													"y": true,
-													"z": true,
-													"w": true,
-													"h": true,
-													"a": true,
-													"o": false,
-													"v": true,
-													"d": true,
-													"sm": "normal"
-												}
-											},
-											{
-												"uid": 82,
-												"flags": {
-													"x": true,
-													"y": true,
-													"z": true,
-													"w": true,
-													"h": true,
-													"a": true,
-													"o": false,
-													"v": true,
-													"d": true,
-													"sm": "normal"
-												}
-											},
-											{
-												"uid": 80,
-												"flags": {
-													"x": true,
-													"y": true,
-													"z": true,
-													"w": true,
-													"h": true,
-													"a": true,
-													"o": false,
-													"v": true,
-													"d": true,
-													"sm": "normal"
-												}
-											},
-											{
-												"uid": 81,
-												"flags": {
-													"x": true,
-													"y": true,
-													"z": true,
-													"w": true,
-													"h": true,
-													"a": true,
-													"o": false,
-													"v": true,
-													"d": true,
-													"sm": "normal"
-												}
-											}
-										],
-										"flags": {
-											"x": true,
-											"y": true,
-											"z": true,
-											"w": true,
-											"h": true,
-											"a": true,
-											"o": false,
-											"v": false,
-											"d": true,
-											"sm": "normal"
-										},
-										"preview": {
-											"transformX": 0,
-											"transformY": 0,
-											"transformZElevation": 0,
-											"transformW": 0,
-											"transformH": 0,
-											"transformA": 0,
-											"transformSX": 0,
-											"transformSY": 0,
-											"transformO": 0,
-											"previewSceneGraph": false
-										}
-									},
-									"world": {
-										"x": 1651,
-										"y": -188,
-										"width": 205.6280809183172,
-										"height": 30,
-										"originX": 0,
-										"originY": 0,
-										"color": [
-											1,
-											1,
-											1,
-											1
-										],
-										"angle": 0,
-										"zElevation": 0,
-										"blendMode": "source-atop"
-									}
-								},
-								{
-									"type": "UIText",
-									"properties": {
-										"text": "Extreme Crisis State",
-										"enable-bbcode": true,
-										"character-width": 75,
-										"character-height": 82,
-										"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
-										"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
-										"scale": 0.27,
-										"character-spacing": 0,
-										"line-height": 0,
-										"horizontal-alignment": "left",
-										"vertical-alignment": "center",
-										"wrapping": "word",
-										"initially-visible": true,
-										"origin": "top-left",
-										"read-aloud": false
-									},
-									"uid": 78,
-									"instanceVariables": {
-										"id": "extreme_crisis_state"
-									},
-									"behaviors": {},
-									"sceneGraphData": {
-										"parent-uid": 77,
-										"uid": 78,
-										"flags": {
-											"x": true,
-											"y": true,
-											"z": true,
-											"w": true,
-											"h": true,
-											"a": true,
-											"o": false,
-											"v": true,
-											"d": true,
-											"sm": "normal"
-										},
-										"preview": {
-											"transformX": 0,
-											"transformY": 0,
-											"transformZElevation": 0,
-											"transformW": 0,
-											"transformH": 0,
-											"transformA": 0,
-											"transformSX": 0,
-											"transformSY": 0,
-											"transformO": 0,
-											"previewSceneGraph": false
-										}
-									},
-									"world": {
-										"x": 1651,
-										"y": -159,
-										"width": 165,
-										"height": 30,
-										"originX": 0,
-										"originY": 0,
-										"color": [
-											1,
-											1,
-											1,
-											1
-										],
-										"angle": 0,
-										"zElevation": 0,
-										"blendMode": "source-atop"
-									}
-								},
-								{
-									"type": "SliderBarBG",
-									"properties": {
-										"initially-visible": true,
-										"initial-animation": "Animation 1",
-										"initial-frame": 2,
-										"enable-collisions": true,
-										"live-preview": false
-									},
-									"uid": 80,
-									"instanceVariables": {
-										"id": ""
-									},
-									"behaviors": {},
-									"template": {
-										"mode": "replica",
-										"templateName": "",
-										"sourceTemplateName": "status_slider_bg",
-										"components": [
-											{
-												"id": "plugin",
-												"component": [
-													{
-														"key": "plugin",
-														"state": [
-															[
-																"initially-visible",
-																true
-															],
-															[
-																"initial-animation",
-																true
-															],
-															[
-																"initial-frame",
-																false
-															],
-															[
-																"enable-collisions",
-																true
-															]
-														]
-													}
-												]
-											},
-											{
-												"id": "instance-variable",
-												"component": [
-													{
-														"key": "instance-variable",
-														"state": [
-															{
-																"iv": "id",
-																"state": true
-															}
-														]
-													}
-												]
-											},
-											{
-												"id": "behavior",
-												"component": []
-											},
-											{
-												"id": "effect",
-												"component": [
-													{
-														"key": "Grayscale",
-														"state": [
-															[
-																"intensity",
-																true
-															]
-														]
-													},
 													{
 														"key": "Contrast",
 														"state": [
@@ -3466,7 +3165,7 @@
 															],
 															[
 																"bm",
-																false
+																true
 															],
 															[
 																"twpx",
@@ -3508,12 +3207,116 @@
 										"replicasUIDs": null
 									},
 									"effects": {
-										"Grayscale": {
-											"isEnabled": false,
+										"Contrast": {
+											"isEnabled": true,
 											"parameters": {
-												"intensity": 1
+												"contrast": 1
 											}
+										}
+									},
+									"sceneGraphData": {
+										"parent-uid": null,
+										"uid": 77,
+										"children": [
+											{
+												"uid": 78,
+												"flags": {
+													"x": true,
+													"y": true,
+													"z": true,
+													"w": true,
+													"h": true,
+													"a": true,
+													"o": false,
+													"v": true,
+													"d": true,
+													"sm": "normal"
+												}
+											},
+											{
+												"uid": 82,
+												"flags": {
+													"x": true,
+													"y": true,
+													"z": true,
+													"w": true,
+													"h": true,
+													"a": true,
+													"o": false,
+													"v": true,
+													"d": true,
+													"sm": "normal"
+												}
+											}
+										],
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
 										},
+										"preview": {
+											"transformX": 0,
+											"transformY": 0,
+											"transformZElevation": 0,
+											"transformW": 0,
+											"transformH": 0,
+											"transformA": 0,
+											"transformSX": 0,
+											"transformSY": 0,
+											"transformO": 0,
+											"previewSceneGraph": false
+										}
+									},
+									"world": {
+										"x": 1651,
+										"y": -188,
+										"width": 205.6280809183172,
+										"height": 30,
+										"originX": 0,
+										"originY": 0,
+										"color": [
+											0.996078431372549,
+											1,
+											0.7215686274509804,
+											1
+										],
+										"angle": 0,
+										"zElevation": 0,
+										"blendMode": "source-atop"
+									}
+								},
+								{
+									"type": "UIText",
+									"properties": {
+										"text": "Extreme Crisis State",
+										"enable-bbcode": true,
+										"character-width": 75,
+										"character-height": 82,
+										"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+										"spacing-data": "[[24,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+										"scale": 0.27,
+										"character-spacing": 0,
+										"line-height": 0,
+										"horizontal-alignment": "left",
+										"vertical-alignment": "center",
+										"wrapping": "word",
+										"initially-visible": true,
+										"origin": "top-left",
+										"read-aloud": false
+									},
+									"uid": 78,
+									"instanceVariables": {
+										"id": "extreme_crisis_state"
+									},
+									"behaviors": {},
+									"effects": {
 										"Contrast": {
 											"isEnabled": true,
 											"parameters": {
@@ -3523,7 +3326,7 @@
 									},
 									"sceneGraphData": {
 										"parent-uid": 77,
-										"uid": 80,
+										"uid": 78,
 										"flags": {
 											"x": true,
 											"y": true,
@@ -3550,260 +3353,12 @@
 										}
 									},
 									"world": {
-										"x": 1754,
-										"y": -116,
-										"width": 204,
-										"height": 13,
-										"originX": 0.5,
-										"originY": 0.5,
-										"color": [
-											1,
-											1,
-											1,
-											1
-										],
-										"angle": 0,
-										"zElevation": 0,
-										"blendMode": "source-atop"
-									}
-								},
-								{
-									"type": "SliderBar",
-									"properties": {
-										"initially-visible": true,
-										"initial-animation": "Animation 1",
-										"initial-frame": 0,
-										"enable-collisions": true,
-										"live-preview": false
-									},
-									"uid": 81,
-									"instanceVariables": {
-										"value": 0,
-										"minX": 126,
-										"maxX": 330,
-										"maxValue": 100,
-										"isDraggable": true,
-										"id": ""
-									},
-									"behaviors": {
-										"DragDrop": {
-											"properties": {
-												"axes": "horizontal-only",
-												"enabled": true
-											}
-										}
-									},
-									"template": {
-										"mode": "replica",
-										"templateName": "",
-										"sourceTemplateName": "status_slider",
-										"components": [
-											{
-												"id": "plugin",
-												"component": [
-													{
-														"key": "plugin",
-														"state": [
-															[
-																"initially-visible",
-																true
-															],
-															[
-																"initial-animation",
-																true
-															],
-															[
-																"initial-frame",
-																true
-															],
-															[
-																"enable-collisions",
-																true
-															]
-														]
-													}
-												]
-											},
-											{
-												"id": "instance-variable",
-												"component": [
-													{
-														"key": "instance-variable",
-														"state": [
-															{
-																"iv": "value",
-																"state": true
-															},
-															{
-																"iv": "minX",
-																"state": true
-															},
-															{
-																"iv": "maxX",
-																"state": true
-															},
-															{
-																"iv": "maxValue",
-																"state": true
-															},
-															{
-																"iv": "isDraggable",
-																"state": true
-															},
-															{
-																"iv": "id",
-																"state": true
-															}
-														]
-													}
-												]
-											},
-											{
-												"id": "behavior",
-												"component": [
-													{
-														"key": "DragDrop",
-														"state": [
-															[
-																"axes",
-																true
-															],
-															[
-																"enabled",
-																true
-															]
-														]
-													}
-												]
-											},
-											{
-												"id": "effect",
-												"component": []
-											},
-											{
-												"id": "world-instance",
-												"component": [
-													{
-														"key": "world-instance",
-														"state": [
-															[
-																"x",
-																false
-															],
-															[
-																"y",
-																false
-															],
-															[
-																"z",
-																true
-															],
-															[
-																"w",
-																true
-															],
-															[
-																"h",
-																true
-															],
-															[
-																"a",
-																true
-															],
-															[
-																"o",
-																true
-															],
-															[
-																"c",
-																true
-															],
-															[
-																"sx",
-																true
-															],
-															[
-																"sy",
-																true
-															],
-															[
-																"bm",
-																false
-															],
-															[
-																"twpx",
-																true
-															],
-															[
-																"twpy",
-																true
-															],
-															[
-																"twpz",
-																true
-															],
-															[
-																"twpw",
-																true
-															],
-															[
-																"twph",
-																true
-															],
-															[
-																"twpa",
-																true
-															],
-															[
-																"dwp",
-																true
-															],
-															[
-																"ssm",
-																true
-															]
-														]
-													}
-												]
-											}
-										],
-										"replicasUIDs": null
-									},
-									"sceneGraphData": {
-										"parent-uid": 77,
-										"uid": 81,
-										"flags": {
-											"x": true,
-											"y": true,
-											"z": true,
-											"w": true,
-											"h": true,
-											"a": true,
-											"o": false,
-											"v": true,
-											"d": true,
-											"sm": "normal"
-										},
-										"preview": {
-											"transformX": 0,
-											"transformY": 0,
-											"transformZElevation": 0,
-											"transformW": 0,
-											"transformH": 0,
-											"transformA": 0,
-											"transformSX": 0,
-											"transformSY": 0,
-											"transformO": 0,
-											"previewSceneGraph": false
-										}
-									},
-									"world": {
-										"x": 1665,
-										"y": -123,
-										"width": 16,
-										"height": 15,
-										"originX": 0.5,
-										"originY": 0.5,
+										"x": 1651,
+										"y": -159,
+										"width": 165,
+										"height": 30,
+										"originX": 0,
+										"originY": 0,
 										"color": [
 											1,
 											1,
@@ -3839,6 +3394,14 @@
 										"id": "extreme_crisis_state"
 									},
 									"behaviors": {},
+									"effects": {
+										"Contrast": {
+											"isEnabled": true,
+											"parameters": {
+												"contrast": 1
+											}
+										}
+									},
 									"sceneGraphData": {
 										"parent-uid": 77,
 										"uid": 82,
@@ -3983,8 +3546,16 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
-								"x": 1651.112638311575,
+								"x": 1660,
 								"y": 9.576623984732294,
 								"width": 200,
 								"height": 30,
@@ -4364,7 +3935,17 @@
 									},
 									{
 										"id": "effect",
-										"component": []
+										"component": [
+											{
+												"key": "Contrast",
+												"state": [
+													[
+														"contrast",
+														true
+													]
+												]
+											}
+										]
 									},
 									{
 										"id": "world-instance",
@@ -4454,6 +4035,14 @@
 									}
 								],
 								"replicasUIDs": null
+							},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
 							},
 							"sceneGraphData": {
 								"parent-uid": null,
@@ -4553,9 +4142,9 @@
 								"originX": 0.5,
 								"originY": 0,
 								"color": [
+									0.996078431372549,
 									1,
-									1,
-									1,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -5162,7 +4751,17 @@
 									},
 									{
 										"id": "effect",
-										"component": []
+										"component": [
+											{
+												"key": "Contrast",
+												"state": [
+													[
+														"contrast",
+														true
+													]
+												]
+											}
+										]
 									},
 									{
 										"id": "world-instance",
@@ -5252,6 +4851,14 @@
 									}
 								],
 								"replicasUIDs": null
+							},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
 							},
 							"sceneGraphData": {
 								"parent-uid": 63,
@@ -5529,8 +5136,8 @@
 										"direction": "vertical",
 										"initialMin": 0,
 										"initialMax": 0,
-										"initialX": 0,
-										"initialY": 0
+										"initialX": 575,
+										"initialY": 801
 									},
 									"behaviors": {
 										"DragDrop": {
@@ -5706,7 +5313,7 @@
 									"world": {
 										"x": 671.1423437986731,
 										"y": -206.2163155319679,
-										"width": 320,
+										"width": 345.5,
 										"height": 84,
 										"originX": 0,
 										"originY": 0,
@@ -5724,7 +5331,7 @@
 								{
 									"type": "UIText",
 									"properties": {
-										"text": "Policy Name Long Name",
+										"text": "Mandatory Face Masks",
 										"enable-bbcode": true,
 										"character-width": 75,
 										"character-height": 82,
@@ -5840,7 +5447,17 @@
 											},
 											{
 												"id": "effect",
-												"component": []
+												"component": [
+													{
+														"key": "Contrast",
+														"state": [
+															[
+																"contrast",
+																true
+															]
+														]
+													}
+												]
 											},
 											{
 												"id": "world-instance",
@@ -5930,6 +5547,14 @@
 											}
 										],
 										"replicasUIDs": null
+									},
+									"effects": {
+										"Contrast": {
+											"isEnabled": true,
+											"parameters": {
+												"contrast": 1
+											}
+										}
 									},
 									"sceneGraphData": {
 										"parent-uid": null,
@@ -6039,14 +5664,14 @@
 									"world": {
 										"x": 685,
 										"y": -197,
-										"width": 185.56272049518907,
+										"width": 240.5817475137295,
 										"height": 30,
 										"originX": 0,
 										"originY": 0,
 										"color": [
+											0.996078431372549,
 											1,
-											1,
-											1,
+											0.7215686274509804,
 											1
 										],
 										"angle": 0,
@@ -6400,6 +6025,14 @@
 										"id": ""
 									},
 									"behaviors": {},
+									"effects": {
+										"Contrast": {
+											"isEnabled": true,
+											"parameters": {
+												"contrast": 1
+											}
+										}
+									},
 									"sceneGraphData": {
 										"parent-uid": 237,
 										"uid": 240,
@@ -6429,7 +6062,7 @@
 										}
 									},
 									"world": {
-										"x": 897.9937253940001,
+										"x": 925.9937253940001,
 										"y": -159.94218514258478,
 										"width": 81.51162940559368,
 										"height": 30,
@@ -6470,6 +6103,14 @@
 										"id": ""
 									},
 									"behaviors": {},
+									"effects": {
+										"Contrast": {
+											"isEnabled": true,
+											"parameters": {
+												"contrast": 1
+											}
+										}
+									},
 									"sceneGraphData": {
 										"parent-uid": 237,
 										"uid": 347,
@@ -6499,9 +6140,9 @@
 										}
 									},
 									"world": {
-										"x": 977.2007341022515,
+										"x": 1007.2007341022515,
 										"y": -197,
-										"width": 81.51162940559368,
+										"width": 72.82443786869442,
 										"height": 30,
 										"originX": 1,
 										"originY": 0,
@@ -6617,6 +6258,14 @@
 										"id": "policy_panel_title"
 									},
 									"behaviors": {},
+									"effects": {
+										"Contrast": {
+											"isEnabled": true,
+											"parameters": {
+												"contrast": 1
+											}
+										}
+									},
 									"world": {
 										"x": 596,
 										"y": 765,
@@ -7578,6 +7227,14 @@
 						"id": "day"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 1390.6422210856676,
 						"y": 999.3685083360288,
@@ -8212,6 +7869,14 @@
 						"id": "balance"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 63,
 						"y": 1028,
@@ -8253,6 +7918,14 @@
 						"id": "daily_spending"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 350.3884134159673,
 						"y": 1026.7325465367048,
@@ -8302,9 +7975,9 @@
 						"originX": 0,
 						"originY": 0,
 						"color": [
-							1,
-							1,
-							1,
+							0.9137254901960784,
+							0.9176470588235294,
+							0.7215686274509804,
 							1
 						],
 						"angle": 0,
@@ -8343,9 +8016,9 @@
 						"originX": 0,
 						"originY": 0,
 						"color": [
-							1,
-							1,
-							1,
+							0.9137254901960784,
+							0.9176470588235294,
+							0.7215686274509804,
 							1
 						],
 						"angle": 0,
@@ -8376,6 +8049,14 @@
 						"id": "daily_income"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 199.24355651106953,
 						"y": 1027.1262500412035,
@@ -8425,9 +8106,9 @@
 						"originX": 0,
 						"originY": 0,
 						"color": [
-							1,
-							1,
-							1,
+							0.9137254901960784,
+							0.9176470588235294,
+							0.7215686274509804,
 							1
 						],
 						"angle": 0,
@@ -8999,7 +8680,17 @@
 									},
 									{
 										"id": "effect",
-										"component": []
+										"component": [
+											{
+												"key": "Contrast",
+												"state": [
+													[
+														"contrast",
+														true
+													]
+												]
+											}
+										]
 									},
 									{
 										"id": "world-instance",
@@ -9089,6 +8780,14 @@
 									}
 								],
 								"replicasUIDs": null
+							},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
 							},
 							"sceneGraphData": {
 								"parent-uid": null,
@@ -9409,6 +9108,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": 68,
 								"uid": 70,
@@ -9548,6 +9255,14 @@
 								"id": "policy_pop_up_name"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 424.5,
 								"y": 218,
@@ -9556,9 +9271,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
-									1,
-									1,
-									1,
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -9589,6 +9304,14 @@
 								"id": "policy_pop_up_description"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 424.5,
 								"y": 262,
@@ -9737,6 +9460,14 @@
 								"id": "policy_pop_up_cost_slider"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 421,
 								"y": 744,
@@ -9870,6 +9601,14 @@
 								"id": "policy_pop_up_revenue_slider"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 662,
 								"y": 744,
@@ -10141,6 +9880,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 424.5,
 								"y": 315,
@@ -10149,9 +9896,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
-									1,
-									1,
-									1,
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -10182,6 +9929,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 420.96548769263507,
 								"y": 709.9796861561872,
@@ -10190,9 +9945,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
-									1,
-									1,
-									1,
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -10223,6 +9978,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 661.9654876926351,
 								"y": 709.9796861561872,
@@ -10231,9 +9994,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
-									1,
-									1,
-									1,
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -10341,6 +10104,14 @@
 						"id": "policy_pop_up_state"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 1479,
 						"y": 316,
@@ -10382,6 +10153,14 @@
 						"id": "day"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 928.8816528320312,
 						"y": -187.0083770751953,
@@ -10822,7 +10601,17 @@
 									},
 									{
 										"id": "effect",
-										"component": []
+										"component": [
+											{
+												"key": "Contrast",
+												"state": [
+													[
+														"contrast",
+														true
+													]
+												]
+											}
+										]
 									},
 									{
 										"id": "world-instance",
@@ -10913,6 +10702,14 @@
 								],
 								"replicasUIDs": null
 							},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": null,
 								"uid": 255,
@@ -11000,6 +10797,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": 255,
 								"uid": 258,
@@ -11297,6 +11102,14 @@
 								"id": "status_pop_up_name"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 424.1014980882209,
 								"y": 217.91507043897568,
@@ -11305,9 +11118,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
-									1,
-									1,
-									1,
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -11338,10 +11151,18 @@
 								"id": "status_pop_up_description"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 424.1014980882209,
 								"y": 261.9150704389757,
-								"width": 467,
+								"width": 975,
 								"height": 36,
 								"originX": 0,
 								"originY": 0,
@@ -11379,6 +11200,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 424.1014980882209,
 								"y": 314,
@@ -11387,9 +11216,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
-									1,
-									1,
-									1,
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -11420,6 +11249,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 972,
 								"y": 314,
@@ -11428,9 +11265,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
-									1,
-									1,
-									1,
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -12025,6 +11862,14 @@
 								"id": "crisis_pop_up_name"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 424,
 								"y": 218,
@@ -12033,9 +11878,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
-									1,
-									1,
-									1,
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -12066,6 +11911,14 @@
 								"id": "crisis_pop_up_description"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 424,
 								"y": 262,
@@ -12107,6 +11960,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 424,
 								"y": 314,
@@ -12115,9 +11976,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
-									1,
-									1,
-									1,
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -12148,6 +12009,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 972,
 								"y": 314,
@@ -12156,9 +12025,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
-									1,
-									1,
-									1,
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -12896,7 +12765,17 @@
 									},
 									{
 										"id": "effect",
-										"component": []
+										"component": [
+											{
+												"key": "Contrast",
+												"state": [
+													[
+														"contrast",
+														true
+													]
+												]
+											}
+										]
 									},
 									{
 										"id": "world-instance",
@@ -12986,6 +12865,14 @@
 									}
 								],
 								"replicasUIDs": null
+							},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
 							},
 							"sceneGraphData": {
 								"parent-uid": null,
@@ -13189,6 +13076,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": 448,
 								"uid": 343,
@@ -13328,6 +13223,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 424,
 								"y": 218,
@@ -13336,9 +13239,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
-									1,
-									1,
-									1,
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -13369,6 +13272,14 @@
 								"id": "fiscal_pop_up_daily_income"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 424,
 								"y": 273,
@@ -13410,6 +13321,14 @@
 								"id": "fiscal_pop_up_daily_spending"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 424,
 								"y": 314,
@@ -13497,6 +13416,14 @@
 								"id": "fiscal_pop_up_balance"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 969,
 								"y": 273,
@@ -13538,6 +13465,14 @@
 								"id": "fiscal_pop_up_total_debt"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 969,
 								"y": 314,
@@ -13579,6 +13514,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 424,
 								"y": 373,
@@ -13587,9 +13530,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
-									1,
-									1,
-									1,
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -13620,6 +13563,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 969,
 								"y": 373,
@@ -13628,9 +13579,9 @@
 								"originX": 0,
 								"originY": 0,
 								"color": [
-									1,
-									1,
-									1,
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
 									1
 								],
 								"angle": 0,
@@ -14341,7 +14292,17 @@
 									},
 									{
 										"id": "effect",
-										"component": []
+										"component": [
+											{
+												"key": "Contrast",
+												"state": [
+													[
+														"contrast",
+														true
+													]
+												]
+											}
+										]
 									},
 									{
 										"id": "world-instance",
@@ -14431,6 +14392,14 @@
 									}
 								],
 								"replicasUIDs": null
+							},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
 							},
 							"world": {
 								"x": 1241,
@@ -15132,6 +15101,14 @@
 								"id": "game_over_time"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 378,
 								"y": 450,
@@ -15173,6 +15150,14 @@
 								"id": "game_over_total_spending"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 378,
 								"y": 570,
@@ -15214,6 +15199,14 @@
 								"id": "game_over_cash_balance"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 378,
 								"y": 690,
@@ -15255,6 +15248,14 @@
 								"id": "game_over_size"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 752,
 								"y": 490,
@@ -15296,6 +15297,14 @@
 								"id": "game_over_land_water"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 898,
 								"y": 490,
@@ -15337,6 +15346,14 @@
 								"id": "game_over_government"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 752,
 								"y": 652,
@@ -15378,6 +15395,14 @@
 								"id": "game_over_economy"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 1014,
 								"y": 652,
@@ -15506,6 +15531,14 @@
 								"id": "game_over_subtitle"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 960,
 								"y": 279,
@@ -15588,6 +15621,14 @@
 								"id": "game_over_no_other_crisis"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 1282,
 								"y": 650,

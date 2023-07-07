@@ -44,7 +44,7 @@ export let policy = {
     "income_tax": {
         name: "Income Tax", isImplemented: true,
         description: "A cut on personal income.",
-        type: "finance", value: 10, finalValue: 10, valueDelta: 0,
+        type: "finance", value: 30, finalValue: 30, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
         minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
         effects: {
@@ -61,7 +61,7 @@ export let policy = {
         }
     },
     "corporation_tax": {
-        name: "Corporation Tax", isImplemented: false,
+        name: "Corporation Tax", isImplemented: true,
         description: "A tax on corporate's revenue.",
         type: "finance", value: 50, finalValue: 50, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
@@ -91,7 +91,7 @@ export let policy = {
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
-            "chronic_disease": {
+            "public_health": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 - 0.1 * policyValue},
@@ -115,7 +115,7 @@ export let policy = {
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
-            "chronic_disease": {
+            "public_health": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 - 0.1 * policyValue},
@@ -157,7 +157,7 @@ export let policy = {
         }
     },
     "property_tax": {
-        name: "Property Tax", isImplemented: false,
+        name: "Property Tax", isImplemented: true,
         description: "Tax on property.",
         type: "finance", value: 50, finalValue: 50, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
@@ -176,7 +176,7 @@ export let policy = {
         }
     },
     "vehicle_tax": {
-        name: "Vehicle Tax", isImplemented: false,
+        name: "Vehicle Tax", isImplemented: true,
         description: "Tax on vehicles.",
         type: "finance", value: 50, finalValue: 50, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
@@ -195,7 +195,7 @@ export let policy = {
         }
     },
     "value_added_tax": {
-        name: "Value Added Tax", isImplemented: false,
+        name: "Value Added Tax", isImplemented: true,
         description: "Tax on value added to a product.",
         type: "finance", value: 50, finalValue: 50, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
@@ -219,7 +219,7 @@ export let policy = {
         }
     },
     "customs_duty": {
-        name: "Customs Duty", isImplemented: false,
+        name: "Customs Duty", isImplemented: true,
         description: "Tax on imported goods.",
         type: "finance", value: 50, finalValue: 50, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
@@ -254,6 +254,42 @@ export let policy = {
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
+        }
+    },
+    "debt_payment": {
+        name: "Debt Payment", isImplemented: true,
+        description: "Pay government borrowings.",
+        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "small_business_grants": {
+        name: "Small Business Grants", isImplemented: false,
+        description: "Grants for small businesses.",
+        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "international_trade": {
+        name: "International Trade", isImplemented: true,
+        description: "Trade agreements with other countries.",
+        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "entrepreneur_support": {
+        name: "Entrepreneur Support", isImplemented: false,
+        description: "Support for new entrepreneurs to create new jobs and economy.",
+        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        effects: {
         }
     },
 
@@ -338,8 +374,8 @@ export let policy = {
             },
         }
     },
-    "health_insurance": {
-        name: "Health Insurance", isImplemented: false,
+    "state_health_insurance": {
+        name: "State Health Insurance", isImplemented: false,
         description: "State health insurance.",
         type: "health", value: 50, finalValue: 50, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
@@ -405,9 +441,50 @@ export let policy = {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
-            }
+            },
+            "dropout_crisis": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
         }
     },
+    "mandatory_immunization": {
+        name: "Mandatory Immunization", isImplemented: false,
+        description: "Mandatory and subsidized immunization to preent diseases.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 100, maxCost: 200, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "health_college": {
+        name: "Health College", isImplemented: false,   
+        description: "Colleges to train health professionals.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 100, maxCost: 200, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "health_worker_volunteers": {
+        name: "Health Worker Volunteers", isImplemented: false,
+        description: "Recruit health students and civilians to help health professionals.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 100, maxCost: 200, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "healthcare_privatization": {
+        name: "Healthcare Privatization", isImplemented: false,
+        description: "Privatize healthcare to reduce costs and increase efficiency.",
+        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: -100, maxCost: -200, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },    
 
     // Education
     "scholarships": {
@@ -655,7 +732,7 @@ export let policy = {
     },
     "family_planning": {
         name: "Family Planning", isImplemented: false,
-        description: "Family planning.",
+        description: "Education and support for families about family size.",
         type: "social", value: 50, finalValue: 50, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
         minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
@@ -665,6 +742,15 @@ export let policy = {
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
+        }
+    },
+    "workplace_inclusion": {
+        name: "Workplace Inclusion", isImplemented: false,
+        description: "Promote equal oppurtunities and treatement on work places.",
+        type: "social", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
         }
     },
 
@@ -685,7 +771,7 @@ export let policy = {
     },
     "recycling_plant": {
         name: "Recycling Plant", isImplemented: false,
-        description: "Recycling plant.",
+        description: "Mandate proper waste management and recycling practices.",
         type: "environment", value: 50, finalValue: 50, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
         minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
@@ -723,6 +809,33 @@ export let policy = {
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
+        }
+    },
+    "protected_forest": {
+        name: "Protected Forest", isImplemented: false,
+        description: "Ensure preservation and conservartion of forest areas.",
+        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "national_park": {
+        name: "National Park", isImplemented: false,
+        description: "Establish national parks for conservation on biomes.",
+        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "conservation_effort": {
+        name: "Conservation Effort", isImplemented: false,
+        description: "Efforts to protect and manage biodiversities.",
+        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
         }
     },
 
@@ -769,6 +882,24 @@ export let policy = {
             },
         }
     },
+    "land_reclamation": {
+        name: "Land Reclamation", isImplemented: false,
+        description: "Repurpose degraded lands and sea to restore productive lands.",
+        type: "nature", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "oil_exploration": {
+        name: "Oil Exploration", isImplemented: false,
+        description: "Search for new oil sources.",
+        type: "nature", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
 
     // Infrastructure
     "road_construction": {
@@ -799,6 +930,42 @@ export let policy = {
             },
         }
     },
+    "airport_construction": {
+        name: "Airport Construction", isImplemented: false,
+        description: "Airport construction.",
+        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "telecom_construction": {
+        name: "Telecom Construction", isImplemented: false,
+        description: "Telecom construction.",
+        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "sattelite_development": {
+        name: "Sattelite Development", isImplemented: false,
+        description: "Sattelite development.",
+        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "car_subsidies": {
+        name: "Car Subsidies", isImplemented: false,
+        description: "Car subsidies.",
+        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
     "public_transport": {
         name: "Public Transport", isImplemented: false,
         description: "Public transport.",
@@ -811,6 +978,51 @@ export let policy = {
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
+        }
+    },
+    "coal_plant": {
+        name: "Coal Plant", isImplemented: false,
+        description: "Coal plant.",
+        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 100, implementationDelay: 2, implementationDuration: 0,
+        minCost: 100, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "nuclear_plant": {
+        name: "Nuclear Plant", isImplemented: false,
+        description: "Nuclear plant.",
+        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 200, implementationDelay: 2, implementationDuration: 0,
+        minCost: 200, maxCost: 200, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "state_housing": {
+        name: "State Housing", isImplemented: false,
+        description: "State housing.",
+        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 100, implementationDelay: 2, implementationDuration: 0,
+        minCost: 100, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "building_codes": {
+        name: "Building Codes", isImplemented: false,
+        description: "Building codes.",
+        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 100, implementationDelay: 2, implementationDuration: 0,
+        minCost: 100, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "city_planning_regulations": {
+        name: "City Planning Regulations", isImplemented: false,
+        description: "City planning regulations.",
+        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 100, implementationDelay: 2, implementationDuration: 0,
+        minCost: 100, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        effects: {
         }
     },
     
@@ -841,6 +1053,24 @@ export let policy = {
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
+        }
+    },
+    "minimum_wage": {
+        name: "Minimum Wage", isImplemented: false,
+        description: "Minimum wage.",
+        type: "labor", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "underage_labor": {
+        name: "Underage Labor", isImplemented: false,
+        description: "Underage labor.",
+        type: "labor", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
         }
     },
 
@@ -915,6 +1145,33 @@ export let policy = {
             },
         }
     },
+    "military_training": {
+        name: "Military Training", isImplemented: false,
+        description: "Military training.",
+        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "nuclear_weapons": {
+        name: "Nuclear Weapons", isImplemented: false,
+        description: "Nuclear weapons.",
+        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "arm_imports": {
+        name: "Arm Imports", isImplemented: false,
+        description: "Arm imports.",
+        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
 
     // Stability
     "legal_aid": {
@@ -987,20 +1244,24 @@ export let policy = {
             },
         }
     },
+    "press_freedom": {
+        name: "Press Freedom", isImplemented: false,
+        description: "Press freedom.",
+        type: "stability", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
 
     // Industry
-    "small_business_grants": {
-        name: "Small Business Grants", isImplemented: false,
-        description: "Small business grants.",
+    "mining_subsidies": {
+        name: "Mining Subsidies", isImplemented: false,
+        description: "Mining subsidies.",
         type: "industry", value: 50, finalValue: 50, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
         minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
         effects: {
-            "economy": {
-                effectDelay: 2, effectDuration: 0,
-                valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
-            },
         }
     },
     "agricultural_subsidies": {
@@ -1017,6 +1278,24 @@ export let policy = {
             },
         }
     },
+    "fisheries_subsidies": {
+        name: "Fisheries Subsidies", isImplemented: false,
+        description: "Fisheries subsidies.",
+        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "intellectual_rights": {
+        name: "Intellectual Rights", isImplemented: false,
+        description: "Intellectual rights.",
+        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
     "tourism_campaign": {
         name: "Tourism Campaign", isImplemented: false,
         description: "Tourism campaign.",
@@ -1029,6 +1308,33 @@ export let policy = {
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
+        }
+    },
+    "international_connections": {
+        name: "International Connections", isImplemented: false,
+        description: "International connections.",
+        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "sustainable_harvesting": {
+        name: "Sustainable Harvesting", isImplemented: false,
+        description: "Sustainable harvesting.",
+        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "green_energy": {
+        name: "Green Energy", isImplemented: false,
+        description: "Green energy.",
+        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
         }
     },
 }

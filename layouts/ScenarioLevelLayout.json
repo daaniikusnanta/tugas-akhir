@@ -425,6 +425,14 @@
 						"id": "geography_size_information"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 1207.7978688045876,
 						"y": 569,
@@ -466,6 +474,14 @@
 						"id": "geography_land_water_information"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 1408.2023458043764,
 						"y": 613.9147124716789,
@@ -630,6 +646,14 @@
 						"id": "situation_government_information"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 1358.008692739867,
 						"y": 727.5379693545938,
@@ -671,6 +695,14 @@
 						"id": "situation_economy_information"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 1303.4131697396558,
 						"y": 772.4526818262726,
@@ -793,6 +825,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 490,
 						"y": 805,
@@ -875,6 +915,14 @@
 						"id": "crisis_information"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 1232,
 						"y": 834,
@@ -1627,6 +1675,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": 374,
 								"uid": 375,
@@ -2026,6 +2082,14 @@
 								"id": "scenario_information"
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": 330,
 								"uid": 369,
@@ -2096,6 +2160,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": 330,
 								"uid": 331,
@@ -2166,6 +2238,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": 330,
 								"uid": 332,
@@ -2376,6 +2456,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": 330,
 								"uid": 335,
@@ -2446,6 +2534,14 @@
 								"id": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"sceneGraphData": {
 								"parent-uid": 330,
 								"uid": 336,

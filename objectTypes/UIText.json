@@ -13,7 +13,12 @@
 		}
 	],
 	"behaviorTypes": [],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "contrast",
+			"name": "Contrast"
+		}
+	],
 	"image": {
 		"width": 1024,
 		"height": 1024,

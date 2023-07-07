@@ -15,6 +15,7 @@ import {
   getObjectbyId,
   setScrollableHeight,
   toTitleCase,
+  resetScrollablePosition,
 } from "./utils.js";
 import { expandCrisisTiles, initializeTileBiome } from "./tile-data.js";
 import {
@@ -277,7 +278,7 @@ export function updateCrisisView(runtime) {
     const crisisView = getTextById(crisisName + "_crisis_name");
 
     const crisisState = crisisView.getChildAt(0);
-    crisisState.text = crisisFsms[crisisName].value;
+    crisisState.text = toTitleCase(crisisFsms[crisisName].value);
 
     const crisisValue = crisisView.getChildAt(1);
     const crisisSlider = crisisView.getChildAt(2);
@@ -293,30 +294,9 @@ export function updateCrisisView(runtime) {
       (crisisFsms[crisisName].value === crisisData.states[3] &&
         !crisisData.isGlobal)
     ) {
-      console.log("Expanding", crisisName);
       expandCrisisTiles(runtime, crisisName);
     }
   }
-  // let crisisSliders = runtime.objects.SliderBar.getAllInstances();
-  // crisisSliders = crisisSliders.filter((slider) =>
-  //   slider.instVars["id"].endsWith("crisis_slider")
-  // );
-
-  // for (const crisisSlider of crisisSliders) {
-  //   const id = crisisSlider.instVars["id"].replace("_crisis_slider", "");
-  //   const value = crisis[id].value;
-
-  //   const crisisText = getTextById(id + "_crisis_text");
-  // const totalLastUpdate = crisis[id].lastUpdateCause + crisis[id].lastUpdatePolicy;
-  //   const update =
-  //     totalLastUpdate >= 0
-  //       ? "+" + totalLastUpdate.toFixed(2)
-  //       : totalLastUpdate.toFixed(2);
-  //   const text = value.toFixed(2).toString() + " (" + update + ")";
-  //   setSliderValue(crisisSlider, crisisText, value, text);
-
-  //
-  // }
 }
 
 /**
@@ -349,7 +329,7 @@ function initializePolicyViews(runtime) {
     "policy"
   );
   const initialY = policiesScrollable.y + 10;
-  const initialX = (policiesScrollable.width - 320 * 2) / 4;
+  const initialX = (policiesScrollable.width - 345.5 * 2) / 3;
 
   console.log("Policy", policy);
 
@@ -369,8 +349,8 @@ function initializePolicyViews(runtime) {
     const columnX =
       policyViewDataType.policies.indexOf(policyName) % 2 == 0
         ? initialX
-        : initialX * 3 + 320;
-    const instanceX = policiesScrollable.x + 10 + columnX;
+        : initialX * 2 + 345.5;
+    const instanceX = policiesScrollable.x + columnX + 15;
     const instanceY =
       initialY +
       Math.floor(policyViewDataType.policies.indexOf(policyName) / 2) * 100;
@@ -457,13 +437,13 @@ function showPolicyPanel(policyType, runtime) {
       runtime.objects.ScrollablePanel,
       "policy"
     );
-
+    resetScrollablePosition(policiesScrollable);
     setScrollableHeight(
       runtime,
       policiesScrollable,
       Math.ceil(policyScrollableData[policyType].policies.length / 2),
       100,
-      20
+      0
     );
   }
 }

@@ -406,15 +406,6 @@
 							}
 						},
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 405270072055215,
-							"parameters": {
-								"variable": "panelHoveredUid",
-								"value": "Clickable.UID"
-							}
-						},
-						{
 							"id": "set-instvar-value",
 							"objectClass": "Clickable",
 							"sid": 601994814377079,
@@ -472,15 +463,6 @@
 							"parameters": {
 								"width": "Self.InitialWidth",
 								"height": "Self.initialHeight"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 907617618107646,
-							"parameters": {
-								"variable": "panelHoveredUid",
-								"value": "0"
 							}
 						},
 						{

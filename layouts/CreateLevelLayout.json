@@ -425,6 +425,14 @@
 						"id": "geography_size_information"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 1207.7978688045876,
 						"y": 569,
@@ -466,6 +474,14 @@
 						"id": "geography_land_water_information"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 1408.2023458043764,
 						"y": 613.9147124716789,
@@ -630,6 +646,14 @@
 						"id": "situation_government_information"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 1358.008692739867,
 						"y": 727.5379693545938,
@@ -671,6 +695,14 @@
 						"id": "situation_economy_information"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 1303.4131697396558,
 						"y": 772.4526818262726,
@@ -947,6 +979,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 498,
 						"y": 442,
@@ -988,6 +1028,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 1012,
 						"y": 442,
@@ -1154,6 +1202,14 @@
 						"id": "geography_size"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 558,
 						"y": 244,
@@ -1416,6 +1472,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 86,
 						"y": 102,
@@ -1457,6 +1521,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 86,
 						"y": 245,
@@ -1498,6 +1570,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 86,
 						"y": 537,
@@ -1868,6 +1948,14 @@
 						"id": "situation_government"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 558,
 						"y": 244,
@@ -2130,6 +2218,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 86,
 						"y": 102,
@@ -2171,6 +2267,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 86,
 						"y": 245,
@@ -2212,6 +2316,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 86,
 						"y": 575,
@@ -2378,6 +2490,14 @@
 						"id": "situation_economy"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 558.2023706110817,
 						"y": 400.68454902097665,
@@ -2990,6 +3110,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 86,
 						"y": 102,
@@ -3449,6 +3577,14 @@
 						"id": "geography_size"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"sceneGraphData": {
 						"parent-uid": 164,
 						"uid": 166,
@@ -3698,6 +3834,14 @@
 						"id": "day"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 81,
 						"y": 72,
@@ -3768,6 +3912,14 @@
 						"id": "size"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 373,
 						"y": 78,
@@ -3852,6 +4004,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 81,
 						"y": 202,
@@ -3922,6 +4082,14 @@
 						"id": "zoom"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 373,
 						"y": 208,
@@ -4006,6 +4174,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 76,
 						"y": 351,
@@ -4076,6 +4252,14 @@
 						"id": "threshold"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 368,
 						"y": 357,
@@ -4160,6 +4344,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 81,
 						"y": 499,
@@ -4230,6 +4422,14 @@
 						"id": "octave"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 373,
 						"y": 505,
@@ -4360,6 +4560,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": -19,
 						"y": 922,
@@ -4447,6 +4655,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 240,
 						"y": 923,
@@ -4488,6 +4704,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 81,
 						"y": 643,
@@ -4558,6 +4782,14 @@
 						"id": "colors"
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 373,
 						"y": 649,
@@ -4688,6 +4920,14 @@
 						"id": ""
 					},
 					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 473,
 						"y": 922,
