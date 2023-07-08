@@ -1368,82 +1368,102 @@ export let policy = {
 
     // Stability
     "legal_aid": {
-        name: "Legal Aid", isImplemented: false,
-        description: "Legal aid.",
-        type: "stability", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        name: "Legal Aid", isImplemented: true,
+        description: "Provide legal aid services to ensure equal access to justice.",
+        type: "stability", value: 32, finalValue: 32, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 12, maxCost: 76, minRevenue: 0, maxRevenue: 0,
         effects: {
             "justice_system": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.25 * policyValue},
             },
         }
     },
     "death_penalty": {
         name: "Death Penalty", isImplemented: false,
-        description: "Death penalty.",
-        type: "stability", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Enforce death penalty for extreme crimes.",
+        type: "stability", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 13, maxCost: 87, minRevenue: 0, maxRevenue: 0,
         effects: {
             "justice_system": {
                 effectDelay: 2, effectDuration: 0,
+                valueType: "postive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.35 * policyValue},
+            },
+            "governance": {
+                effectDelay: 2, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                formula: function (policyValue) {return -0.1 - 0.25 * policyValue},
             },
         }
     },
     "anti_corruption_agency": {
-        name: "Anti-Corruption Agency", isImplemented: false,
-        description: "Anti-corruption agency.",
-        type: "stability", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        name: "Anti-Corruption Agency", isImplemented: tru,
+        description: "Anti-corruption agency to prevent, investigate, and prosecute corruption.",
+        type: "stability", value: 18, finalValue: 18, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 14, maxCost: 98, minRevenue: 0, maxRevenue: 0,
         effects: {
             "governance": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.25 * policyValue},
             },
         }
     },
     "internet_censorship": {
         name: "Internet Censorship", isImplemented: false,
-        description: "Internet censorship.",
-        type: "stability", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Internet censorship to prevent hoaxes and misinformation spread.",
+        type: "stability", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 14, maxCost: 80, minRevenue: 0, maxRevenue: 0,
         effects: {
             "media_neutrality": {
+                effectDelay:3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 - 0.2 * policyValue},
+            },
+            "misinformation_spread": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                formula: function (policyValue) {return -0.1 - 0.2 * policyValue},
+            },
+            "political_instability": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.05 - 0.1 * policyValue},
             },
         }
     },
     "police_force": {
-        name: "Police Force", isImplemented: false,
-        description: "Police force.",
-        type: "stability", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        name: "Police Force", isImplemented: true,
+        description: "Police force to ensure public safety.",
+        type: "stability", value: 56, finalValue: 56, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 21, maxCost: 98, minRevenue: 0, maxRevenue: 0,
         effects: {
             "security": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.4 * policyValue},
             },
         }
     },
     "press_freedom": {
         name: "Press Freedom", isImplemented: false,
-        description: "Press freedom.",
-        type: "stability", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Protect and promote press freedom.",
+        type: "stability", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 12, maxCost: 68, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "media_neutrality": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.2 * policyValue},
+            },
         }
     },
 
