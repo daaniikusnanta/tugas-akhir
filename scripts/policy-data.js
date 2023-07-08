@@ -42,7 +42,7 @@ export const policyMultiplier = {
  */
 export let policy = {
     "income_tax": {
-        name: "Income Tax", isImplemented: true,
+        name: "Income Tax", isImplemented: false,
         description: "A cut on personal income.",
         type: "finance", value: 30, finalValue: 30, valueDelta: 0,
         implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
@@ -1677,6 +1677,17 @@ export let policy = {
             },
         }
     },
+}
+
+export function initializePolicy(policies) {
+    for (const policyName in policies) {
+        const policyData = policy[policyName];
+        const policyLevelData  = policies[policyName];
+
+        policyData.value = policyLevelData.value;
+        policyData.finalValue = policyLevelData.value;
+        policyData.isImplemented = policyLevelData.isImplemented;
+    }
 }
 
 export function applyPolicyChange(policyName, newValue) {

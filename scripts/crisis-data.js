@@ -648,7 +648,7 @@ export let crisis = {
   dropout_crisis: {
     name: "Dropout & Out of School",
     description:
-      "Children and adolescents who are not enrolled in school."
+      "Children and adolescents who are not enrolled in school.",
     value: 0,
     causeValue: 0,
     policyValue: 0,

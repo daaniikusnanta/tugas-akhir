@@ -2,7 +2,7 @@ import { initializeCrisis, isCrisisMaximized, isExtremeCrisisEmpty, crisis, star
 import { initializeStatus, status } from "./status-data.js";
 import { updateCrisisView, updateStatusView, setupCrisisViews } from "./game.js";
 import { addTextToCache, getClickablePanelById, getObjectbyId, getTextById, setScrollableHeight, toCurrencyFormat, toTitleCase } from "./utils.js";
-import { policyMultiplier } from "./policy-data.js";
+import { policyMultiplier, initializePolicy } from "./policy-data.js";
 import { balance, fiscalMultiplier, totalSpending } from "./fiscal-data.js";
 
 /**
@@ -24,7 +24,8 @@ const levelData = {
  * @type {{
  *  [level: number]: {
  *      status: {[key: string]: number},
- *      crisis: {[key: string]: number}
+ *      crisis: {[key: string]: number},
+ *      policies: {[key: string]: {isImplemented: boolean, value: number}},
  *  }
  * }}
  */
@@ -117,8 +118,106 @@ const levelVariables = {
         black_market: 9,
         low_investment: 13,
         bankruptcies: 4,
+    },
+    policy: {
+        agricultural_subsidies: {isImplemented: false,value: 0},
+          airport_construction: {isImplemented: false,value: 0},
+          alcohol_tax: {isImplemented: false,value: 50},
+          anti_corruption_agency: {isImplemented: true,value: 18},
+          arm_imports: {isImplemented: false,value: 0},
+          blood_organ_donation: {isImplemented: false,value: 0},
+          border_control: {isImplemented: true,value: 34},
+          building_codes: {isImplemented: false,value: 0},
+          car_subsidies: {isImplemented: false,value: 0},
+          carbon_tax: {isImplemented: false,value: 0},
+          child_benefit: {isImplemented: false,value: 0},
+          city_planning_regulations: {isImplemented: true,value: 45},
+          coal_plant: {isImplemented: true,value: 45},
+          conservation_effort: {isImplemented: false,value: 0},
+          corporation_tax: {isImplemented: true,value: 23},
+          curriculum_development: {isImplemented: false,value: 0},
+          customs_duty: {isImplemented: true,value: 45},
+          death_penalty: {isImplemented: false,value: 0},
+          debt_payment: {isImplemented: true,value: 25},
+          desalination_plant: {isImplemented: false,value: 0},
+          diplomatic_service: {isImplemented: true,value: 43},
+          disablity_benefit: {isImplemented: false,value: 0},
+          elderly_benefit: {isImplemented: false,value: 0},
+          entrepreneur_support: {isImplemented: false,value: 0},
+          family_planning: {isImplemented: false,value: 0},
+          fisheries_subsidies: {isImplemented: false,value: 0},
+          food_drug_regulations: {isImplemented: false,value: 0},
+          food_import: {isImplemented: false,value: 0},
+          foreign_aid: {isImplemented: false,value: 0},
+          fuel_tax: {isImplemented: false,value: 0},
+          green_energy: {isImplemented: false,value: 0},
+          health_college: {isImplemented: false,value: 0},
+          health_worker_volunteers: {isImplemented: false,value: 0},
+          healthcare_privatization: {isImplemented: false,value: 0},
+          income_tax: {isImplemented: true,value: 30},
+          intellectual_rights: {isImplemented: false,value: 0},
+          intelligence_agency: {isImplemented: false,value: 0},
+          international_connections: {isImplemented: true,value: 67},
+          international_trade: {isImplemented: true,value: 65},
+          internet_censorship: {isImplemented: false,value: 0},
+          labor_union: {isImplemented: false,value: 0},
+          land_reclamation: {isImplemented: false,value: 0},
+          legal_aid: {isImplemented: true,value: 32},
+          lockdown: {isImplemented: false,value: 0},
+          mandatory_face_masks: {isImplemented: false,value: 0},
+          mandatory_immunization: {isImplemented: false,value: 0},
+          mandatory_vaccination: {isImplemented: false,value: 0},
+          maternity_leave: {isImplemented: false,value: 0},
+          military_training: {isImplemented: true,value: 20},
+          minimum_wage: {isImplemented: true,value: 32},
+          mining_subsidies: {isImplemented: false,value: 0},
+          national_park: {isImplemented: false,value: 0},
+          nuclear_plant: {isImplemented: false,value: 0},
+          nuclear_weapons: {isImplemented: false,value: 0},
+          ocean_cleanup: {isImplemented: false,value: 0},
+          oil_exploration: {isImplemented: false,value: 0},
+          paternity_leave: {isImplemented: false,value: 0},
+          police_force: {isImplemented: true,value: 56},
+          press_freedom: {isImplemented: false,value: 0},
+          property_tax: {isImplemented: true,value: 32},
+          protected_forest: {isImplemented: false,value: 0},
+          public_health_campaign: {isImplemented: false,value: 0},
+          public_transport: {isImplemented: false,value: 0},
+          rail_construction: {isImplemented: true,value: 18},
+          recycling_plant: {isImplemented: false,value: 0},
+          reforestation: {isImplemented: false,value: 0},
+          research_grants: {isImplemented: false,value: 0},
+          road_construction: {isImplemented: true,value: 20},
+          sattelite_development: {isImplemented: false,value: 0},
+          scholarships: {isImplemented: false,value: 0},
+          school_meals: {isImplemented: false,value: 0},
+          small_business_grants: {isImplemented: false,value: 0},
+          standardized_testing: {isImplemented: false,value: 0},
+          state_health_insurance: {isImplemented: true,value: 64},
+          state_healthcare: {isImplemented: true,value: 64},
+          state_housing: {isImplemented: true,value: 56},
+          state_schools: {isImplemented: false,value: 50},
+          state_water_company: {isImplemented: true,value: 65},
+          sustainable_harvesting: {isImplemented: false,value: 0},
+          tax_amnesty: {isImplemented: false,value: 0},
+          teacher_assessment: {isImplemented: false,value: 0},
+          teacher_education: {isImplemented: false,value: 0},
+          technology_colleges: {isImplemented: false,value: 0},
+          telecom_construction: {isImplemented: true,value: 14},
+          tobacco_tax: {isImplemented: false,value: 0},
+          tourism_campaign: {isImplemented: false,value: 0},
+          travel_ban: {isImplemented: false,value: 0},
+          unemployment_benefit: {isImplemented: false,value: 0},
+          university_grants: {isImplemented: false,value: 0},
+          value_added_tax: {isImplemented: true,value: 34},
+          vehicle_tax: {isImplemented: true,value: 45},
+          vocational_education: {isImplemented: false,value: 0},
+          work_safety: {isImplemented: true,value: 20},
+          workplace_inclusion: {isImplemented: false,value: 0},
     }
 };
+
+
 
 /**
  * @type {{
@@ -403,6 +502,7 @@ export function createScenarioView(runtime) {
 export function setLevelVariables(level, runtime) {
     initializeStatus(levelVariables.status, runtime);
     initializeCrisis(levelVariables.crisis, runtime);
+    initializePolicy(levelVariables.policy);
     setupCrisisViews(runtime);
     updateStatusView(runtime);
     updateCrisisView(runtime);
