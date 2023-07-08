@@ -991,126 +991,190 @@ export let policy = {
 
     // Infrastructure
     "road_construction": {
-        name: "Road Construction", isImplemented: false,
-        description: "Road construction.",
-        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        name: "Road Construction", isImplemented: true,
+        description: "Construct national highway and regional roads.",
+        type: "infrastructure", value: 20, finalValue: 20, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 34, maxCost: 140, minRevenue: 0, maxRevenue: 0,
         effects: {
             "transportation": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 4, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.3 * policyValue},
             },
+            "forest": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.05 - 0.1 * policyValue},
+            }
         }
     },
     "rail_construction": {
-        name: "Rail Construction", isImplemented: false,
-        description: "Rail construction.",
-        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        name: "Rail Construction", isImplemented: true,
+        description: "Construct railway and train service.",
+        type: "infrastructure", value: 18, finalValue: 18, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 43, maxCost: 134, minRevenue: 0, maxRevenue: 0,
         effects: {
             "transportation": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue}, 
+                formula: function (policyValue) {return 0 + 0.25 * policyValue}, 
             },
         }
     },
     "airport_construction": {
         name: "Airport Construction", isImplemented: false,
-        description: "Airport construction.",
-        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Construct airport and airline services.",
+        type: "infrastructure", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 34, maxCost: 154, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "transportation": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+            },
         }
     },
     "telecom_construction": {
-        name: "Telecom Construction", isImplemented: false,
-        description: "Telecom construction.",
-        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        name: "Telecom Construction", isImplemented: true,
+        description: "Construct communication network and services.",
+        type: "infrastructure", value: 14, finalValue: 14, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 23, maxCost: 123, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "communication": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.4 * policyValue},
+            },
         }
     },
     "sattelite_development": {
         name: "Sattelite Development", isImplemented: false,
-        description: "Sattelite development.",
-        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Develop national sattelite for communication and information network.",
+        type: "infrastructure", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 54, maxCost: 178, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "communication": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.3 * policyValue},
+            },
         }
     },
     "car_subsidies": {
         name: "Car Subsidies", isImplemented: false,
-        description: "Car subsidies.",
-        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
-        effects: {
-        }
-    },
-    "public_transport": {
-        name: "Public Transport", isImplemented: false,
-        description: "Public transport.",
-        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Car subsidies to incentivize the adoption of low-cost cars.",
+        type: "infrastructure", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 45, maxCost: 187, minRevenue: 0, maxRevenue: 0,
         effects: {
             "transportation": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.05 + 0.15 * policyValue},
+            },
+            "pollution_control": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.05 - 0.1 * policyValue},
+        }
+    },
+    "public_transport": {
+        name: "Public Transport", isImplemented: false,
+        description: "Public transport investment to provide reliable services.",
+        type: "infrastructure", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 56, maxCost: 189, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "transportation": {
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.3 * policyValue},
             },
         }
     },
     "coal_plant": {
-        name: "Coal Plant", isImplemented: false,
-        description: "Coal plant.",
-        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 100, implementationDelay: 2, implementationDuration: 0,
-        minCost: 100, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        name: "Coal Plant", isImplemented: true,
+        description: "Construct coal power plants.",
+        type: "infrastructure", value: 45, finalValue: 45, valueDelta: 0,
+        implementationCost: 100, implementationDelay: 3, implementationDuration: 0,
+        minCost: 60, maxCost: 130, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "pollution_control": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.1 - 0.2 * policyValue},
+            },
+            "power_energy": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.25 * policyValue},
+            },
+            "sustainability": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.1 - 0.1 * policyValue},
+            }
         }
     },
     "nuclear_plant": {
         name: "Nuclear Plant", isImplemented: false,
-        description: "Nuclear plant.",
-        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 200, implementationDelay: 2, implementationDuration: 0,
-        minCost: 200, maxCost: 200, minRevenue: 0, maxRevenue: 0,
+        description: "Construct nuclear power plants.",
+        type: "infrastructure", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 5, implementationDuration: 0,
+        minCost: 120, maxCost: 240, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "power_energy": {
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.2 + 0.3 * policyValue},
+            },
         }
     },
     "state_housing": {
-        name: "State Housing", isImplemented: false,
-        description: "State housing.",
-        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 100, implementationDelay: 2, implementationDuration: 0,
-        minCost: 100, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        name: "State Housing", isImplemented: true,
+        description: "State housing to provide affordable and accessible housing.",
+        type: "infrastructure", value: 56, finalValue: 56, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 34, maxCost: 170, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "urban_housing": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.2 * policyValue},
+            },
         }
     },
     "building_codes": {
         name: "Building Codes", isImplemented: false,
-        description: "Building codes.",
-        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 100, implementationDelay: 2, implementationDuration: 0,
-        minCost: 100, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        description: "Building codes to ensure safety and standards.",
+        type: "infrastructure", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 50, maxCost: 180, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "urban_housing": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.1 * policyValue},
+            },
         }
     },
     "city_planning_regulations": {
-        name: "City Planning Regulations", isImplemented: false,
-        description: "City planning regulations.",
-        type: "infrastructure", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 100, implementationDelay: 2, implementationDuration: 0,
-        minCost: 100, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        name: "City Planning Regulations", isImplemented: true,
+        description: "City planning regulations to guide urban development.",
+        type: "infrastructure", value: 45, finalValue: 45, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 23, maxCost: 120, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "urban_housing": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.15 * policyValue},
+            },
         }
     },
     
