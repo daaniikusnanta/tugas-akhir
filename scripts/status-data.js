@@ -31,7 +31,7 @@ import { getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeigh
 export let status = {
     "taxes": {
         name: "Taxes",
-        description: "The amount of taxes collected.",
+        description: "The perception of taxe rates.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -43,7 +43,7 @@ export let status = {
     },
     "debt": {
         name: "Debt",
-        description: "The amount of debt",
+        description: "The perception of debt-to-income ratio.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -80,7 +80,7 @@ export let status = {
     },
     "disease_control": {
         name: "Disease Control",
-        description: "The state of the disease control.",
+        description: "Effectiveness of disease prevention and control.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -92,7 +92,7 @@ export let status = {
     },
     "health_workers": {
         name: "Health Workers",
-        description: "The amount of taxes collected.",
+        description: "Situation of health worker availability and competency.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -109,7 +109,7 @@ export let status = {
     },
     "public_health": {
         name: "Public Health",
-        description: "The amount of taxes collected.",
+        description: "The state of the population well-being and health.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -121,7 +121,7 @@ export let status = {
     },
     "healthcare_system": {
         name: "Healthcare System",
-        description: "The amount of taxes collected.",
+        description: "Quality and accessibility of healthcare.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -138,7 +138,7 @@ export let status = {
     },
     "education_system": {
         name: "Education System",
-        description: "The amount of taxes collected.",
+        description: "Quality and accessibility of education.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -155,7 +155,7 @@ export let status = {
     },
     "teachers": {
         name: "Teachers",
-        description: "The amount of taxes collected.",
+        description: "Situation of teacher availability and competency.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -167,7 +167,7 @@ export let status = {
     },
     "research": {
         name: "Research",
-        description: "The amount of taxes collected.",
+        description: "The state and quality of researches.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -184,7 +184,7 @@ export let status = {
     },
     "social_security": {
         name: "Social Security",
-        description: "The amount of taxes collected.",
+        description: "Safety nets for the population in need of assistance.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -196,7 +196,7 @@ export let status = {
     },
     "empowerment": {
         name: "Empowerment",
-        description: "The amount of taxes collected.",
+        description: "Assistance for the population to be self-sufficient and independent.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -208,7 +208,7 @@ export let status = {
     },
     "population_control": {
         name: "Population Control",
-        description: "The amount of taxes collected.",
+        description: "The state of population growth and control.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -229,7 +229,7 @@ export let status = {
     },
     "wage_income": {
         name: "Wage Income",
-        description: "The amount of taxes collected.",
+        description: "Wage and income situation per capita.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -241,7 +241,7 @@ export let status = {
     },
     "work_environment": {
         name: "Work Environment",
-        description: "The amount of taxes collected.",
+        description: "Work environment and conditions for workers.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -258,7 +258,7 @@ export let status = {
     },
     "productive_workers": {
         name: "Productive Workers",
-        description: "The amount of taxes collected.",
+        description: "Workforce availability, productivity, and efficiency.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -283,7 +283,7 @@ export let status = {
     },
     "jobs": {
         name: "Jobs",
-        description: "The amount of taxes collected.",
+        description: "Jobs availability, quality, and security.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -304,7 +304,7 @@ export let status = {
     },
     "justice_system": {
         name: "Justice System",
-        description: "The amount of taxes collected.",
+        description: "Justice system's ability to enforce the law and protect the people.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -316,7 +316,7 @@ export let status = {
     },
     "governance": {
         name: "Governance",
-        description: "The amount of taxes collected.",
+        description: "Perception of the government's ability to govern the country.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -328,7 +328,7 @@ export let status = {
     },
     "media_neutrality": {
         name: "Media Neutrality",
-        description: "The amount of taxes collected.",
+        description: "The media's ability to report the truth without bias or censorship.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -345,7 +345,7 @@ export let status = {
     },
     "security": {
         name: "Security",
-        description: "The amount of taxes collected.",
+        description: "Tthe country's security and safety from internal and external threats.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -386,7 +386,7 @@ export let status = {
     },
     "communication_information": {
         name: "Communication & Information",
-        description: "The amount of taxes collected.",
+        description: "Quality and accessibility of communication and information services.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -403,7 +403,7 @@ export let status = {
     },
     "transportation": {
         name: "Transportation",
-        description: "The amount of taxes collected.",
+        description: "Quality and accessibility of transportation services.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -424,7 +424,7 @@ export let status = {
     },
     "power_energy": {
         name: "Power & Energy",
-        description: "The amount of taxes collected.",
+        description: "Quality and availability of power and energy infrastructure.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -445,7 +445,7 @@ export let status = {
     },
     "urban_housing": {
         name: "Urban Housing",
-        description: "The amount of taxes collected.",
+        description: "Availability and quality of housing in urban areas.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -466,7 +466,7 @@ export let status = {
     },
     "pollution_control": {
         name: "Pollution Control",
-        description: "The amount of taxes collected.",
+        description: "Quality of pollution control and waste management services.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -478,7 +478,7 @@ export let status = {
     },
     "forest": {
         name: "Forest",
-        description: "The amount of taxes collected.",
+        description: "Condition of forest areas.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -490,7 +490,7 @@ export let status = {
     },
     "biodiversity": {
         name: "Biodiversity",
-        description: "The amount of taxes collected.",
+        description: "Condition of biodiversity and ecosystems.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -515,7 +515,7 @@ export let status = {
     },
     "marine": {
         name: "Marine",
-        description: "The amount of taxes collected.",
+        description: "Condition of marine and ocean areas.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -532,7 +532,7 @@ export let status = {
     },
     "investment": {
         name: "Investment",
-        description: "The amount of taxes collected.",
+        description: "Level of investment in the country.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -578,7 +578,7 @@ export let status = {
     },
     "mineral_oil_industry": {
         name: "Mineral & Oil Industry",
-        description: "The amount of taxes collected.",
+        description:"The amount and advancement of mineral and oil industry.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -596,7 +596,7 @@ export let status = {
     },
     "manufacturing": {
         name: "Manufacturing",
-        description: "The amount of taxes collected.",
+        description: "The amount and advancement of manufacturing industry.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -614,7 +614,7 @@ export let status = {
     },
     "agriculture": {
         name: "Agriculture",
-        description: "The amount of taxes collected.",
+        description: "The amount and advancement of agriculture industry.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -636,7 +636,7 @@ export let status = {
     },
     "fisheries": {
         name: "Fisheries",
-        description: "The amount of taxes collected.",
+        description: "The amount and advancement of fisheries industry",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -662,7 +662,7 @@ export let status = {
     },
     "tourism_creative": {
         name: "Tourism and Creative",
-        description: "The amount of taxes collected.",
+        description: "The amount and advancement of tourism and creative industry.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -699,7 +699,7 @@ export let status = {
     },
     "sustainability": {
         name: "Sustainability",
-        description: "The amount of taxes collected.",
+        description: "Sustainability practices across all industries.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -716,7 +716,7 @@ export let status = {
     },
     "foreign_relations": {
         name: "Foreign Relations",
-        description: "The amount of taxes collected.",
+        description: "The relationship with other countries.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -733,7 +733,7 @@ export let status = {
     },
     "defense_force": {
         name: "Defense Force",
-        description: "The amount of taxes collected.",
+        description: "The size and advancement of the defense force.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -745,7 +745,7 @@ export let status = {
     },
     "defense_infrastructure": {
         name: "Defense Infrastructure",
-        description: "The amount of taxes collected.",
+        description: "The quality and advancement of the defense infrastructure.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -762,7 +762,7 @@ export let status = {
     },
     "mineral_oil": {
         name: "Mineral & Oil",
-        description: "The amount of taxes collected.",
+        description: "Availability of mineral and oil resources.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -783,7 +783,7 @@ export let status = {
     },
     "water_land": {
         name: "Water & Land",
-        description: "The amount of taxes collected.",
+        description: "Availability and quality of water and land resources.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -804,7 +804,7 @@ export let status = {
     },
     "food_sources": {
         name: "Food Sources",
-        description: "The amount of taxes collected.",
+        description: "Availability of food sources and quality of food production.",
         value: 0,
         causeValue: 0,
         policyValue: 0,
@@ -905,7 +905,7 @@ export function setupStatusCauses(runtime, statusName) {
 
         const causeValue = causeName.getChildAt(0);
         const value = causeObj.formula();
-        causeValue.text = toDeltaFormat(value) + " per day";
+        causeValue.text = toDeltaFormat(value) + "  per day";
 
         causeScrollable.addChild(causeName, { transformX: true, transformY: true });
     }
@@ -971,7 +971,7 @@ export function setupStatusEffects(runtime, statusName) {
 
                 const effectValue = effectName.getChildAt(0);
                 const value = causeObj.formula();
-                effectValue.text = toDeltaFormat(value) + " per day";
+                effectValue.text = toDeltaFormat(value) + "  per day";
 
                 effectScrollable.addChild(effectName, { transformX: true, transformY: true });
             }
@@ -993,7 +993,7 @@ export function setupStatusEffects(runtime, statusName) {
 
                 const effectValue = effectName.getChildAt(0);
                 const value = causeObj.formula();
-                effectValue.text = toDeltaFormat(value) + " per day";
+                effectValue.text = toDeltaFormat(value) + "  per day";
 
                 effectScrollable.addChild(effectName, { transformX: true, transformY: true });
             }

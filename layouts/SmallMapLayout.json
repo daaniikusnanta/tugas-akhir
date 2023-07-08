@@ -9320,9 +9320,9 @@
 							"behaviors": {},
 							"world": {
 								"x": 383,
-								"y": 190,
+								"y": 159,
 								"width": 1125,
-								"height": 180,
+								"height": 211,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -9369,7 +9369,7 @@
 							},
 							"world": {
 								"x": 424.5,
-								"y": 218,
+								"y": 187,
 								"width": 467,
 								"height": 36,
 								"originX": 0,
@@ -9387,7 +9387,7 @@
 						{
 							"type": "UIText",
 							"properties": {
-								"text": "Policy Description\nad",
+								"text": "Healthcare system run by the state to ensure accessible medical service for all citizen.",
 								"enable-bbcode": true,
 								"character-width": 75,
 								"character-height": 82,
@@ -9397,7 +9397,7 @@
 								"character-spacing": 0,
 								"line-height": 0,
 								"horizontal-alignment": "left",
-								"vertical-alignment": "center",
+								"vertical-alignment": "top",
 								"wrapping": "word",
 								"initially-visible": true,
 								"origin": "top-left",
@@ -9418,9 +9418,9 @@
 							},
 							"world": {
 								"x": 424.5,
-								"y": 262,
-								"width": 968,
-								"height": 36,
+								"y": 231,
+								"width": 550,
+								"height": 67,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -9636,7 +9636,7 @@
 							},
 							"world": {
 								"x": 1445,
-								"y": 243,
+								"y": 212,
 								"width": 68,
 								"height": 68,
 								"originX": 0.5,
@@ -10335,6 +10335,55 @@
 						"y": -187.0083770751953,
 						"width": 314,
 						"height": 30,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIText",
+					"properties": {
+						"text": "Implementation Delay: 3",
+						"enable-bbcode": true,
+						"character-width": 75,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^ƒ",
+						"spacing-data": "[[12,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*ƒ\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+						"scale": 0.4,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 6,
+					"instanceVariables": {
+						"id": "policy_pop_up_implementation_delay"
+					},
+					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
+					"world": {
+						"x": 1051,
+						"y": 231,
+						"width": 320,
+						"height": 36,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -12059,7 +12108,7 @@
 						{
 							"type": "UIText",
 							"properties": {
-								"text": "Crisis Description\nsad",
+								"text": "Instability in politics due to changes that threaten the stability of a government.",
 								"enable-bbcode": true,
 								"character-width": 75,
 								"character-height": 82,

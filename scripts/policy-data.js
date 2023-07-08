@@ -1776,6 +1776,8 @@ export function setupPolicyPopUp(policyName, runtime) {
     policyNameText.text = policyData.name ?? policyName;
     const policyDescText = getTextById("policy_pop_up_description");
     policyDescText.text = policyData.description ?? "";
+    const policyImplementationDelatText = getTextById("policy_pop_up_implementation_delay");
+    policyImplementationDelatText.text = "Implementation Delay: " + policyData.implementationDelay ?? 0;
 
     const slider = runtime.objects.Slider.getPickedInstances()[0];
     const sliderFinal = getObjectbyId(runtime.objects.Slider, "policy_pop_up_final_slider");

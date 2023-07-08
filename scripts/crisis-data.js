@@ -129,7 +129,7 @@ export let crisis = {
   recession: {
     name: "Recession",
     description:
-      "A period of temporary economic decline during which trade and industrial activity are reduced, generally identified by a fall in GDP in two successive quarters.",
+      "A period of temporary economic decline.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -173,7 +173,7 @@ export let crisis = {
   debt_crisis: {
     name: "Debt Crisis",
     description:
-      "A situation in which a country is unable to pay back its government debt. It is usually the result of a weak economy and lax fiscal discipline.",
+      "Unability to pay back the government debt.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -207,7 +207,7 @@ export let crisis = {
   tax_evasion: {
     name: "Tax Evasion",
     description:
-      "The illegal evasion of taxes by individuals, corporations, and trusts.",
+      "The illegal evasion of taxes by individuals and corporations.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -238,7 +238,7 @@ export let crisis = {
   infectious_disease: {
     name: "Infectious Disease",
     description:
-      "A disease caused by a pathogen and spread from one person to another.",
+      "The spread of an infectious disease in the population.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -343,7 +343,7 @@ export let crisis = {
   chronic_disease: {
     name: "Chronic Disease",
     description:
-      "A disease that persists for a long time and typically cannot be cured completely.",
+      "Prevalence of non-infectious disease caused by unhealthy lifestyles.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -448,7 +448,7 @@ export let crisis = {
   mental_health_crisis: {
     name: "Mental Health Crisis",
     description:
-      "A mental health crisis is a non-medical term used to describe mental health problems that have escalated to a point where immediate action is required.",
+      "The prevalence of mental health problems.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -538,7 +538,7 @@ export let crisis = {
   healthcare_collapse: {
     name: "Healthcare Collapse",
     description:
-      "A healthcare collapse is a situation where the healthcare system is unable to provide care for all patients.",
+      "The unability of the healthcare system to provide care for all patients.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -596,7 +596,7 @@ export let crisis = {
   health_worker_shortage: {
     name: "Health Worker Shortage",
     description:
-      "A health worker shortage is a situation where there are not enough health workers to provide care for all patients.",
+      "Low availability of health workers.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -611,9 +611,9 @@ export let crisis = {
       medium: () => true,
       high: () =>
         crisisFsms["healthcare_collapse"].value !=
-          crisis["healthcare_collapse"].states[2] &&
+        crisis["healthcare_collapse"].states[2] &&
         crisisFsms["healthcare_collapse"].value !=
-          crisis["healthcare_collapse"].states[3],
+        crisis["healthcare_collapse"].states[3],
       extreme: () =>
         crisisFsms["healthcare_collapse"].value !=
         crisis["healthcare_collapse"].states[3],
@@ -646,9 +646,9 @@ export let crisis = {
     ],
   },
   dropout_crisis: {
-    name: "Dropout Crisis",
+    name: "Dropout & Out of School",
     description:
-      "A dropout crisis is a situation where a large number of students are not attending school.",
+      "Children and adolescents who are not enrolled in school."
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -693,7 +693,7 @@ export let crisis = {
   low_education: {
     name: "Low Education",
     description:
-      "Low education is a situation where a large number of students are not attending school.",
+      "Low quality and accessibility of education.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -738,7 +738,7 @@ export let crisis = {
   teacher_shortage: {
     name: "Teacher Shortage",
     description:
-      "A teacher shortage is a situation where there are not enough teachers to provide education for all students.",
+      "Low availability of teacher.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -753,7 +753,7 @@ export let crisis = {
       medium: () => true,
       high: () =>
         crisisFsms["low_education"].value !=
-          crisis["low_education"].states[2] &&
+        crisis["low_education"].states[2] &&
         crisisFsms["low_education"].value != crisis["low_education"].states[3],
       extreme: () =>
         crisisFsms["low_education"].value != crisis["low_education"].states[3],
@@ -787,7 +787,7 @@ export let crisis = {
   technology_lag: {
     name: "Technology Lag",
     description:
-      "Technology lag is a situation where the technology used in schools is outdated.",
+      "Lag in technology advancement compared to other countries.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -820,7 +820,7 @@ export let crisis = {
   poverty: {
     name: "Poverty",
     description:
-      "Poverty is a situation where a large number of people are living in poverty.",
+      "People living below the poverty line.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -839,8 +839,8 @@ export let crisis = {
     causes: [
       {
         cause: "social_security",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.2,
+        factor: 0.25,
         inertia: 0,
         formula: function () {
           return (
@@ -850,20 +850,20 @@ export let crisis = {
         },
       },
       {
-        cause: "recession",
-        yIntercept: 0,
-        factor: 0,
+        cause: "social_security",
+        yIntercept: 0.1,
+        factor: -0.5,
         inertia: 0,
         formula: function () {
           return (
-            this.yIntercept + (crisis["recession"].value / 100) * this.factor
+            this.yIntercept + (status["social_security"].value / 100) * this.factor
           );
         },
       },
       {
         cause: "discrimination",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.3,
+        factor: -0.5,
         inertia: 0,
         formula: function () {
           return (
@@ -877,7 +877,7 @@ export let crisis = {
   discrimination: {
     name: "Discrimination",
     description:
-      "Discrimination is a situation where a large number of people are discriminated against.",
+      "Perceived discrimination in the society.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -945,7 +945,7 @@ export let crisis = {
   urban_overcrowding: {
     name: "Urban Overcrowding",
     description:
-      "Urban overcrowding is a situation where a large number of people are living in overcrowded cities.",
+      "Large number of people are living in overcrowded cities.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1016,7 +1016,7 @@ export let crisis = {
   housing_crisis: {
     name: "Housing Crisis",
     description:
-      "Housing crisis is a situation where a large number of people are living in inadequate housing.",
+      "Increase in homeless people and poor quality housing.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1073,7 +1073,7 @@ export let crisis = {
   overpopulation: {
     name: "Overpopulation",
     description:
-      "Overpopulation is a situation where a large number of people are living in a small area.",
+      "Drastic increase in population.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1090,13 +1090,13 @@ export let crisis = {
         crisisFsms["recession"].value != crisis["recession"].states[2] &&
         crisisFsms["recession"].value != crisis["recession"].states[3] &&
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[2] &&
+        crisis["war_aggression"].states[2] &&
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[3],
+        crisis["war_aggression"].states[3],
       extreme: () =>
         crisisFsms["recession"].value != crisis["recession"].states[3] &&
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[3],
+        crisis["war_aggression"].states[3],
     },
     causes: [
       {
@@ -1116,7 +1116,7 @@ export let crisis = {
   pollution: {
     name: "Pollution",
     description:
-      "Pollution is a situation where the environment is contaminated with harmful substances.",
+      "Contamination of harmful substances in the environment.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1180,7 +1180,7 @@ export let crisis = {
   deforestation: {
     name: "Deforestation",
     description:
-      "Deforestation is a situation where a large area of forest is destroyed.",
+      "Increase in destroyed forest areas.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1235,7 +1235,7 @@ export let crisis = {
   overfishing: {
     name: "Overfishing",
     description:
-      "Overfishing is a situation where fish are caught faster than they can reproduce.",
+      "Fish are caught faster than they can reproduce.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1280,7 +1280,7 @@ export let crisis = {
   biodiversity_loss: {
     name: "Biodiversity Loss",
     description:
-      "Biodiversity loss is a situation where the variety of life on Earth is decreasing.",
+      "Decrease in animal and plant population.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1295,27 +1295,27 @@ export let crisis = {
       medium: () => true,
       high: () =>
         crisisFsms["deforestation"].value !=
-          crisis["deforestation"].states[2] &&
+        crisis["deforestation"].states[2] &&
         crisisFsms["deforestation"].value !=
-          crisis["deforestation"].states[3] &&
+        crisis["deforestation"].states[3] &&
         crisisFsms["overfishing"].value != crisis["overfishing"].states[2] &&
         crisisFsms["overfishing"].value != crisis["overfishing"].states[3] &&
         crisisFsms["water_scarcity"].value !=
-          crisis["water_scarcity"].states[2] &&
+        crisis["water_scarcity"].states[2] &&
         crisisFsms["water_scarcity"].value !=
-          crisis["water_scarcity"].states[3] &&
+        crisis["water_scarcity"].states[3] &&
         crisisFsms["food_insecurity"].value !=
-          crisis["food_insecurity"].states[2] &&
+        crisis["food_insecurity"].states[2] &&
         crisisFsms["food_insecurity"].value !=
-          crisis["food_insecurity"].states[3],
+        crisis["food_insecurity"].states[3],
       extreme: () =>
         crisisFsms["deforestation"].value !=
-          crisis["deforestation"].states[3] &&
+        crisis["deforestation"].states[3] &&
         crisisFsms["overfishing"].value != crisis["overfishing"].states[3] &&
         crisisFsms["water_scarcity"].value !=
-          crisis["water_scarcity"].states[3] &&
+        crisis["water_scarcity"].states[3] &&
         crisisFsms["food_insecurity"].value !=
-          crisis["food_insecurity"].states[3],
+        crisis["food_insecurity"].states[3],
     },
     causes: [
       {
@@ -1334,7 +1334,7 @@ export let crisis = {
   water_scarcity: {
     name: "Water Scarcity",
     description:
-      "Water scarcity is a situation where the demand for water is greater than the available supply.",
+      "Insufficient supply of clean and drinkable water.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1385,7 +1385,7 @@ export let crisis = {
   mineral_scarcity: {
     name: "Mineral Scarcity",
     description:
-      "Mineral scarcity is a situation where the demand for minerals is greater than the available supply.",
+      "Decrease in mineral resources.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1400,9 +1400,9 @@ export let crisis = {
       medium: () => true,
       high: () =>
         crisisFsms["food_insecurity"].value !=
-          crisis["food_insecurity"].states[2] &&
+        crisis["food_insecurity"].states[2] &&
         crisisFsms["food_insecurity"].value !=
-          crisis["food_insecurity"].states[3],
+        crisis["food_insecurity"].states[3],
       extreme: () =>
         crisisFsms["food_insecurity"].value !=
         crisis["food_insecurity"].states[3],
@@ -1424,7 +1424,7 @@ export let crisis = {
   food_insecurity: {
     name: "Food Insecurity",
     description:
-      "Food insecurity is a situation where people lack access to sufficient amounts of affordable, nutritious food.",
+      "Lack of access to sufficient amounts of affordable, nutritious food.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1479,7 +1479,7 @@ export let crisis = {
   infrastructure_inequality: {
     name: "Infrastructure Inequality",
     description:
-      "Infrastructure inequality is a situation where the infrastructure of a country is not equally distributed among its population.",
+      "Infrastructure is not equally distributed among the population.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1494,7 +1494,7 @@ export let crisis = {
       medium: () => true,
       high: () =>
         crisisFsms["energy_crisis"].value !=
-          crisis["energy_crisis"].states[2] &&
+        crisis["energy_crisis"].states[2] &&
         crisisFsms["energy_crisis"].value != crisis["energy_crisis"].states[3],
       extreme: () =>
         crisisFsms["energy_crisis"].value != crisis["energy_crisis"].states[3],
@@ -1529,7 +1529,7 @@ export let crisis = {
   energy_crisis: {
     name: "Energy Crisis",
     description:
-      "Energy crisis is a situation where the demand for energy is greater than the available supply.",
+      "Blackouts and insufficient energy supply.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1574,7 +1574,7 @@ export let crisis = {
   skill_shortage: {
     name: "Skill Shortage",
     description:
-      "Skill shortage is a situation where the demand for a certain skill is greater than the available supply.",
+      "Skill mismatch and insufficient skill supply.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1589,18 +1589,18 @@ export let crisis = {
       medium: () => true,
       high: () =>
         crisisFsms["low_education"].value !=
-          crisis["low_education"].states[2] &&
+        crisis["low_education"].states[2] &&
         crisisFsms["low_education"].value !=
-          crisis["low_education"].states[3] &&
+        crisis["low_education"].states[3] &&
         crisisFsms["low_investment"].value !=
-          crisis["low_investment"].states[2] &&
+        crisis["low_investment"].states[2] &&
         crisisFsms["low_investment"].value !=
-          crisis["low_investment"].states[3],
+        crisis["low_investment"].states[3],
       extreme: () =>
         crisisFsms["low_education"].value !=
-          crisis["low_education"].states[3] &&
+        crisis["low_education"].states[3] &&
         crisisFsms["low_investment"].value !=
-          crisis["low_investment"].states[3],
+        crisis["low_investment"].states[3],
     },
     causes: [
       {
@@ -1644,7 +1644,7 @@ export let crisis = {
   unemployment: {
     name: "Unemployment",
     description:
-      "Unemployment is a situation where people who are willing to work are unable to find a job.",
+      "Increase in productive population who is not working.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1736,7 +1736,7 @@ export let crisis = {
   job_loss: {
     name: "Job Loss",
     description:
-      "Job loss is a situation where people lose their jobs due to economic downturns.",
+      "Increase in workers who is now unemployed.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1816,7 +1816,7 @@ export let crisis = {
   cyber_attack: {
     name: "Cyber Attack",
     description:
-      "Cyber attacks are malicious attempts to damage or disrupt a computer network or system.",
+      "Attempts on disrupting the country's computer system.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1861,7 +1861,7 @@ export let crisis = {
   },
   terrorism: {
     name: "Terrorism",
-    description: "Terrorism",
+    description: "Increase in violent acts threatening security.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1876,9 +1876,9 @@ export let crisis = {
       medium: () => true,
       high: () =>
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[2] &&
+        crisis["war_aggression"].states[2] &&
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[3],
+        crisis["war_aggression"].states[3],
       extreme: () =>
         crisisFsms["war_aggression"].value !=
         crisis["war_aggression"].states[3],
@@ -1924,7 +1924,7 @@ export let crisis = {
   },
   war_aggression: {
     name: "War and Aggression",
-    description: "War and aggression are armed conflicts between nations.",
+    description: "Increase armed conflicts from outside of the country.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1970,7 +1970,7 @@ export let crisis = {
   separatist_groups: {
     name: "Separatist Groups",
     description:
-      "Separatist groups are groups of people who want to establish a new state or separate part of a state from the rest of the country.",
+      "Increase in separatist groups.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -1985,9 +1985,9 @@ export let crisis = {
       threat: () => true,
       small: () =>
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[2] &&
+        crisis["war_aggression"].states[2] &&
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[3],
+        crisis["war_aggression"].states[3],
       extreme: () =>
         crisisFsms["war_aggression"].value !=
         crisis["war_aggression"].states[3],
@@ -2054,7 +2054,7 @@ export let crisis = {
   },
   misinformation_spread: {
     name: "Misinformation Spread",
-    description: "Misinformation spread is the spread of false information.",
+    description: "The situation of the spread of false information.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -2134,7 +2134,7 @@ export let crisis = {
   media_bias: {
     name: "Media Bias",
     description:
-      "Media bias is the bias or perceived bias of journalists and news producers within the mass media in the selection of many events and stories that are reported and how they are covered.",
+      "Bias or perceived bias of journalists and news producers.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -2192,7 +2192,7 @@ export let crisis = {
   political_instability: {
     name: "Political Instability",
     description:
-      "Political instability is the propensity for regime or government change, political upheaval, or violence in society, or instability and uncertainty in government policy, such as regulatory, tax, property, or human rights law.",
+      "Instability in politics due to changes that threaten the stability of a government.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -2207,18 +2207,18 @@ export let crisis = {
       medium: () => true,
       high: () =>
         crisisFsms["social_unrest"].value !=
-          crisis["social_unrest"].states[2] &&
+        crisis["social_unrest"].states[2] &&
         crisisFsms["social_unrest"].value !=
-          crisis["social_unrest"].states[3] &&
+        crisis["social_unrest"].states[3] &&
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[2] &&
+        crisis["war_aggression"].states[2] &&
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[3],
+        crisis["war_aggression"].states[3],
       extreme: () =>
         crisisFsms["social_unrest"].value !=
-          crisis["social_unrest"].states[3] &&
+        crisis["social_unrest"].states[3] &&
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[3],
+        crisis["war_aggression"].states[3],
     },
     causes: [
       {
@@ -2249,7 +2249,7 @@ export let crisis = {
   social_unrest: {
     name: "Social Unrest",
     description:
-      "Social unrest is a symptom of a problem in society, rather than a problem in itself. It is usually caused by a group of people who believe that their rights have been violated. It is a reaction to real or perceived injustices, wrongs or unfair treatment.",
+      "Disturbance or demonstration of the citizens.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -2264,9 +2264,9 @@ export let crisis = {
       medium: () => true,
       high: () =>
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[2] &&
+        crisis["war_aggression"].states[2] &&
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[3],
+        crisis["war_aggression"].states[3],
       extreme: () =>
         crisisFsms["war_aggression"].value !=
         crisis["war_aggression"].states[3],
@@ -2359,7 +2359,7 @@ export let crisis = {
   conflicts: {
     name: "Conflicts",
     description:
-      "A conflict is a serious disagreement or argument, typically a protracted one.",
+      "Internal conflicts between race, religion, and ethnic groups.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -2374,9 +2374,9 @@ export let crisis = {
       medium: () => true,
       high: () =>
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[2] &&
+        crisis["war_aggression"].states[2] &&
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[3],
+        crisis["war_aggression"].states[3],
       extreme: () =>
         crisisFsms["war_aggression"].value !=
         crisis["war_aggression"].states[3],
@@ -2445,7 +2445,7 @@ export let crisis = {
   crime_violence: {
     name: "Crime and Violence",
     description:
-      "Crime is any act or behaviour which breaks the law. Violence is the use of physical force to injure people or property.",
+      "The amount of unlawful activity and threat of physical harm.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -2460,9 +2460,9 @@ export let crisis = {
       medium: () => true,
       high: () =>
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[2] &&
+        crisis["war_aggression"].states[2] &&
         crisisFsms["war_aggression"].value !=
-          crisis["war_aggression"].states[3],
+        crisis["war_aggression"].states[3],
       extreme: () =>
         crisisFsms["war_aggression"].value !=
         crisis["war_aggression"].states[3],
@@ -2561,7 +2561,7 @@ export let crisis = {
   },
   black_market: {
     name: "Black Market",
-    description: "The black market is the trade of illegal goods and services.",
+    description: "Trade of illegal goods and services.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -2619,7 +2619,7 @@ export let crisis = {
   },
   low_investment: {
     name: "Low Investment",
-    description: "Low investment is a lack of investment in the economy.",
+    description: "A lack of investment in the economy.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -2682,7 +2682,7 @@ export let crisis = {
   bankruptcies: {
     name: "Bankruptcies",
     description:
-      "Bankruptcies are the number of companies that have gone bankrupt.",
+      "Closing industries and companies.",
     value: 0,
     causeValue: 0,
     policyValue: 0,
@@ -2769,7 +2769,7 @@ export function initializeCrisis(levelVariables, runtime) {
       startingCrisis.push(variable);
     }
   }
-  
+
   createExtremeCrisisViews(runtime);
 
   for (const variable in crisis) {
@@ -2938,7 +2938,7 @@ function updateExtremeCrisis(runtime, variable, state, crisisWarningText) {
 
   crisisWarningText.getChildAt(0).text = toTitleCase(state);
   crisisWarningText.getChildAt(1).text = toPercentageFormat(crisis[variable].value);
-  
+
   experiencedCrisis.add(variable);
 }
 
@@ -3130,7 +3130,7 @@ export function setupCrisisEffects(runtime, crisisName) {
     effectView.destroy();
   }
 
-  // From other crisis
+  // From other status
   for (const otherStatusName in status) {
     const otherStatusData = status[otherStatusName];
 
@@ -3151,7 +3151,7 @@ export function setupCrisisEffects(runtime, crisisName) {
 
         const effectValue = effectName.getChildAt(0);
         const value = causeObj.formula();
-        effectValue.text = toDeltaFormat(value) + " per day";
+        effectValue.text = toDeltaFormat(value) + "  per day";
 
         effectScrollable.addChild(effectName, {
           transformX: true,
@@ -3182,7 +3182,7 @@ export function setupCrisisEffects(runtime, crisisName) {
 
         const effectValue = effectName.getChildAt(0);
         const value = causeObj.formula();
-        effectValue.text = toDeltaFormat(value) + " per day";
+        effectValue.text = toDeltaFormat(value) + "  per day";
 
         effectScrollable.addChild(effectName, {
           transformX: true,
