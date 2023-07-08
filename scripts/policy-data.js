@@ -1263,100 +1263,106 @@ export let policy = {
 
     // Defense
     "diplomatic_service": {
-        name: "Diplomatic Service", isImplemented: false,
-        description: "Diplomatic service.",
-        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        name: "Diplomatic Service", isImplemented: true,
+        description: "Diplomatic service for effective international relations.",
+        type: "defense", value: 43, finalValue: 43, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 12, maxCost: 90, minRevenue: 0, maxRevenue: 0,
         effects: {
             "foreign_relations": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.4 * policyValue},
             },
         }
     },
     "foreign_aid": {
         name: "Foreign Aid", isImplemented: false,
-        description: "Foreign aid.",
-        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
+        description: "Foreign aid to support development and foster international solidarity.",
+        type: "defense", value: 0, finalValue: 0, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        minCost: 14, maxCost: 89, minRevenue: 0, maxRevenue: 0,
         effects: {
             "foreign_relations": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.05 + 0.2 * policyValue},
             },
         }
     },
     "military_training": {
-        name: "Military Training", isImplemented: false,
-        description: "Military training.",
-        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
+        name: "Military Training", isImplemented: true,
+        description: "Military training to enhance defense capabilities.",
+        type: "defense", value: 20, finalValue: 20, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        minCost: 240, maxCost: 650, minRevenue: 0, maxRevenue: 0,
         effects: {
             "defense_force": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.2 + 0.6 * policyValue},
             },
         }
     },
     "intelligence_agency": {
         name: "Intelligence Agency", isImplemented: false,
-        description: "Intelligence agency.",
-        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Intelligence agency for effective national security measures.",
+        type: "defense", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 12, maxCost: 67, minRevenue: 0, maxRevenue: 0,
         effects: {
             "defense_infrastructure": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
         }
     },
     "border_control": {
-        name: "Border Control", isImplemented: false,
-        description: "Border control.",
-        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        name: "Border Control", isImplemented: true,
+        description: "Border control measures to ensure national security.",
+        type: "defense", value: 34, finalValue: 34, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 18, maxCost: 76, minRevenue: 0, maxRevenue: 0,
         effects: {
             "defense_infrastructure": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
-        }
-    },
-    "military_training": {
-        name: "Military Training", isImplemented: false,
-        description: "Military training.",
-        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
-        effects: {
         }
     },
     "nuclear_weapons": {
         name: "Nuclear Weapons", isImplemented: false,
         description: "Nuclear weapons.",
-        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        type: "defense", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 5, implementationDuration: 0,
+        minCost: 123, maxCost: 450, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "defense_infrastructure": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.2 + 0.3 * policyValue},
+            },
+            "foreign_relations": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.1 - 0.25 * policyValue},
+            },
         }
     },
     "arm_imports": {
         name: "Arm Imports", isImplemented: false,
-        description: "Arm imports.",
-        type: "defense", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Regulate arms import to maintain national security.",
+        type: "defense", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 120, maxCost: 560, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "defense_infrastructure": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.3 * policyValue},
+            },
         }
     },
 
