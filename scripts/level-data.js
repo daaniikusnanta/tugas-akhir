@@ -5,6 +5,14 @@ import { addTextToCache, getClickablePanelById, getObjectbyId, getTextById, setS
 import { policyMultiplier } from "./policy-data.js";
 import { balance, fiscalMultiplier, totalSpending } from "./fiscal-data.js";
 
+/**
+ * @type {{
+ *  size: "Large" | "Medium" | "Small",
+ *  landWater: "More Land" | "Balanced | "More Water",
+ *  governmentType: "Democratic" | "Semi Democratic" | "Semi Autocratic" | "Autocratic",
+ *  economyType: "Developed" | "Newly Emerging" | "Developing" 
+ * }}
+ */
 const levelData = {
     size: "Large",
     landWater: "More Land",
@@ -13,7 +21,12 @@ const levelData = {
 };
 
 /**
- * @type {{[level: number]: {[variable: string]: number}}}
+ * @type {{
+ *  [level: number]: {
+ *      status: {[key: string]: number},
+ *      crisis: {[key: string]: number}
+ *  }
+ * }}
  */
 const levelVariables = {
     status: {
@@ -107,6 +120,17 @@ const levelVariables = {
     }
 };
 
+/**
+ * @type {{
+ *  [key: string]: {
+ *      name: string,
+ *      description: string,
+ *      values: {
+ *          [key: string]: number
+ *      }
+ *  }
+ * }}
+ */
 const initialCrisis = {
     "pandemic": {
         name: "Pandemic",
@@ -147,8 +171,45 @@ const initialCrisis = {
             "food_sources": 31,
         }
     },
+    "water_scarcity": {
+        name: "Water Scarcity",
+        description: "Clean and drinkable water are scarce. A large number of the population may become sick.",
+        values: {
+            "water_scarcity": 76,
+            "infectious_disease": 43,
+            "chronic_disease": 42,
+        }
+    },
+    "energy_crisis": {
+        name: "Energy Crisis",
+        description: "Power blackouts are happening everywhere. Financial and government system may stop anytime.",
+        values: {
+            "energy_crisis": 79,
+            "power_energy": 57,
+            "communication_information": 76,
+            "transportation": 65,
+            "cyber_attack": 43,
+        }
+    },
 };
 
+/**
+ * @type {{
+ * [key: string]: {
+ *     name: string,
+ *      description: string,
+ *      parameters: {
+ *          size: "small" | "medium" | "large",
+ *          landWaterValue: number,
+ *          governmentType: "democratic" | "semi_autocratic" | "autocratic",
+ *          economyType: "developed" | "developing" | "newly_emerging",
+ *      },
+ *      initialValues: {
+ *          [key: string]: number
+ *      }
+ *  }
+ * }}
+ */
 const scenarios = {
     "sepnovria": {
         name: "Pandemic on Sepnovria",

@@ -23,7 +23,7 @@ import { getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeigh
  *      policyValue: number,
  *      lastUpdateCause: number,
  *      lastUpdatePolicy: number,
- *      type: string,
+ *      type: "finance" | "health" | "education" | "social" | "environment" | "nature" | "infrastructure" | "industry" | "defense" | "stability" | "labor",
  *      affectsIncome: boolean,
  *      causes: Cause[],
  * }}}

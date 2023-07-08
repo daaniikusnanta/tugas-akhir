@@ -13,7 +13,7 @@ export const policyMultiplier = {
 /**
  * @typedef {{
 *     effectDelay: number,
-*     valueType: string,
+*     valueType: "positive" | "negative",
 *     value: number,
 *     valueDelta: number,
 *     effectDuration: number,
@@ -27,7 +27,7 @@ export const policyMultiplier = {
  *      name: string,
  *      description: string,
  *      isImplemented: boolean,
- *      type: string,
+ *      type: "finance" | "health" | "education" | "social" | "environment" | "nature" | "infrastructure" | "industry" | "defense" | "stability" | "labor",
  *      value: number,
  *      finalValue: number,
  *      implementationCost: number,
@@ -45,16 +45,16 @@ export let policy = {
         name: "Income Tax", isImplemented: true,
         description: "A cut on personal income.",
         type: "finance", value: 30, finalValue: 30, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 250, maxRevenue: 4500,
         effects: {
             "taxes": {
                 effectDelay: 5, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.2 * policyValue},
             },
             "wage_income": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 4, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 - 0.1 * policyValue}
             }
@@ -63,9 +63,9 @@ export let policy = {
     "corporation_tax": {
         name: "Corporation Tax", isImplemented: true,
         description: "A tax on corporate's revenue.",
-        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        type: "finance", value: 23, finalValue: 23, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 200, maxRevenue: 3200,
         effects: {
             "taxes": {
                 effectDelay: 5, effectDuration: 0,
@@ -73,7 +73,7 @@ export let policy = {
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
             "investment": {
-                effectDelay: 3, effectDuration: 0,
+                effectDelay: 7, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 - 0.2 * policyValue},
             },
@@ -81,10 +81,10 @@ export let policy = {
     },
     "tobacco_tax": {
         name: "Tobacco Tax", isImplemented: false,
-        description: "A tax on tobacco products.",
-        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        description: "A tax on tobacco products such as cigarettes.",
+        type: "finance", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 120, maxRevenue: 550,
         effects: {
             "taxes": {
                 effectDelay: 5, effectDuration: 0,
@@ -92,52 +92,52 @@ export let policy = {
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
             "public_health": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 6, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                formula: function (policyValue) {return -0.1 - 0.1 * policyValue},
             },
             "mental_health_crisis": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.15 * policyValue},
             }
         }
     },
     "alcohol_tax": {
         name: "Alcohol Tax", isImplemented: false,
-        description: "A tax on alcohol products.",
+        description: "A tax on alcohol products such as alcohol beverages.",
         type: "finance", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 120, maxRevenue: 480,
         effects: {
             "taxes": {
                 effectDelay: 5, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
             "public_health": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 4, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                formula: function (policyValue) {return 0 - 0.15 * policyValue},
             },
             "mental_health_crisis": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 8, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
             "crime_violence": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.1 * policyValue},
             },
         }
     },
     "fuel_tax": {
         name: "Fuel Tax", isImplemented: false,
-        description: "Tax on fuel.",
-        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        description: "Tax on vehicle fuels.",
+        type: "finance", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 90, maxRevenue: 500,
         effects: {
             "taxes": {
                 effectDelay: 5, effectDuration: 0,
@@ -145,23 +145,23 @@ export let policy = {
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
             "pollution_control": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 8, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                formula: function (policyValue) {return -0.1 - 0.1 * policyValue},
             },
             "transportation": {
-                effectDelay: 2, effectDuration: 0,
-                valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
             },
         }
     },
     "property_tax": {
         name: "Property Tax", isImplemented: true,
         description: "Tax on property.",
-        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        type: "finance", value: 32, finalValue: 32, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 123, maxRevenue: 468,
         effects: {
             "taxes": {
                 effectDelay: 5, effectDuration: 0,
@@ -169,18 +169,18 @@ export let policy = {
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
             "urban_housing": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 5, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                formula: function (policyValue) {return -0.2 - 0.1 * policyValue},
             },
         }
     },
     "vehicle_tax": {
         name: "Vehicle Tax", isImplemented: true,
         description: "Tax on vehicles.",
-        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        type: "finance", value: 45, finalValue: 45, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 70, maxRevenue: 440,
         effects: {
             "taxes": {
                 effectDelay: 5, effectDuration: 0,
@@ -188,18 +188,18 @@ export let policy = {
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
             "pollution_control": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 4, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                formula: function (policyValue) {return 0 - 0.2 * policyValue},
             },
         }
     },
     "value_added_tax": {
         name: "Value Added Tax", isImplemented: true,
-        description: "Tax on value added to a product.",
-        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        description: "Tax on value added to a product on every manufacturing steps.",
+        type: "finance", value: 34, finalValue: 34, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 0, maxCost: 0, minRevenue: 120, maxRevenue: 520,
         effects: {
             "taxes": {
                 effectDelay: 5, effectDuration: 0,
@@ -208,21 +208,21 @@ export let policy = {
             },
             "investment": {
                 effectDelay: 2, effectDuration: 0,
-                valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.15 * policyValue},
             },
             "manufacturing": {
-                effectDelay: 2, effectDuration: 0,
-                valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.1 - 0.15 * policyValue},
             },
         }
     },
     "customs_duty": {
         name: "Customs Duty", isImplemented: true,
-        description: "Tax on imported goods.",
-        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        description: "Fee on imported goods.",
+        type: "finance", value: 45, finalValue: 45, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 5, implementationDuration: 0,
         minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
         effects: {
             "taxes": {
@@ -231,7 +231,12 @@ export let policy = {
                 formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
             "investment": {
-                 effectDelay: 2, effectDuration: 0,
+                effectDelay: 2, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
+            "economy": {
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
@@ -240,60 +245,33 @@ export let policy = {
     "tax_amnesty": {
         name: "Tax Amnesty", isImplemented: false,
         description: "Tax amnesty for tax evaders.",
-        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        type: "finance", value: 0, finalValue: 0, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 2, maxRevenue: 100,
+        minCost: 143, maxCost: 650, minRevenue: 0, maxRevenue: 0,
         effects: {
             "taxes": {
                 effectDelay: 5, effectDuration: 0,
-                valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.1 - 0.4 * policyValue},
             },
             "investment": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
         }
     },
     "debt_payment": {
         name: "Debt Payment", isImplemented: true,
         description: "Pay government borrowings.",
-        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
-        effects: {
-        }
-    },
-    "small_business_grants": {
-        name: "Small Business Grants", isImplemented: false,
-        description: "Grants for small businesses.",
-        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
-        effects: {
-        }
-    },
-    "international_trade": {
-        name: "International Trade", isImplemented: true,
-        description: "Trade agreements with other countries.",
-        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
-        effects: {
-        }
-    },
-    "entrepreneur_support": {
-        name: "Entrepreneur Support", isImplemented: false,
-        description: "Support for new entrepreneurs to create new jobs and economy.",
-        type: "finance", value: 50, finalValue: 50, valueDelta: 0,
+        type: "finance", value: 25, finalValue: 25, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
         minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
         effects: {
         }
     },
 
-    // HEALTH
+    // Health
     "mandatory_face_masks": {
         name: "Mandatory Face Masks", isImplemented: false,
         description: "Mandatory face masks in public places.",
@@ -1334,6 +1312,33 @@ export let policy = {
         type: "industry", value: 50, finalValue: 50, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
         minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "small_business_grants": {
+        name: "Small Business Grants", isImplemented: false,
+        description: "Grants for small businesses.",
+        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "international_trade": {
+        name: "International Trade", isImplemented: true,
+        description: "Trade agreements with other countries.",
+        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        effects: {
+        }
+    },
+    "entrepreneur_support": {
+        name: "Entrepreneur Support", isImplemented: false,
+        description: "Support for new entrepreneurs to create new jobs and economy.",
+        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
         effects: {
         }
     },
