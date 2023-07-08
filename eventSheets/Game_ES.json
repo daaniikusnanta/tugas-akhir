@@ -1515,6 +1515,49 @@
 								}
 							],
 							"sid": 660920370769553
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 323381484528961,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"exit\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 562014007138935,
+									"parameters": {
+										"layout": "MenuLayout"
+									}
+								}
+							],
+							"sid": 796899480010799
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 289949987404035,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"retry\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 264555549840413
 						}
 					]
 				},

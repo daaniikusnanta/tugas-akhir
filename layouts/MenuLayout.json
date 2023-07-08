@@ -142,9 +142,9 @@
 					"behaviors": {},
 					"world": {
 						"x": 723,
-						"y": 402,
+						"y": 491,
 						"width": 474,
-						"height": 538,
+						"height": 405,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -171,7 +171,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 960,
-						"y": 193,
+						"y": 282,
 						"width": 759.2597944576037,
 						"height": 259.105304410621,
 						"originX": 0.5,
@@ -217,7 +217,99 @@
 					},
 					"world": {
 						"x": 960,
-						"y": 480,
+						"y": 577,
+						"width": 271,
+						"height": 68,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Menu Button",
+						"initial-frame": 7,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 350,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"isHovered": false,
+						"initialOpacity": 0,
+						"id": "credits"
+					},
+					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": false,
+							"parameters": {
+								"intensity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 960,
+						"y": 689,
+						"width": 271,
+						"height": 68,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Menu Button",
+						"initial-frame": 6,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 363,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"isHovered": false,
+						"initialOpacity": 0,
+						"id": "exit"
+					},
+					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": false,
+							"parameters": {
+								"intensity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 960,
+						"y": 802,
 						"width": 271,
 						"height": 68,
 						"originX": 0.5,
@@ -237,6 +329,569 @@
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "CreditPopUp",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "Blur",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 351,
+					"instanceVariables": {},
+					"behaviors": {},
+					"effects": {
+						"Screen": {
+							"isEnabled": true,
+							"parameters": {}
+						},
+						"BlurHorizontal": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"BlurVertical": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 960,
+						"y": 540,
+						"width": 1920,
+						"height": 1080,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIPanelOutline",
+					"properties": {
+						"left-margin": 24,
+						"right-margin": 24,
+						"top-margin": 24,
+						"bottom-margin": 24,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "exact"
+					},
+					"uid": 352,
+					"instanceVariables": {
+						"id": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 647,
+						"y": 268,
+						"width": 626,
+						"height": 522,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.6
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TextNotoSerifBlack",
+					"properties": {
+						"text": "CREDITS",
+						"enable-bbcode": true,
+						"character-width": 84,
+						"character-height": 79,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+						"spacing-data": "[[18,\" \"],[9,\"|\"],[16,\",\"],[17,\".;:'\"],[19,\"!\"],[22,\"-\"],[23,\"\\\\/\"],[25,\"[`\"],[26,\"j]\"],[27,\"°\"],[28,\"il()\"],[31,\"I\"],[32,\"t\"],[34,\"J\\\"\"],[35,\"+=*<>\"],[36,\"s\"],[37,\"c7_\"],[38,\"f5?$\"],[39,\"01269~#^\"],[40,\"e3\"],[41,\"z48\"],[42,\"r£€\"],[43,\"Sao\"],[45,\"g\"],[46,\"CFy\"],[47,\"b\"],[48,\"ELZdpquv\"],[49,\"Phn\"],[50,\"k\"],[51,\"BTx\"],[54,\"GV\"],[55,\"DOQ\"],[56,\"RUY\"],[58,\"KX\"],[59,\"AN&\"],[60,\"H\"],[63,\"@\"],[65,\"w%\"],[69,\"M\"],[73,\"m\"],[82,\"W\"]]",
+						"scale": 0.7,
+						"character-spacing": 1,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top",
+						"read-aloud": false
+					},
+					"uid": 353,
+					"instanceVariables": {
+						"id": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 960,
+						"y": 313,
+						"width": 397.79997762044377,
+						"height": 55.86666107177757,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							0.9137254901960784,
+							0.9176470588235294,
+							0.7215686274509804,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UITextBold",
+					"properties": {
+						"text": "Design, Programming, Art",
+						"enable-bbcode": true,
+						"character-width": 77,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+						"spacing-data": "[[12,\" \"],[11,\"'\"],[12,\"Iil|\"],[13,\".:!\"],[14,\",;\"],[19,\"`\"],[21,\"j\"],[22,\"[]\"],[23,\"1()\"],[24,\"J\\\"\"],[25,\"r\"],[27,\"°\"],[28,\"ft\"],[31,\"*\"],[33,\"-\"],[35,\"Lsz=\"],[36,\"?<>^\"],[37,\"\\/\"],[38,\"EFahnu7_~\"],[39,\"k2+\"],[40,\"569\"],[41,\"PT38\"],[42,\"Zcevx\"],[43,\"Sg$\"],[44,\"BRbdpqy\"],[45,\"Ho04\"],[46,\"KNU£\"],[48,\"DX\"],[49,\"Y\"],[50,\"&\"],[52,\"CV\"],[53,\"A\"],[54,\"€\"],[55,\"G\"],[57,\"M\"],[59,\"OQ\"],[60,\"#\"],[61,\"m\"],[64,\"@\"],[65,\"w\"],[68,\"%\"],[75,\"W\"]]",
+						"scale": 0.4,
+						"character-spacing": 1,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top",
+						"read-aloud": false
+					},
+					"uid": 354,
+					"instanceVariables": {
+						"id": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 960,
+						"y": 384,
+						"width": 348,
+						"height": 73.20213119541233,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIText",
+					"properties": {
+						"text": "Daanii Nabil Ghinannafsi Kusnanta",
+						"enable-bbcode": true,
+						"character-width": 75,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^ƒ",
+						"spacing-data": "[[12,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*ƒ\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+						"scale": 0.4,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top",
+						"read-aloud": false
+					},
+					"uid": 355,
+					"instanceVariables": {
+						"id": "geography_size_information"
+					},
+					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
+					"world": {
+						"x": 960,
+						"y": 426,
+						"width": 402.0000221946025,
+						"height": 74.20211743842754,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UITextBold",
+					"properties": {
+						"text": "Music & SFX",
+						"enable-bbcode": true,
+						"character-width": 77,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+						"spacing-data": "[[12,\" \"],[11,\"'\"],[12,\"Iil|\"],[13,\".:!\"],[14,\",;\"],[19,\"`\"],[21,\"j\"],[22,\"[]\"],[23,\"1()\"],[24,\"J\\\"\"],[25,\"r\"],[27,\"°\"],[28,\"ft\"],[31,\"*\"],[33,\"-\"],[35,\"Lsz=\"],[36,\"?<>^\"],[37,\"\\/\"],[38,\"EFahnu7_~\"],[39,\"k2+\"],[40,\"569\"],[41,\"PT38\"],[42,\"Zcevx\"],[43,\"Sg$\"],[44,\"BRbdpqy\"],[45,\"Ho04\"],[46,\"KNU£\"],[48,\"DX\"],[49,\"Y\"],[50,\"&\"],[52,\"CV\"],[53,\"A\"],[54,\"€\"],[55,\"G\"],[57,\"M\"],[59,\"OQ\"],[60,\"#\"],[61,\"m\"],[64,\"@\"],[65,\"w\"],[68,\"%\"],[75,\"W\"]]",
+						"scale": 0.4,
+						"character-spacing": 1,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top",
+						"read-aloud": false
+					},
+					"uid": 356,
+					"instanceVariables": {
+						"id": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 960,
+						"y": 480,
+						"width": 249,
+						"height": 73.20213119541233,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UITextBold",
+					"properties": {
+						"text": "Advisor",
+						"enable-bbcode": true,
+						"character-width": 77,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+						"spacing-data": "[[12,\" \"],[11,\"'\"],[12,\"Iil|\"],[13,\".:!\"],[14,\",;\"],[19,\"`\"],[21,\"j\"],[22,\"[]\"],[23,\"1()\"],[24,\"J\\\"\"],[25,\"r\"],[27,\"°\"],[28,\"ft\"],[31,\"*\"],[33,\"-\"],[35,\"Lsz=\"],[36,\"?<>^\"],[37,\"\\/\"],[38,\"EFahnu7_~\"],[39,\"k2+\"],[40,\"569\"],[41,\"PT38\"],[42,\"Zcevx\"],[43,\"Sg$\"],[44,\"BRbdpqy\"],[45,\"Ho04\"],[46,\"KNU£\"],[48,\"DX\"],[49,\"Y\"],[50,\"&\"],[52,\"CV\"],[53,\"A\"],[54,\"€\"],[55,\"G\"],[57,\"M\"],[59,\"OQ\"],[60,\"#\"],[61,\"m\"],[64,\"@\"],[65,\"w\"],[68,\"%\"],[75,\"W\"]]",
+						"scale": 0.4,
+						"character-spacing": 1,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top",
+						"read-aloud": false
+					},
+					"uid": 357,
+					"instanceVariables": {
+						"id": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 960,
+						"y": 535,
+						"width": 249,
+						"height": 73.20213119541233,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UITextBold",
+					"properties": {
+						"text": "Special Thanks",
+						"enable-bbcode": true,
+						"character-width": 77,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^",
+						"spacing-data": "[[12,\" \"],[11,\"'\"],[12,\"Iil|\"],[13,\".:!\"],[14,\",;\"],[19,\"`\"],[21,\"j\"],[22,\"[]\"],[23,\"1()\"],[24,\"J\\\"\"],[25,\"r\"],[27,\"°\"],[28,\"ft\"],[31,\"*\"],[33,\"-\"],[35,\"Lsz=\"],[36,\"?<>^\"],[37,\"\\/\"],[38,\"EFahnu7_~\"],[39,\"k2+\"],[40,\"569\"],[41,\"PT38\"],[42,\"Zcevx\"],[43,\"Sg$\"],[44,\"BRbdpqy\"],[45,\"Ho04\"],[46,\"KNU£\"],[48,\"DX\"],[49,\"Y\"],[50,\"&\"],[52,\"CV\"],[53,\"A\"],[54,\"€\"],[55,\"G\"],[57,\"M\"],[59,\"OQ\"],[60,\"#\"],[61,\"m\"],[64,\"@\"],[65,\"w\"],[68,\"%\"],[75,\"W\"]]",
+						"scale": 0.4,
+						"character-spacing": 1,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top",
+						"read-aloud": false
+					},
+					"uid": 358,
+					"instanceVariables": {
+						"id": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 960,
+						"y": 671,
+						"width": 249,
+						"height": 73.20213119541233,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIText",
+					"properties": {
+						"text": "Hadziq Fabroyir, S.Kom., Ph.D.",
+						"enable-bbcode": true,
+						"character-width": 75,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^ƒ",
+						"spacing-data": "[[12,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*ƒ\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+						"scale": 0.4,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top",
+						"read-aloud": false
+					},
+					"uid": 359,
+					"instanceVariables": {
+						"id": "geography_size_information"
+					},
+					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
+					"world": {
+						"x": 960,
+						"y": 609,
+						"width": 350,
+						"height": 41.202117438427535,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIText",
+					"properties": {
+						"text": "Imam Kuswardayan, S.Kom., MT.",
+						"enable-bbcode": true,
+						"character-width": 75,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^ƒ",
+						"spacing-data": "[[12,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*ƒ\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+						"scale": 0.4,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top",
+						"read-aloud": false
+					},
+					"uid": 360,
+					"instanceVariables": {
+						"id": "geography_size_information"
+					},
+					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
+					"world": {
+						"x": 960,
+						"y": 570,
+						"width": 350,
+						"height": 41.202117438427535,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIText",
+					"properties": {
+						"text": "Raassh23",
+						"enable-bbcode": true,
+						"character-width": 75,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^ƒ",
+						"spacing-data": "[[12,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*ƒ\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+						"scale": 0.4,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top",
+						"read-aloud": false
+					},
+					"uid": 361,
+					"instanceVariables": {
+						"id": "geography_size_information"
+					},
+					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
+					"world": {
+						"x": 960,
+						"y": 709,
+						"width": 350,
+						"height": 41.202117438427535,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "UI Button",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 362,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"isHovered": false,
+						"initialOpacity": 0,
+						"id": "close_credit"
+					},
+					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": false,
+							"parameters": {
+								"intensity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 1331,
+						"y": 302,
+						"width": 68,
+						"height": 68,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 484127857668469,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"isInitiallyInteractive": false,
 			"color": [
 				1,
 				1,

@@ -91,6 +91,114 @@
 						}
 					],
 					"sid": 483170698664867
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 974272510345493,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"credits\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 559642211881360,
+							"parameters": {
+								"layer": "\"MenuUI\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 667155644766998,
+							"parameters": {
+								"layer": "\"MenuUI\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 913733797750999,
+							"parameters": {
+								"layer": "\"CreditPopUp\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 451236382444467,
+							"parameters": {
+								"layer": "\"CreditPopUp\"",
+								"interactive": true
+							}
+						}
+					],
+					"sid": 610507504042247
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 724704207720786,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"close_credit\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 657954273769477,
+							"parameters": {
+								"layer": "\"MenuUI\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 836301671950519,
+							"parameters": {
+								"layer": "\"MenuUI\"",
+								"interactive": true
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 267600969376893,
+							"parameters": {
+								"layer": "\"CreditPopUp\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 295269207410057,
+							"parameters": {
+								"layer": "\"CreditPopUp\"",
+								"interactive": false
+							}
+						}
+					],
+					"sid": 944158636287815
 				}
 			]
 		}
