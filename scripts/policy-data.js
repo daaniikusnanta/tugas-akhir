@@ -669,29 +669,29 @@ export let policy = {
     // Social
     "child_benefit": {
         name: "Child Benefit", isImplemented: false,
-        description: "Benefits for children.",
-        type: "social", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Benefits for children to provide financial assistance to families.",
+        type: "social", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 120, maxCost: 430, minRevenue: 0, maxRevenue: 0,
         effects: {
             "social_security": {
-                effectDelay: 2, effectDuration: 0,
-                valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                effectDelay: 4, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.3 * policyValue},
             },
             "population_control": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                formula: function (policyValue) {return 0 - 0.15 * policyValue},
             },
         }
     },
     "disablity_benefit": {
         name: "Disability Benefit", isImplemented: false,
-        description: "Benefits for disabled people.",
-        type: "social", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Benefits for disabled people to provide financial assistances to disabled people.",
+        type: "social", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 30, maxCost: 140, minRevenue: 0, maxRevenue: 0,
         effects: {
             "social_security": {
                 effectDelay: 2, effectDuration: 0,
@@ -699,71 +699,81 @@ export let policy = {
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
             "discrimination": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                formula: function (policyValue) {return 0 - 0.2 * policyValue},
             },
         }
     },
     "elderly_benefit": {
         name: "Elderly Benefit", isImplemented: false,
-        description: "Benefits for elderly people.",
-        type: "social", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Benefits for elderly people to provide financial support for senior citizens.",
+        type: "social", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 80, maxCost: 190, minRevenue: 0, maxRevenue: 0,
         effects: {
             "social_security": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.15 * policyValue},
             },
             "empowerment": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.3 * policyValue},
             },
         }
     },
     "unemployment_benefit": {
         name: "Unemployment Benefit", isImplemented: false,
-        description: "Benefits for unemployed people.",
-        type: "social", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Benefits for unemployed people to provide financial assistance.",
+        type: "social", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 3, maxCost: 120, minRevenue: 0, maxRevenue: 0,
         effects: {
             "social_security": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.15 * policyValue},
             },
             "unemployment": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 4, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
         }
     },
     "family_planning": {
         name: "Family Planning", isImplemented: false,
         description: "Education and support for families about family size.",
-        type: "social", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        type: "social", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 5, implementationDuration: 0,
+        minCost: 30, maxCost: 120, minRevenue: 0, maxRevenue: 0,
         effects: {
             "population_control": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 4, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.3 * policyValue},
             },
         }
     },
     "workplace_inclusion": {
         name: "Workplace Inclusion", isImplemented: false,
         description: "Promote equal oppurtunities and treatement on work places.",
-        type: "social", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        type: "social", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 32, maxCost: 120, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "empowerment": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.2 * policyValue},
+            },
+            "work_environment": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.25 * policyValue},
+            },
         }
     },
 
