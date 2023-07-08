@@ -1470,111 +1470,211 @@ export let policy = {
     // Industry
     "mining_subsidies": {
         name: "Mining Subsidies", isImplemented: false,
-        description: "Mining subsidies.",
-        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Mining subsidies to increase mining industries.",
+        type: "industry", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 14, maxCost: 78, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "mineral_oil_industry": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.25 * policyValue},
+            },
         }
     },
     "agricultural_subsidies": {
         name: "Agricultural Subsidies", isImplemented: false,
-        description: "Agricultural subsidies.",
-        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Agricultural subsidies to increase agriculture industries.",
+        type: "industry", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 12, maxCost: 80, minRevenue: 0, maxRevenue: 0,
         effects: {
             "agriculture": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.3 * policyValue},
             },
         }
     },
     "fisheries_subsidies": {
         name: "Fisheries Subsidies", isImplemented: false,
-        description: "Fisheries subsidies.",
-        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Fisheries subsidies to increase fishery industries.",
+        type: "industry", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 12, maxCost: 80, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "fishery": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.3 * policyValue},
+            },
         }
     },
     "intellectual_rights": {
         name: "Intellectual Rights", isImplemented: false,
-        description: "Intellectual rights.",
-        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Intellectual property rights to promote innovation in industries.",
+        type: "industry", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 12, maxCost: 68, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "manufacturing": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.2 * policyValue},
+            },
+            "tourism_creative": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.25 * policyValue},
+            },
         }
     },
     "tourism_campaign": {
         name: "Tourism Campaign", isImplemented: false,
-        description: "Tourism campaign.",
-        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Tourism campaign to boost visits.",
+        type: "industry", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 15, maxCost: 67, minRevenue: 0, maxRevenue: 0,
         effects: {
             "tourism_creative": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.2 * policyValue},
             },
         }
     },
     "international_connections": {
-        name: "International Connections", isImplemented: false,
-        description: "International connections.",
-        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        name: "International Connections", isImplemented: true,
+        description: "Allows international visits and connections.",
+        type: "industry", value: 67, finalValue: 67, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 24, maxCost: 98, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "economy": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.2 * policyValue},
+            },
+            "tourism_creative": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.2 * policyValue},
+            },
+            "security": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.05 - 0.15 * policyValue},
+            },
+            "transportation": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.15 * policyValue},
+            },
         }
     },
     "sustainable_harvesting": {
         name: "Sustainable Harvesting", isImplemented: false,
-        description: "Sustainable harvesting.",
-        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Sustainable harvesting practices to ensure long-term viability of resources.",
+        type: "industry", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 23, maxCost: 97, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "sustainability": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.4 * policyValue},
+            },
+            "mining_oil_industry": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.1 - 0.2 * policyValue},
+            },
+            "agriculture": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.1 - 0.2 * policyValue},
+            },
+            "fisheries": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.05 - 0.15 * policyValue},
+            },
         }
     },
     "green_energy": {
         name: "Green Energy", isImplemented: false,
-        description: "Green energy.",
-        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Promote green energy sources adoption.",
+        type: "industry", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 14, maxCost: 87, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "power_energy": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.05 - 0.2 * policyValue},
+            },
+            "sustainability": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.2 * policyValue},
+            },
         }
     },
     "small_business_grants": {
         name: "Small Business Grants", isImplemented: false,
         description: "Grants for small businesses.",
-        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        type: "industry", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 14, maxCost: 76, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "economy": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+            },
+           "jobs": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.25 * policyValue},
+            }, 
         }
     },
     "international_trade": {
         name: "International Trade", isImplemented: true,
         description: "Trade agreements with other countries.",
-        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        type: "industry", value: 65, finalValue: 65, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 14, maxCost: 67, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "economy": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.2 * policyValue},
+            },
+            "foreign_relations": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.15 * policyValue},
+            },
         }
     },
     "entrepreneur_support": {
         name: "Entrepreneur Support", isImplemented: false,
         description: "Support for new entrepreneurs to create new jobs and economy.",
-        type: "industry", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 2, maxCost: 100, minRevenue: 0, maxRevenue: 0,
+        type: "industry", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 16, maxCost: 62, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "economy": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.25 * policyValue},
+            },
+            "jobs": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.15 * policyValue},
+            },
         }
     },
 }
