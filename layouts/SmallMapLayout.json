@@ -9404,7 +9404,7 @@
 								"x": 383,
 								"y": 627,
 								"width": 1125,
-								"height": 178.10234,
+								"height": 257.10234,
 								"originX": 1,
 								"originY": 1,
 								"color": [
@@ -9431,7 +9431,7 @@
 							"behaviors": {},
 							"world": {
 								"x": 945.5,
-								"y": 675,
+								"y": 729,
 								"width": 1042,
 								"height": 32,
 								"originX": 0.5,
@@ -9474,7 +9474,7 @@
 							},
 							"world": {
 								"x": 538,
-								"y": 675,
+								"y": 729,
 								"width": 64,
 								"height": 64,
 								"originX": 0.5,
@@ -9523,7 +9523,7 @@
 							},
 							"world": {
 								"x": 421,
-								"y": 744,
+								"y": 814,
 								"width": 216,
 								"height": 36,
 								"originX": 0,
@@ -9561,7 +9561,7 @@
 							"behaviors": {},
 							"effects": {
 								"Grayscale": {
-									"isEnabled": true,
+									"isEnabled": false,
 									"parameters": {
 										"intensity": 1
 									}
@@ -9570,8 +9570,8 @@
 							"world": {
 								"x": 1445,
 								"y": 243,
-								"width": 64,
-								"height": 64,
+								"width": 68,
+								"height": 68,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -9614,10 +9614,10 @@
 								}
 							},
 							"world": {
-								"x": 1388,
-								"y": 746,
-								"width": 157.66170285583905,
-								"height": 52.55390095194637,
+								"x": 1327,
+								"y": 816,
+								"width": 271,
+								"height": 68,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -9664,7 +9664,7 @@
 							},
 							"world": {
 								"x": 662,
-								"y": 744,
+								"y": 814,
 								"width": 216,
 								"height": 36,
 								"originX": 0,
@@ -9894,7 +9894,7 @@
 							},
 							"world": {
 								"x": 616.2237548828125,
-								"y": 675,
+								"y": 729,
 								"width": 64,
 								"height": 64,
 								"originX": 0.5,
@@ -9961,13 +9961,13 @@
 						{
 							"type": "UIText",
 							"properties": {
-								"text": "Cost",
+								"text": "Effectiveness",
 								"enable-bbcode": true,
 								"character-width": 75,
 								"character-height": 82,
 								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^ƒ",
 								"spacing-data": "[[12,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*ƒ\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
-								"scale": 0.4,
+								"scale": 0.45,
 								"character-spacing": 0,
 								"line-height": 0,
 								"horizontal-alignment": "left",
@@ -9992,7 +9992,7 @@
 							},
 							"world": {
 								"x": 420.96548769263507,
-								"y": 709.9796861561872,
+								"y": 649.9796861561872,
 								"width": 216,
 								"height": 36,
 								"originX": 0,
@@ -10041,7 +10041,56 @@
 							},
 							"world": {
 								"x": 661.9654876926351,
-								"y": 709.9796861561872,
+								"y": 779.9796861561872,
+								"width": 216,
+								"height": 36,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									0.9137254901960784,
+									0.9176470588235294,
+									0.7215686274509804,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "UIText",
+							"properties": {
+								"text": "Cost",
+								"enable-bbcode": true,
+								"character-width": 75,
+								"character-height": 82,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^ƒ",
+								"spacing-data": "[[12,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*ƒ\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+								"scale": 0.4,
+								"character-spacing": 0,
+								"line-height": 0,
+								"horizontal-alignment": "left",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 173,
+							"instanceVariables": {
+								"id": ""
+							},
+							"behaviors": {},
+							"effects": {
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
+							"world": {
+								"x": 421,
+								"y": 780,
 								"width": 216,
 								"height": 36,
 								"originX": 0,
@@ -10117,10 +10166,10 @@
 						}
 					},
 					"world": {
-						"x": 1184,
-						"y": 746,
-						"width": 157.66170285583905,
-						"height": 52.55390095194637,
+						"x": 1035,
+						"y": 816,
+						"width": 271,
+						"height": 68,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -10166,8 +10215,8 @@
 						}
 					},
 					"world": {
-						"x": 1479,
-						"y": 316,
+						"x": 1466,
+						"y": 650,
 						"width": 205,
 						"height": 36,
 						"originX": 1,
@@ -11359,8 +11408,8 @@
 							"world": {
 								"x": 1456.2659110834895,
 								"y": 241.3434422668118,
-								"width": 64,
-								"height": 64,
+								"width": 68,
+								"height": 68,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -12119,8 +12168,8 @@
 							"world": {
 								"x": 1456,
 								"y": 241,
-								"width": 64,
-								"height": 64,
+								"width": 68,
+								"height": 68,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -13431,8 +13480,8 @@
 							"world": {
 								"x": 1456,
 								"y": 241,
-								"width": 64,
-								"height": 64,
+								"width": 68,
+								"height": 68,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [

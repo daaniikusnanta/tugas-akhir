@@ -275,28 +275,38 @@ export let policy = {
     "mandatory_face_masks": {
         name: "Mandatory Face Masks", isImplemented: false,
         description: "Mandatory face masks in public places.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        type: "health", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 40, maxCost: 240, minRevenue: 0, maxRevenue: 0,
         effects: {
             "disease_control": {
-                effectDelay: 2, effectDuration: 0,
-                valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                effectDelay: 10, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
         }
     },
     "lockdown": {
         name: "Lockdown & Quarantine", isImplemented: false,
         description: "Lockdown and quarantine measures.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        type: "health", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 100, maxCost: 450, minRevenue: 0, maxRevenue: 0,
         effects: {
             "disease_control": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.2 + 0.3 * policyValue},
+            },
+            "investment": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                formula: function (policyValue) {return -0.05 - 0.15 * policyValue},
+            },
+            "tourism_creative": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.1 - 0.15 * policyValue},
             },
         }
     },
