@@ -781,84 +781,114 @@ export let policy = {
     "carbon_tax": {
         name: "Carbon Tax", isImplemented: false,
         description: "Tax on carbon emissions.",
-        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        type: "environment", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 30, maxCost: 80, minRevenue: 50, maxRevenue: 140,
         effects: {
-            "pollution_control": {
+            "taxes": {
                 effectDelay: 2, effectDuration: 0,
-                valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+            },
+            "pollution_control": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.35 * policyValue},
             },
         }
     },
     "recycling_plant": {
         name: "Recycling Plant", isImplemented: false,
         description: "Mandate proper waste management and recycling practices.",
-        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        type: "environment", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 30, maxCost: 90, minRevenue: 0, maxRevenue: 0,
         effects: {
             "pollution_control": {
                 effectDelay: 2, effectDuration: 0,
-                valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
         }
     },
     "reforestation": {
         name: "Reforestation", isImplemented: false,
-        description: "Reforestation.",
-        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Reforestation initiatives to restore and expand forest areas.",
+        type: "environment", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 20, maxCost: 89, minRevenue: 0, maxRevenue: 0,
         effects: {
             "forest": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 5, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.25 * policyValue},
             },
         }
     },
     "ocean_cleanup": {
         name: "Ocean Cleanup", isImplemented: false,
-        description: "Ocean cleanup.",
-        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Ocean cleanup initiatives to preserve ocean and marine life.",
+        type: "environment", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 24, maxCost: 98, minRevenue: 0, maxRevenue: 0,
         effects: {
             "marine": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 6, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.25 * policyValue},
             },
         }
     },
     "protected_forest": {
         name: "Protected Forest", isImplemented: false,
         description: "Ensure preservation and conservartion of forest areas.",
-        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        type: "environment", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 32, maxCost: 106, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "forest": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.15 * policyValue},
+            },
+            "biodiversity": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.2 * policyValue},
+            },
         }
     },
     "national_park": {
         name: "National Park", isImplemented: false,
         description: "Establish national parks for conservation on biomes.",
-        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        type: "environment", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 40, maxCost: 120, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "biodiversity": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.3 * policyValue},
+            },
+            "tourism_creative": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.2 * policyValue},
+            },
         }
     },
     "conservation_effort": {
         name: "Conservation Effort", isImplemented: false,
         description: "Efforts to protect and manage biodiversities.",
-        type: "environment", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        type: "environment", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 5, implementationDuration: 0,
+        minCost: 50, maxCost: 180, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "biodiversity": {
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.35 * policyValue},
+            },
         }
     },
 
