@@ -1362,11 +1362,11 @@ export function applyPolicyChange(policyName, newValue) {
 export function updatePolicy(policyName) {
     let policyData = policy[policyName];
     let { value, finalValue, implementationDelay, implementationDuration } = policyData;
-    console.log("update policy", policyData, value, finalValue, implementationDelay, implementationDuration);
+    // console.log("update policy", policyData, value, finalValue, implementationDelay, implementationDuration);
     // If the delay duration has passed, update the policy value
     if (policyData && implementationDuration >= implementationDelay) {
         policyData.value = finalValue;
-        console.log("updated", policyData);
+        // console.log("updated", policyData);
         updatePolicyEffects(policyName);
     }
 

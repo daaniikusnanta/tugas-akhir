@@ -323,6 +323,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 902708607719187,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"clickable pressed\""
@@ -375,6 +376,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 632961539499683,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"clickable released\""
@@ -435,6 +437,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 377492016794415,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"clickable hovered\""
@@ -486,6 +489,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 872627959200329,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"clickable unhovered\""
@@ -698,6 +702,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 548387647188427,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"Clickable hov \" & clickableHoveredUid"
@@ -779,6 +784,7 @@
 									"id": "log",
 									"objectClass": "Browser",
 									"sid": 255114042313508,
+									"disabled": true,
 									"parameters": {
 										"type": "log",
 										"message": "\"Clickable unhov \" & clickableHoveredUid"
@@ -1058,6 +1064,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 724036903993907,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"pressed\""
@@ -1171,6 +1178,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 586923763046893,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"released\""
@@ -1213,6 +1221,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 538440401233234,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"selected\""
@@ -1418,6 +1427,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 566223111410986,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"unselected \" & ClickablePanel.id"
@@ -1461,6 +1471,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 305405040272905,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"hovered\""
@@ -1597,6 +1608,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 881989138190428,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"unhovered\""
@@ -1780,6 +1792,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 642968983120023,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"toucheduid \" & touchedUid"
@@ -1874,6 +1887,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 983969870170150,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"toucheduid \" & touchedUid"
@@ -1975,6 +1989,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 281786517460940,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"panelCliced\""
@@ -2103,6 +2118,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 489111897833073,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"Panel hovered \" & panelHoveredUid"

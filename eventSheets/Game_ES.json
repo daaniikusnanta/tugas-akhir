@@ -3453,8 +3453,7 @@
 									"sid": 921682019903402
 								}
 							],
-							"sid": 638525054885043,
-							"disabled": true
+							"sid": 638525054885043
 						},
 						{
 							"eventType": "block",
@@ -3462,11 +3461,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "DrawingCanvas",
-									"sid": 921532752225483,
+									"sid": 276885534549392,
 									"parameters": {
 										"instance-variable": "id",
 										"comparison": 0,
-										"value": "\"map_color\""
+										"value": "\"map_water\""
 									}
 								}
 							],
@@ -3474,7 +3473,7 @@
 								{
 									"id": "log",
 									"objectClass": "Browser",
-									"sid": 745470652752636,
+									"sid": 440486560590695,
 									"parameters": {
 										"type": "log",
 										"message": "\"setupMap \" & DrawingCanvas.id"
@@ -3483,11 +3482,10 @@
 								{
 									"id": "save-snapshot",
 									"objectClass": "DrawingCanvas",
-									"sid": 578226367252866
+									"sid": 623082137144706
 								}
 							],
-							"sid": 111366054986067,
-							"disabled": true
+							"sid": 684187167286852
 						}
 					]
 				},
@@ -3539,11 +3537,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "DrawingCanvas",
-							"sid": 587425564292123,
+							"sid": 894633158293442,
 							"parameters": {
 								"instance-variable": "id",
 								"comparison": 0,
-								"value": "\"map_color\""
+								"value": "\"map_water\""
 							}
 						}
 					],
@@ -3559,8 +3557,8 @@
 							}
 						},
 						{
-							"callFunction": "setupMapColor",
-							"sid": 816013950775389
+							"callFunction": "setupMapWater",
+							"sid": 747003573742827
 						}
 					],
 					"sid": 293527030321382
@@ -3574,7 +3572,18 @@
 					"functionIsAsync": false,
 					"functionParameters": [],
 					"eventType": "function-block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "DrawingCanvas",
+							"sid": 220890088667032,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"map_texture\""
+							}
+						}
+					],
 					"actions": [
 						{
 							"id": "createGradient",
@@ -3588,16 +3597,16 @@
 						{
 							"id": "addStop",
 							"objectClass": "AdvancedRandom",
-							"sid": 225163700611747,
+							"sid": 554061574403312,
 							"parameters": {
 								"position": "0",
-								"value": "rgbEx255(209, 193, 150)"
+								"value": "rgbEx255(205, 181, 124)"
 							}
 						},
 						{
 							"id": "addStop",
 							"objectClass": "AdvancedRandom",
-							"sid": 990572964086106,
+							"sid": 463387532358928,
 							"parameters": {
 								"position": "1",
 								"value": "rgbEx255(233, 222, 192)"
@@ -3646,9 +3655,9 @@
 						{
 							"id": "seed",
 							"objectClass": "AdvancedRandom",
-							"sid": 156747573776826,
+							"sid": 762253575380952,
 							"parameters": {
-								"seed": "seed"
+								"seed": "AdvancedRandom.RandomSeed"
 							}
 						},
 						{
@@ -3721,19 +3730,9 @@
 						},
 						{
 							"eventType": "variable",
-							"name": "valueBiome",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 661742077631336
-						},
-						{
-							"eventType": "variable",
 							"name": "threshold",
 							"type": "number",
-							"initialValue": "0.55",
+							"initialValue": "0.45",
 							"comment": "",
 							"isStatic": true,
 							"isConstant": true,
@@ -3790,6 +3789,7 @@
 											"id": "set-eventvar-value",
 											"objectClass": "System",
 											"sid": 493000959922311,
+											"disabled": true,
 											"parameters": {
 												"variable": "value",
 												"value": "AdvancedRandom.Classic2d(x / 5.8, y / 5.8)"
@@ -3798,19 +3798,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 535980104496299,
+											"sid": 918294911501957,
 											"parameters": {
-												"variable": "valueBiome",
-												"value": "AdvancedRandom.Voronoi2d(x * 0.5, y * 0.5)"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 572022771438103,
-											"parameters": {
-												"variable": "valueBiome",
-												"value": "(min(int(value * 5), 4) + 1) * 0.2"
+												"variable": "value",
+												"value": "AdvancedRandom.Classic2d(x / 2.7, y / 2.7)"
 											}
 										},
 										{
@@ -3862,11 +3853,11 @@
 												{
 													"id": "snapshot-set-pixel",
 													"objectClass": "DrawingCanvas",
-													"sid": 252407089370156,
+													"sid": 898812593384116,
 													"parameters": {
 														"x": "x",
 														"y": "y",
-														"color": "AdvancedRandom.Gradient(value)"
+														"color": "AdvancedRandom.GradientByName(\"MapGradient\", value)"
 													}
 												}
 											],
@@ -3884,6 +3875,14 @@
 									"id": "load-snapshot",
 									"objectClass": "DrawingCanvas",
 									"sid": 491090975727582
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "DrawingCanvas",
+									"sid": 752147882959979,
+									"parameters": {
+										"opacity": "50"
+									}
 								}
 							],
 							"sid": 806057740764900
@@ -3891,7 +3890,7 @@
 					]
 				},
 				{
-					"functionName": "setupMapColor",
+					"functionName": "setupMapWater",
 					"functionDescription": "",
 					"functionCategory": "",
 					"functionReturnType": "none",
@@ -3899,39 +3898,86 @@
 					"functionIsAsync": false,
 					"functionParameters": [],
 					"eventType": "function-block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "DrawingCanvas",
+							"sid": 856427062246343,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"map_water\""
+							}
+						}
+					],
 					"actions": [
 						{
 							"id": "createGradient",
 							"objectClass": "AdvancedRandom",
-							"sid": 468047474767766,
+							"sid": 844495090200540,
 							"parameters": {
-								"name": "\"MapGradient\"",
+								"name": "\"MapGradient2\"",
 								"isColor": "color"
 							}
 						},
 						{
 							"id": "addStop",
 							"objectClass": "AdvancedRandom",
-							"sid": 648990398658272,
+							"sid": 653377293830558,
 							"parameters": {
 								"position": "0",
-								"value": "rgbEx255(0, 0, 0)"
+								"value": "rgbEx255(72, 83, 154)"
 							}
 						},
 						{
 							"id": "addStop",
 							"objectClass": "AdvancedRandom",
-							"sid": 535436742353962,
+							"sid": 137538381272829,
+							"parameters": {
+								"position": "0.45",
+								"value": "rgbEx255(72, 83, 154)"
+							}
+						},
+						{
+							"id": "addStop",
+							"objectClass": "AdvancedRandom",
+							"sid": 589222368803149,
+							"parameters": {
+								"position": "0.55",
+								"value": "rgbEx255(63, 111, 135)"
+							}
+						},
+						{
+							"id": "addStop",
+							"objectClass": "AdvancedRandom",
+							"sid": 674445856904793,
+							"parameters": {
+								"position": "0.6",
+								"value": "rgbEx255(63, 111, 135)"
+							}
+						},
+						{
+							"id": "addStop",
+							"objectClass": "AdvancedRandom",
+							"sid": 632532612686842,
+							"parameters": {
+								"position": "0.8",
+								"value": "rgbEx255(51, 87, 130)"
+							}
+						},
+						{
+							"id": "addStop",
+							"objectClass": "AdvancedRandom",
+							"sid": 495121835197912,
 							"parameters": {
 								"position": "1",
-								"value": "rgbEx255(255, 255, 255)"
+								"value": "rgbEx255(51, 87, 130)"
 							}
 						},
 						{
 							"id": "addStop",
 							"objectClass": "AdvancedRandom",
-							"sid": 316762598448239,
+							"sid": 797333895425877,
 							"disabled": true,
 							"parameters": {
 								"position": "0",
@@ -3941,7 +3987,7 @@
 						{
 							"id": "addStop",
 							"objectClass": "AdvancedRandom",
-							"sid": 732818581427119,
+							"sid": 834175523694941,
 							"disabled": true,
 							"parameters": {
 								"position": "1",
@@ -3951,7 +3997,7 @@
 						{
 							"id": "addStop",
 							"objectClass": "AdvancedRandom",
-							"sid": 727310950369973,
+							"sid": 887167535806500,
 							"disabled": true,
 							"parameters": {
 								"position": "0",
@@ -3961,7 +4007,7 @@
 						{
 							"id": "addStop",
 							"objectClass": "AdvancedRandom",
-							"sid": 897005100980904,
+							"sid": 584265414713925,
 							"disabled": true,
 							"parameters": {
 								"position": "1",
@@ -3971,15 +4017,15 @@
 						{
 							"id": "seed",
 							"objectClass": "AdvancedRandom",
-							"sid": 845286804056905,
+							"sid": 211153693115031,
 							"parameters": {
-								"seed": "seed"
+								"seed": "AdvancedRandom.RandomSeed"
 							}
 						},
 						{
 							"id": "octaves",
 							"objectClass": "AdvancedRandom",
-							"sid": 542332043635028,
+							"sid": 930530664665352,
 							"parameters": {
 								"count": "1"
 							}
@@ -3987,16 +4033,16 @@
 						{
 							"id": "log",
 							"objectClass": "Browser",
-							"sid": 201560099210362,
+							"sid": 417222828954111,
 							"parameters": {
 								"type": "log",
-								"message": "\"setmaptexture \" & DrawingCanvas.id"
+								"message": "\"setmapwater \" & DrawingCanvas.id"
 							}
 						},
 						{
 							"id": "log",
 							"objectClass": "Browser",
-							"sid": 541281479425446,
+							"sid": 204095165899386,
 							"parameters": {
 								"type": "log",
 								"message": "\"layout \" & LayoutName"
@@ -4005,14 +4051,14 @@
 						{
 							"id": "log",
 							"objectClass": "Browser",
-							"sid": 834379010789004,
+							"sid": 491376663994205,
 							"parameters": {
 								"type": "log",
 								"message": "\"map \" & mapZoom"
 							}
 						}
 					],
-					"sid": 901419887212880,
+					"sid": 108697703514859,
 					"children": [
 						{
 							"eventType": "variable",
@@ -4022,7 +4068,7 @@
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 188126856494336
+							"sid": 419839624277193
 						},
 						{
 							"eventType": "variable",
@@ -4032,7 +4078,7 @@
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 371998429706925
+							"sid": 497293202879523
 						},
 						{
 							"eventType": "variable",
@@ -4042,17 +4088,7 @@
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 644678753743780
-						},
-						{
-							"eventType": "variable",
-							"name": "threshold",
-							"type": "number",
-							"initialValue": "0.55",
-							"comment": "",
-							"isStatic": true,
-							"isConstant": true,
-							"sid": 711899740494753
+							"sid": 145083732418819
 						},
 						{
 							"eventType": "block",
@@ -4060,7 +4096,7 @@
 								{
 									"id": "repeat",
 									"objectClass": "System",
-									"sid": 512242736610482,
+									"sid": 433584705508900,
 									"parameters": {
 										"count": "DrawingCanvas.SnapshotWidth"
 									}
@@ -4070,14 +4106,14 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 744355703840802,
+									"sid": 983763631008892,
 									"parameters": {
 										"variable": "x",
 										"value": "loopindex"
 									}
 								}
 							],
-							"sid": 791203839202665,
+							"sid": 346008168458477,
 							"children": [
 								{
 									"eventType": "block",
@@ -4085,7 +4121,7 @@
 										{
 											"id": "repeat",
 											"objectClass": "System",
-											"sid": 258976953616935,
+											"sid": 201995548131097,
 											"parameters": {
 												"count": "DrawingCanvas.SnapshotHeight"
 											}
@@ -4095,83 +4131,53 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 323885580315045,
+											"sid": 388346995575458,
 											"parameters": {
 												"variable": "y",
 												"value": "loopindex"
 											}
 										},
 										{
-											"id": "snapshot-set-pixel",
-											"objectClass": "DrawingCanvas",
-											"sid": 563159558151998,
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 771637280244159,
 											"parameters": {
-												"x": "x",
-												"y": "y",
-												"color": "AdvancedRandom.Gradient(value)"
+												"variable": "value",
+												"value": "AdvancedRandom.Classic2d(x / 5.8, y / 5.8)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 344736041175931,
+											"disabled": true,
+											"parameters": {
+												"variable": "value",
+												"value": "AdvancedRandom.Classic2d(x / 2.7, y / 2.7)"
 											}
 										},
 										{
 											"id": "log",
 											"objectClass": "Browser",
-											"sid": 660968886162148,
+											"sid": 785736361762403,
 											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"pixel \" & value"
 											}
+										},
+										{
+											"id": "snapshot-set-pixel",
+											"objectClass": "DrawingCanvas",
+											"sid": 899868479405960,
+											"parameters": {
+												"x": "x",
+												"y": "y",
+												"color": "AdvancedRandom.GradientByName(\"MapGradient2\", value)"
+											}
 										}
 									],
-									"sid": 369495977467911,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 260358112614571,
-													"parameters": {
-														"variable": "value",
-														"comparison": 3,
-														"value": "mapThreshold"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 338770192599529,
-													"parameters": {
-														"variable": "value",
-														"value": "value / mapThreshold"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 261470159265648,
-													"parameters": {
-														"variable": "value",
-														"value": "value < threshold ? 0 : (value - threshold) / (1 - threshold)"
-													}
-												},
-												{
-													"id": "snapshot-set-pixel",
-													"objectClass": "DrawingCanvas",
-													"sid": 892859218649323,
-													"parameters": {
-														"x": "x",
-														"y": "y",
-														"color": "AdvancedRandom.Gradient(value)"
-													}
-												}
-											],
-											"sid": 404489097397994,
-											"disabled": true
-										}
-									]
+									"sid": 194472484861110
 								}
 							]
 						},
@@ -4182,10 +4188,10 @@
 								{
 									"id": "load-snapshot",
 									"objectClass": "DrawingCanvas",
-									"sid": 765836573674442
+									"sid": 657323731650731
 								}
 							],
-							"sid": 346050210383700
+							"sid": 389094493669400
 						}
 					]
 				}

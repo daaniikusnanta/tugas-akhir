@@ -48,6 +48,36 @@
 								"angle": 0,
 								"zElevation": 0
 							}
+						},
+						{
+							"type": "DrawingCanvas",
+							"properties": {
+								"resolution-mode": "auto",
+								"initially-visible": true,
+								"origin": "top-left",
+								"antialiasing": "off"
+							},
+							"uid": 136,
+							"instanceVariables": {
+								"id": "map_water"
+							},
+							"behaviors": {},
+							"world": {
+								"x": 0,
+								"y": 0,
+								"width": 2560,
+								"height": 1504,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"blendMode": "source-atop"
+							}
 						}
 					],
 					"sid": 751807159380783,
@@ -146,36 +176,6 @@
 									"uid": 175,
 									"instanceVariables": {
 										"id": "map_texture"
-									},
-									"behaviors": {},
-									"world": {
-										"x": 0,
-										"y": 0,
-										"width": 2560,
-										"height": 1504,
-										"originX": 0,
-										"originY": 0,
-										"color": [
-											1,
-											1,
-											1,
-											1
-										],
-										"angle": 0,
-										"blendMode": "source-atop"
-									}
-								},
-								{
-									"type": "DrawingCanvas",
-									"properties": {
-										"resolution-mode": "auto",
-										"initially-visible": true,
-										"origin": "top-left",
-										"antialiasing": "off"
-									},
-									"uid": 136,
-									"instanceVariables": {
-										"id": "map_color"
 									},
 									"behaviors": {},
 									"world": {

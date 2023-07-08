@@ -8,7 +8,7 @@
 export function setSliderValue(slider, uitext, value, text) {
 	slider.instVars['value'] = value;
 	const x = slider.instVars['minX'] + (slider.instVars['maxX'] - slider.instVars['minX']) * value / slider.instVars['maxValue'];
-	console.log("setslider", x, slider.instVars['minX'], slider.instVars['maxX'], value);
+	// console.log("setslider", x, slider.instVars['minX'], slider.instVars['maxX'], value);
 	slider.x = clamp(x, slider.instVars['minX'], slider.instVars['maxX']);
 
 	if (text != null && uitext != null) {
@@ -187,7 +187,7 @@ export function setScrollableHeight(runtime, scrollable, itemCount, itemHeight, 
 	scrollable.instVars['min'] = scrollable.height > panel.height ? scrollable.y - scrollable.height + panel.height : scrollable.y;
 	scrollable.instVars['max'] = scrollable.y;
 
-	console.log("setScrollable ", scrollable.instVars['id'], scrollable.height, scrollable.instVars['min'], scrollable.instVars['max']);
+	// console.log("setScrollable ", scrollable.instVars['id'], scrollable.height, scrollable.instVars['min'], scrollable.instVars['max']);
 }
 
 /**

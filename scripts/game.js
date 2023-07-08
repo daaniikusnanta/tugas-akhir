@@ -261,7 +261,7 @@ export function updateStatusView(runtime) {
   for (const statusSlider of statusSliders) {
     const id = statusSlider.instVars["id"].replace("_status_slider", "");
     const value = status[id].value;
-    console.log("/updateStatusViewid", status[id].name, value);
+    // console.log("/updateStatusViewid", status[id].name, value);
 
     const statusText = getTextById(id + "_status_text");
     const totalLastUpdate =
