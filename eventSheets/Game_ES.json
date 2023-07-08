@@ -2284,6 +2284,13 @@
 										"layer": "\"PolicyPopUp\"",
 										"interactive": true
 									}
+								},
+								{
+									"callFunction": "showPopUp",
+									"sid": 868573488144778,
+									"parameters": [
+										true
+									]
 								}
 							],
 							"sid": 326786026550584
@@ -2319,6 +2326,13 @@
 										"layer": "\"PolicyPopUp\"",
 										"interactive": false
 									}
+								},
+								{
+									"callFunction": "showPopUp",
+									"sid": 546421311307783,
+									"parameters": [
+										false
+									]
 								}
 							],
 							"sid": 538780034970911
@@ -2391,6 +2405,13 @@
 										"layer": "\"StatusPopUp\"",
 										"interactive": true
 									}
+								},
+								{
+									"callFunction": "showPopUp",
+									"sid": 350800221213188,
+									"parameters": [
+										true
+									]
 								}
 							],
 							"sid": 621819265000644
@@ -2426,6 +2447,13 @@
 										"layer": "\"StatusPopUp\"",
 										"interactive": false
 									}
+								},
+								{
+									"callFunction": "showPopUp",
+									"sid": 189814999733883,
+									"parameters": [
+										false
+									]
 								}
 							],
 							"sid": 652659296252275
@@ -2498,6 +2526,13 @@
 										"layer": "\"CrisisPopUp\"",
 										"interactive": true
 									}
+								},
+								{
+									"callFunction": "showPopUp",
+									"sid": 444086713392727,
+									"parameters": [
+										true
+									]
 								}
 							],
 							"sid": 409240594293085
@@ -2533,6 +2568,13 @@
 										"layer": "\"CrisisPopUp\"",
 										"interactive": false
 									}
+								},
+								{
+									"callFunction": "showPopUp",
+									"sid": 133473978228466,
+									"parameters": [
+										false
+									]
 								}
 							],
 							"sid": 964080059212312
@@ -2598,6 +2640,13 @@
 										"layer": "\"FiscalPopUp\"",
 										"interactive": true
 									}
+								},
+								{
+									"callFunction": "showPopUp",
+									"sid": 306359754193016,
+									"parameters": [
+										true
+									]
 								}
 							],
 							"sid": 778351720475665
@@ -2633,6 +2682,13 @@
 										"layer": "\"FiscalPopUp\"",
 										"interactive": false
 									}
+								},
+								{
+									"callFunction": "showPopUp",
+									"sid": 599934398369655,
+									"parameters": [
+										false
+									]
 								}
 							],
 							"sid": 792384865600229
@@ -4294,6 +4350,76 @@
 							"sid": 389094493669400
 						}
 					]
+				},
+				{
+					"functionName": "showPopUp",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "show",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 874504248548342
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 120698090199920,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 446557754758457,
+									"parameters": {
+										"variable": "show"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 560978366560197,
+									"parameters": {
+										"layer": "\"Game\"",
+										"interactive": false
+									}
+								}
+							],
+							"sid": 781098177610516
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 123240425477636
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 335591136117425,
+									"parameters": {
+										"layer": "\"Game\"",
+										"interactive": true
+									}
+								}
+							],
+							"sid": 502821418606422
+						}
+					]
 				}
 			],
 			"sid": 841929679503871
@@ -4386,6 +4512,15 @@
 							"parameters": {
 								"instance-variable": "value",
 								"value": "(Self.X - Self.minX) / (Self.maxX - Self.minX) * Self.maxValue"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 232629445861220,
+							"parameters": {
+								"type": "log",
+								"message": "\"slider drag\""
 							}
 						}
 					],

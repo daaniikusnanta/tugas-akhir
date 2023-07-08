@@ -1044,7 +1044,7 @@ export let policy = {
         implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
         minCost: 23, maxCost: 123, minRevenue: 0, maxRevenue: 0,
         effects: {
-            "communication": {
+            "communication_information": {
                 effectDelay: 4, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0.1 + 0.4 * policyValue},
@@ -1058,7 +1058,7 @@ export let policy = {
         implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
         minCost: 54, maxCost: 178, minRevenue: 0, maxRevenue: 0,
         effects: {
-            "communication": {
+            "communication_information": {
                 effectDelay: 4, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.3 * policyValue},
@@ -1401,7 +1401,7 @@ export let policy = {
         }
     },
     "anti_corruption_agency": {
-        name: "Anti-Corruption Agency", isImplemented: tru,
+        name: "Anti-Corruption Agency", isImplemented: true,
         description: "Anti-corruption agency to prevent, investigate, and prosecute corruption.",
         type: "stability", value: 18, finalValue: 18, valueDelta: 0,
         implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
@@ -1503,7 +1503,7 @@ export let policy = {
         implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
         minCost: 12, maxCost: 80, minRevenue: 0, maxRevenue: 0,
         effects: {
-            "fishery": {
+            "fisheries": {
                 effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0.1 + 0.3 * policyValue},
@@ -1584,7 +1584,7 @@ export let policy = {
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0.1 + 0.4 * policyValue},
             },
-            "mining_oil_industry": {
+            "mineral_oil_industry": {
                 effectDelay: 3, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return -0.1 - 0.2 * policyValue},
@@ -1788,6 +1788,9 @@ export function setupPolicyPopUp(policyName, runtime) {
         sliderFinal.isVisible = false;
     }
 
+    slider.instVars['isDraggable'] = policyData.isImplemented;
+    slider.behaviors.DragDrop.isEnabled = policyData.isImplemented;
+
     const costText = getTextById("policy_pop_up_cost_slider");
     const cost = policyData.minCost + (policyData.value / 100 * (policyData.maxCost - policyData.minCost));
     setSliderValue(slider, costText, policyData.value, toCurrencyFormat(cost));
@@ -1804,6 +1807,9 @@ export function setupPolicyPopUp(policyName, runtime) {
 
     const applyButton = getObjectbyId(runtime.objects.Button, "policy_pop_up_apply");
     applyButton.instVars['isDisabled'] = !policyData.isImplemented;
+
+    const sliderBG = getObjectbyId(runtime.objects.SliderBarBG2, "policy_pop_up");
+    sliderBG.effects[0].isActive = !policyData.isImplemented;
 }
 
 export function togglePolicyActive(policyName, runtime) {
@@ -1819,6 +1825,13 @@ export function togglePolicyActive(policyName, runtime) {
     const applyButton = getObjectbyId(runtime.objects.Button, "policy_pop_up_apply");
     applyButton.instVars['isDisabled'] = !policyData.isImplemented;
     console.log("toggle ", policyData.value == policyData.finalValue || !policyData.isImplemented, policyData.isImplemented);
+
+    const sliderBG = getObjectbyId(runtime.objects.SliderBarBG2, "policy_pop_up");
+    sliderBG.effects[0].isActive = !policyData.isImplemented;
+
+    const slider = getObjectbyId(runtime.objects.Slider, "policy_pop_up_slider");
+    slider.instVars['isDraggable'] = policyData.isImplemented;
+    slider.behaviors.DragDrop.isEnabled = policyData.isImplemented;
 
     if (policyData.isImplemented) {
         updateIncomeFromPolicy(policyName);

@@ -3,9 +3,26 @@
 	"plugin-id": "Sprite",
 	"sid": 323881378165366,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 482864775351481
+		}
+	],
 	"behaviorTypes": [],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "grayscale",
+			"name": "Grayscale"
+		},
+		{
+			"effectId": "contrast",
+			"name": "Contrast"
+		}
+	],
 	"animations": {
 		"items": [
 			{

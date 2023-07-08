@@ -9453,7 +9453,7 @@
 							"behaviors": {},
 							"world": {
 								"x": 383,
-								"y": 627,
+								"y": 628,
 								"width": 1125,
 								"height": 257.10234,
 								"originX": 1,
@@ -9478,8 +9478,24 @@
 								"live-preview": false
 							},
 							"uid": 53,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"id": "policy_pop_up"
+							},
 							"behaviors": {},
+							"effects": {
+								"Grayscale": {
+									"isEnabled": false,
+									"parameters": {
+										"intensity": 1
+									}
+								},
+								"Contrast": {
+									"isEnabled": true,
+									"parameters": {
+										"contrast": 1
+									}
+								}
+							},
 							"world": {
 								"x": 945.5,
 								"y": 729,

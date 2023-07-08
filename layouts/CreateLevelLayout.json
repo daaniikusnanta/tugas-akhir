@@ -893,8 +893,24 @@
 						"live-preview": false
 					},
 					"uid": 127,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"id": ""
+					},
 					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 755.5,
 						"y": 421,
@@ -3870,8 +3886,24 @@
 						"live-preview": false
 					},
 					"uid": 86,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"id": ""
+					},
 					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 389,
 						"y": 166,
@@ -4040,8 +4072,24 @@
 						"live-preview": false
 					},
 					"uid": 90,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"id": ""
+					},
 					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 389,
 						"y": 296,
@@ -4210,8 +4258,24 @@
 						"live-preview": false
 					},
 					"uid": 94,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"id": ""
+					},
 					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 389,
 						"y": 445,
@@ -4380,8 +4444,24 @@
 						"live-preview": false
 					},
 					"uid": 98,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"id": ""
+					},
 					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 389,
 						"y": 593,
@@ -4740,8 +4820,24 @@
 						"live-preview": false
 					},
 					"uid": 106,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"id": ""
+					},
 					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
 					"world": {
 						"x": 389,
 						"y": 737,
