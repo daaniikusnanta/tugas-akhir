@@ -1188,6 +1188,96 @@
 					"sid": 346369416909405
 				},
 				{
+					"functionName": "unselectOtherClickable",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "groupId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 497085730213468
+						},
+						{
+							"name": "selectedId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 762437971365148
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 827356023681678,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 661053871941341,
+									"parameters": {
+										"object": "ClickablePanel"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 715143767074425,
+									"parameters": {
+										"type": "log",
+										"message": "\"iterate \" & ClickablePanel.id"
+									}
+								}
+							],
+							"sid": 217797698128147,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "ClickablePanel",
+											"sid": 974337863392132,
+											"parameters": {
+												"instance-variable": "groupId",
+												"comparison": 0,
+												"value": "groupId"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "ClickablePanel",
+											"sid": 149243237231941,
+											"parameters": {
+												"instance-variable": "id",
+												"comparison": 1,
+												"value": "selectedId"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "IsUnselected",
+											"objectClass": "ClickablePanel",
+											"sid": 517990881801748
+										}
+									],
+									"sid": 476728499708264
+								}
+							]
+						}
+					]
+				},
+				{
 					"aceType": "action",
 					"aceName": "IsSelected",
 					"objectClass": "ClickablePanel",
@@ -1300,96 +1390,6 @@
 								}
 							],
 							"sid": 604735545443605
-						}
-					]
-				},
-				{
-					"functionName": "unselectOtherClickable",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "groupId",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 497085730213468
-						},
-						{
-							"name": "selectedId",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 762437971365148
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 401335644994200,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 431090647932777,
-									"parameters": {
-										"object": "ClickablePanel"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 837702278368507,
-									"parameters": {
-										"type": "log",
-										"message": "\"iterate \" & ClickablePanel.id"
-									}
-								}
-							],
-							"sid": 329585895056467,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "ClickablePanel",
-											"sid": 100417408392078,
-											"parameters": {
-												"instance-variable": "groupId",
-												"comparison": 0,
-												"value": "groupId"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "ClickablePanel",
-											"sid": 541455632133467,
-											"parameters": {
-												"instance-variable": "id",
-												"comparison": 1,
-												"value": "selectedId"
-											}
-										}
-									],
-									"actions": [
-										{
-											"customAction": "IsUnselected",
-											"objectClass": "ClickablePanel",
-											"sid": 793932015246611
-										}
-									],
-									"sid": 480216499141271
-								}
-							]
 						}
 					]
 				},
