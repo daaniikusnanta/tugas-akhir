@@ -313,103 +313,103 @@ export let policy = {
     "mandatory_vaccination": {
         name: "Mandatory Vaccination", isImplemented: false,
         description: "Mandatory vaccination of the population.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        type: "health", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 1, implementationDuration: 0,
+        minCost: 89, maxCost: 430, minRevenue: 0, maxRevenue: 0,
         effects: {
             "disease_control": {
-                effectDelay: 2, effectDuration: 0,
-                valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.2 + 0.25 * policyValue},
             },
         }
     },
     "travel_ban": {
         name: "Travel Ban", isImplemented: false,
-        description: "Ban on international and domestic travel.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Ban on international and domestic travel on land, sea, and air.",
+        type: "health", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 76, maxCost: 340, minRevenue: 0, maxRevenue: 0,
         effects: {
             "disease_control": {
-                effectDelay: 2, effectDuration: 0,
-                valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.15 + 0.25 * policyValue},
             },
             "investment": {
-                effectDelay: 2, effectDuration: 0,
-                valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                effectDelay: 4, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.1 - 0.1 * policyValue},
             },
             "tourism_creative":{
                 effectDelay: 2, effectDuration: 0,
-                valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.1 - 0.2 * policyValue},
             },
         }
     },
     "state_healthcare": {
-        name: "State Healthcare", isImplemented: false,
-        description: "State healthcare system.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        name: "State Healthcare", isImplemented: true,
+        description: "Healthcare system run by the state to ensure accessible medical service for all citizen.",
+        type: "health", value: 64, finalValue: 64, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 230, maxCost: 760, minRevenue: 0, maxRevenue: 0,
         effects: {
             "healthcare_system": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.2 + 0.4 * policyValue},
             },
         }
     },
     "state_health_insurance": {
-        name: "State Health Insurance", isImplemented: false,
-        description: "State health insurance.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
+        name: "State Health Insurance", isImplemented: true,
+        description: "Mandatory health insurance to minimize financial risk.",
+        type: "health", value: 64, finalValue: 64, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
         minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
         effects: {
             "healthcare_system": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.25 * policyValue},
             },
         }
     },
     "food_drug_regulations": {
         name: "Food & Drug Regulations", isImplemented: false,
-        description: "Food and drug regulations.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 200, minRevenue: 0, maxRevenue: 0,
+        description: "Strict food and drug regulation to ensure safety and quality standards.",
+        type: "health", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 120, maxCost: 460, minRevenue: 0, maxRevenue: 0,
         effects: {
             "public_health": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},                
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},                
             }
         }
     },
     "public_health_campaign": {
         name: "Public Health Campaign", isImplemented: false,
-        description: "Public health campaign.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        description: "Promotion on public health awareness and preventive measures.",
+        type: "health", value: 0, finalValue: 0, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 200, minRevenue: 0, maxRevenue: 0,
+        minCost: 90, maxCost: 500, minRevenue: 0, maxRevenue: 0,
         effects: {
             "public_health": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.2 * policyValue},
             }
         }
     },
     "blood_organ_donation": {
         name: "Blood & Organ Donation", isImplemented: false,
-        description: "Blood and organ donation.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Promotion and service of voluntary blood and organ donation to save lives.",
+        type: "health", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 60, maxCost: 250, minRevenue: 0, maxRevenue: 0,
         effects: {
             "public_health": {
                 effectDelay: 2, effectDuration: 0,
@@ -420,223 +420,248 @@ export let policy = {
     },
     "school_meals": {
         name: "School Meals", isImplemented: false,
-        description: "School meals.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Nutritious and subsidized school meals to support children's health and well-being.",
+        type: "health", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 98, maxCost: 340, minRevenue: 0, maxRevenue: 0,
         effects: {
             "public_health": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.25 * policyValue},
             },
             "dropout_crisis": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                formula: function (policyValue) {return 0 - 0.2 * policyValue},
             },
         }
     },
     "mandatory_immunization": {
         name: "Mandatory Immunization", isImplemented: false,
-        description: "Mandatory and subsidized immunization to preent diseases.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        description: "Mandatory and subsidized immunization to prevent diseases.",
+        type: "health", value: 0, finalValue: 0, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 100, maxCost: 200, minRevenue: 0, maxRevenue: 0,
+        minCost: 100, maxCost: 300, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "public_health": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.3 * policyValue},
+            },
         }
     },
     "health_college": {
         name: "Health College", isImplemented: false,   
         description: "Colleges to train health professionals.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 100, maxCost: 200, minRevenue: 0, maxRevenue: 0,
+        type: "health", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 6, implementationDuration: 0,
+        minCost: 130, maxCost: 378, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "health_workers": {
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.15 + 0.3 * policyValue},
+            },
         }
     },
     "health_worker_volunteers": {
         name: "Health Worker Volunteers", isImplemented: false,
         description: "Recruit health students and civilians to help health professionals.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
+        type: "health", value: 0, finalValue: 0, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 100, maxCost: 200, minRevenue: 0, maxRevenue: 0,
+        minCost: 90, maxCost: 250, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "health_workers": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.2 * policyValue},
+            },
         }
     },
     "healthcare_privatization": {
         name: "Healthcare Privatization", isImplemented: false,
-        description: "Privatize healthcare to reduce costs and increase efficiency.",
-        type: "health", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: -100, maxCost: -200, minRevenue: 0, maxRevenue: 0,
+        description: "Privatize healthcare to increase investment on health services.",
+        type: "health", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 80, maxCost: 240, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "healthcare_system": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.2 * policyValue},
+            },
+            "investment": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.2 * policyValue},
+            }
         }
     },    
 
     // Education
     "scholarships": {
         name: "Scholarships", isImplemented: false,
-        description: "Scholarships.",
-        type: "education", value: 50, finalValue: 50, valueDelta: 0,
+        description: "Scholarships to provide financial support and opportunities for education.",
+        type: "education", value: 0, finalValue: 0, valueDelta: 0,
         implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        minCost: 145, maxCost: 340, minRevenue: 0, maxRevenue: 0,
         effects: {
             "dropout_crisis": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.2 * policyValue},
             }
         }
     },
     "state_schools": {
         name: "State Schools", isImplemented: false,
-        description: "State schools.",
+        description: "State schools offer affordable and equal education.",
         type: "education", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 165, maxCost: 450, minRevenue: 0, maxRevenue: 0,
         effects: {
             "education_system": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 4, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.4 * policyValue},
             },
         }
     },
     "standardized_testing": {
         name: "Standardized Testing", isImplemented: false,
-        description: "Standardized testing.",
-        type: "education", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Standardized measure of student performance allowing fair evaluation and comparison.",
+        type: "education", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 60, maxCost: 200, minRevenue: 0, maxRevenue: 0,
         effects: {
             "education_system": {
-                effectDelay: 2, effectDuration: 0,
-                valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                effectDelay: 4, effectDuration: 0,
+                valueType: "postive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.2 * policyValue},
             }
         }
     },
     "vocational_education": {
         name: "Vocational Education", isImplemented: false,
-        description: "Vocational education.",
-        type: "education", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Education to prepare workforce readiness and practical skills.",
+        type: "education", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 50, maxCost: 180, minRevenue: 0, maxRevenue: 0,
         effects: {
             "education_system": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 4, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
             "productive_workers": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.25 * policyValue},
             },
         }
     },
     "curriculum_development": {
         name: "Curriculum Development", isImplemented: false,
-        description: "Curriculum development.",
-        type: "education", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Curriculum development fostering critical thinking and interdisciplinary learning.",
+        type: "education", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 35, maxCost: 145, minRevenue: 0, maxRevenue: 0,
         effects: {
             "education_system": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.05 + 0.2 * policyValue},
             },
         }
     },
     "teacher_education": {
         name: "Teacher Education", isImplemented: false,
-        description: "Teacher education.",
-        type: "education", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Teacher education to ensure high-quality teaching.",
+        type: "education", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 40, maxCost: 110, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "teachers": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.25 * policyValue},
+            },
+        }
+    },
+    "teacher_assessment": {
+        name: "Teacher Assessment", isImplemented: false,
+        description: "Measure teaching effectiveness and improve instructional practices.",
+        type: "education", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 30, maxCost: 100, minRevenue: 0, maxRevenue: 0,
         effects: {
             "teachers": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
-            },
-        }
-    },
-    "competency_assessment": {
-        name: "Competency Assessment", isImplemented: false,
-        description: "Competency assessment.",
-        type: "education", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
-        effects: {
-            "teachers": {
-                effectDelay: 2, effectDuration: 0,
-                valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
             }
         }
     },
     "research_grants": {
         name: "Research Grants", isImplemented: false,
-        description: "Research grants.",
-        type: "education", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Research grants to support innovation and advancements.",
+        type: "education", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 80, maxCost: 280, minRevenue: 0, maxRevenue: 0,
         effects: {
             "research": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.1 + 0.4 * policyValue},
             }
         }
     },
     "university_grants": {
         name: "University Grants", isImplemented: false,
-        description: "University grants.",
-        type: "education", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "University grants to support academic institutions.",
+        type: "education", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 100, maxCost: 400, minRevenue: 0, maxRevenue: 0,
         effects: {
             "research": {
                 effectDelay: 2, effectDuration: 0,
-                valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                valueType: "positve", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.25 * policyValue},
             },
             "education_system": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0.05 + 0.15 * policyValue},
             },
             "productive_workers": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.15 * policyValue},
             },
         }
     },
     "technology_colleges": {
         name: "Technology Colleges", isImplemented: false,
-        description: "Technology colleges.",
-        type: "education", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Technology colleges  to provide specialized education in technological fields.",
+        type: "education", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 50, maxCost: 250, minRevenue: 0, maxRevenue: 0,
         effects: {
             "education_system": {
-                effectDelay: 2, effectDuration: 0,
-                valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
-            },
-            "research": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
-            "productive_workers": {
+            "research": {
                 effectDelay: 2, effectDuration: 0,
-                valueType: "negative", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.15 * policyValue},
+            },
+            "productive_workers": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.1 * policyValue},
             },
         }
     },
