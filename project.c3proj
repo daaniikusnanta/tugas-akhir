@@ -36,13 +36,6 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Button",
-			"name": "Button",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
 			"id": "DrawingCanvas",
 			"name": "Drawing canvas",
 			"author": "Scirra",
@@ -102,13 +95,6 @@
 			"type": "plugin",
 			"id": "Spritefont2",
 			"name": "Sprite font",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Text",
-			"name": "Text",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -215,10 +201,6 @@
 	"objectTypes": {
 		"items": [
 			"GameManager",
-			"ButtonPause",
-			"ButtonInrease",
-			"ButtonDecrease",
-			"TickRate",
 			"VSCodePlugin",
 			"Button",
 			"PopUpOverlay",
@@ -254,7 +236,9 @@
 			"Logo",
 			"AJAX",
 			"LocalStorage",
-			"FileSystem"
+			"FileSystem",
+			"Sprite",
+			"WaterTexture"
 		],
 		"subfolders": [
 			{

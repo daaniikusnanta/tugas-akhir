@@ -7036,142 +7036,6 @@
 					}
 				},
 				{
-					"type": "ButtonDecrease",
-					"properties": {
-						"type": "button",
-						"text": "Decrease",
-						"tooltip": "",
-						"initially-visible": true,
-						"enabled": true,
-						"auto-font-size": true,
-						"checked": false,
-						"id": "",
-						"class": ""
-					},
-					"uid": 7,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 1480.6422210856676,
-						"y": 1040.3685083360288,
-						"width": 72,
-						"height": 24,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						]
-					}
-				},
-				{
-					"type": "ButtonPause",
-					"properties": {
-						"type": "button",
-						"text": "Pause",
-						"tooltip": "",
-						"initially-visible": true,
-						"enabled": true,
-						"auto-font-size": true,
-						"checked": false,
-						"id": "",
-						"class": ""
-					},
-					"uid": 5,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 1396.8717936000621,
-						"y": 1038.1077479798291,
-						"width": 72,
-						"height": 24,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						]
-					}
-				},
-				{
-					"type": "ButtonInrease",
-					"properties": {
-						"type": "button",
-						"text": "Increase",
-						"tooltip": "",
-						"initially-visible": true,
-						"enabled": true,
-						"auto-font-size": true,
-						"checked": false,
-						"id": "",
-						"class": ""
-					},
-					"uid": 6,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 1571.6422210856676,
-						"y": 1039.3685083360288,
-						"width": 72,
-						"height": 24,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						]
-					}
-				},
-				{
-					"type": "TickRate",
-					"properties": {
-						"text": "Text",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 8,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 1663.6422210856676,
-						"y": 1041.3685083360288,
-						"width": 155.15711987849704,
-						"height": 26.03306793969523,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "ProgressBarBG",
 					"properties": {
 						"initially-visible": true,
@@ -7184,8 +7048,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 1550.6422210856676,
-						"y": 1014.3685083360288,
+						"x": 1566,
+						"y": 1030,
 						"width": 320,
 						"height": 32,
 						"originX": 0.5,
@@ -7240,10 +7104,10 @@
 						}
 					},
 					"world": {
-						"x": 1389.6422210856676,
-						"y": 999.3685083360288,
+						"x": 1406,
+						"y": 1014,
 						"width": 24,
-						"height": 30.256441568195214,
+						"height": 32,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -7289,10 +7153,10 @@
 						}
 					},
 					"world": {
-						"x": 1390.6422210856676,
-						"y": 999.3685083360288,
-						"width": 314,
-						"height": 30,
+						"x": 1406,
+						"y": 1014,
+						"width": 320,
+						"height": 32,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -8162,6 +8026,193 @@
 							0.9137254901960784,
 							0.9176470588235294,
 							0.7215686274509804,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "UI Button",
+						"initial-frame": 1,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 364,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"isHovered": false,
+						"initialOpacity": 0,
+						"id": "cycle_toggle"
+					},
+					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": false,
+							"parameters": {
+								"intensity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 1376,
+						"y": 1030,
+						"width": 40,
+						"height": 40,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.9
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "UI Button",
+						"initial-frame": 4,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 370,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"isHovered": false,
+						"initialOpacity": 0,
+						"id": "cycle_accelerate"
+					},
+					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": false,
+							"parameters": {
+								"intensity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 1799,
+						"y": 1032,
+						"width": 40,
+						"height": 40,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.9
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "UI Button",
+						"initial-frame": 3,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 376,
+					"instanceVariables": {
+						"isDisabled": false,
+						"isPressed": false,
+						"clickable": true,
+						"initialWidth": 0,
+						"initialHeight": 0,
+						"isHovered": false,
+						"initialOpacity": 0,
+						"id": "cycle_slow"
+					},
+					"behaviors": {},
+					"effects": {
+						"Grayscale": {
+							"isEnabled": false,
+							"parameters": {
+								"intensity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 1753.3880846081458,
+						"y": 1032,
+						"width": 40,
+						"height": 40,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.9
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UIText",
+					"properties": {
+						"text": "0.25 x",
+						"enable-bbcode": true,
+						"character-width": 75,
+						"character-height": 82,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%^ƒ",
+						"spacing-data": "[[12,\" \"],[9,\"il.:'\"],[10,\"I!|\"],[11,\",;\"],[17,\"`\"],[19,\"j[]\"],[20,\"1\"],[21,\"J\\\"()\"],[22,\"r\"],[25,\"t\"],[26,\"°\"],[28,\"f\"],[30,\"-*ƒ\"],[33,\"Lz<>^\"],[34,\"s?\"],[35,\"hnu~\\\\/=\"],[36,\"Fa_\"],[37,\"Ekx7\"],[39,\"PTc2369+\"],[40,\"ev58\"],[41,\"Ry\"],[42,\"SZbdgpq$\"],[43,\"BHKUo4£\"],[44,\"N\"],[45,\"X\"],[46,\"0\"],[47,\"DY\"],[49,\"&\"],[50,\"AV\"],[51,\"C\"],[52,\"M\"],[53,\"€\"],[54,\"G\"],[56,\"#\"],[57,\"OQ\"],[59,\"m\"],[61,\"w\"],[63,\"@\"],[66,\"%\"],[73,\"W\"]]",
+						"scale": 0.3,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center",
+						"read-aloud": false
+					},
+					"uid": 5,
+					"instanceVariables": {
+						"id": "cycle_speed"
+					},
+					"behaviors": {},
+					"effects": {
+						"Contrast": {
+							"isEnabled": true,
+							"parameters": {
+								"contrast": 1
+							}
+						}
+					},
+					"world": {
+						"x": 1689.0977218740816,
+						"y": 1030,
+						"width": 62.25207228116756,
+						"height": 37.202117438427535,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
 							1
 						],
 						"angle": 0,

@@ -151,14 +151,6 @@
 							}
 						},
 						{
-							"id": "set-text",
-							"objectClass": "TickRate",
-							"sid": 992925138789438,
-							"parameters": {
-								"text": "\"1x\""
-							}
-						},
-						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 320843196971973,
@@ -715,58 +707,6 @@
 					]
 				},
 				{
-					"functionName": "pauseGame",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "pause-resume-timer",
-							"objectClass": "GameManager",
-							"sid": 990586740348857,
-							"behaviorType": "Timer",
-							"parameters": {
-								"tag": "\"Tick\"",
-								"state": "paused"
-							}
-						},
-						{
-							"id": "pause-resume-timer",
-							"objectClass": "GameManager",
-							"sid": 378180103861121,
-							"behaviorType": "Timer",
-							"parameters": {
-								"tag": "\"IncomeBubble\"",
-								"state": "paused"
-							}
-						},
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 170240047054886,
-							"parameters": {
-								"variable": "isRunning",
-								"value": "false"
-							}
-						},
-						{
-							"id": "set-effect-enabled",
-							"objectClass": "ProgressBar",
-							"sid": 535862412690032,
-							"parameters": {
-								"mode": "enable",
-								"effect": "\"SetColor\""
-							}
-						}
-					],
-					"sid": 359609938174142
-				},
-				{
 					"functionName": "slowTime",
 					"functionDescription": "",
 					"functionCategory": "",
@@ -785,6 +725,16 @@
 								"comparison": 3,
 								"second-value": "maxTickRate"
 							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UIText",
+							"sid": 630543545346394,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"cycle_speed\""
+							}
 						}
 					],
 					"actions": [
@@ -799,19 +749,10 @@
 						},
 						{
 							"id": "set-text",
-							"objectClass": "TickRate",
-							"sid": 296988291604289,
+							"objectClass": "UIText",
+							"sid": 445840527564131,
 							"parameters": {
-								"text": "24 / tickRate & \"x\""
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 216476528880036,
-							"parameters": {
-								"type": "log",
-								"message": "\"slow \" & tickRate"
+								"text": "24 / tickRate & \" x\""
 							}
 						}
 					],
@@ -836,6 +777,16 @@
 								"comparison": 5,
 								"second-value": "minTickRate"
 							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UIText",
+							"sid": 382567339907783,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"cycle_speed\""
+							}
 						}
 					],
 					"actions": [
@@ -850,23 +801,66 @@
 						},
 						{
 							"id": "set-text",
-							"objectClass": "TickRate",
-							"sid": 993716331671778,
+							"objectClass": "UIText",
+							"sid": 321831522001133,
 							"parameters": {
-								"text": "24 / tickRate & \"x\""
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 543402101577611,
-							"parameters": {
-								"type": "log",
-								"message": "\"acc\" & tickRate"
+								"text": "24 / tickRate & \" x\""
 							}
 						}
 					],
 					"sid": 569985367823576
+				},
+				{
+					"functionName": "pauseGame",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "pause-resume-timer",
+							"objectClass": "GameManager",
+							"sid": 136475179817901,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Tick\"",
+								"state": "paused"
+							}
+						},
+						{
+							"id": "pause-resume-timer",
+							"objectClass": "GameManager",
+							"sid": 718459516270190,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"IncomeBubble\"",
+								"state": "paused"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 916368064369798,
+							"parameters": {
+								"variable": "isRunning",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "ProgressBar",
+							"sid": 608031733632259,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"SetColor\""
+							}
+						}
+					],
+					"sid": 898201404151506
 				},
 				{
 					"functionName": "resumeGame",
@@ -919,107 +913,6 @@
 						}
 					],
 					"sid": 102313444406747
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-clicked",
-							"objectClass": "ButtonPause",
-							"sid": 870943837107309
-						}
-					],
-					"actions": [],
-					"sid": 354072899059509,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 760804432889301,
-									"parameters": {
-										"variable": "isRunning"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-text",
-									"objectClass": "ButtonPause",
-									"sid": 556371626239331,
-									"parameters": {
-										"text": "\"Resume\""
-									}
-								},
-								{
-									"callFunction": "pauseGame",
-									"sid": 404393857418832
-								}
-							],
-							"sid": 760494216045422
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 587233191078164
-								}
-							],
-							"actions": [
-								{
-									"id": "set-text",
-									"objectClass": "ButtonPause",
-									"sid": 138867869782847,
-									"parameters": {
-										"text": "\"Pause\""
-									}
-								},
-								{
-									"callFunction": "resumeGame",
-									"sid": 642473253292890
-								}
-							],
-							"sid": 623194381697160
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-clicked",
-							"objectClass": "ButtonInrease",
-							"sid": 413147639822475
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "accelerateTime",
-							"sid": 488261002300096
-						}
-					],
-					"sid": 524726317425321
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-clicked",
-							"objectClass": "ButtonDecrease",
-							"sid": 935178206896065
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "slowTime",
-							"sid": 580253409650130
-						}
-					],
-					"sid": 879831987466582
 				},
 				{
 					"eventType": "block",
@@ -1558,6 +1451,122 @@
 							],
 							"actions": [],
 							"sid": 264555549840413
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 227503361761278,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"cycle_toggle\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 248854484408363,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 522856319727871,
+											"parameters": {
+												"variable": "isRunning"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Button",
+											"sid": 557999343294087,
+											"parameters": {
+												"frame-number": "2"
+											}
+										},
+										{
+											"callFunction": "pauseGame",
+											"sid": 126585070611174
+										}
+									],
+									"sid": 575881056932706
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 812219970644364
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Button",
+											"sid": 183419345686281,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"callFunction": "resumeGame",
+											"sid": 878709651158578
+										}
+									],
+									"sid": 721473953183402
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 439788266229528,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"cycle_accelerate\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "accelerateTime",
+									"sid": 856126129689040
+								}
+							],
+							"sid": 894952253602222
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 242942449658873,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"cycle_slow\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "slowTime",
+									"sid": 970463341123258
+								}
+							],
+							"sid": 819911765975840
 						}
 					]
 				},
@@ -4226,7 +4235,40 @@
 											}
 										}
 									],
-									"sid": 194472484861110
+									"sid": 194472484861110,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 986228947502261,
+													"parameters": {
+														"first-value": "random(0, 1)",
+														"comparison": 2,
+														"second-value": "0.0002"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 879613593990844,
+													"parameters": {
+														"object-to-create": "WaterTexture",
+														"layer": "\"Water\"",
+														"x": "x / DrawingCanvas.SnapshotWidth * DrawingCanvas.Width",
+														"y": "y/ DrawingCanvas.SnapshotHeight* DrawingCanvas.Height",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 149930028103918
+										}
+									]
 								}
 							]
 						},
