@@ -1081,6 +1081,7 @@ export let policy = {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "negative", value: 0, valueDelta: 0,
                 formula: function (policyValue) {return -0.05 - 0.1 * policyValue},
+            },
         }
     },
     "public_transport": {
@@ -1181,24 +1182,38 @@ export let policy = {
     // Labor
     "maternity_leave": {
         name: "Maternity Leave", isImplemented: false,
-        description: "Maternity leave.",
-        type: "labor", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Paid maternity leave for new mothers.",
+        type: "labor", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 21, maxCost: 87, minRevenue: 0, maxRevenue: 0,
         effects: {
             "work_environment": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
             },
         }
     },
-    "work_safety_inspection": {
-        name: "Work Safety Inspection", isImplemented: false,
-        description: "Work safety inspection.",
-        type: "labor", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+    "paternity_leave": {
+        name: "Paternity Leave", isImplemented: false,
+        description: "Paid paternity leave for new fathers.",
+        type: "labor", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 21, maxCost: 87, minRevenue: 0, maxRevenue: 0,
+        effects: {
+            "work_environment": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+            },
+        }
+    },
+    "work_safety": {
+        name: "Work Safety", isImplemented: true,
+        description: "Work safety regulations maintain safe and healthy work environment.",
+        type: "labor", value: 20, finalValue: 20, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 31, maxCost: 98, minRevenue: 0, maxRevenue: 0,
         effects: {
             "work_environment": {
                 effectDelay: 2, effectDuration: 0,
@@ -1208,21 +1223,41 @@ export let policy = {
         }
     },
     "minimum_wage": {
-        name: "Minimum Wage", isImplemented: false,
-        description: "Minimum wage.",
-        type: "labor", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        name: "Minimum Wage", isImplemented: true,
+        description: "Set a minimum wage to establish a baseline income level.",
+        type: "labor", value: 32, finalValue: 32, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 43, maxCost: 145, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "wage_income": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.1 + 0.3 * policyValue},
+            },
+            "jobs": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.2 * policyValue},
+            },
         }
     },
-    "underage_labor": {
-        name: "Underage Labor", isImplemented: false,
-        description: "Underage labor.",
-        type: "labor", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+    "labor_union": {
+        name: "Labor Union", isImplemented: false,
+        description: "Labor unions to protect workers' rights.",
+        type: "labor", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 23, maxCost: 99, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "work_environment": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.15 * policyValue},
+            },
+            "jobs": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.1 * policyValue},
+            },
         }
     },
 
