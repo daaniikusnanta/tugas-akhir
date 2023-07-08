@@ -895,62 +895,97 @@ export let policy = {
     // Nature
     "desalination_plant": {
         name: "Desalination Plant", isImplemented: false,
-        description: "Desalination plant.",
-        type: "nature", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Desalination plant construction to ptovide freshwater from seawater.",
+        type: "nature", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 5, implementationDuration: 0,
+        minCost: 34, maxCost: 178, minRevenue: 0, maxRevenue: 0,
         effects: {
             "water_land": {
                 effectDelay: 2, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.15 * policyValue},
+            },
+            "water_scarcity": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 - 0.25 * policyValue},
             },
         }
     },
     "state_water_company": {
-        name: "State Water Company", isImplemented: false,
-        description: "State water company.",
-        type: "nature", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        name: "State Water Company", isImplemented: true,
+        description: "Establish state water company to ensure reliable water supply.",
+        type: "nature", value: 65, finalValue: 65, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 3, implementationDuration: 0,
+        minCost: 10, maxCost: 75, minRevenue: 0, maxRevenue: 0,
         effects: {
             "water_land": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 3, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.25 * policyValue},
             },
         }
     },
     "food_import": {
         name: "Food Import", isImplemented: false,
-        description: "Food import.",
-        type: "nature", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Food import to handle food insecurity.",
+        type: "nature", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 34, maxCost: 130, minRevenue: 0, maxRevenue: 0,
         effects: {
             "food_sources": {
-                effectDelay: 2, effectDuration: 0,
+                effectDelay: 4, effectDuration: 0,
                 valueType: "positive", value: 0, valueDelta: 0,
-                formula: function (policyValue) {return 0 + 0.1 * policyValue},
+                formula: function (policyValue) {return 0 + 0.4 * policyValue},
+            },
+            "agriculture" : {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 - 0.2 * policyValue},
             },
         }
     },
     "land_reclamation": {
         name: "Land Reclamation", isImplemented: false,
         description: "Repurpose degraded lands and sea to restore productive lands.",
-        type: "nature", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        type: "nature", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 4, implementationDuration: 0,
+        minCost: 12, maxCost: 87, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "water_land": {
+                effectDelay: 2, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0 + 0.2 * policyValue},
+            },
+            "marine": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.05 - 0.15 * policyValue},
+            }
         }
     },
     "oil_exploration": {
         name: "Oil Exploration", isImplemented: false,
-        description: "Search for new oil sources.",
-        type: "nature", value: 50, finalValue: 50, valueDelta: 0,
-        implementationCost: 0, implementationDelay: 0, implementationDuration: 0,
-        minCost: 0, maxCost: 0, minRevenue: 0, maxRevenue: 0,
+        description: "Explore new oil sources.",
+        type: "nature", value: 0, finalValue: 0, valueDelta: 0,
+        implementationCost: 0, implementationDelay: 2, implementationDuration: 0,
+        minCost: 14, maxCost: 62, minRevenue: 0, maxRevenue: 0,
         effects: {
+            "mineral_oil": {
+                effectDelay: 5, effectDuration: 0,
+                valueType: "positive", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return 0.05 + 0.35 * policyValue},
+            },
+            "water_land": {
+                effectDelay: 4, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.05 - 0.15 * policyValue},
+            },
+            "pollution_control": {
+                effectDelay: 3, effectDuration: 0,
+                valueType: "negative", value: 0, valueDelta: 0,
+                formula: function (policyValue) {return -0.05 - 0.1 * policyValue},
+            },
         }
     },
 
