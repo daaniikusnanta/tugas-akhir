@@ -3486,6 +3486,12 @@
 								}
 							],
 							"sid": 684187167286852
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 963396989919335
 						}
 					]
 				},
@@ -4189,6 +4195,15 @@
 									"id": "load-snapshot",
 									"objectClass": "DrawingCanvas",
 									"sid": 657323731650731
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 316798622733594,
+									"parameters": {
+										"layer": "\"GameLoading\"",
+										"visibility": "invisible"
+									}
 								}
 							],
 							"sid": 389094493669400
