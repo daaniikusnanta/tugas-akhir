@@ -1695,7 +1695,7 @@ export function applyPolicyChange(policyName, newValue) {
     let policyData = policy[policyName];
     if (policyData) {
         policyData.finalValue = clamp(newValue, 0, 100);
-        let { value, finalValue, implementationDelay } = policyData;
+        let { finalValue } = policyData;
 
         policyData.implementationDuration = 0;
 
@@ -1712,12 +1712,11 @@ export function applyPolicyChange(policyName, newValue) {
 
 export function updatePolicy(policyName) {
     let policyData = policy[policyName];
-    let { value, finalValue, implementationDelay, implementationDuration } = policyData;
-    // console.log("update policy", policyData, value, finalValue, implementationDelay, implementationDuration);
+    let { finalValue, implementationDelay, implementationDuration } = policyData;
+    
     // If the delay duration has passed, update the policy value
-    if (policyData && implementationDuration >= implementationDelay) {
+    if (implementationDuration >= implementationDelay) {
         policyData.value = finalValue;
-        // console.log("updated", policyData);
         updatePolicyEffects(policyName);
     }
 
@@ -1743,7 +1742,6 @@ export function updatePolicyEffects(policyName) {
         if (effectDuration <= effectDelay) {
             const effectData = status[effect] ?? crisis[effect];
             
-            // console.log("update policy effect", effect, effectDelay, effectDuration, valueDelta, effectData);
             if (!effectData) {
                 throw new Error("Effect does not exist in the status or crisis: " + effect);
             }
@@ -1751,7 +1749,7 @@ export function updatePolicyEffects(policyName) {
             effectData.value += valueDelta;
             effectData.policyValue += valueDelta;
             policyEffectData.value += valueDelta;
-            console.log("updated", effectData);
+            // console.log("updated", effectData);
             // effectData.lastUpdatePolicy += update;
         }
         policyEffectData.effectDuration++;
@@ -1872,7 +1870,7 @@ export function createPolicyEffectViews(runtime) {
             const effectVariableData = status[effect] ?? crisis[effect];
     
             const effectName = runtime.objects.UIText.createInstance("PolicyPopUpMG", instanceX, instanceY, true, "policy_effect_view");
-            effectName.text = effectVariableData.name + " (" + effectData.effectDelay + " Delay)";
+            effectName.text = effectVariableData.name + " (" + Math.ceil(effectData.effectDelay) + " Delay)";
             effectName.instVars['id'] = effect + "_" + policyName + "_effects_name";
             addTextToCache(effectName);
         
