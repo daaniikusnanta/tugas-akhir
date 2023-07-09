@@ -16,14 +16,30 @@ export let incomes = {};
 let spendings = {};
 export let totalSpending = 0;
 
+let incomeViews = [];
+let spendingViews = [];
+let incomeBubbleTileIndexes = [];
+
 export const fiscalMultiplier = {
   "collectibleIncomeMultiplier": 0.2,
   "industryIncomeMultiplier": 2000,
   "debtDeadline": 200,
 }
 
-let incomeBubbleTileIndexes = [];
-incomeBubbleTileIndexes = [];
+export function resetFiscalData() {
+  debt = 0;
+  balance = 0;
+  dailySpending = 0;
+  dailyIncome = 0;
+  dailyDebt = 0;
+  dailyCollectibleIncome = 0;
+  incomes = {};
+  spendings = {};
+  totalSpending = 0;
+  incomeViews = [];
+  spendingViews = [];
+  incomeBubbleTileIndexes = [];
+}
 
 export function removeIncomeBubbleTileIndex(tileIndex) {
   const index = incomeBubbleTileIndexes.indexOf(tileIndex);
@@ -213,9 +229,6 @@ export function showFiscalPopUp(runtime) {
   showSpendingList(runtime);
 }
 
-let incomeViews = [];
-incomeViews = [];
-
 function showIncomeList(runtime) {
   destroyIncomeList();
 
@@ -263,8 +276,6 @@ function destroyIncomeList() {
 
   incomeViews = [];
 }
-
-let spendingViews = [];
 
 function showSpendingList(runtime) {
   destroySpendingList();

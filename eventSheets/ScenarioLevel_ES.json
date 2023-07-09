@@ -48,6 +48,69 @@
 				{
 					"type": "script",
 					"script": "resetInitialLevelVariables();\ncreateScenarioView(runtime);"
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 819814205131801,
+					"parameters": {
+						"type": "log",
+						"message": "\"Scenario Layout\""
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 922773999435073,
+					"parameters": {
+						"layer": "\"Loading\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 590662062274029,
+					"parameters": {
+						"layer": "\"Loading\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 895901656010396,
+					"parameters": {
+						"layer": "\"Scenario\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 139062090349165,
+					"parameters": {
+						"layer": "\"Scenario\"",
+						"interactive": true
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 473659737882513,
+					"parameters": {
+						"layer": "\"Main\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 366468840158352,
+					"parameters": {
+						"layer": "\"Main\"",
+						"interactive": true
+					}
 				}
 			],
 			"sid": 799791227860968,

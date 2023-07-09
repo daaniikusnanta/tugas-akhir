@@ -72,11 +72,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Button",
-							"sid": 802832056959234,
+							"sid": 596081122169005,
 							"parameters": {
 								"instance-variable": "id",
 								"comparison": 0,
-								"value": "\"play\""
+								"value": "\"menu_play\""
 							}
 						}
 					],

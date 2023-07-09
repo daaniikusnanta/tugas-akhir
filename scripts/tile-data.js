@@ -16,20 +16,15 @@ import { clamp } from "./utils.js";
  *     tiles: Tile[],
  * }>}
  */
-const tiles = [];
-
-export const filledTiles = [];
-
+let tiles = [];
+export let filledTiles = [];
 let mapTileCount = 0;
 
-/**
- * @type {Array.<{
- *      tiles: Tile[],
- *      name: string,   
- *      crisis: String[], 
- * }>}
- */
-const regions = [];
+export function resetTileData() {
+    tiles = [];
+    filledTiles = [];
+    mapTileCount = 0;
+};
 
 export function initializeTileBiome(runtime) {
     const tilemap = runtime.objects.TilemapBiome.getFirstInstance();

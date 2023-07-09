@@ -97,6 +97,42 @@
 							"sid": 298997681691886
 						},
 						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 534222910910837,
+							"parameters": {
+								"layer": "\"GameLoading\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 445764072744184,
+							"parameters": {
+								"layer": "\"GameLoading\"",
+								"interactive": true
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 474861057360251,
+							"parameters": {
+								"layer": "\"PausedPopUp\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 572137777242716,
+							"parameters": {
+								"layer": "\"PausedPopUp\"",
+								"interactive": false
+							}
+						},
+						{
 							"type": "script",
 							"script": "setupPolicyMultiplier();\ninitializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\ninitializeTileBiome(runtime);\ninitializeFiscalData(runtime);\nupdateFiscal(runtime);\nupdateStatusView(runtime);\nupdateFSM();"
 						},
@@ -4578,6 +4614,10 @@
 										"layer": "\"Game\"",
 										"interactive": false
 									}
+								},
+								{
+									"callFunction": "pauseGame",
+									"sid": 987631234203885
 								}
 							],
 							"sid": 781098177610516
@@ -4600,6 +4640,10 @@
 										"layer": "\"Game\"",
 										"interactive": true
 									}
+								},
+								{
+									"callFunction": "resumeGame",
+									"sid": 290915307126297
 								}
 							],
 							"sid": 502821418606422

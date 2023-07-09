@@ -204,7 +204,7 @@
 						"initialHeight": 0,
 						"isHovered": false,
 						"initialOpacity": 0,
-						"id": "play"
+						"id": "menu_play"
 					},
 					"behaviors": {},
 					"effects": {

@@ -19,7 +19,7 @@ import {
   toDeltaFormat,
   toPercentageFormat,
 } from "./utils.js";
-import { expandCrisisTiles, initializeTileBiome } from "./tile-data.js";
+import { expandCrisisTiles, initializeTileBiome, resetTileData } from "./tile-data.js";
 import {
   policy,
   createPolicyEffectViews,
@@ -45,6 +45,7 @@ import {
   showFiscalPopUp,
   updateIncomeFromIndustry,
   resetDailyCollectibleIncome,
+  resetFiscalData,
 } from "./fiscal-data.js";
 import {
   setLevelVariables,
@@ -822,4 +823,9 @@ function resetInitialLevelVariables() {
   levelData.economyType = "Developed";
 
   resetChosenVariables();
+}
+
+function resetLevelVariables() {
+  resetTileData();
+  resetFiscalData();
 }

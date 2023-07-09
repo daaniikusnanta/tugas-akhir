@@ -156,6 +156,78 @@
 					}
 				},
 				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 563703587405467,
+					"parameters": {
+						"layer": "\"Loading\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 681031352405568,
+					"parameters": {
+						"layer": "\"Loading\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 884785971188175,
+					"parameters": {
+						"layer": "\"CreateCrisis\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 126876521666459,
+					"parameters": {
+						"layer": "\"CreateCrisis\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 147155576177191,
+					"parameters": {
+						"layer": "\"CreateSituation\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 156651539723143,
+					"parameters": {
+						"layer": "\"CreateSituation\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 764485168720386,
+					"parameters": {
+						"layer": "\"CreateGeography\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 671370839891498,
+					"parameters": {
+						"layer": "\"CreateGeography\"",
+						"interactive": true
+					}
+				},
+				{
 					"type": "script",
 					"script": "createInitialCrisisViews(runtime);"
 				}
