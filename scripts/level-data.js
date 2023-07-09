@@ -13,7 +13,7 @@ import { balance, fiscalMultiplier, totalSpending } from "./fiscal-data.js";
  *  economyType: "Developed" | "Newly Emerging" | "Developing" 
  * }}
  */
-const levelData = {
+export const levelData = {
     size: "Large",
     landWater: "More Land",
     governmentType: "Democracy",
@@ -29,7 +29,7 @@ const levelData = {
  *  }
  * }}
  */
-const levelVariables = {
+export const levelVariables = {
     status: {
         taxes: 23,
         debt: 45,
@@ -217,8 +217,6 @@ const levelVariables = {
     }
 };
 
-
-
 /**
  * @type {{
  *  [key: string]: {
@@ -230,7 +228,7 @@ const levelVariables = {
  *  }
  * }}
  */
-const initialCrisis = {
+export const initialCrisis = {
     "pandemic": {
         name: "Pandemic",
         description: "A very infectious disease has plagued the world. Focus on your country's condition to prevent more spread.",
@@ -309,7 +307,7 @@ const initialCrisis = {
  *  }
  * }}
  */
-const scenarios = {
+export const scenarios = {
     "sepnovria": {
         name: "Pandemic on Sepnovria",
         description: "Sepnovria is a newly emerging country known for its beautiful eight-shaped lake. However, a very infectious disease has plagued the world and Sepnovria.",
@@ -339,8 +337,12 @@ const scenarios = {
 };
 
 export let chosenInitialCrisisName = Object.keys(initialCrisis)[0];
-
 export let chosenScenarioName = Object.keys(scenarios)[0];
+
+export function resetChosenVariables() {
+    chosenInitialCrisisName = Object.keys(initialCrisis)[0];
+    chosenScenarioName = Object.keys(scenarios)[0];
+};
 
 export function setInitialCrisisVariables() {
     const initialCrisisData = initialCrisis[chosenInitialCrisisName];

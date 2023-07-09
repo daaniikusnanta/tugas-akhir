@@ -22,7 +22,8 @@ export const fiscalMultiplier = {
   "debtDeadline": 200,
 }
 
-const incomeBubbleTileIndexes = []
+let incomeBubbleTileIndexes = [];
+incomeBubbleTileIndexes = [];
 
 export function removeIncomeBubbleTileIndex(tileIndex) {
   const index = incomeBubbleTileIndexes.indexOf(tileIndex);
@@ -213,6 +214,7 @@ export function showFiscalPopUp(runtime) {
 }
 
 let incomeViews = [];
+incomeViews = [];
 
 function showIncomeList(runtime) {
   destroyIncomeList();

@@ -47,7 +47,7 @@
 				},
 				{
 					"type": "script",
-					"script": "createScenarioView(runtime);"
+					"script": "resetInitialLevelVariables();\ncreateScenarioView(runtime);"
 				}
 			],
 			"sid": 799791227860968,

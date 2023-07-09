@@ -915,6 +915,25 @@
 					"sid": 102313444406747
 				},
 				{
+					"functionName": "restartGame",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 852091058026441
+						}
+					],
+					"sid": 233907640050933
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -1449,8 +1468,63 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"callFunction": "restartGame",
+									"sid": 452326377580244
+								}
+							],
 							"sid": 264555549840413
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 358293186483515,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"paused_resume\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "showPausedPopUp",
+									"sid": 596034319791337,
+									"parameters": [
+										false
+									]
+								}
+							],
+							"sid": 289284567717754
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 995705573835466,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "\"paused\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "showPausedPopUp",
+									"sid": 536187210697321,
+									"parameters": [
+										true
+									]
+								}
+							],
+							"sid": 502696191881052
 						},
 						{
 							"eventType": "block",
@@ -2692,6 +2766,117 @@
 								}
 							],
 							"sid": 792384865600229
+						}
+					]
+				},
+				{
+					"functionName": "showPausedPopUp",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "show",
+							"type": "boolean",
+							"initialValue": "true",
+							"comment": "",
+							"sid": 618227854020043
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 210102582084121,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 314413663209323,
+									"parameters": {
+										"variable": "show"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 596918249825420,
+									"parameters": {
+										"type": "log",
+										"message": "\"showPausedPopUp\""
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 128722129691162,
+									"parameters": {
+										"layer": "\"PausedPopUp\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 799833947302361,
+									"parameters": {
+										"layer": "\"PausedPopUp\"",
+										"interactive": true
+									}
+								},
+								{
+									"callFunction": "showPopUp",
+									"sid": 150453004345662,
+									"parameters": [
+										true
+									]
+								}
+							],
+							"sid": 905243933596775
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 308868222617151
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 175416096938100,
+									"parameters": {
+										"layer": "\"PausedPopUp\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 699225562836858,
+									"parameters": {
+										"layer": "\"PausedPopUp\"",
+										"interactive": false
+									}
+								},
+								{
+									"callFunction": "showPopUp",
+									"sid": 135554968668006,
+									"parameters": [
+										false
+									]
+								}
+							],
+							"sid": 406054494015048
 						}
 					]
 				},
