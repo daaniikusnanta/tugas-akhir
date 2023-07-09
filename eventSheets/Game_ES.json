@@ -97,6 +97,10 @@
 							"sid": 298997681691886
 						},
 						{
+							"type": "script",
+							"script": "resetLevelVariables();"
+						},
+						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
 							"sid": 534222910910837,
@@ -207,6 +211,24 @@
 							"callFunction": "exportMap",
 							"sid": 503621720548741,
 							"disabled": true
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 142710451677106,
+							"parameters": {
+								"variable": "day",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 575367062416683,
+							"parameters": {
+								"variable": "tickRate",
+								"value": "24"
+							}
 						}
 					],
 					"sid": 982971445756731
