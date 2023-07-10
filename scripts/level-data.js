@@ -1,6 +1,5 @@
 import { initializeCrisis, isCrisisMaximized, isExtremeCrisisEmpty, crisis, startingCrisis, experiencedCrisis } from "./crisis-data.js";
 import { initializeStatus, status } from "./status-data.js";
-import { updateCrisisView, updateStatusView, setupCrisisViews } from "./game.js";
 import { addTextToCache, getClickablePanelById, getObjectbyId, getTextById, setScrollableHeight, toCurrencyFormat, toTitleCase } from "./utils.js";
 import { policyMultiplier, initializePolicy } from "./policy-data.js";
 import { balance, fiscalMultiplier, totalSpending } from "./fiscal-data.js";
@@ -505,9 +504,6 @@ export function setLevelVariables(level, runtime) {
     initializeStatus(levelVariables.status, runtime);
     initializeCrisis(levelVariables.crisis, runtime);
     initializePolicy(levelVariables.policy);
-    setupCrisisViews(runtime);
-    updateStatusView(runtime);
-    updateCrisisView(runtime);
 }
 
 export function setupGeographySize(size) {

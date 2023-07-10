@@ -2,7 +2,6 @@ import { policy, togglePolicyActive } from "./policy-data.js";
 import { filledTiles, } from "./tile-data.js";
 import { clamp, getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeight, toCurrencyFormat } from "./utils.js";
 import { status } from "./status-data.js";
-import { updateStatusView } from "./game.js";
 
 let debt = 0;
 export let balance = 0;
