@@ -82,6 +82,107 @@
 			"sid": 801113821949854
 		},
 		{
+			"eventType": "variable",
+			"name": "BGM_TAG",
+			"type": "string",
+			"initialValue": "bgm",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 823380576751177
+		},
+		{
+			"eventType": "variable",
+			"name": "SFX_TAG",
+			"type": "string",
+			"initialValue": "sfx",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 575361978064847
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-tag-playing",
+					"objectClass": "Audio",
+					"sid": 637999213634224,
+					"parameters": {
+						"tag": "BGM_TAG"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 192578852548750,
+					"parameters": {
+						"audio-file": "bgm",
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "BGM_TAG"
+					}
+				}
+			],
+			"sid": 353804908622341
+		},
+		{
+			"functionName": "PlayTap",
+			"functionDescription": "",
+			"functionCategory": "Audio",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 685969681319431,
+					"parameters": {
+						"audio-file": "tap",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "SFX_TAG"
+					}
+				}
+			],
+			"sid": 262101714585687
+		},
+		{
+			"functionName": "PlayHover",
+			"functionDescription": "",
+			"functionCategory": "Audio",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 249741136248455,
+					"parameters": {
+						"audio-file": "hover",
+						"loop": "not-looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "SFX_TAG"
+					}
+				}
+			],
+			"sid": 104225660412654
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Clickable",
@@ -442,6 +543,10 @@
 								"type": "log",
 								"message": "\"clickable hovered\""
 							}
+						},
+						{
+							"callFunction": "PlayHover",
+							"sid": 580070945703109
 						}
 					],
 					"sid": 544160712434463
@@ -826,19 +931,6 @@
 						}
 					],
 					"sid": 427933290406487
-				},
-				{
-					"functionName": "PlayTap",
-					"functionDescription": "",
-					"functionCategory": "Audio",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 872770720248328
 				}
 			],
 			"sid": 323031480068721
@@ -1069,6 +1161,10 @@
 								"type": "log",
 								"message": "\"pressed\""
 							}
+						},
+						{
+							"callFunction": "PlayTap",
+							"sid": 540718045031705
 						}
 					],
 					"sid": 341874086567797,
@@ -1476,6 +1572,10 @@
 								"type": "log",
 								"message": "\"hovered\""
 							}
+						},
+						{
+							"callFunction": "PlayHover",
+							"sid": 365924413576843
 						}
 					],
 					"sid": 660888241628534,

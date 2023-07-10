@@ -1,6 +1,6 @@
-import { policy } from "./policy-data.js";
+import { policy, togglePolicyActive } from "./policy-data.js";
 import { filledTiles, } from "./tile-data.js";
-import { getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeight, toCurrencyFormat } from "./utils.js";
+import { clamp, getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeight, toCurrencyFormat } from "./utils.js";
 import { status } from "./status-data.js";
 import { updateStatusView } from "./game.js";
 
@@ -22,7 +22,7 @@ let incomeBubbleTileIndexes = [];
 
 export const fiscalMultiplier = {
   "collectibleIncomeMultiplier": 0.2,
-  "industryIncomeMultiplier": 2000,
+  "industryIncomeMultiplier": 550,
   "debtDeadline": 200,
 }
 
@@ -103,30 +103,37 @@ export function updateBalance() {
   totalSpending += dailySpending;
 }
 
-export function updateDebt() {
+export function updateDebt(runtime) {
   if (dailyCollectibleIncome + dailyIncome < dailySpending) {
     const currentDebt = dailyCollectibleIncome + dailyIncome - dailySpending;
     debt += currentDebt;
     dailyDebt = currentDebt;
-  }
-  
-  const debtData = status["debt"];
-  const expectedIncomeGrowth = 13;
-  const totalDailyIncome = dailyIncome / (1 - fiscalMultiplier['collectibleIncomeMultiplier']);
-  const debtExpectedPayOff = debt / totalDailyIncome * expectedIncomeGrowth;
-  
-  const debtDataLastValue = debtData.value;
-  debtData.value = debtExpectedPayOff / (fiscalMultiplier['debtDeadline'] * 2) * 100;
-  debtData.lastUpdateCause = debtData.value - debtDataLastValue;
-  
-  const debtPaymentPolicyData = policy["debt_payment"];
-  // pay debt
-  const payment = debtPaymentPolicyData.minCost + debtPaymentPolicyData.value / 100 * (debtPaymentPolicyData.maxCost - debtPaymentPolicyData.minCost);
-  debt -= payment;
 
-  // update pay debt policy cost
+    const debtData = status["debt"];
+    const expectedIncomeGrowth = 13;
+    const totalDailyIncome = dailyIncome / (1 - fiscalMultiplier['collectibleIncomeMultiplier']);
+    const debtExpectedPayOff = debt / totalDailyIncome * expectedIncomeGrowth;
+    
+    const debtDataLastValue = debtData.value;
+    debtData.value = clamp(debtExpectedPayOff / (fiscalMultiplier['debtDeadline'] * 2) * 100, 0, 100);
+    debtData.lastUpdateCause = debtData.value - debtDataLastValue;
+  }
+
+  const debtPaymentPolicyData = policy["debt_payment"];
   debtPaymentPolicyData.minCost = dailyIncome * 0.1;
   debtPaymentPolicyData.maxCost = dailyIncome * 0.5;
+
+  if (debt > 0 && !debtPaymentPolicyData.isImplemented) {
+    togglePolicyActive("debt_payment", runtime);
+  }
+  if (debt <= 0 && debtPaymentPolicyData.isImplemented) {
+    togglePolicyActive("debt_payment", runtime);
+  }
+
+  if (debtPaymentPolicyData.isImplemented) {
+    const payment = debtPaymentPolicyData.minCost + debtPaymentPolicyData.value / 100 * (debtPaymentPolicyData.maxCost - debtPaymentPolicyData.minCost);
+    debt -= payment;
+  }  
 }
 
 export function resetDailyCollectibleIncome() {
@@ -207,7 +214,7 @@ export function removeSpendingFromPolicy(policyName) {
 export function updateIncomeFromIndustry(industryName) {
   const industryData = status[industryName];
 
-  const incomeValue = industryData.value * fiscalMultiplier['industryIncomeMultiplier'];
+  const incomeValue = industryData.value / 100 * fiscalMultiplier["industryIncomeMultiplier"];
 
   if (incomeValue > 0) {
     incomes[industryName] = incomeValue;

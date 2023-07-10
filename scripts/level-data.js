@@ -516,19 +516,19 @@ export function setupGeographySize(size) {
             policyMultiplier['effectDelay'] = 0.5;
             policyMultiplier['cost'] = 0.5;
             policyMultiplier['revenue'] = 0.5;
-            fiscalMultiplier['industryIncomeMultiplier'] = 100;
+            fiscalMultiplier['industryIncomeMultiplier'] = 300;
             break;
         case "medium":
             policyMultiplier['effectDelay'] = 1;
             policyMultiplier['cost'] = 1;
             policyMultiplier['revenue'] = 1;
-            fiscalMultiplier['industryIncomeMultiplier'] = 210;
+            fiscalMultiplier['industryIncomeMultiplier'] = 440;
             break;
         case "large":
             policyMultiplier['effectDelay'] = 1.7;
             policyMultiplier['cost'] = 1.7;
             policyMultiplier['revenue'] = 1.7;
-            fiscalMultiplier['industryIncomeMultiplier'] = 380;
+            fiscalMultiplier['industryIncomeMultiplier'] = 650;
             break;
     }
 

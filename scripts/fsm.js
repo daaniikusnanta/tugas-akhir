@@ -67,7 +67,7 @@ export function createMachine(stateMachineDefinition) {
            const currentStateDefinition = stateMachineDefinition.states[this.value];
            currentStateDefinition.actions?.onTick?.();
        }
-   }
+   }  
 
    const initialStateDefinition = stateMachineDefinition.states[machine.value];
    initialStateDefinition.actions?.onEnter?.();

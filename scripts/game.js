@@ -91,7 +91,7 @@ function updateAllPolicies() {
 
 function updateFiscal(runtime) {
   updateBalance();
-  updateDebt();
+  updateDebt(runtime);
   
   resetDailyCollectibleIncome();
 }

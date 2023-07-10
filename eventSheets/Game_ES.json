@@ -29,7 +29,7 @@
 			"eventType": "variable",
 			"name": "tickRate",
 			"type": "number",
-			"initialValue": "1",
+			"initialValue": "24",
 			"comment": "The tick",
 			"isStatic": false,
 			"isConstant": false,
@@ -165,6 +165,24 @@
 							}
 						},
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 902182119790689,
+							"parameters": {
+								"variable": "tickRate",
+								"value": "24"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 160119778913016,
+							"parameters": {
+								"variable": "day",
+								"value": "0"
+							}
+						},
+						{
 							"id": "start-timer",
 							"objectClass": "GameManager",
 							"sid": 405763387673053,
@@ -211,24 +229,6 @@
 							"callFunction": "exportMap",
 							"sid": 503621720548741,
 							"disabled": true
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 142710451677106,
-							"parameters": {
-								"variable": "day",
-								"value": "0"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 575367062416683,
-							"parameters": {
-								"variable": "tickRate",
-								"value": "24"
-							}
 						}
 					],
 					"sid": 982971445756731

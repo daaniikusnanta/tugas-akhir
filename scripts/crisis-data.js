@@ -14,37 +14,37 @@ import { policy } from "./policy-data.js";
 
 /**
  * @typedef {{
- *      [key: string]: () => boolean,
+ *    [key: string]: () => boolean,
  * }} Transition
  */
 
 /**
  * @typedef {{
- *     cause: string,
- *     yIntercept: number,
- *     inertia: number,
- *     factor: number,
- *     formula: function(),
+ *    cause: string,
+ *    yIntercept: number,
+ *    inertia: number,
+ *    factor: number,
+ *    formula: function(),
  * }} Cause
  */
 
 /**
  * @type {{
  * [key: string]: {
- *     name: string,
+ *    name: string,
  *    description: string,
- *      value: number,
- *     causeValue: number,
+ *    value: number,
+ *    causeValue: number,
  *    policyValue: number,
- * lastUpdateCause: number,
- * lastUpdatePolicy: number,
- *      type: string,
- *      isGlobal: boolean,
- *      thresholds: number[],
- *      states: State[],
- *      transitions: Transition[],
- *      causes: Cause[],
- *      lastUpdate: number
+ *    lastUpdateCause: number,
+ *    lastUpdatePolicy: number,
+ *    type: string,
+ *    isGlobal: boolean,
+ *    thresholds: number[],
+ *    states: State[],
+ *    transitions: Transition[],
+ *    causes: Cause[],
+ *    lastUpdate: number
  * }}}
  */
 export let crisis = {

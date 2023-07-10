@@ -1855,7 +1855,7 @@ export function togglePolicyActive(policyName, runtime) {
 
 export function createPolicyEffectViews(runtime) {
     const scrollableEffects = getObjectbyId(runtime.objects.ScrollablePanel, "pop_up_policy_effects");
-    let initialY = scrollableEffects.y + 10;
+    let initialY = scrollableEffects.y + 30;
 
     for (const policyName in policy) {
         let policyData = policy[policyName];
@@ -1926,7 +1926,7 @@ export function showPolicyEffectViews(policyName, runtime) {
     
     const scrollableEffects = getObjectbyId(runtime.objects.ScrollablePanel, "pop_up_policy_effects");
     resetScrollablePosition(scrollableEffects);
-    setScrollableHeight(runtime, scrollableEffects, Object.keys(policyData.effects).length, 100, 0);
+    setScrollableHeight(runtime, scrollableEffects, Object.keys(policyData.effects).length, 100, 20);
 }
 
 export function updatePolicyFiscalView(policyName, slider) {
