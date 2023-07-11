@@ -1915,9 +1915,18 @@
 							"sid": 389894625972775
 						},
 						{
+							"id": "pick-by-unique-id",
+							"objectClass": "ClickablePanel",
+							"sid": 575441205465457,
+							"parameters": {
+								"unique-id": "touchedUid"
+							}
+						},
+						{
 							"id": "is-touching-object",
 							"objectClass": "Touch",
 							"sid": 451039179599216,
+							"disabled": true,
 							"parameters": {
 								"object": "ClickablePanel"
 							}
@@ -1943,6 +1952,7 @@
 							"id": "compare-instance-variable",
 							"objectClass": "Panel",
 							"sid": 898605087074313,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "id",
 								"comparison": 0,
@@ -1953,6 +1963,7 @@
 							"id": "layer-is-visible",
 							"objectClass": "System",
 							"sid": 889365142447367,
+							"disabled": true,
 							"parameters": {
 								"layer": "ClickablePanel.LayerName"
 							}
@@ -1966,14 +1977,6 @@
 								"first-value": "clamp((ClickablePanel.Y + ClickablePanel.Height) - Panel.Y, 0, 1) + \r\nclamp((Panel.Y + Panel.Height) - ClickablePanel.Y, 0, 1) +\nclamp((ClickablePanel.X + ClickablePanel.Width) - Panel.X, 0, 1) + \nclamp((Panel.X + Panel.Width) - ClickablePanel.X, 0, 1)",
 								"comparison": 0,
 								"second-value": "4"
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "ClickablePanel",
-							"sid": 729437311952214,
-							"parameters": {
-								"unique-id": "touchedUid"
 							}
 						}
 					],

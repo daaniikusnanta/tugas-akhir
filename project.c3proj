@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 34800,
+	"savedWithRelease": 34900,
 	"name": "tugas akhir",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -525,7 +525,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "1.0.0.0",
+		"version": "2.0.2.0",
 		"author": "",
 		"authorEmail": "",
 		"authorWebsite": "",

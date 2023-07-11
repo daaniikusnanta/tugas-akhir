@@ -29,7 +29,7 @@
 			"eventType": "variable",
 			"name": "tickRate",
 			"type": "number",
-			"initialValue": "24",
+			"initialValue": "1",
 			"comment": "The tick",
 			"isStatic": false,
 			"isConstant": false,
@@ -89,6 +89,16 @@
 							"id": "on-start-of-layout",
 							"objectClass": "System",
 							"sid": 518602592043125
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UIText",
+							"sid": 394858760684714,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "\"cycle_speed\""
+							}
 						}
 					],
 					"actions": [
@@ -137,6 +147,96 @@
 							}
 						},
 						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 561609636927821,
+							"parameters": {
+								"layer": "\"GameOver\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 423649973338115,
+							"parameters": {
+								"layer": "\"GameOver\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 703360565323551,
+							"parameters": {
+								"layer": "\"FiscalPopUp\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 814863109307968,
+							"parameters": {
+								"layer": "\"FiscalPopUp\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 468363061303768,
+							"parameters": {
+								"layer": "\"CrisisPopUp\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 173678353836040,
+							"parameters": {
+								"layer": "\"CrisisPopUp\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 160374345363527,
+							"parameters": {
+								"layer": "\"StatusPopUp\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 284122948236864,
+							"parameters": {
+								"layer": "\"StatusPopUp\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 602560635260893,
+							"parameters": {
+								"layer": "\"PolicyPopUp\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 760870497841144,
+							"parameters": {
+								"layer": "\"PolicyPopUp\"",
+								"interactive": false
+							}
+						},
+						{
 							"type": "script",
 							"script": "setupPolicyMultiplier();\ninitializePolicyViews(runtime);\ninitializeStatusViews(runtime);\ncreatePolicyEffectViews(runtime);\nsetLevelVariables(0, runtime);\nsetupCrisisViews(runtime);\nupdateStatusView(runtime);\nupdateCrisisView(runtime);\ninitializeTileBiome(runtime);\ninitializeFiscalData(runtime);\nupdateFiscal(runtime);\nupdateStatusView(runtime);\nupdateFSM();"
 						},
@@ -167,10 +267,18 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 902182119790689,
+							"sid": 278751288908410,
 							"parameters": {
 								"variable": "tickRate",
 								"value": "24"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "UIText",
+							"sid": 656123195604483,
+							"parameters": {
+								"text": "24 / tickRate & \" x\""
 							}
 						},
 						{
@@ -787,7 +895,7 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "UIText",
-							"sid": 630543545346394,
+							"sid": 878313735539530,
 							"parameters": {
 								"instance-variable": "id",
 								"comparison": 0,

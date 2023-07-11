@@ -345,28 +345,20 @@ export function resetChosenVariables() {
 
 export function setInitialCrisisVariables() {
     const initialCrisisData = initialCrisis[chosenInitialCrisisName];
-    console.log(chosenInitialCrisisName, initialCrisisData);
-    for (const valueName in initialCrisisData.values) {
-        let variableData = (levelVariables.status['valueName']) ? levelVariables.status : levelVariables.crisis;
-        
-        variableData[valueName] = initialCrisisData.values[valueName];
-        console.log(levelVariables);
-    }
 
-    console.log("setInitialCrisisVariables", levelVariables);
+    for (const valueName in initialCrisisData.values) {
+        const variableData = (levelVariables.status['valueName']) ? levelVariables.status : levelVariables.crisis;
+        variableData[valueName] = initialCrisisData.values[valueName];
+    }
 }
 
 export function setScenarioVariables() {
     const scenarioData = scenarios[chosenScenarioName];
-    console.log("setScenarioVariables", levelVariables);
-    for (const valueName in scenarioData.initialValues) {
-        let variableData = (levelVariables.status['valueName']) ? levelVariables.status : levelVariables.crisis;
-        
-        variableData[valueName] = scenarioData.initialValues[valueName];
-        console.log(levelVariables);
-    }
 
-    console.log("setScenarioVariables", levelVariables);
+    for (const valueName in scenarioData.initialValues) {
+        const variableData = (levelVariables.status['valueName']) ? levelVariables.status : levelVariables.crisis;
+        variableData[valueName] = scenarioData.initialValues[valueName];
+    }
 }
 
 export function chooseInitialCrisis(initialCrisisName) {
@@ -375,10 +367,7 @@ export function chooseInitialCrisis(initialCrisisName) {
 }
 
 export function chooseScenario(scenarioName) {
-    console.log(scenarioName);
     chosenScenarioName = scenarioName;
-    
-    console.log("chooseScenario", levelVariables);
     showScenarioInformation();
 }
 
@@ -405,8 +394,6 @@ export function showScenarioInformation() {
     }
     const crisisesText = getTextById("crisis_information");
     crisisesText.text = crisises.join(", ");
-    
-    console.log("showScenarioInformation", levelVariables);
 }
 
 /**
@@ -465,7 +452,7 @@ export function createScenarioView(runtime) {
         const scenarioData = scenarios[scenarioVariable];
 
         const instanceX = scenarioScrollable.x + 35;
-        const instanceY = initialY + Object.keys(scenarios).indexOf(scenarioVariable) * (itemHeight + margin*2);
+        const instanceY = initialY + Object.keys(scenarios).indexOf(scenarioVariable) * (itemHeight + margin * 2);
 
         const scenarioName = runtime.objects.UITextBold.createInstance("ScenarioMG", instanceX, instanceY, true, "scenario_view");
         scenarioName.text = scenarioData.name;
@@ -543,9 +530,13 @@ export function setupGeographyLandWater(landWaterValue) {
     levelVariables.status['fisheries'] = minFisheriesValue + Math.round((100 - landWaterValue) / 100 * (maxFisheriesValue - minFisheriesValue));
 
     const landWaterValueInformation = getTextById("geography_land_water_information");
-    if (landWaterValue < 40) landWaterValueInformation.text = "More Water";
-    else if (landWaterValue < 60) landWaterValueInformation.text = "Balanced";
-    else landWaterValueInformation.text = "More Land";
+    if (landWaterValue < 40) {
+        landWaterValueInformation.text = "More Water";
+    } else if (landWaterValue < 60) {
+        landWaterValueInformation.text = "Balanced";
+    } else {
+        landWaterValueInformation.text = "More Land"
+    }
 
     levelData.landWater = landWaterValueInformation.text;
 }

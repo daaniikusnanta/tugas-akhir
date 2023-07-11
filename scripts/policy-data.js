@@ -1691,16 +1691,15 @@ export function initializePolicy(policies) {
 }
 
 export function applyPolicyChange(policyName, newValue) {
-    console.log("Applying policy change: " + policyName + " to " + newValue);
-    let policyData = policy[policyName];
+    const policyData = policy[policyName];
     if (policyData) {
         policyData.finalValue = clamp(newValue, 0, 100);
-        let { finalValue } = policyData;
+        const { finalValue } = policyData;
 
         policyData.implementationDuration = 0;
 
         for (const effect in policyData.effects) {
-            let effectData = policyData.effects[effect];
+            const effectData = policyData.effects[effect];
             effectData.effectDuration = 0;
             effectData.valueDelta = (effectData.formula(finalValue) - effectData.value) / (effectData.effectDelay + 1);
         }
@@ -1714,7 +1713,6 @@ export function updatePolicy(policyName) {
     let policyData = policy[policyName];
     let { finalValue, implementationDelay, implementationDuration } = policyData;
     
-    // If the delay duration has passed, update the policy value
     if (implementationDuration >= implementationDelay) {
         policyData.value = finalValue;
         updatePolicyEffects(policyName);
@@ -1786,12 +1784,11 @@ export function setupPolicyPopUp(policyName, runtime) {
     const policyDescText = getTextById("policy_pop_up_description");
     policyDescText.text = policyData.description ?? "";
     const policyImplementationDelatText = getTextById("policy_pop_up_implementation_delay");
-    policyImplementationDelatText.text = "Implementation Delay: " + policyData.implementationDelay ?? 0;
+    policyImplementationDelatText.text = "Implementation Delay: " + (policyData.implementationDelay ?? 0) + " days";
 
     const slider = runtime.objects.Slider.getPickedInstances()[0];
     const sliderFinal = getObjectbyId(runtime.objects.Slider, "policy_pop_up_final_slider");
 
-    // console.log("setupPolicyPopUp", policyName, policyData, slider, sliderFinal);
     if (policyData.value != policyData.finalValue) {
         sliderFinal.isVisible = true;
         setSliderValue(sliderFinal, null, policyData.finalValue, null);
@@ -1870,7 +1867,7 @@ export function createPolicyEffectViews(runtime) {
             const effectVariableData = status[effect] ?? crisis[effect];
     
             const effectName = runtime.objects.UIText.createInstance("PolicyPopUpMG", instanceX, instanceY, true, "policy_effect_view");
-            effectName.text = effectVariableData.name + " (" + Math.ceil(effectData.effectDelay) + " Delay)";
+            effectName.text = effectVariableData.name + " (" + Math.ceil(effectData.effectDelay) + " days delay)";
             effectName.instVars['id'] = effect + "_" + policyName + "_effects_name";
             addTextToCache(effectName);
         
@@ -1945,7 +1942,6 @@ export function updatePolicyEffectViews(policyName, newPolicyValue) {
     const policyData = policy[policyName];
 
     for (const effect in policyData.effects) {
-        // console.log("update", effect + "_" + policyName + "_effects_name", newPolicyValue)
         const effectData = policyData.effects[effect];
         
         const effectName = getTextById(effect + "_" + policyName + "_effects_name");

@@ -81,13 +81,13 @@ export function spawnIncomeBubble(runtime) {
   incomeBubble.instVars['currentDuration'] = 0;
   incomeBubble.instVars['tileIndex'] = tileIndex;
   incomeBubble.animationFrame = getIncomeBubbleFrameIndex(incomeName);
-  // console.log("spawn bubble ", incomes, incomes[incomeName], incomeBubble);
 
   const bottomSpawnedBubble = runtime.objects.IncomeBubble.getAllInstances().find(bubble => {
     const tileIndex = bubble.instVars.tileIndex;
     const tile = filledTiles[tileIndex];
     return tile.y - tileData.y === 1 && tile.x === tileData.x;
   });
+
   if (bottomSpawnedBubble) {
     incomeBubble.moveAdjacentToInstance(bottomSpawnedBubble, false);
   }
@@ -265,7 +265,6 @@ function showIncomeList(runtime) {
     const incomeValueText = incomeText.getChildAt(2);
     const incomePercent = (incomeValue / dailyIncome * 100).toFixed(2)
     incomeValueText.text = toCurrencyFormat(incomeValue) + " (" + incomePercent + "%)";
-
 
     incomeViews.push(incomeText);
     incomeScrollable.addChild(incomeText, { transformX: true, transformY: true });

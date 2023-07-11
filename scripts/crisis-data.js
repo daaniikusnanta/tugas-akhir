@@ -850,13 +850,13 @@ export let crisis = {
         },
       },
       {
-        cause: "social_security",
+        cause: "recession",
         yIntercept: 0.1,
         factor: -0.5,
         inertia: 0,
         formula: function () {
           return (
-            this.yIntercept + (status["social_security"].value / 100) * this.factor
+            this.yIntercept + (crisis["recession"].value / 100) * this.factor
           );
         },
       },
@@ -2701,8 +2701,8 @@ export let crisis = {
     causes: [
       {
         cause: "taxes",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.1,
+        factor: 0.15,
         inertia: 0,
         formula: function () {
           return this.yIntercept + (status["taxes"].value / 100) * this.factor;
@@ -2710,8 +2710,8 @@ export let crisis = {
       },
       {
         cause: "economy",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: -0.2,
+        factor: 0.3,
         inertia: 0,
         formula: function () {
           return (
@@ -2721,8 +2721,8 @@ export let crisis = {
       },
       {
         cause: "low_investment",
-        yIntercept: 0,
-        factor: 0,
+        yIntercept: 0.1,
+        factor: 0.2,
         inertia: 0,
         formula: function () {
           return (
@@ -2760,7 +2760,6 @@ export function initializeCrisis(levelVariables, runtime) {
   experiencedCrisis.clear();
 
   for (const variable in levelVariables) {
-    // console.log("variable: " + variable);
     if (!crisis[variable]) continue;
     crisis[variable].value = levelVariables[variable];
     crisis[variable].causeValue = levelVariables[variable];
@@ -2790,7 +2789,6 @@ function createCrisisMachine(runtime, crisisName) {
     const index = crisisData.states.indexOf(state);
     const transitions = [];
 
-    // Add transition to previous state.
     if (index > 0) {
       const target = crisisData.states[index - 1];
 
@@ -2804,7 +2802,6 @@ function createCrisisMachine(runtime, crisisName) {
       });
     }
 
-    // Add transition to next state.
     if (index < crisisData.states.length - 1) {
       const target = crisisData.states[index + 1];
 
@@ -2821,14 +2818,10 @@ function createCrisisMachine(runtime, crisisName) {
     const stateCondition = {
       actions: {
         onEnter: () => {
-          console.log(`Crisis ${crisisName} entering: ${state}`);
-
-          const crisisWarningText = getTextById(crisisName + "_crisis_extreme");
-
           if (crisis[crisisName].states.indexOf(state) > 1) {
-            updateExtremeCrisis(runtime, crisisName, state, crisisWarningText);
+            updateExtremeCrisis(runtime, crisisName, state);
           } else {
-            removeExtremeCrisis(runtime, crisisName, crisisWarningText);
+            removeExtremeCrisis(runtime, crisisName);
           }
         },
       },
@@ -2900,7 +2893,8 @@ let extremeCrisis = [];
  * @param {string} state The crisis state.
  * @param {ISpriteFontInstance} crisisWarningText The crisis warning sprite font object.
  */
-function updateExtremeCrisis(runtime, variable, state, crisisWarningText) {
+function updateExtremeCrisis(runtime, variable, state) {
+  const crisisWarningText = getTextById(variable + "_crisis_extreme");
   const isShownBefore = extremeCrisis.find(
     (element) => element.variable === variable
   );
@@ -2947,7 +2941,8 @@ function updateExtremeCrisis(runtime, variable, state, crisisWarningText) {
  * @param {string} variable The name of the crisis.
  * @param {ISpriteFontInstance} crisisWarningText The crisis warning sprite font object.
  */
-function removeExtremeCrisis(runtime, variable, crisisWarningText) {
+function removeExtremeCrisis(runtime, variable) {
+  const crisisWarningText = getTextById(variable + "_crisis_extreme");
   const element = extremeCrisis.find(
     (element) => element.variable === variable
   );
@@ -3025,10 +3020,7 @@ export function setupCrisisPopUp(crisisName, runtime) {
 export function setupCrisisCauses(runtime, crisisName) {
   const crisisData = crisis[crisisName];
 
-  const causeScrollable = getObjectbyId(
-    runtime.objects.ScrollablePanel,
-    "crisis_causes"
-  );
+  const causeScrollable = getObjectbyId(runtime.objects.ScrollablePanel, "crisis_causes");
   const initialY = causeScrollable.y + 10;
   let causeCount = 0;
   let instanceX = causeScrollable.x + (causeScrollable.width - 296) / 2;

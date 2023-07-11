@@ -891,7 +891,6 @@ export function setupStatusCauses(runtime, statusName) {
         causeView.destroy();
     }
 
-    // From status causes
     for (const causeObj of statusData.causes) {
         const causeData = status[causeObj.cause] ?? crisis[causeObj.cause];
 
@@ -910,16 +909,12 @@ export function setupStatusCauses(runtime, statusName) {
         causeScrollable.addChild(causeName, { transformX: true, transformY: true });
     }
 
-    // From policy
     for (const policyName in policy) {
         const policyData = policy[policyName];
-        // console.log("Policy ", policyName);
 
         for (const effectName in policyData.effects) {
-            // console.log("Effect ", effectName);
             if (effectName == statusName) {
                 const effectData = policyData.effects[effectName];
-                // console.log("Effect data ", effectData.name);
 
                 causeCount++;
                 instanceY = initialY + (causeCount - 1) * 70;
@@ -938,7 +933,7 @@ export function setupStatusCauses(runtime, statusName) {
             }
         }
     }
-    // console.log("Cause count ", causeCount);
+    
     resetScrollablePosition(causeScrollable);
     setScrollableHeight(runtime, causeScrollable, causeCount, 70, 20, "cause_effect_status_pop_up");
 }
@@ -956,7 +951,6 @@ export function setupStatusEffects(runtime, statusName) {
         effectView.destroy();
     }
 
-    // From other status
     for (const otherStatusName in status) {
         const otherStatusData = status[otherStatusName];
 

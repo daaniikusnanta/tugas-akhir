@@ -2487,185 +2487,9 @@
 								"DragDrop": {
 									"properties": {
 										"axes": "horizontal-only",
-										"enabled": true
+										"enabled": false
 									}
 								}
-							},
-							"template": {
-								"mode": "replica",
-								"templateName": "",
-								"sourceTemplateName": "status_slider",
-								"components": [
-									{
-										"id": "plugin",
-										"component": [
-											{
-												"key": "plugin",
-												"state": [
-													[
-														"initially-visible",
-														true
-													],
-													[
-														"initial-animation",
-														true
-													],
-													[
-														"initial-frame",
-														true
-													],
-													[
-														"enable-collisions",
-														true
-													]
-												]
-											}
-										]
-									},
-									{
-										"id": "instance-variable",
-										"component": [
-											{
-												"key": "instance-variable",
-												"state": [
-													{
-														"iv": "value",
-														"state": true
-													},
-													{
-														"iv": "minX",
-														"state": true
-													},
-													{
-														"iv": "maxX",
-														"state": true
-													},
-													{
-														"iv": "maxValue",
-														"state": true
-													},
-													{
-														"iv": "isDraggable",
-														"state": true
-													},
-													{
-														"iv": "id",
-														"state": true
-													}
-												]
-											}
-										]
-									},
-									{
-										"id": "behavior",
-										"component": [
-											{
-												"key": "DragDrop",
-												"state": [
-													[
-														"axes",
-														true
-													],
-													[
-														"enabled",
-														true
-													]
-												]
-											}
-										]
-									},
-									{
-										"id": "effect",
-										"component": []
-									},
-									{
-										"id": "world-instance",
-										"component": [
-											{
-												"key": "world-instance",
-												"state": [
-													[
-														"x",
-														false
-													],
-													[
-														"y",
-														false
-													],
-													[
-														"z",
-														true
-													],
-													[
-														"w",
-														true
-													],
-													[
-														"h",
-														true
-													],
-													[
-														"a",
-														true
-													],
-													[
-														"o",
-														true
-													],
-													[
-														"c",
-														true
-													],
-													[
-														"sx",
-														true
-													],
-													[
-														"sy",
-														true
-													],
-													[
-														"bm",
-														false
-													],
-													[
-														"twpx",
-														true
-													],
-													[
-														"twpy",
-														true
-													],
-													[
-														"twpz",
-														true
-													],
-													[
-														"twpw",
-														true
-													],
-													[
-														"twph",
-														true
-													],
-													[
-														"twpa",
-														true
-													],
-													[
-														"dwp",
-														true
-													],
-													[
-														"ssm",
-														true
-													]
-												]
-											}
-										]
-									}
-								],
-								"replicasUIDs": null
 							},
 							"sceneGraphData": {
 								"parent-uid": 111,
@@ -4460,7 +4284,7 @@
 								"DragDrop": {
 									"properties": {
 										"axes": "horizontal-only",
-										"enabled": true
+										"enabled": false
 									}
 								}
 							},
@@ -5828,185 +5652,9 @@
 										"DragDrop": {
 											"properties": {
 												"axes": "horizontal-only",
-												"enabled": true
+												"enabled": false
 											}
 										}
-									},
-									"template": {
-										"mode": "replica",
-										"templateName": "",
-										"sourceTemplateName": "status_slider",
-										"components": [
-											{
-												"id": "plugin",
-												"component": [
-													{
-														"key": "plugin",
-														"state": [
-															[
-																"initially-visible",
-																true
-															],
-															[
-																"initial-animation",
-																true
-															],
-															[
-																"initial-frame",
-																true
-															],
-															[
-																"enable-collisions",
-																true
-															]
-														]
-													}
-												]
-											},
-											{
-												"id": "instance-variable",
-												"component": [
-													{
-														"key": "instance-variable",
-														"state": [
-															{
-																"iv": "value",
-																"state": true
-															},
-															{
-																"iv": "minX",
-																"state": true
-															},
-															{
-																"iv": "maxX",
-																"state": true
-															},
-															{
-																"iv": "maxValue",
-																"state": true
-															},
-															{
-																"iv": "isDraggable",
-																"state": false
-															},
-															{
-																"iv": "id",
-																"state": true
-															}
-														]
-													}
-												]
-											},
-											{
-												"id": "behavior",
-												"component": [
-													{
-														"key": "DragDrop",
-														"state": [
-															[
-																"axes",
-																true
-															],
-															[
-																"enabled",
-																true
-															]
-														]
-													}
-												]
-											},
-											{
-												"id": "effect",
-												"component": []
-											},
-											{
-												"id": "world-instance",
-												"component": [
-													{
-														"key": "world-instance",
-														"state": [
-															[
-																"x",
-																false
-															],
-															[
-																"y",
-																false
-															],
-															[
-																"z",
-																true
-															],
-															[
-																"w",
-																true
-															],
-															[
-																"h",
-																true
-															],
-															[
-																"a",
-																true
-															],
-															[
-																"o",
-																true
-															],
-															[
-																"c",
-																true
-															],
-															[
-																"sx",
-																true
-															],
-															[
-																"sy",
-																true
-															],
-															[
-																"bm",
-																false
-															],
-															[
-																"twpx",
-																true
-															],
-															[
-																"twpy",
-																true
-															],
-															[
-																"twpz",
-																true
-															],
-															[
-																"twpw",
-																true
-															],
-															[
-																"twph",
-																true
-															],
-															[
-																"twpa",
-																true
-															],
-															[
-																"dwp",
-																true
-															],
-															[
-																"ssm",
-																true
-															]
-														]
-													}
-												]
-											}
-										],
-										"replicasUIDs": null
 									},
 									"sceneGraphData": {
 										"parent-uid": 237,
@@ -7339,8 +6987,8 @@
 					"world": {
 						"x": 818,
 						"y": 1030,
-						"width": 44,
-						"height": 44,
+						"width": 52,
+						"height": 52,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -8839,7 +8487,7 @@
 							},
 							"behaviors": {},
 							"world": {
-								"x": 1639.5027306538618,
+								"x": 1640.5027306538618,
 								"y": 259.54696244374696,
 								"width": 281.7237768488178,
 								"height": 722.0441866880972,
@@ -11094,7 +10742,7 @@
 									1,
 									1,
 									1,
-									0.5
+									0.85
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -11183,7 +10831,7 @@
 							},
 							"world": {
 								"x": 420.96548769263507,
-								"y": 649.9796861561872,
+								"y": 657.9796861561872,
 								"width": 216,
 								"height": 36,
 								"originX": 0,
@@ -11394,7 +11042,7 @@
 						{
 							"type": "UIText",
 							"properties": {
-								"text": "Implementation Delay: 3",
+								"text": "Implementation Delay: 3 days",
 								"enable-bbcode": true,
 								"character-width": 75,
 								"character-height": 82,
@@ -11424,9 +11072,9 @@
 								}
 							},
 							"world": {
-								"x": 1051,
+								"x": 1002,
 								"y": 231,
-								"width": 320,
+								"width": 385,
 								"height": 36,
 								"originX": 0,
 								"originY": 0,
