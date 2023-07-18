@@ -16,7 +16,7 @@ import { clamp } from "./utils.js";
  *     tiles: Tile[],
  * }>}
  */
-let tiles = [];
+export let tiles = [];
 export let filledTiles = [];
 let mapTileCount = 0;
 

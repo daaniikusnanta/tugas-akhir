@@ -1,5 +1,5 @@
 import { policy, togglePolicyActive } from "./policy-data.js";
-import { filledTiles, } from "./tile-data.js";
+import { filledTiles, tiles, } from "./tile-data.js";
 import { clamp, getObjectbyId, getTextById, resetScrollablePosition, setScrollableHeight, toCurrencyFormat } from "./utils.js";
 import { status } from "./status-data.js";
 
@@ -66,13 +66,15 @@ export function spawnIncomeBubble(runtime) {
   }
 
   let tileIndex = Math.floor(Math.random() * filledTiles.length);
-  while (tileIndex in incomeBubbleTileIndexes) {
+  let isTileOutOfBounds = filledTiles[tileIndex].y < 3 || filledTiles[tileIndex].y > tiles.length - 4;
+  while (tileIndex in incomeBubbleTileIndexes || isTileOutOfBounds) {
     tileIndex = Math.floor(Math.random() * filledTiles.length);
+    isTileOutOfBounds = filledTiles[tileIndex].y < 3 || filledTiles[tileIndex].y > tiles.length - 4;
   }
 
   const tileData = filledTiles[tileIndex];
   const instanceX = (tileData.x) * 64 + 32;
-  const instanceY = (tileData.y - 1) * 64 + 32;
+  const instanceY = (tileData.y) * 64 + 32;
 
   const incomeBubble = runtime.objects.IncomeBubble.createInstance("Game", instanceX, instanceY);
   incomeBubble.instVars['id'] = incomeName;

@@ -267,10 +267,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 278751288908410,
+							"sid": 946016917011127,
 							"parameters": {
 								"variable": "tickRate",
-								"value": "24"
+								"value": "1"
 							}
 						},
 						{
@@ -337,6 +337,15 @@
 							"callFunction": "exportMap",
 							"sid": 503621720548741,
 							"disabled": true
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 932680271310093,
+							"parameters": {
+								"type": "log",
+								"message": "LayoutName"
+							}
 						}
 					],
 					"sid": 982971445756731

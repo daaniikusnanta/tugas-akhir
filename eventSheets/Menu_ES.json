@@ -12,6 +12,16 @@
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 633892232829608
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TextNotoSerifBlack",
+					"sid": 662325389018047,
+					"parameters": {
+						"instance-variable": "id",
+						"comparison": 0,
+						"value": "\"version\""
+					}
 				}
 			],
 			"actions": [
@@ -23,6 +33,14 @@
 						"name": "BUTTON_CLICKED",
 						"string": "LayoutName",
 						"function": "MenuButtonClicked4"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "TextNotoSerifBlack",
+					"sid": 876224286288818,
+					"parameters": {
+						"text": "\"v\" & projectversion"
 					}
 				}
 			],
