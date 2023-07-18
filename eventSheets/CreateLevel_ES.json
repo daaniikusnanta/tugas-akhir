@@ -3340,6 +3340,56 @@
 						}
 					],
 					"sid": 531056998503971
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Slider",
+							"sid": 714027396569987,
+							"parameters": {
+								"comparison": 4,
+								"x-co-ordinate": "Self.maxX"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Slider",
+							"sid": 483328166295516,
+							"parameters": {
+								"x": "Slider.maxX"
+							}
+						}
+					],
+					"sid": 240689391622955
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Slider",
+							"sid": 160760792605725,
+							"parameters": {
+								"comparison": 2,
+								"x-co-ordinate": "Self.minX"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Slider",
+							"sid": 918412294936614,
+							"parameters": {
+								"x": "Slider.minX"
+							}
+						}
+					],
+					"sid": 812553541696502
 				}
 			],
 			"sid": 302609104592723

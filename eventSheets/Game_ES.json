@@ -5258,6 +5258,56 @@
 						}
 					],
 					"sid": 683034627595728
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Slider",
+							"sid": 821582810132046,
+							"parameters": {
+								"comparison": 4,
+								"x-co-ordinate": "Self.maxX"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Slider",
+							"sid": 837446128048357,
+							"parameters": {
+								"x": "Slider.maxX"
+							}
+						}
+					],
+					"sid": 214393139327551
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Slider",
+							"sid": 835683302851909,
+							"parameters": {
+								"comparison": 2,
+								"x-co-ordinate": "Self.minX"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Slider",
+							"sid": 593359610995514,
+							"parameters": {
+								"x": "Slider.minX"
+							}
+						}
+					],
+					"sid": 721341159085710
 				}
 			],
 			"sid": 965283414062118
